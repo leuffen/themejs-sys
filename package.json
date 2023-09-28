@@ -1,0 +1,61 @@
+{
+  "name": "@leuffen/themejs-sys",
+  "version": "1.0.1",
+
+  "description": "",
+  "license": "proprietary",
+  "main": "./dist/index.js",
+  "module": "./dist/index.module.js",
+  "directories": {
+    "doc": "docs",
+    "themes": "themes"
+  },
+  "files": [
+    "/dist",
+    "/src",
+    "/templates",
+    "/themes",
+    "/docs",
+    "/elements",
+    "/sections",
+    "/_tpl",
+    "/_vendor",
+    "*.scss",
+    "*.ts"
+  ],
+  "workspaces": [
+    "workspaces/*"
+  ],
+  "author": "",
+  "dependencies": {
+    "@leuffen/jodastyle": "^2.0.3",
+    "@kasimirjs/embed": "^1.0.8",
+    "@leuffen/isl-base": "^2.0.1",
+    "@leuffen/liscom": "^2.0.1",
+    "@leuffen/liweco-base": "^2.0.2",
+    "bootstrap": "^5.3.1"
+  },
+  "devDependencies": {
+    "@micx/lib-js": "^1.0.18",
+    "@kasimirjs/kit-bootstrap": "^1.0.4",
+    "markdown-it": "^13.0.1",
+    "markdown-it-attrs": "^4.1.6",
+    "css-loader": "^6.7.1",
+    "dart-sass": "^1.25.0",
+    "esbuild-loader": "^2.20.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "raw-loader": "^4.0.2",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "scripts": {
+    "make.mjs": "tsc -d && mv dist/index.js dist/index.module.js",
+    "make.cjs": "tsc -m commonjs",
+    "build": "npm run make.mjs && npm run make.cjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

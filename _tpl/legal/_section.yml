@@ -1,0 +1,27 @@
+desc: Rechtliches
+
+is_sortable: true
+
+ptags:
+  - text: In Navigationsleiste anzeigen
+    key: nav
+  - text: Im Footer Navigation anzeigen
+    key: footer
+
+
+layouts:
+  - layout: article
+    text: HTML Artikel
+  - layout: website
+    text: HTML Layout ohne Header für Landingpages und Startseite
+
+forms:
+    - key: image
+      type: text
+      name: Bild im Header
+      title: "Hier Bild URL in der Form https://cdn.leuffen.de/... einfügen"
+
+
+
+defaults:
+  layout: xy

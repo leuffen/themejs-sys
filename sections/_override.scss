@@ -1,0 +1,25 @@
+@import "bootstrap";
+
+.btn {
+    padding: rem(14px) rem(37px)!important;
+}
+
+.btn-primary {
+    color: $white!important;
+}
+
+.btn-outline-primary {
+    &:hover {
+        color: $white!important;
+    }
+}
+
+.container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+    @include media-breakpoint-up(xxl) {
+        padding: 0 rem(115px)!important;
+    }
+}
+
+b {
+    font-weight: 500!important;
+}

@@ -1,0 +1,5 @@
+This software is not free. It is a commercial open source project.
+
+Do not use this software for any purposes without purchasing a license.
+
+Copyright (c) 2023 Matthias Leuffen, Germany
