@@ -1,0 +1,28 @@
+.tjs-disturber {
+    @include element-to-element-margin-small;
+
+    font-size: rem(20px);
+    background: #263238;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem(5px) 0 rem(6px);
+
+    &__content {
+        text-align: center;
+
+        p {
+            margin: 0;
+            color: $white;
+        }
+    }
+
+    &.mobile {
+        .tjs-disturber {
+            &__content {
+                max-width: 80vw!important;
+                padding: rem(10px) 0;
+            }
+        }
+    }
+}

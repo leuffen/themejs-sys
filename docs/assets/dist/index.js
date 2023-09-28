@@ -4190,8 +4190,12 @@ Facharzt f\xFCr Neurologie <br> Facharzt f\xFCr Psychiatrie
 
 
 ## Hero Section
-{: layout="use: #hero-ribbon"}
+{: layout="use: #disturber"}
 
+Jetzt 30 Tage Geld-zur\xFCck-Garantie sichern!
+
+
+## Section 1
 
 
 
@@ -16643,6 +16647,32 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
 
 /***/ }),
 
+/***/ "./sections/disturber/disturber.ts":
+/*!*****************************************!*\
+  !*** ./sections/disturber/disturber.ts ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("disturber",
+    // language=HTML
+    `
+        <div class="tjs-disturber">
+            <div class="tjs-wrapper container">
+                <div class="tjs-disturber__content container">
+                    <slot data-select="p"></slot>
+                </div>
+            </div>
+        </div>
+    `);
+
+
+/***/ }),
+
 /***/ "./sections/header1/header1.ts":
 /*!*************************************!*\
   !*** ./sections/header1/header1.ts ***!
@@ -16729,6 +16759,8 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("header1",
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header1_header1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header1/header1 */ "./sections/header1/header1.ts");
+/* harmony import */ var _disturber_disturber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./disturber/disturber */ "./sections/disturber/disturber.ts");
+
 
 
 
