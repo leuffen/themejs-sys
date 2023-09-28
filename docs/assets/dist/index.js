@@ -4195,22 +4195,15 @@ Facharzt f\xFCr Neurologie <br> Facharzt f\xFCr Psychiatrie
 Jetzt 30 Tage Geld-zur\xFCck-Garantie sichern!
 
 
-## Section 1
+## Was wir k\xF6nnen, kann keiner
+{: layout="use: #icon-catchprases"}
 
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) *Wir k\xF6nnen das*
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) <span>Wir k\xF6nnen das</span>
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir k\xF6nnen das
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir k\xF6nnen das
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir k\xF6nnen das
 
-
-### Notfall?
-
-Sie erreichen den \xE4rztlichen Notdienst unter der Telefon-Nr: [116 117](tel:+49116117)
-
-### Termine & Rezeptabholung
-
-Wir sind eine **Terminpraxis**. F\xFCr Terminvergaben, Anfragen und Rezeptabholungen beachten Sie bitte
-die \xD6ffnungszeiten des Empfangs.
-
-### \xD6ffnungszeiten Empfang
-
-{% include el/openhours.html %}
 
 
 ## \xDCber mich
@@ -6411,9 +6404,11 @@ jodaStyleCommands["--joda-replace-by"] = (value, target, element, logger) => {
 jodaStyleCommands["--joda-wrap"] = (value, target, element, logger) => __async(void 0, null, function* () {
   let parent = element.parentElement;
   if (value.startsWith("#")) {
+    console.log("Wrap element", element, "with template", value);
     let placeholder = document.createElement("div");
     parent.insertBefore(placeholder, element);
-    let newElement = yield (0,_helper_functions__WEBPACK_IMPORTED_MODULE_1__.getTemplateFilledWithContent)(value, element, element);
+    placeholder.append(element);
+    let newElement = yield (0,_helper_functions__WEBPACK_IMPORTED_MODULE_1__.getTemplateFilledWithContent)(value, placeholder, element);
     placeholder.replaceWith(newElement);
     return element;
   } else {
@@ -16750,6 +16745,50 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("header1",
 
 /***/ }),
 
+/***/ "./sections/icon-catchprases/icon-catchphrases.ts":
+/*!********************************************************!*\
+  !*** ./sections/icon-catchprases/icon-catchphrases.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("icon-catchprases__item",
+    // language=HTML
+    `
+        <div class="tjs-icon-catchphrases__items--item">
+            <div class="tjs-icon-catchphrases__items--item-icon">
+                <slot data-select="img">
+            </div>
+            <div class="tjs-icon-catchphrases__items--item-text">
+                <slot></slot>
+            </div>
+        </div>`
+    );
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("icon-catchprases",
+    // language=HTML
+    `
+        <section class="tjs-icon-catchphrases">
+            <div class="tjs-wrapper container">
+                <div class="tjs-icon-catchphrases__text">
+                    <slot></slot>
+                </div>
+                <div class="tjs-icon-catchphrases__items">
+                    <slot data-select="ul > li"></slot>
+                </div>
+            </div>
+        </section>
+
+    `);
+
+
+/***/ }),
+
 /***/ "./sections/sections.ts":
 /*!******************************!*\
   !*** ./sections/sections.ts ***!
@@ -16760,6 +16799,8 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("header1",
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header1_header1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header1/header1 */ "./sections/header1/header1.ts");
 /* harmony import */ var _disturber_disturber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./disturber/disturber */ "./sections/disturber/disturber.ts");
+/* harmony import */ var _icon_catchprases_icon_catchphrases__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon-catchprases/icon-catchphrases */ "./sections/icon-catchprases/icon-catchphrases.ts");
+
 
 
 

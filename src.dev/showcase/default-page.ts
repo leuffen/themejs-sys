@@ -28,22 +28,15 @@ Facharzt für Neurologie <br> Facharzt für Psychiatrie
 Jetzt 30 Tage Geld-zurück-Garantie sichern!
 
 
-## Section 1
+## Was wir können, kann keiner
+{: layout="use: #icon-catchprases"}
 
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) *Wir können das*
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) <span>Wir können das</span>
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir können das
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir können das
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir können das
 
-
-### Notfall?
-
-Sie erreichen den ärztlichen Notdienst unter der Telefon-Nr: [116 117](tel:+49116117)
-
-### Termine & Rezeptabholung
-
-Wir sind eine **Terminpraxis**. Für Terminvergaben, Anfragen und Rezeptabholungen beachten Sie bitte
-die Öffnungszeiten des Empfangs.
-
-### Öffnungszeiten Empfang
-
-{% include el/openhours.html %}
 
 
 ## Über mich

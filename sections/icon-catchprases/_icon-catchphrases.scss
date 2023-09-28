@@ -1,0 +1,70 @@
+/**
+ * Komponente: icon-catchphrases
+ */
+
+.tjs-icon-catchphrases {
+    @include element-to-element-margin-large;
+    @include col-side-paddings;
+
+    &__text {
+        text-align: center;
+        font-size: rem(25px);
+        margin-bottom: rem(40px);
+    }
+
+    &__items {
+        display: flex;
+
+        & li {
+            /* ============ MAGIC AHEAD ============ */
+            /* JODA-WRAP: Wrap these elments in the joda-template */
+            --joda-wrap: #icon-catchprases__item;
+        }
+        &--item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+
+            &-icon {
+                border: 1px solid $element-border-color;
+                border-radius: 50%;
+                text-align: center;
+                padding: rem(25px);
+                margin-bottom: rem(28px);
+                width: 110px;
+                height: 110px;
+
+                img {
+                    max-width: 60px;
+                    height: auto;
+                }
+            }
+
+            &-text {
+                font-size:  rem(18px);
+                text-align: center;
+            }
+        }
+    }
+
+    &.mobile {
+        .tjs-icon-catchphrases {
+
+            &__items {
+                flex-direction: column;
+
+                &--item {
+                    flex-direction: row;
+                    margin: unset;
+                    margin-bottom: rem(12px);
+
+                    &-icon {
+                        margin-bottom: 0;
+                        margin-right: rem(24px);
+                    }
+                }
+            }
+        }
+    }
+}

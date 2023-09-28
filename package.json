@@ -28,7 +28,7 @@
   ],
   "author": "",
   "dependencies": {
-    "@leuffen/jodastyle": "^2.0.3",
+    "@leuffen/jodastyle": "^2.0.4",
     "@kasimirjs/embed": "^1.0.8",
     "@leuffen/isl-base": "^2.0.1",
     "@leuffen/liscom": "^2.0.1",
