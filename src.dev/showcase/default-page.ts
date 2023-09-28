@@ -17,7 +17,7 @@ let html =`
 {: layout="use: #header1"}
 
 
-![Neuronen Hintergrundbild](https://cdn.leuffen.de//leu-stock/v2/7/121-46_gfedcba/AdobeStock_354842358.webp)
+![Titelbild](/images/illustration-01.svg)
 
 Facharzt für Neurologie <br> Facharzt für Psychiatrie
 
