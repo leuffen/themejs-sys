@@ -1,0 +1,62 @@
+/**
+ * Komponente: 2-cols
+ */
+
+@import "2-cols-bg";
+.tjs-2-cols {
+    @include element-to-element-margin-large;
+
+    .tjs-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    &__col {
+        flex-basis: 50%;
+        @include col-side-paddings;
+
+        h3 {
+            @include h3;
+        }
+
+        &--image {
+            text-align: center;
+
+            img {
+                width: 100%;
+                max-width: 375px;
+            }
+        }
+
+        p {
+            @include p;
+        }
+
+        a {
+            text-decoration: none;
+            @include p;
+        }
+    }
+
+    &.mobile {
+        .tjs-wrapper {
+            flex-direction: column;
+        }
+
+        .tjs-2-cols {
+            &__col {
+                flex-basis: 100%;
+
+                &--image {
+                    order: 1;
+
+                    @include col-mobile-bottom-paddings;
+                }
+
+                &--text-content {
+                    order: 2;
+                }
+            }
+        }
+    }
+}

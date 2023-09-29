@@ -37,77 +37,49 @@ Jetzt 30 Tage Geld-zurück-Garantie sichern!
 - ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir können das
 - ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir können das
 
+## Service
+{: layout="use: #service-slider"}
+
+> Nutzen Sie unsere Leistungen für Ihren Erfolg
+
+Hier steht noch ein kleiner Text
+
+<a href="#" class="btn btn-outline-primary desktop-button">Alle Leistungen entdecken</a>
 
 
-## Über mich
-{: layout="use: #sec-card-2col"}
+### Webdesign & Online-Services
 
-> Dr. med. X. Kelloggs
+![](/images/icons/icon-webdesign.webp)
 
-![Bild Dr. med. XXX Kelloggs](https://cdn.leuffen.de//leu-stock/v2/26/c_gfedcba/AdobeStock_172186647.webp){: style="padding: 4rem"}
-
-### Werdegang
-
-Berufstätigkeit in der Neurologie, Psychiatrie, Inneren Medizin und Orthopädie.
-
-Zuletzt klinisch tätig als Oberarzt einer neurologischen Rehaklinik. Seit 2001 tätig als niedergelassener Neurologe
-und Psychiater.
-
-Focus Empfehlung: 2017, 2018, 2019
-
-
-
-## Medizinischer Schwerpunkt
-{: layout="use: #sec-multi-card; cols:2"}
-
-### Neurologie
-
-Interessengebiete:
-
-- Schlaganfall und Arteriosklerose
-- Parkinsonerkrankung
-- Gedächtnisstörung
-- Prävention und Ernährungsmedizin bei neurologischen Erkrankungen
-
-*Bitte beachten: Bei speziellen Medikamenten für Multiple Sklerose und Myasthenie wenden Sie sich bitte an ein
-spezialisiertes neurologisches Zentrum.*
-
-Apparative Untersuchungen:
-
-- Farbduplexsonographie der hirnversorgenden Halsgefäße
-- Messung der Nervenleitgeschwindigkeit bei Verdacht auf Karpaltunnelsyndrom, Polyneuropathie und Ulnaris-Neuropathie
-
-Beispiele für häufigere Beschwerden: Schwäche und Lähmung. Taubheit und Missempfindungen. Schwindel,
-Gleichgewichtsstörungen und Gangstörungen. Bewusstseinsstörung. Zittern. Kopfschmerzen und sonstige Schmerzen. Änderung des
-Denkvermögens und der Sprache.
-
-
-### Psychiatrie
-
-- Psychiatrische Diagnostik und Behandlung
-- Interessengebiet: Prävention und Ernährungsmedizin bei psychischen Erkrankungen
-
-Beispiele für häufigere Beschwerden: Anspannung, Unruhe, Reizbarkeit, aufdrängende Gedanken, Grübeln,
-Vermeidung, Ängste, Panikanfälle. Vegetative Beschwerden wie Herzklopfen, Atembeschwerden, Schwitzen, Schwindel, usw. Schlafstörungen.
-Änderung der Stimmung, des Antriebs, des Denkvermögens, der Wahrnehmung und des Verhaltens.
-
----
-{: .hr}
-
-Bei Vorliegen einer Notlage und akuter Beschwerden: wenden Sie sich bitte direkt an die Aufnahme einer
-Klinik. Empfehlung für weitere Informationen: [www.neurologen-und-psychiater-im-netz.org](https://www.neurologen-und-psychiater-im-netz.org)
+Individuell gestaltet nach unserem Design-Pool-Konzept
 
 
 
+## Praxiswert steigern
+{: layout="use: #2-cols"}
+
+![](/images/illustration-01.svg)
+
+Eine gute Positionierung in den Suchmaschinen ist für eine Praxis von großer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu präsentieren und Ihre Patienten zu informieren.
+
+[Weiterlesen]()
+
+## Praxiswert steigern
+{: layout="use: #2-cols;class:tjs-2-cols-bg"}
+
+> Disturber
+
+![](/images/illustration-03.webp)
+
+Eine gute Positionierung in den Suchmaschinen ist für eine Praxis von großer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu präsentieren und Ihre Patienten zu informieren.
+
+[Weiterlesen]()
 
 
+## Key Figures
+{: layout="use: #key-figures"}
 
 
-
-## Kontakt aufnehmen
-{: layout="use: #cta-base"}
-
-[Kontakt](/kontakt)
 
 
 `;

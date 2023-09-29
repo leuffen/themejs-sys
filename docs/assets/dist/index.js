@@ -4204,77 +4204,49 @@ Jetzt 30 Tage Geld-zur\xFCck-Garantie sichern!
 - ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir k\xF6nnen das
 - ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir k\xF6nnen das
 
+## Service
+{: layout="use: #service-slider"}
+
+> Nutzen Sie unsere Leistungen f\xFCr Ihren Erfolg
+
+Hier steht noch ein kleiner Text
+
+<a href="#" class="btn btn-outline-primary desktop-button">Alle Leistungen entdecken</a>
 
 
-## \xDCber mich
-{: layout="use: #sec-card-2col"}
+### Webdesign & Online-Services
 
-> Dr. med. X. Kelloggs
+![](/images/icons/icon-webdesign.webp)
 
-![Bild Dr. med. XXX Kelloggs](https://cdn.leuffen.de//leu-stock/v2/26/c_gfedcba/AdobeStock_172186647.webp){: style="padding: 4rem"}
-
-### Werdegang
-
-Berufst\xE4tigkeit in der Neurologie, Psychiatrie, Inneren Medizin und Orthop\xE4die.
-
-Zuletzt klinisch t\xE4tig als Oberarzt einer neurologischen Rehaklinik. Seit 2001 t\xE4tig als niedergelassener Neurologe
-und Psychiater.
-
-Focus Empfehlung: 2017, 2018, 2019
-
-
-
-## Medizinischer Schwerpunkt
-{: layout="use: #sec-multi-card; cols:2"}
-
-### Neurologie
-
-Interessengebiete:
-
-- Schlaganfall und Arteriosklerose
-- Parkinsonerkrankung
-- Ged\xE4chtnisst\xF6rung
-- Pr\xE4vention und Ern\xE4hrungsmedizin bei neurologischen Erkrankungen
-
-*Bitte beachten: Bei speziellen Medikamenten f\xFCr Multiple Sklerose und Myasthenie wenden Sie sich bitte an ein
-spezialisiertes neurologisches Zentrum.*
-
-Apparative Untersuchungen:
-
-- Farbduplexsonographie der hirnversorgenden Halsgef\xE4\xDFe
-- Messung der Nervenleitgeschwindigkeit bei Verdacht auf Karpaltunnelsyndrom, Polyneuropathie und Ulnaris-Neuropathie
-
-Beispiele f\xFCr h\xE4ufigere Beschwerden: Schw\xE4che und L\xE4hmung. Taubheit und Missempfindungen. Schwindel,
-Gleichgewichtsst\xF6rungen und Gangst\xF6rungen. Bewusstseinsst\xF6rung. Zittern. Kopfschmerzen und sonstige Schmerzen. \xC4nderung des
-Denkverm\xF6gens und der Sprache.
-
-
-### Psychiatrie
-
-- Psychiatrische Diagnostik und Behandlung
-- Interessengebiet: Pr\xE4vention und Ern\xE4hrungsmedizin bei psychischen Erkrankungen
-
-Beispiele f\xFCr h\xE4ufigere Beschwerden: Anspannung, Unruhe, Reizbarkeit, aufdr\xE4ngende Gedanken, Gr\xFCbeln,
-Vermeidung, \xC4ngste, Panikanf\xE4lle. Vegetative Beschwerden wie Herzklopfen, Atembeschwerden, Schwitzen, Schwindel, usw. Schlafst\xF6rungen.
-\xC4nderung der Stimmung, des Antriebs, des Denkverm\xF6gens, der Wahrnehmung und des Verhaltens.
-
----
-{: .hr}
-
-Bei Vorliegen einer Notlage und akuter Beschwerden: wenden Sie sich bitte direkt an die Aufnahme einer
-Klinik. Empfehlung f\xFCr weitere Informationen: [www.neurologen-und-psychiater-im-netz.org](https://www.neurologen-und-psychiater-im-netz.org)
+Individuell gestaltet nach unserem Design-Pool-Konzept
 
 
 
+## Praxiswert steigern
+{: layout="use: #2-cols"}
+
+![](/images/illustration-01.svg)
+
+Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDFer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu pr\xE4sentieren und Ihre Patienten zu informieren.
+
+[Weiterlesen]()
+
+## Praxiswert steigern
+{: layout="use: #2-cols;class:tjs-2-cols-bg"}
+
+> Disturber
+
+![](/images/illustration-03.webp)
+
+Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDFer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu pr\xE4sentieren und Ihre Patienten zu informieren.
+
+[Weiterlesen]()
 
 
+## Key Figures
+{: layout="use: #key-figures"}
 
 
-
-## Kontakt aufnehmen
-{: layout="use: #cta-base"}
-
-[Kontakt](/kontakt)
 
 
 `;
@@ -16642,6 +16614,38 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
 
 /***/ }),
 
+/***/ "./sections/2-cols/2-cols.ts":
+/*!***********************************!*\
+  !*** ./sections/2-cols/2-cols.ts ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols",
+    // language=HTML
+    `
+        <div class="tjs-2-cols [[ layout.class ]]">
+            <div class="tjs-wrapper container ">
+                <div class="tjs-2-cols-bg__disturber">
+                    <slot data-select="blockquote"></slot>
+                </div>
+                <div class="tjs-2-cols__col tjs-2-cols__col--image">
+                    <slot data-select="img"></slot>
+                </div>
+                <div class="tjs-2-cols__col tjs-2-cols__col--text-content">
+                    <slot></slot>
+                </div>
+            </div>
+        </div>
+    `);
+
+
+/***/ }),
+
 /***/ "./sections/disturber/disturber.ts":
 /*!*****************************************!*\
   !*** ./sections/disturber/disturber.ts ***!
@@ -16789,6 +16793,55 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("icon-catc
 
 /***/ }),
 
+/***/ "./sections/key-figures/key-figures.ts":
+/*!*********************************************!*\
+  !*** ./sections/key-figures/key-figures.ts ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("key-figures",
+    // language=HTML
+    `
+   <div class="tjs-key-figures">
+        <div class="tjs-wrapper container-fluid">
+            <div class="tjs-key-figures__content--container">
+                <div class="tjs-key-figures__content--bg-image">
+                    <img alt="Background" src="/images/bar-stripes.svg">
+                    <slot data-select="img.background"></slot>
+                </div>
+                <div class="tjs-key-figures__content container">
+                    <div class="tjs-key-figures__content--row">
+                        <div class="tjs-key-figures__content--col">
+                            <div class="tjs-key-figures__content--col__figure">123</div>
+                            <div class="tjs-key-figures__content--col__text">Websiten erstellt</div>
+                        </div>
+                        <div class="tjs-key-figures__content--col">
+                            <div class="tjs-key-figures__content--col__figure">+50</div>
+                            <div class="tjs-key-figures__content--col__text">zufriedene Kunden</div>
+                        </div>
+                        <div class="tjs-key-figures__content--col">
+                            <div class="tjs-key-figures__content--col__figure">20</div>
+                            <div class="tjs-key-figures__content--col__text">Jahre Erfahrung</div>
+                        </div>
+                        <div class="tjs-key-figures__content--col">
+                            <div class="tjs-key-figures__content--col__figure">98%</div>
+                            <div class="tjs-key-figures__content--col__text">Erfolgsquote</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    `);
+
+
+/***/ }),
+
 /***/ "./sections/sections.ts":
 /*!******************************!*\
   !*** ./sections/sections.ts ***!
@@ -16800,10 +16853,91 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header1_header1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header1/header1 */ "./sections/header1/header1.ts");
 /* harmony import */ var _disturber_disturber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./disturber/disturber */ "./sections/disturber/disturber.ts");
 /* harmony import */ var _icon_catchprases_icon_catchphrases__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon-catchprases/icon-catchphrases */ "./sections/icon-catchprases/icon-catchphrases.ts");
+/* harmony import */ var _service_slider_service_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./service-slider/service-slider */ "./sections/service-slider/service-slider.ts");
+/* harmony import */ var _2_cols_2_cols__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./2-cols/2-cols */ "./sections/2-cols/2-cols.ts");
+/* harmony import */ var _key_figures_key_figures__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./key-figures/key-figures */ "./sections/key-figures/key-figures.ts");
 
 
 
 
+
+
+
+
+
+/***/ }),
+
+/***/ "./sections/service-slider/service-slider.ts":
+/*!***************************************************!*\
+  !*** ./sections/service-slider/service-slider.ts ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-slider__carousel--slide",
+    // language=HTML
+    `
+        <div class="tjs-service-slider__carousel--slide">
+            <div class="tjs-service-slider__carousel--slide__image">
+                <slot data-select="img"></slot>
+            </div>
+            <div class="tjs-service-slider__carousel--slide__text">
+                <slot></slot>
+            </div>
+        </div>`
+    );
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-slider",
+    // language=HTML
+    `
+        <div class="tjs-service-slider">
+            <div class="tjs-wrapper container-fluid">
+                <div class="tjs-service-slider__content--container">
+                    <div class="tjs-service-slider__content">
+                        <div class="tjs-service-slider__content--row">
+                            <div class="tjs-service-slider__content--col tjs-service-slider__content--col-text">
+                                <slot></slot>
+                            </div>
+                            <div class="tjs-service-slider__content--col tjs-service-slider__carousel">
+                                <div class="tjs-service-slider__carousel--navigation">
+                                    <div class="tjs-service-slider__carousel--navigation-prev">
+                                        <picture>
+                                            <source srcset="/images/icons/arrow-left.webp" type="image/webp">
+                                            <source srcset="/images/icons/arrow-left.svg" type="image/svg">
+                                            <img src="/images/icons/arrow-left.svg">
+                                        </picture>
+                                    </div>
+                                    <div class="tjs-service-slider__carousel--navigation-next">
+                                        <picture>
+                                            <source srcset="/images/icons/arrow-right.webp" type="image/webp">
+                                            <source srcset="/images/icons/arrow-right.svg" type="image/svg">
+                                            <img src="/images/icons/arrow-right.svg">
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="tjs-service-slider__carousel--nav-points">
+                                    <div class="tjs-service-slider__carousel--nav-points__point active" data-id="1"></div>
+                                    <div class="tjs-service-slider__carousel--nav-points__point" data-id="2"></div>
+                                    <div class="tjs-service-slider__carousel--nav-points__point" data-id="3"></div>
+                                </div>
+
+                                <slot class="subelements" data-select=".children > *"></slot>
+                            </div>
+                            <div class="tjs-service-slider__content--col tjs-service-slider__content--col__mobile-button">
+                                <a href="#" class="btn btn-outline-primary">Alle Leistungen entdecken</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    `);
 
 
 /***/ }),
