@@ -13,7 +13,7 @@ let html =`
 </ul>
 </nav>
 
-# Willkommen bei <br>Dr. med. XXX XXX
+# Die perfekte Website für <br><typewriter-element>Ärzte, Zahnärzte, Hausärzte, Fachärzte, Gynäkologen,</typewriter-element>
 {: layout="use: #header1"}
 
 

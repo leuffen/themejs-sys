@@ -25511,6 +25511,18 @@ joda-content.loaded {
   transition: opacity 1s ease-in-out;
 }
 
+@keyframes liscom-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+typewriter-element .cursor {
+  animation: liscom-blink 1s step-end infinite;
+}
+
 .joda-showcase-element {
   width: 368px;
   --aspect-ratio: calc(16 / 9);

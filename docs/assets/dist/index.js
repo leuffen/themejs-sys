@@ -3312,7 +3312,7 @@ let html = `
 </ul>
 </nav>
 
-# Willkommen bei <br>Dr. med. XXX XXX
+# Die perfekte Website f\xFCr <br><typewriter-element>\xC4rzte, Zahn\xE4rzte, Haus\xE4rzte, Fach\xE4rzte, Gyn\xE4kologen,</typewriter-element>
 {: layout="use: #header1"}
 
 
@@ -6180,6 +6180,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _slideshow_slideshow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slideshow/slideshow */ "./workspaces/liscom/src/slideshow/slideshow.ts");
 /* harmony import */ var _details_title_details_title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./details-title/details-title */ "./workspaces/liscom/src/details-title/details-title.ts");
+/* harmony import */ var _typewriter_element_typewriter_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./typewriter-element/typewriter-element */ "./workspaces/liscom/src/typewriter-element/typewriter-element.ts");
+/* harmony import */ var _typewriter_element_typewriter_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_typewriter_element_typewriter_element__WEBPACK_IMPORTED_MODULE_2__);
 var __defProp = Object.defineProperty;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
@@ -6209,6 +6211,7 @@ function liscom_enable(liscomConfig = {}) {
   console.log("[liscom] enabled features: ", config);
   __liscom_config = config;
 }
+
 
 
 
@@ -6308,6 +6311,77 @@ _curElement = new WeakMap();
   }
   document.querySelectorAll(".slideshow").forEach((e) => new Slideshow(e));
 }))();
+
+
+/***/ }),
+
+/***/ "./workspaces/liscom/src/typewriter-element/typewriter-element.ts":
+/*!************************************************************************!*\
+  !*** ./workspaces/liscom/src/typewriter-element/typewriter-element.ts ***!
+  \************************************************************************/
+/***/ (() => {
+
+class TypewriterElement extends HTMLElement {
+  constructor() {
+    super();
+    this.words = [];
+    this.index = 0;
+    this.charIndex = 0;
+    this.isDeleting = false;
+    // Container für den Cursor
+    // Werte für die Timeouts
+    this.writeSpeed = 100;
+    this.deleteSpeed = 50;
+    this.pauseBeforeDelete = 1500;
+    this.pauseBeforeWrite = 500;
+    this.curTimeout = null;
+    this.container = document.createElement("span");
+    this.cursor = document.createElement("span");
+    this.cursor.textContent = "|";
+    this.append(this.container, this.cursor);
+  }
+  connectedCallback() {
+    if (!this.hasAttribute("data-words")) {
+      this.setAttribute("data-words", this.textContent.trim().replace("|", ""));
+      this.textContent = "";
+    }
+    this.words = this.dataset.words.trim().split(",").filter((word) => word.trim() !== "");
+    this.cursor.className = "cursor";
+    this.index = 0;
+    this.charIndex = 0;
+    this.isDeleting = false;
+    this.writeSpeed = Number(this.dataset.writeSpeed) || this.writeSpeed;
+    this.deleteSpeed = Number(this.dataset.deleteSpeed) || this.deleteSpeed;
+    this.pauseBeforeDelete = Number(this.dataset.pauseBeforeDelete) || this.pauseBeforeDelete;
+    this.pauseBeforeWrite = Number(this.dataset.pauseBeforeWrite) || this.pauseBeforeWrite;
+    this.type();
+  }
+  type() {
+    if (this.words.length === 0)
+      return;
+    const currentWord = this.words[this.index];
+    const typeSpeed = this.isDeleting ? this.deleteSpeed : this.writeSpeed;
+    if (this.curTimeout)
+      clearTimeout(this.curTimeout);
+    if (this.isDeleting) {
+      this.charIndex--;
+    } else {
+      this.charIndex++;
+    }
+    this.container.textContent = currentWord.substring(0, this.charIndex);
+    if (!this.isDeleting && this.charIndex === currentWord.length) {
+      this.isDeleting = true;
+      this.curTimeout = setTimeout(() => this.type(), this.pauseBeforeDelete);
+    } else if (this.isDeleting && this.charIndex === 0) {
+      this.isDeleting = false;
+      this.index = (this.index + 1) % this.words.length;
+      this.curTimeout = setTimeout(() => this.type(), this.pauseBeforeWrite);
+    } else {
+      this.curTimeout = setTimeout(() => this.type(), typeSpeed + Math.random() * typeSpeed);
+    }
+  }
+}
+customElements.define("typewriter-element", TypewriterElement);
 
 
 /***/ }),
