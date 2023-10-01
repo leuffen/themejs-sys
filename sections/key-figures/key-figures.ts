@@ -3,7 +3,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("key-figures",
     // language=HTML
     `
-   <section class="tjs-key-figures">
+   <section class="tjs-key-figures :: mobile :lg:">
         <div class="tjs-wrapper container-fluid">
             <div class="tjs-key-figures__content--container">
                 <div class="tjs-key-figures__content--bg-image">

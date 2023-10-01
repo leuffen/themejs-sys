@@ -3,7 +3,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("header1",
     // language=HTML
     `
-        <section class="tjs-header1">
+        <section class="tjs-header1 :: mobile :lg:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-header1__top-bar container-xxl">
                     <div class="tjs-header1__top-bar--item">

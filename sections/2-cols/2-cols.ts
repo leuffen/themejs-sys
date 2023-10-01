@@ -3,7 +3,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("2-cols",
     // language=HTML
     `
-        <section class="tjs-2-cols [[ layout.class ]]">
+        <section class="tjs-2-cols :: mobile :md:">
             <div class="tjs-wrapper container ">
                 <div class="tjs-2-cols-bg__disturber">
                     <slot data-select="blockquote"></slot>

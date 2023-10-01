@@ -3364,6 +3364,15 @@ Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDF
 [Weiterlesen]()
 
 ## Praxiswert steigern
+{: layout="use: #2-cols"}
+
+![](/images/illustration-01.svg)
+
+Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDFer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu pr\xE4sentieren und Ihre Patienten zu informieren.
+
+[Weiterlesen]()
+
+## Praxiswert steigern
 {: layout="use: #2-cols;class:tjs-2-cols-bg"}
 
 > Disturber
@@ -16132,7 +16141,7 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols",
     // language=HTML
     `
-        <section class="tjs-2-cols [[ layout.class ]]">
+        <section class="tjs-2-cols :: mobile :md:">
             <div class="tjs-wrapper container ">
                 <div class="tjs-2-cols-bg__disturber">
                     <slot data-select="blockquote"></slot>
@@ -16184,7 +16193,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-sli
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-slider",
     // language=HTML
     `
-        <section class="tjs-cards-slider">
+        <section class="tjs-cards-slider :: mobile :lg:">
             <div class="tjs-wrapper container">
                 <div class="tjs-cards-slider__col">
                     <div class="tjs-cards-slider__text">
@@ -16307,7 +16316,7 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cta1",
     // language=HTML
     `
-        <section class="tjs-2-cols-bg">
+        <section class="tjs-2-cols-bg :: mobile :lg:">
             <div class="tjs-wrapper tjs-2-cols-bg--special container">
                 <div class="tjs-2-cols-bg__disturber-image">
 
@@ -16365,7 +16374,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("customer-
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("customer-reviews",
     // language=HTML
     `
-        <section class="tjs-customer-reviews">
+        <section class="tjs-customer-reviews :: mobile :md:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-customer-reviews__content--container">
                     <div class="tjs-customer-reviews__content container">
@@ -16517,7 +16526,7 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("header1",
     // language=HTML
     `
-        <section class="tjs-header1">
+        <section class="tjs-header1 :: mobile :lg:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-header1__top-bar container-xxl">
                     <div class="tjs-header1__top-bar--item">
@@ -16608,7 +16617,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("icon-catc
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("icon-catchprases",
     // language=HTML
     `
-        <section class="tjs-icon-catchphrases">
+        <section class="tjs-icon-catchphrases :: mobile :lg:">
             <div class="tjs-wrapper container">
                 <div class="tjs-icon-catchphrases__text">
                     <slot></slot>
@@ -16638,7 +16647,7 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("key-figures",
     // language=HTML
     `
-   <section class="tjs-key-figures">
+   <section class="tjs-key-figures :: mobile :lg:">
         <div class="tjs-wrapper container-fluid">
             <div class="tjs-key-figures__content--container">
                 <div class="tjs-key-figures__content--bg-image">
@@ -16780,7 +16789,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-s
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-slider",
     // language=HTML
     `
-        <section class="tjs-service-slider">
+        <section class="tjs-service-slider  :: mobile :md:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-service-slider__content--container">
                     <div class="tjs-service-slider__content">

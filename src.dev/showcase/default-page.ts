@@ -65,6 +65,15 @@ Eine gute Positionierung in den Suchmaschinen ist für eine Praxis von großer B
 [Weiterlesen]()
 
 ## Praxiswert steigern
+{: layout="use: #2-cols"}
+
+![](/images/illustration-01.svg)
+
+Eine gute Positionierung in den Suchmaschinen ist für eine Praxis von großer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu präsentieren und Ihre Patienten zu informieren.
+
+[Weiterlesen]()
+
+## Praxiswert steigern
 {: layout="use: #2-cols;class:tjs-2-cols-bg"}
 
 > Disturber

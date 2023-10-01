@@ -23,7 +23,7 @@ Joda.registerTemplate("cards-slider__list-item",
 Joda.registerTemplate("cards-slider",
     // language=HTML
     `
-        <section class="tjs-cards-slider">
+        <section class="tjs-cards-slider :: mobile :lg:">
             <div class="tjs-wrapper container">
                 <div class="tjs-cards-slider__col">
                     <div class="tjs-cards-slider__text">
