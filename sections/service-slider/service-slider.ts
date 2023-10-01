@@ -17,7 +17,7 @@ Joda.registerTemplate("service-slider__carousel--slide",
 Joda.registerTemplate("service-slider",
     // language=HTML
     `
-        <div class="tjs-service-slider">
+        <section class="tjs-service-slider">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-service-slider__content--container">
                     <div class="tjs-service-slider__content">
@@ -57,6 +57,6 @@ Joda.registerTemplate("service-slider",
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
     `);

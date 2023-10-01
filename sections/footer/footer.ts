@@ -5,7 +5,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("footer",
     // language=HTML
     `
-        <section class="tjs__footer">
+        <footer class="tjs__footer">
             <div class="tjs__footer__shape"></div>
             <div class="tjs__footer__shape"></div>
             <div class="tjs__wrapper">
@@ -72,6 +72,6 @@ Joda.registerTemplate("footer",
                     </div>
                 </div>
             </div>
-        </section>
+        </footer>
 
     `);

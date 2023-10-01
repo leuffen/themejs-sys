@@ -4,7 +4,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("newsletter",
     // language=HTML
     `
-        <div class="tjs__newsletter dark">
+        <section class="tjs__newsletter dark">
             <div class="tjs__wrapper">
                 <div class="container">
                     <div class="row">
@@ -24,5 +24,5 @@ Joda.registerTemplate("newsletter",
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     `);

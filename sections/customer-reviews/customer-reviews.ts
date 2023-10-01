@@ -19,7 +19,7 @@ Joda.registerTemplate("customer-reviews__carousel--slide",
 Joda.registerTemplate("customer-reviews",
     // language=HTML
     `
-        <div class="tjs-customer-reviews">
+        <section class="tjs-customer-reviews">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-customer-reviews__content--container">
                     <div class="tjs-customer-reviews__content container">
@@ -35,5 +35,5 @@ Joda.registerTemplate("customer-reviews",
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     `);

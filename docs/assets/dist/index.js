@@ -4438,20 +4438,25 @@ let JodaContentElement = class extends HTMLElement {
   }
   connectedCallback() {
     return __async(this, null, function* () {
+      console.timeLog("jodaTime", "Connected");
       let logger = new _helper_logger__WEBPACK_IMPORTED_MODULE_3__.Logger("joda-content");
       yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(1);
       yield this.awaitStyles();
+      console.timeLog("jodaTime", "Awaited styles");
       __privateSet(this, _origContentTemplate, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("template"));
       __privateSet(this, _outputDiv, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("div"));
       if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.disable_templates) {
         this.setLoaded();
         return;
       }
+      console.timeLog("jodaTime", "Start processing");
       let jodaStyle = new _processor_jodastyle__WEBPACK_IMPORTED_MODULE_1__.Jodastyle(logger);
       yield jodaStyle.process(this);
+      console.timeLog("jodaTime", "Style processing");
       let jodaresponsive = new _processor_jodaresponsive__WEBPACK_IMPORTED_MODULE_2__.Jodaresponsive(logger);
       let currentBreakpoint = (0,_processor_jodaresponsive__WEBPACK_IMPORTED_MODULE_2__.getCurrentBreakpoint)();
       jodaresponsive.process(this);
+      console.timeLog("jodaTime", "JodaResponsive processing");
       if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.debug_visualize && _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.debug_visualize_attribute) {
         new _processor_jodavisualize__WEBPACK_IMPORTED_MODULE_4__.Jodavisualize().process(this);
       }
@@ -5917,7 +5922,6 @@ jodaStyleCommands["--joda-use"] = (value, target, element, logger) => __async(vo
       placeholder.append(child);
     });
     let newElement = yield (0,_helper_functions__WEBPACK_IMPORTED_MODULE_1__.getTemplateFilledWithContent)(value, placeholder, element);
-    console.log("new: ", newElement, newElement.firstElementChild);
     let firstElement = newElement.firstElementChild;
     firstElement["joda-style-processed"] = true;
     let debugElement = element.outerHTML.split("\n")[0];
@@ -16106,7 +16110,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-sli
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-slider",
     // language=HTML
     `
-        <div class="tjs-cards-slider">
+        <section class="tjs-cards-slider">
             <div class="tjs-wrapper container">
                 <div class="tjs-cards-slider__col">
                     <div class="tjs-cards-slider__text">
@@ -16121,7 +16125,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-sli
                     </ul>
                 </div>
             </div>
-        </div>
+        </section>
     `);
 
 
@@ -16229,7 +16233,7 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cta1",
     // language=HTML
     `
-        <div class="tjs-2-cols-bg">
+        <section class="tjs-2-cols-bg">
             <div class="tjs-wrapper tjs-2-cols-bg--special container">
                 <div class="tjs-2-cols-bg__disturber-image">
 
@@ -16251,7 +16255,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cta1",
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     `);
 
 
@@ -16287,7 +16291,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("customer-
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("customer-reviews",
     // language=HTML
     `
-        <div class="tjs-customer-reviews">
+        <section class="tjs-customer-reviews">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-customer-reviews__content--container">
                     <div class="tjs-customer-reviews__content container">
@@ -16303,7 +16307,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("customer-
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     `);
 
 
@@ -16323,13 +16327,13 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("disturber",
     // language=HTML
     `
-        <div class="tjs-disturber">
+        <section class="tjs-disturber">
             <div class="tjs-wrapper container">
                 <div class="tjs-disturber__content container">
                     <slot data-select="p"></slot>
                 </div>
             </div>
-        </div>
+        </section>
     `);
 
 
@@ -16351,7 +16355,7 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("footer",
     // language=HTML
     `
-        <section class="tjs__footer">
+        <footer class="tjs__footer">
             <div class="tjs__footer__shape"></div>
             <div class="tjs__footer__shape"></div>
             <div class="tjs__wrapper">
@@ -16418,7 +16422,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("footer",
                     </div>
                 </div>
             </div>
-        </section>
+        </footer>
 
     `);
 
@@ -16560,7 +16564,7 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("key-figures",
     // language=HTML
     `
-   <div class="tjs-key-figures">
+   <section class="tjs-key-figures">
         <div class="tjs-wrapper container-fluid">
             <div class="tjs-key-figures__content--container">
                 <div class="tjs-key-figures__content--bg-image">
@@ -16610,7 +16614,7 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("newsletter",
     // language=HTML
     `
-        <div class="tjs__newsletter dark">
+        <section class="tjs__newsletter dark">
             <div class="tjs__wrapper">
                 <div class="container">
                     <div class="row">
@@ -16630,7 +16634,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("newslette
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     `);
 
 
@@ -16702,7 +16706,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-s
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-slider",
     // language=HTML
     `
-        <div class="tjs-service-slider">
+        <section class="tjs-service-slider">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-service-slider__content--container">
                     <div class="tjs-service-slider__content">
@@ -16742,7 +16746,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-s
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
     `);
 

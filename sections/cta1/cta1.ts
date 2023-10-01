@@ -4,7 +4,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("cta1",
     // language=HTML
     `
-        <div class="tjs-2-cols-bg">
+        <section class="tjs-2-cols-bg">
             <div class="tjs-wrapper tjs-2-cols-bg--special container">
                 <div class="tjs-2-cols-bg__disturber-image">
 
@@ -26,5 +26,5 @@ Joda.registerTemplate("cta1",
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     `);
