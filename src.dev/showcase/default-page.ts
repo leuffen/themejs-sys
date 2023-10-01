@@ -74,7 +74,7 @@ Eine gute Positionierung in den Suchmaschinen ist für eine Praxis von großer B
 [Weiterlesen]()
 
 ## Praxiswert steigern
-{: layout="use: #2-cols;class:tjs-2-cols-bg"}
+{: layout="use: #2-cols-bg"}
 
 > Disturber
 

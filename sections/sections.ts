@@ -4,6 +4,7 @@ import "./disturber/disturber";
 import "./icon-catchprases/icon-catchphrases";
 import "./service-slider/service-slider";
 import "./2-cols/2-cols";
+import "./2-cols/2-cols-bg";
 import "./key-figures/key-figures";
 import "./cards-slider/cards-slider";
 import "./customer-reviews/customer-reviews";

@@ -3373,7 +3373,7 @@ Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDF
 [Weiterlesen]()
 
 ## Praxiswert steigern
-{: layout="use: #2-cols;class:tjs-2-cols-bg"}
+{: layout="use: #2-cols-bg"}
 
 > Disturber
 
@@ -16127,6 +16127,38 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
 
 /***/ }),
 
+/***/ "./sections/2-cols/2-cols-bg.ts":
+/*!**************************************!*\
+  !*** ./sections/2-cols/2-cols-bg.ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols-bg",
+    // language=HTML
+    `
+        <section class="tjs-2-cols-bg :: mobile :md:">
+            <div class="tjs-wrapper container ">
+                <div class="tjs-2-cols-bg__disturber">
+                    <slot data-select="blockquote"></slot>
+                </div>
+                <div class="tjs-2-cols__col tjs-2-cols__col--image">
+                    <slot data-select="img"></slot>
+                </div>
+                <div class="tjs-2-cols__col tjs-2-cols__col--text-content">
+                    <slot></slot>
+                </div>
+            </div>
+        </section>
+    `);
+
+
+/***/ }),
+
 /***/ "./sections/2-cols/2-cols.ts":
 /*!***********************************!*\
   !*** ./sections/2-cols/2-cols.ts ***!
@@ -16143,9 +16175,6 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols",
     `
         <section class="tjs-2-cols :: mobile :md:">
             <div class="tjs-wrapper container ">
-                <div class="tjs-2-cols-bg__disturber">
-                    <slot data-select="blockquote"></slot>
-                </div>
                 <div class="tjs-2-cols__col tjs-2-cols__col--image">
                     <slot data-select="img"></slot>
                 </div>
@@ -16736,13 +16765,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _icon_catchprases_icon_catchphrases__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon-catchprases/icon-catchphrases */ "./sections/icon-catchprases/icon-catchphrases.ts");
 /* harmony import */ var _service_slider_service_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./service-slider/service-slider */ "./sections/service-slider/service-slider.ts");
 /* harmony import */ var _2_cols_2_cols__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./2-cols/2-cols */ "./sections/2-cols/2-cols.ts");
-/* harmony import */ var _key_figures_key_figures__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./key-figures/key-figures */ "./sections/key-figures/key-figures.ts");
-/* harmony import */ var _cards_slider_cards_slider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cards-slider/cards-slider */ "./sections/cards-slider/cards-slider.ts");
-/* harmony import */ var _customer_reviews_customer_reviews__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./customer-reviews/customer-reviews */ "./sections/customer-reviews/customer-reviews.ts");
-/* harmony import */ var _cta1_cta1__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./cta1/cta1 */ "./sections/cta1/cta1.ts");
-/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./footer/footer */ "./sections/footer/footer.ts");
-/* harmony import */ var _newsletter_newsletter__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./newsletter/newsletter */ "./sections/newsletter/newsletter.ts");
-/* harmony import */ var _contact_contact__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./contact/contact */ "./sections/contact/contact.ts");
+/* harmony import */ var _2_cols_2_cols_bg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./2-cols/2-cols-bg */ "./sections/2-cols/2-cols-bg.ts");
+/* harmony import */ var _key_figures_key_figures__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./key-figures/key-figures */ "./sections/key-figures/key-figures.ts");
+/* harmony import */ var _cards_slider_cards_slider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./cards-slider/cards-slider */ "./sections/cards-slider/cards-slider.ts");
+/* harmony import */ var _customer_reviews_customer_reviews__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./customer-reviews/customer-reviews */ "./sections/customer-reviews/customer-reviews.ts");
+/* harmony import */ var _cta1_cta1__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./cta1/cta1 */ "./sections/cta1/cta1.ts");
+/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./footer/footer */ "./sections/footer/footer.ts");
+/* harmony import */ var _newsletter_newsletter__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./newsletter/newsletter */ "./sections/newsletter/newsletter.ts");
+/* harmony import */ var _contact_contact__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./contact/contact */ "./sections/contact/contact.ts");
+
 
 
 

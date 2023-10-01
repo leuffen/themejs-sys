@@ -1,10 +1,13 @@
 import {Joda} from "@leuffen/jodastyle";
 
-Joda.registerTemplate("2-cols",
+Joda.registerTemplate("2-cols-bg",
     // language=HTML
     `
-        <section class="tjs-2-cols :: mobile :md:">
+        <section class="tjs-2-cols-bg :: mobile :md:">
             <div class="tjs-wrapper container ">
+                <div class="tjs-2-cols-bg__disturber">
+                    <slot data-select="blockquote"></slot>
+                </div>
                 <div class="tjs-2-cols__col tjs-2-cols__col--image">
                     <slot data-select="img"></slot>
                 </div>
