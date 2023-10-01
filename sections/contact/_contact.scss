@@ -1,0 +1,144 @@
+/**
+ * Komponente: Contact
+ */
+
+.tjs__contact {
+    font-family: 'Roboto Flex', sans-serif;
+    position: relative;
+
+    .row {
+        padding: 2rem 1rem;
+        background: transparent linear-gradient(297deg, #DCF2DE 0%, #E8F6FF 100%) 0% 0% no-repeat padding-box;
+        border-radius: 2rem
+    }
+
+    .form-check {
+        margin: 0;
+    }
+
+    .tjs__newsletter__callback-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & > div {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
+
+    .tjs__newsletter__text {
+        h2 {
+            font-variation-settings: "wght" 500;
+            font-size: 3rem;
+            margin-top: .5rem;
+            margin-bottom: 2rem;
+        }
+
+        > strong {
+            font-variation-settings: "wght" 500;
+            color: var(--color-green);
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+        }
+    }
+
+    .tjs__newsletter__list {
+        strong {
+            font-variation-settings: "wght" 500;
+            font-size: 1.4rem;
+        }
+
+        ul {
+            padding-left: 1.15rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        li {
+            list-style-image: url("/static/icons/shield.svg");
+
+            font-size: 1.2rem;
+            line-height: 1.9rem;
+            padding-left: .5rem;
+
+            &::marker {
+                font-size: 2rem;
+                line-height: 1rem;
+            }
+        }
+    }
+
+    form {
+        background: var(--bs-white);
+        padding: 2rem;
+        border-radius: 1rem;
+        color: var(--color-placeholder);
+        font-variation-settings: "wght" 350;
+
+        input {
+            &:focus {
+                outline: none;
+                box-shadow: none;
+                border-color: var(--color-placeholder);
+            }
+        }
+
+        .form-control {
+            border-color: var(--color-placeholder);
+        }
+
+        .form-check-input {
+            &:checked {
+                background-color: var(--color-green);
+                border-color: var(--color-green);
+            }
+        }
+
+        a {
+            color: var(--color-green);
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        button {
+            width: 100%;
+            background-color: var(--color-green);
+            color: var(--bs-white);
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .tjs__newsletter__privacy-wrapper {
+            margin: 2rem 0;
+        }
+    }
+
+    &.mobile {
+        .row {
+            margin: 0.4rem;
+            padding: 1.8rem 0.5rem;
+        }
+
+        .tjs__newsletter__callback-wrapper {
+            flex-direction: column;
+            align-items: start;
+        }
+
+        form {
+            padding: 1.2rem;
+        }
+    }
+
+    &.overlap-next {
+        margin-bottom: -5rem;
+
+        & ~ section {
+            padding-top: 10rem;
+        }
+    }
+}

@@ -1,0 +1,107 @@
+/**
+ * Komponente: Newsletter
+ */
+
+.tjs__newsletter {
+    $input-padding-y: .7rem;
+    $input-padding-x: 1.5rem;
+
+    font-family: 'Roboto Flex', sans-serif;
+    padding: 2rem 0;
+    color: var(--bs-white);
+    overflow-x: hidden;
+
+    .row {
+        background-color: var(--color-grey-dark-4);
+        border-radius: 2rem;
+        padding: 2rem;
+        position: relative;
+    }
+
+    .tjs__newsletter__icon {
+        position: absolute;
+        filter: brightness(0.8);
+        width: 55px;
+
+        &:nth-of-type(1) {
+            top: -15px;
+            left: -25px;
+        }
+
+        &:nth-of-type(2) {
+            bottom: -7px;
+            right: -19px;
+        }
+    }
+
+    strong {
+        text-transform: uppercase;
+        font-variation-settings: "wght" 500;
+        letter-spacing: 1.8px;
+        display: inline-flex;
+        margin-bottom: 1rem;
+        color: var(--color-green);
+    }
+
+    .input-group-text {
+        border: none;
+        padding: $input-padding-y $input-padding-x;
+        font-variation-settings: "wght" 500;
+        background-color: var(--color-green);
+        color: var(--bs-white);
+
+        &.outside {
+            display: none;
+        }
+    }
+
+    .tjs__newsletter__input-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    input {
+        &:focus {
+            outline: none;
+            box-shadow: none;
+            border-color: var(--bs-border-color);
+        }
+        &::placeholder {
+            color: var(--color-placeholder);
+        }
+    }
+
+    &.mobile {
+        .row {
+            margin: 0 .1rem;
+            padding: 1.3rem 1rem;
+        }
+        .tjs__newsletter__input-wrapper {
+            flex-direction: column;
+        }
+        input {
+            padding: $input-padding-y .9rem;
+            border-top-right-radius: var(--bs-border-radius) !important;
+            border-bottom-right-radius: var(--bs-border-radius) !important;
+        }
+        .input-group-text {
+            &.inside {
+                display: none;
+            }
+            &.outside {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin-top: .7rem;
+            }
+        }
+    }
+
+    &.dark {
+        background-color: var(--color-grey-dark);
+
+        .tjs__newsletter__icon {
+            filter: opacity(0.3);
+        }
+    }
+}

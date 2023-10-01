@@ -3,9 +3,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: {
-        'assets/dist/style': './demo_styles.scss',
+        'assets/dist/theme': './docs/_src/theme.scss',
+        'assets/dist/late': './docs/_src/late.scss',
+        'assets/dist/dev': './docs/_src/dev.scss',
 
-        'assets/dist/index': './src.dev/index-dev.ts'
+        'assets/dist/index': './docs/_src/index.ts'
 
     },
     cache: true,

@@ -1,6 +1,22 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./dev.ts":
+/*!****************!*\
+  !*** ./dev.ts ***!
+  \****************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle_dev__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle-dev */ "./workspaces/jodastyle-dev/index.ts");
+/* harmony import */ var _src_dev_index_dev__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./src.dev/index-dev */ "./src.dev/index-dev.ts");
+
+
+
+
+/***/ }),
+
 /***/ "./elements/e-card-default/e-card-default.ts":
 /*!***************************************************!*\
   !*** ./elements/e-card-default/e-card-default.ts ***!
@@ -63,25 +79,6 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("e-form",
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _e_card_default_e_card_default__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./e-card-default/e-card-default */ "./elements/e-card-default/e-card-default.ts");
 /* harmony import */ var _e_form_e_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./e-form/e-form */ "./elements/e-form/e-form.ts");
-
-
-
-
-/***/ }),
-
-/***/ "./index.dev.ts":
-/*!**********************!*\
-  !*** ./index.dev.ts ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _src_dev_dev_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src.dev/dev.scss */ "./src.dev/dev.scss");
-/* harmony import */ var _micx_lib_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @micx/lib-js */ "./node_modules/@micx/lib-js/dist/index.js");
-
-
-
 
 
 
@@ -386,6 +383,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 
 
 function ka_apply(selector, scope, recursive = false) {
+    var _a;
     if (typeof selector === "string")
         selector = KaToolsV1.querySelector(selector);
     let attMap = {
@@ -494,6 +492,18 @@ function ka_apply(selector, scope, recursive = false) {
                     }
                     else {
                         selector.classList.remove(attSelector);
+                    }
+                    break;
+                }
+                if (typeof r === "string") {
+                    // Split and add all classes
+                    r = r.split(" ").filter((e) => e.trim() !== "");
+                }
+                if (Array.isArray(r)) {
+                    for (let cname of r) {
+                        if (cname.trim() === "")
+                            continue;
+                        selector.classList.add(cname);
                     }
                     break;
                 }
@@ -634,7 +644,7 @@ function ka_apply(selector, scope, recursive = false) {
                     }
                     else {
                         // Array
-                        if (typeof r[option].text !== "undefined") {
+                        if (((_a = r[option]) === null || _a === void 0 ? void 0 : _a.text) !== undefined) {
                             selector.appendChild(new Option(r[option].text, r[option].value));
                         }
                         else {
@@ -1173,6 +1183,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tpl/templatify */ "./node_modules/@kasimirjs/embed/dist/tpl/templatify.js");
 /* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ce/html */ "./node_modules/@kasimirjs/embed/dist/ce/html.js");
 /* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../tpl/template */ "./node_modules/@kasimirjs/embed/dist/tpl/template.js");
+/* harmony import */ var _core_create_element__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../core/create-element */ "./node_modules/@kasimirjs/embed/dist/core/create-element.js");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -1187,10 +1198,18 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 
 
 
+
+class ShadowRootConfig {
+    constructor() {
+        this.mode = null; // Default null: No shadowRoot
+        this.stylesheets = [];
+    }
+}
 class KaCustomElement extends HTMLElement {
     constructor() {
         super(...arguments);
         this.__ka_stop_render = true; // Stop rendering if this element is reached
+        this.shadowRootConfig = new ShadowRootConfig(); // Activate shadowRoot
         this.html = "Undefined Template";
         this.scope = (0,_types__WEBPACK_IMPORTED_MODULE_0__.createScopeObject)();
         this.tplPrototype = null;
@@ -1220,13 +1239,21 @@ class KaCustomElement extends HTMLElement {
             }
             this.tpl = this.tplPrototype.cloneNode(true);
             this.scope.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_4__.KaTemplate(this.tpl);
+            // Adding Shadow Root
+            let domRoot = this;
+            if (this.shadowRootConfig.mode !== null) {
+                domRoot = this.attachShadow({ mode: this.shadowRootConfig.mode });
+                this.shadowRootConfig.stylesheets.forEach((stylesheet) => {
+                    (0,_core_create_element__WEBPACK_IMPORTED_MODULE_5__.ka_create_element)("link", { rel: "stylesheet", href: stylesheet }, null, domRoot);
+                });
+            }
             if (this.wrapper !== null) {
                 yield this.wrapper.fragmentConnectedCallback();
-                this.append(this.wrapper.wrapTemplate(this.tpl));
+                domRoot.append(this.wrapper.wrapTemplate(this.tpl));
                 this.wrapper.wrapFinish();
             }
             else {
-                this.append(this.tpl);
+                domRoot.append(this.tpl);
             }
             this.scope.render();
         });
@@ -2420,6 +2447,81 @@ KitFormInput = __decorate([
 
 /***/ }),
 
+/***/ "./node_modules/@kasimirjs/kit-bootstrap/dist/form/quick-input.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@kasimirjs/kit-bootstrap/dist/form/quick-input.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+
+// language=HTML
+const tpl = `
+    <div class="mb-1 row" ka.if="type === 'text'">
+        <label ka.attr.for="id" class="col-sm-2 col-form-label">[[label]]</label>
+        <div class="col-sm-10">
+          <input type="text" ka.bind="$scope.value" class="form-control-plaintext form-control-sm bg-white" ka.attr.id="id">
+        </div>
+    </div>
+    <div class="form-check form-switch mb-1" ka.if="type === 'switch'">
+      <input class="form-check-input" type="checkbox" ka.bind="$scope.value" role="switch" ka.attr.id="id">
+      <label class="form-check-label" ka.attr.for="id">[[ label ]]</label>
+    </div>
+
+`;
+var elementIndex = 1;
+let QuickInput = class QuickInput extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.KaCustomElement {
+    get value() {
+        return this.scope.value;
+    }
+    set value(value) {
+        this.scope.value = value;
+    }
+    connectedCallback() {
+        const _super = Object.create(null, {
+            connectedCallback: { get: () => super.connectedCallback }
+        });
+        var _a, _b, _c, _d, _e;
+        return __awaiter(this, void 0, void 0, function* () {
+            let scope = this.init({
+                id: (_a = this.dataset.id) !== null && _a !== void 0 ? _a : "quick-form-element-" + elementIndex++,
+                type: (_b = this.dataset.type) !== null && _b !== void 0 ? _b : "text",
+                name: (_c = this.dataset.name) !== null && _c !== void 0 ? _c : "data-name unset",
+                label: (_e = (_d = this.dataset.label) !== null && _d !== void 0 ? _d : this.dataset.name) !== null && _e !== void 0 ? _e : "data-label unset",
+                $on: {
+                    change: (e) => {
+                        //this.dispatchEvent(new Event("change"));
+                    }
+                }
+            });
+            _super.connectedCallback.call(this);
+        });
+    }
+};
+QuickInput = __decorate([
+    (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.customElement)("quick-input", tpl)
+], QuickInput);
+
+
+/***/ }),
+
 /***/ "./node_modules/@kasimirjs/kit-bootstrap/dist/functions.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/@kasimirjs/kit-bootstrap/dist/functions.js ***!
@@ -2453,19 +2555,21 @@ function random_string(length = 8) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   FlexModal: () => (/* reexport safe */ _modals_flex_modal__WEBPACK_IMPORTED_MODULE_4__.FlexModal),
-/* harmony export */   FlexModalConfig: () => (/* reexport safe */ _modals_flex_modal__WEBPACK_IMPORTED_MODULE_4__.FlexModalConfig),
+/* harmony export */   FlexModal: () => (/* reexport safe */ _modals_flex_modal__WEBPACK_IMPORTED_MODULE_5__.FlexModal),
+/* harmony export */   FlexModalConfig: () => (/* reexport safe */ _modals_flex_modal__WEBPACK_IMPORTED_MODULE_5__.FlexModalConfig),
 /* harmony export */   KitFormInput: () => (/* reexport safe */ _form_form_input__WEBPACK_IMPORTED_MODULE_2__.KitFormInput),
 /* harmony export */   KitTabPane: () => (/* reexport safe */ _base_tab_pane__WEBPACK_IMPORTED_MODULE_1__.KitTabPane),
-/* harmony export */   SidebarWrapper: () => (/* reexport safe */ _sidebar_sidebar_wrapper__WEBPACK_IMPORTED_MODULE_3__.SidebarWrapper),
-/* harmony export */   SidebarWrapperConfig: () => (/* reexport safe */ _sidebar_sidebar_wrapper__WEBPACK_IMPORTED_MODULE_3__.SidebarWrapperConfig),
+/* harmony export */   SidebarWrapper: () => (/* reexport safe */ _sidebar_sidebar_wrapper__WEBPACK_IMPORTED_MODULE_4__.SidebarWrapper),
+/* harmony export */   SidebarWrapperConfig: () => (/* reexport safe */ _sidebar_sidebar_wrapper__WEBPACK_IMPORTED_MODULE_4__.SidebarWrapperConfig),
 /* harmony export */   random_string: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.random_string)
 /* harmony export */ });
 /* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ "./node_modules/@kasimirjs/kit-bootstrap/dist/functions.js");
 /* harmony import */ var _base_tab_pane__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./base/tab-pane */ "./node_modules/@kasimirjs/kit-bootstrap/dist/base/tab-pane.js");
 /* harmony import */ var _form_form_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form/form-input */ "./node_modules/@kasimirjs/kit-bootstrap/dist/form/form-input.js");
-/* harmony import */ var _sidebar_sidebar_wrapper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sidebar/sidebar-wrapper */ "./node_modules/@kasimirjs/kit-bootstrap/dist/sidebar/sidebar-wrapper.js");
-/* harmony import */ var _modals_flex_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modals/flex-modal */ "./node_modules/@kasimirjs/kit-bootstrap/dist/modals/flex-modal.js");
+/* harmony import */ var _form_quick_input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./form/quick-input */ "./node_modules/@kasimirjs/kit-bootstrap/dist/form/quick-input.js");
+/* harmony import */ var _sidebar_sidebar_wrapper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sidebar/sidebar-wrapper */ "./node_modules/@kasimirjs/kit-bootstrap/dist/sidebar/sidebar-wrapper.js");
+/* harmony import */ var _modals_flex_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modals/flex-modal */ "./node_modules/@kasimirjs/kit-bootstrap/dist/modals/flex-modal.js");
+
 
 
 
@@ -3171,988 +3275,16 @@ class LeuOpenHours {
 
 /***/ }),
 
-/***/ "./node_modules/@micx/lib-js/dist/Micx.js":
-/*!************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/Micx.js ***!
-  \************************************************/
+/***/ "./src.dev/index-dev.ts":
+/*!******************************!*\
+  !*** ./src.dev/index-dev.ts ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Micx: () => (/* binding */ Micx)
-/* harmony export */ });
-/* harmony import */ var _formmail_MicxFormmailerApi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formmail/MicxFormmailerApi */ "./node_modules/@micx/lib-js/dist/formmail/MicxFormmailerApi.js");
-var _a;
+/* harmony import */ var _showcase_default_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./showcase/default-page */ "./src.dev/showcase/default-page.ts");
 
-class Micx {
-    static get formMailerApi() {
-        return new _formmail_MicxFormmailerApi__WEBPACK_IMPORTED_MODULE_0__.MicxFormmailerApi(Micx.subscription_id, Micx.endpoint_root_url + "/v1/formmailer/send");
-    }
-}
-Micx.endpoint_root_url = "https://ws.micx.io";
-Micx.subscription_id = (_a = window["micx_subscription_id"]) !== null && _a !== void 0 ? _a : null;
-
-
-/***/ }),
-
-/***/ "./node_modules/@micx/lib-js/dist/formmail/MicxFormmailDefaultBootstrapStyle.js":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/formmail/MicxFormmailDefaultBootstrapStyle.js ***!
-  \**************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MicxFormmailDefaultBootstrapStyle: () => (/* binding */ MicxFormmailDefaultBootstrapStyle)
-/* harmony export */ });
-const invalidFeedbackAttr = "__micxformmail_invalid_feedback";
-class MicxFormmailDefaultBootstrapStyle {
-    constructor() {
-        this.bntOrigText = "";
-    }
-    markInvalid(el) {
-        el.classList.add("is-invalid");
-        if (el.dataset.invalidMsg) {
-            let node = document.createElement("div");
-            node.classList.add("invalid-feedback");
-            node.innerHTML = el.dataset.invalidMsg;
-            el.insertAdjacentElement("afterend", node);
-            el[invalidFeedbackAttr] = node;
-        }
-    }
-    markValid(el) {
-        el.classList.add("is-valid");
-    }
-    setFormInvalid(form) {
-    }
-    setFormSending(form) {
-        let btn = form.querySelector("input[type='submit'],button[type='submit']");
-        let orig = "";
-        if (btn instanceof HTMLInputElement) {
-            this.bntOrigText = btn.value;
-            btn.value = "Sending...";
-        }
-        else {
-            this.bntOrigText = btn.innerHTML;
-            btn.innerHTML = "Sending...";
-        }
-    }
-    setFormSentError(form) {
-        if (this.bntOrigText !== "") {
-            let btn = form.querySelector("input[type='submit'],button[type='submit']");
-            if (btn instanceof HTMLInputElement) {
-                btn.value = this.bntOrigText;
-            }
-            else {
-                btn.innerHTML = this.bntOrigText;
-            }
-        }
-        alert("[Error] Sending email failed! See browser console for details.");
-    }
-    setFormSentOk(form) {
-        var _a;
-        form.querySelectorAll("input,textarea").forEach(e => e.setAttribute("readonly", "readonly"));
-        let node = document.createElement("div");
-        let message = (_a = form.getAttribute("data-micx-formmail-sent-message")) !== null && _a !== void 0 ? _a : "E-Mail sent successfully!";
-        node.innerHTML = `<div class='alert alert-success'>${message}</div>`;
-        form.querySelector("input[type='submit'],button[type='submit']").replaceWith(node);
-    }
-    setFormValid(form) {
-    }
-    unmarkInvalid(el) {
-        el.classList.remove("is-invalid");
-    }
-    unmarkValid(el) {
-        el.classList.remove("is-valid");
-    }
-    resetValidation(form) {
-        form.querySelectorAll(".is-invalid").forEach((e) => {
-            if (e[invalidFeedbackAttr] !== undefined) {
-                e[invalidFeedbackAttr].remove();
-                delete e[invalidFeedbackAttr];
-            }
-            e.classList.remove("is-invalid");
-        });
-        form.querySelectorAll(".is-valid").forEach(e => e.classList.remove("is-valid"));
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@micx/lib-js/dist/formmail/MicxFormmailFacade.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/formmail/MicxFormmailFacade.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MicxFormmailConfig: () => (/* binding */ MicxFormmailConfig),
-/* harmony export */   MicxFormmailFacade: () => (/* binding */ MicxFormmailFacade)
-/* harmony export */ });
-/* harmony import */ var _MicxFormmailHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MicxFormmailHelper */ "./node_modules/@micx/lib-js/dist/formmail/MicxFormmailHelper.js");
-/* harmony import */ var _MicxFormmailDefaultBootstrapStyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MicxFormmailDefaultBootstrapStyle */ "./node_modules/@micx/lib-js/dist/formmail/MicxFormmailDefaultBootstrapStyle.js");
-/* harmony import */ var _Micx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Micx */ "./node_modules/@micx/lib-js/dist/Micx.js");
-/* harmony import */ var _helper_functions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helper/functions */ "./node_modules/@micx/lib-js/dist/helper/functions.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-
-
-class MicxFormmailConfig {
-    constructor() {
-        /**
-         * Prevent observed Forms from submitting by pressing Enter
-         */
-        this.preventEnterSubmitForm = true;
-    }
-}
-class MicxFormmailFacade {
-    constructor(formMailer = _Micx__WEBPACK_IMPORTED_MODULE_2__.Micx.formMailerApi, config = new MicxFormmailConfig(), formatter = new _MicxFormmailDefaultBootstrapStyle__WEBPACK_IMPORTED_MODULE_1__.MicxFormmailDefaultBootstrapStyle()) {
-        this.formMailer = formMailer;
-        this.config = config;
-        this.formatter = formatter;
-    }
-    isMicxFormElement(element) {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (element.tagName !== "FORM")
-                element = element.closest("form");
-            if (element === null)
-                return false;
-            if (!element.hasAttribute("data-micx-formmail-preset"))
-                return false;
-            return true;
-        });
-    }
-    /**
-     * Observe for submit events from <form data-micx-formmail-preset="default"> forms
-     *
-     * @param htmlElement
-     */
-    observe(htmlElement = null) {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield (0,_helper_functions__WEBPACK_IMPORTED_MODULE_3__.dom_ready)();
-            htmlElement = htmlElement || document.body;
-            if (this.config.preventEnterSubmitForm) {
-                htmlElement.addEventListener("submit", (e) => __awaiter(this, void 0, void 0, function* () {
-                    console.log("submit", e);
-                    if (!this.isMicxFormElement(e.target))
-                        return;
-                    e.preventDefault();
-                    e.stopPropagation();
-                }));
-                htmlElement.addEventListener('keydown', (event) => __awaiter(this, void 0, void 0, function* () {
-                    if (!this.isMicxFormElement(event.target))
-                        return;
-                    if (event.key === "Enter" && event.target["type"] !== "submit" && event.target["type"] !== "textarea") {
-                        event.preventDefault();
-                    }
-                }));
-            }
-            htmlElement.addEventListener("click", (e) => {
-                let target = e.target;
-                if (!this.isMicxFormElement(target))
-                    return;
-                let button = target.closest("button[type='submit'],input[type='submit']");
-                if (button === null)
-                    return;
-                let form = target.closest("form");
-                e.preventDefault();
-                e.stopPropagation();
-                this.processForm(form);
-            });
-        });
-    }
-    processForm(form) {
-        var _a;
-        return __awaiter(this, void 0, void 0, function* () {
-            let formCollectedData = _MicxFormmailHelper__WEBPACK_IMPORTED_MODULE_0__.MicxFormmailHelper.collectFormData(form);
-            this.formatter.resetValidation(form);
-            if (formCollectedData.invalidForms.length > 0) {
-                for (let el of formCollectedData.invalidForms) {
-                    this.formatter.markInvalid(el);
-                }
-                this.formatter.setFormInvalid(form);
-                form.dispatchEvent(new Event("invalid", {}));
-                return;
-            }
-            let submitButton = form.querySelector("[type='submit']");
-            submitButton.setAttribute("disabled", "disabled");
-            this.formatter.setFormSending(form);
-            try {
-                let response = yield this.formMailer.sendData(formCollectedData.formdata, (_a = form.getAttribute("data-micx-formmail-preset")) !== null && _a !== void 0 ? _a : "default");
-                submitButton.removeAttribute("disabled");
-                this.formatter.setFormSentOk(form);
-            }
-            catch (e) {
-                submitButton.removeAttribute("disabled");
-                this.formatter.setFormSentError(form);
-            }
-        });
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@micx/lib-js/dist/formmail/MicxFormmailHelper.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/formmail/MicxFormmailHelper.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MicxFormmailHelper: () => (/* binding */ MicxFormmailHelper)
-/* harmony export */ });
-class MicxFormmailHelper {
-    static collectFormData(form) {
-        var _a;
-        let invalidForms = [];
-        let formdata = {};
-        let unnamedFieldIndex = 0;
-        for (let el of form.querySelectorAll("input,select,textarea")) {
-            let valid = el.validity.valid;
-            if (el.type.toLowerCase() === "email" && el.value.trim() !== "") {
-                el.value = el.value.trim(); // Trim EMail
-                valid = el.validity.valid;
-                if (el.value.match(/^[\p{L}\d._%+-]+@[\p{L}\d.-]+.[\p{L}]{2,}$/u) === null)
-                    valid = false;
-            }
-            if (valid === false)
-                invalidForms.push(el);
-            if (el.name === "" && el.id === "") {
-                if (el.type !== "submit")
-                    console.warn("[Warning] Skipping Form-Element without id or name attribute", el);
-                continue;
-            }
-            let name = el.name;
-            if (name === "")
-                name = el.id;
-            if (name === "")
-                name = (_a = el.getAttribute("label")) !== null && _a !== void 0 ? _a : "unnamed_" + unnamedFieldIndex++;
-            name = name.trim();
-            if (el.type === "checkbox" && el["checked"] === false)
-                continue;
-            if (name.endsWith("[]")) {
-                name = name.slice(0, -2);
-                if (!Array.isArray(formdata[name]))
-                    formdata[name] = [];
-                formdata[name].push(el.value);
-            }
-            else {
-                formdata[name] = el.value;
-            }
-        }
-        return { formdata, invalidForms };
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@micx/lib-js/dist/formmail/MicxFormmailStyleInterface.js":
-/*!*******************************************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/formmail/MicxFormmailStyleInterface.js ***!
-  \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-
-
-
-/***/ }),
-
-/***/ "./node_modules/@micx/lib-js/dist/formmail/MicxFormmailerApi.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/formmail/MicxFormmailerApi.js ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MicxFormmailerApi: () => (/* binding */ MicxFormmailerApi)
-/* harmony export */ });
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index */ "./node_modules/@micx/lib-js/dist/index.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-class MicxFormmailerApi {
-    constructor(subscription_id, endpoint_url) {
-        this.subscription_id = subscription_id;
-        this.endpoint_url = endpoint_url;
-        console.log('MicxFormmailer constructor');
-    }
-    sendData(data, preset = "default") {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log('MicxFormmailer send data', data);
-            data["__sending_hostname"] = window.location.href;
-            data["__micxlib_rev"] = _index__WEBPACK_IMPORTED_MODULE_0__.MicxlibRev;
-            // make all keys of data lowercase and replace - and space by _
-            let data2 = {};
-            for (let key in data) {
-                let key2 = key.toLowerCase().replace(/[\s]/g, "_").replace(/-/g, "");
-                data2[key2] = data[key];
-            }
-            data = data2;
-            let result = yield fetch(this.endpoint_url + `?&subscription_id=${this.subscription_id}&preset=${preset}`, {
-                method: "POST",
-                headers: { "content-type": "application/json" },
-                body: JSON.stringify(data),
-                cache: "no-cache"
-            });
-            if (!result.ok) {
-                let errorMsg = yield result.text();
-                console.error(`Formmail Server Error`, errorMsg);
-                throw "Cannot send mail: " + errorMsg;
-            }
-            let successMsg = yield result.json();
-        });
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@micx/lib-js/dist/helper/functions.js":
-/*!************************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/helper/functions.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   dom_ready: () => (/* binding */ dom_ready),
-/* harmony export */   sleep: () => (/* binding */ sleep)
-/* harmony export */ });
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-function dom_ready() {
-    return __awaiter(this, void 0, void 0, function* () {
-        return new Promise((resolve) => {
-            if (document.readyState === "complete" || document.readyState === "interactive")
-                return resolve("loaded");
-            document.addEventListener("DOMContentLoaded", () => resolve('DOMContentLoaded'));
-        });
-    });
-}
-function sleep(sleepms) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return new Promise((resolve) => {
-            window.setTimeout(() => {
-                return resolve();
-            }, sleepms);
-        });
-    });
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@micx/lib-js/dist/hit-index.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/hit-index.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   hitIndex: () => (/* binding */ hitIndex)
-/* harmony export */ });
-var _a, _b;
-let state = sessionStorage.getItem("micx_hit_index");
-if (state === null) {
-    sessionStorage.setItem("micx_hit_index", "0");
-}
-sessionStorage.setItem("micx_hit_index", "" + (parseInt((_a = sessionStorage.getItem("micx_hit_index")) !== null && _a !== void 0 ? _a : "0") + 1));
-const hitIndex = parseInt((_b = sessionStorage.getItem("micx_hit_index")) !== null && _b !== void 0 ? _b : "0");
-
-
-/***/ }),
-
-/***/ "./node_modules/@micx/lib-js/dist/index.js":
-/*!*************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/index.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Micx: () => (/* reexport safe */ _Micx__WEBPACK_IMPORTED_MODULE_1__.Micx),
-/* harmony export */   MicxCdnImageObserver: () => (/* reexport safe */ _mediastore_MicxCdnImageObserver__WEBPACK_IMPORTED_MODULE_0__.MicxCdnImageObserver),
-/* harmony export */   MicxFormmailConfig: () => (/* reexport safe */ _formmail_MicxFormmailFacade__WEBPACK_IMPORTED_MODULE_4__.MicxFormmailConfig),
-/* harmony export */   MicxFormmailDefaultBootstrapStyle: () => (/* reexport safe */ _formmail_MicxFormmailDefaultBootstrapStyle__WEBPACK_IMPORTED_MODULE_5__.MicxFormmailDefaultBootstrapStyle),
-/* harmony export */   MicxFormmailFacade: () => (/* reexport safe */ _formmail_MicxFormmailFacade__WEBPACK_IMPORTED_MODULE_4__.MicxFormmailFacade),
-/* harmony export */   MicxFormmailerApi: () => (/* reexport safe */ _formmail_MicxFormmailerApi__WEBPACK_IMPORTED_MODULE_2__.MicxFormmailerApi),
-/* harmony export */   MicxlibRev: () => (/* binding */ MicxlibRev)
-/* harmony export */ });
-/* harmony import */ var _mediastore_MicxCdnImageObserver__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mediastore/MicxCdnImageObserver */ "./node_modules/@micx/lib-js/dist/mediastore/MicxCdnImageObserver.js");
-/* harmony import */ var _Micx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Micx */ "./node_modules/@micx/lib-js/dist/Micx.js");
-/* harmony import */ var _formmail_MicxFormmailerApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./formmail/MicxFormmailerApi */ "./node_modules/@micx/lib-js/dist/formmail/MicxFormmailerApi.js");
-/* harmony import */ var _formmail_MicxFormmailStyleInterface__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./formmail/MicxFormmailStyleInterface */ "./node_modules/@micx/lib-js/dist/formmail/MicxFormmailStyleInterface.js");
-/* harmony import */ var _formmail_MicxFormmailFacade__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./formmail/MicxFormmailFacade */ "./node_modules/@micx/lib-js/dist/formmail/MicxFormmailFacade.js");
-/* harmony import */ var _formmail_MicxFormmailDefaultBootstrapStyle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./formmail/MicxFormmailDefaultBootstrapStyle */ "./node_modules/@micx/lib-js/dist/formmail/MicxFormmailDefaultBootstrapStyle.js");
-
-const MicxlibRev = "1.0.6";
-
-
-
-
-
-
-let o = new _mediastore_MicxCdnImageObserver__WEBPACK_IMPORTED_MODULE_0__.MicxCdnImageObserver();
-o.observe();
-
-
-/***/ }),
-
-/***/ "./node_modules/@micx/lib-js/dist/mediastore/MicxCdnImageObserver.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/mediastore/MicxCdnImageObserver.js ***!
-  \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MicxCdnImageObserver: () => (/* binding */ MicxCdnImageObserver)
-/* harmony export */ });
-/* harmony import */ var _MicxCdnImgElement__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MicxCdnImgElement */ "./node_modules/@micx/lib-js/dist/mediastore/MicxCdnImgElement.js");
-/* harmony import */ var _helper_functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/functions */ "./node_modules/@micx/lib-js/dist/helper/functions.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-let cdnIdx = 0;
-class MicxCdnImageObserver {
-    applyToImg(image) {
-        if (image["micx_cdn_observer"] === true)
-            return;
-        image["micx_cdn_observer"] = true;
-        if (image.src.indexOf("/v2/") === -1)
-            return; // Not a CDN image
-        if (!image.hasAttribute("micx_cdn_idx"))
-            image.setAttribute("micx_cdn_idx", "" + cdnIdx++);
-        let e = new _MicxCdnImgElement__WEBPACK_IMPORTED_MODULE_0__.MicxCdnImgElement(image, parseInt(image.getAttribute("micx_cdn_idx")));
-    }
-    observe() {
-        return __awaiter(this, void 0, void 0, function* () {
-            let round = 1;
-            while (true) {
-                yield (0,_helper_functions__WEBPACK_IMPORTED_MODULE_1__.sleep)(20 * round++);
-                document.querySelectorAll("img").forEach(img => {
-                    this.applyToImg(img);
-                });
-                if (round > 50)
-                    round = 50;
-            }
-        });
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@micx/lib-js/dist/mediastore/MicxCdnImgElement.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/mediastore/MicxCdnImgElement.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MicxCdnImgElement: () => (/* binding */ MicxCdnImgElement)
-/* harmony export */ });
-/* harmony import */ var _MicxImageUrlDecoderV2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MicxImageUrlDecoderV2 */ "./node_modules/@micx/lib-js/dist/mediastore/MicxImageUrlDecoderV2.js");
-/* harmony import */ var _MicxImageUrlEncoderV2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MicxImageUrlEncoderV2 */ "./node_modules/@micx/lib-js/dist/mediastore/MicxImageUrlEncoderV2.js");
-/* harmony import */ var _helper_functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/functions */ "./node_modules/@micx/lib-js/dist/helper/functions.js");
-/* harmony import */ var _hit_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../hit-index */ "./node_modules/@micx/lib-js/dist/hit-index.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-
-
-const loadDirect = 2;
-class MicxCdnImgElement {
-    constructor(image, index) {
-        this.image = image;
-        this.isPreloaded = false;
-        this.myElementIndex = index;
-        let uri = image.src;
-        uri.replace(/^(.*?\/)(v2\/.*)$/, (p0, base, path) => {
-            this.base = base;
-            this.path = path;
-            return "";
-        });
-        let dimensions = (new _MicxImageUrlDecoderV2__WEBPACK_IMPORTED_MODULE_0__.MicxImageUrlDecoderV2(this.path)).decode();
-        this.setOptimalImageDimensions(dimensions);
-        // wait for image to be fully loaded
-        let listener = () => {
-            this.image.removeEventListener("load", listener);
-            this.loadHiRes(dimensions);
-        };
-        this.image.addEventListener("load", listener);
-        if (this.image.complete === true || this.myElementIndex < loadDirect) {
-            this.loadHiRes(dimensions);
-        }
-    }
-    loadHiRes(dimensions) {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield (0,_helper_functions__WEBPACK_IMPORTED_MODULE_2__.dom_ready)();
-            // If first load of website: wait 2 seconds to load styles first.
-            if (_hit_index__WEBPACK_IMPORTED_MODULE_3__.hitIndex === 1) {
-                yield (0,_helper_functions__WEBPACK_IMPORTED_MODULE_2__.sleep)(2000);
-            }
-            yield (0,_helper_functions__WEBPACK_IMPORTED_MODULE_2__.sleep)(40); // Settle image size
-            // detect actual dimensions of image element (Fallback innerWidth for Safari Garbage)
-            let w = this.image.getBoundingClientRect().width;
-            if (w === 0 || w === null)
-                w = window.innerWidth;
-            // Get best fitting width from dimensions
-            let bestWidth = parseInt(dimensions.widths[0]);
-            for (let wn of dimensions.widths) {
-                let wnI = parseInt(wn);
-                if (wnI < w) {
-                    break;
-                }
-                bestWidth = wnI;
-            }
-            let e2 = new _MicxImageUrlEncoderV2__WEBPACK_IMPORTED_MODULE_1__.MicxImageUrlEncoderV2(dimensions.id, dimensions.filename);
-            e2.setReatio(dimensions.aspectRatio);
-            e2.addWidth(bestWidth);
-            e2.setExtensions(dimensions.extensions);
-            let url = this.base + "/" + e2.toString();
-            if (this.myElementIndex < loadDirect && !this.isPreloaded) {
-                this.isPreloaded = true;
-                let preloadLink = document.createElement("link");
-                preloadLink.setAttribute("rel", "preload");
-                preloadLink.setAttribute("fetchpriority", "high");
-                preloadLink.setAttribute("as", "image");
-                preloadLink.setAttribute("href", url);
-                document.head.append(preloadLink);
-            }
-            let preload = new Image();
-            preload.src = url;
-            preload.addEventListener("load", () => {
-                this.image.setAttribute("src", url);
-                this.image.classList.remove("micx-image-loader");
-            });
-        });
-    }
-    /**
-     * Set the Image Dimensions to the optimal (best width) for the current screen size
-     *
-     * @private
-     */
-    setOptimalImageDimensions(dimensions) {
-        let aspectRatioMultiplier = dimensions.aspectRatio.split("/").map((v) => parseInt(v));
-        // Devide first by second
-        let aspectRatio = aspectRatioMultiplier[0] / aspectRatioMultiplier[1];
-        let w = parseInt(dimensions.widths[0]);
-        for (let wn of dimensions.widths) {
-            let wnI = parseInt(wn);
-            if (wnI < window.innerWidth) {
-                break;
-            }
-            w = wnI;
-        }
-        if (this.myElementIndex >= loadDirect) {
-            // set lazy loading
-            this.image.setAttribute("loading", "lazy");
-            this.image.setAttribute("src", this.image.getAttribute("src"));
-        }
-        this.image.setAttribute("width", w.toString());
-        this.image.setAttribute("height", (w / aspectRatio).toString());
-        this.image.classList.add("micx-image-loader");
-        if (this.image.hasAttribute("alt") === false)
-            this.image.setAttribute("alt", dimensions.filename);
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@micx/lib-js/dist/mediastore/MicxImageUrlDecoderV2.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/mediastore/MicxImageUrlDecoderV2.js ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MicxImageUrlDecoderV2: () => (/* binding */ MicxImageUrlDecoderV2),
-/* harmony export */   MicxImageUrlDecoderV2Result: () => (/* binding */ MicxImageUrlDecoderV2Result)
-/* harmony export */ });
-class MicxImageUrlDecoderV2Result {
-}
-class MicxImageUrlDecoderV2 {
-    constructor(url) {
-        this.url = url;
-    }
-    decode() {
-        const parts = this.url.split('/');
-        if (parts.length < 4)
-            throw new Error("Invalid url format");
-        const id = parts[1];
-        let [encodedAspect, encodedWidths] = parts[2].split("_");
-        const [filename, extensions] = parts[3].split(".");
-        encodedWidths = encodedWidths.replaceAll(/([a-zA-Z])/g, (w) => { var _a; return "-" + ((_a = MicxImageUrlDecoderV2.WIDTH_SHORTCUTS[w]) !== null && _a !== void 0 ? _a : w) + "-"; });
-        encodedAspect = encodedAspect.replaceAll(/([a-zA-Z])/g, (w) => { var _a; return (_a = MicxImageUrlDecoderV2.RATIO_SHORTCUTS[w]) !== null && _a !== void 0 ? _a : w; });
-        const aspect = encodedAspect.split('-').join('/');
-        const widths = encodedWidths.split('-').filter(w => w.trim() !== "");
-        return {
-            id,
-            aspectRatio: aspect,
-            widths,
-            filename,
-            extensions: extensions.split("_"),
-        };
-    }
-}
-MicxImageUrlDecoderV2.RATIO_SHORTCUTS = {
-    "a": "1-1",
-    "b": "4-3",
-    "c": "3-2",
-    "d": "16-9",
-    "e": "21-9",
-    "B": "3-4",
-    "C": "2-3",
-    "D": "9-16",
-    "E": "9-21"
-};
-MicxImageUrlDecoderV2.WIDTH_SHORTCUTS = {
-    "a": "260",
-    "b": "414",
-    "c": "896",
-    "d": "1280",
-    "e": "1440",
-    "f": "1920",
-    "g": "2560",
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/@micx/lib-js/dist/mediastore/MicxImageUrlEncoderV2.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/@micx/lib-js/dist/mediastore/MicxImageUrlEncoderV2.js ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MicxImageUrlEncoderV2: () => (/* binding */ MicxImageUrlEncoderV2)
-/* harmony export */ });
-class MicxImageUrlEncoderV2 {
-    constructor(id, filename) {
-        this.id = id;
-        this.filename = filename;
-        this.widths = [];
-        this.extensions = [];
-        this.ratio = '';
-    }
-    setAspectRatio(width, height) {
-        this.ratio = `${width}-${height}`;
-    }
-    setReatio(ratio) {
-        ratio = ratio.replaceAll("/", "-");
-        this.ratio = ratio;
-    }
-    setWidths(widths) {
-        console.log("set widths", widths);
-        this.widths = widths.map(width => width.toString());
-        return this;
-    }
-    addWidth(width) {
-        this.widths.push(width.toString());
-    }
-    setExtensions(extensions) {
-        this.extensions = extensions;
-        return this;
-    }
-    toString() {
-        let widths = this.widths.join("-");
-        let extensions = this.extensions.join("_");
-        let aspect = this.ratio;
-        aspect = aspect.replace(/([0-9\-]+)/, (w) => { var _a; return (_a = MicxImageUrlEncoderV2.RATIO_SHORTCUTS[w]) !== null && _a !== void 0 ? _a : w; });
-        widths = widths.replace(/([0-9]+)/g, (w) => { var _a; return (_a = MicxImageUrlEncoderV2.WIDTH_SHORTCUTS[w]) !== null && _a !== void 0 ? _a : w; });
-        return `v2/${this.id}/${aspect}_${widths}/${this.filename}.${extensions}`;
-    }
-}
-MicxImageUrlEncoderV2.RATIO_SHORTCUTS = {
-    "1-1": "a",
-    "4-3": "b",
-    "3-2": "c",
-    "16-9": "d",
-    "21-9": "e",
-    "3-4": "B",
-    "2-3": "C",
-    "9-16": "D",
-    "9-21": "E"
-};
-MicxImageUrlEncoderV2.WIDTH_SHORTCUTS = {
-    "260": "a",
-    "414": "b",
-    "896": "c",
-    "1280": "d",
-    "1440": "e",
-    "1920": "f",
-    "2560": "g",
-};
-
-
-/***/ }),
-
-/***/ "./src.dev/ShowcaseElement.ts":
-/*!************************************!*\
-  !*** ./src.dev/ShowcaseElement.ts ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getProtoOf = Object.getPrototypeOf;
-var __reflectGet = Reflect.get;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-var __superGet = (cls, obj, key) => __reflectGet(__getProtoOf(cls), key, obj);
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-
-const tpl = `
-<div class="row">
-    <div class="col col-auto" ka.for="let i of desc ">
-        <div class="card">
-            <div class="card-body p-1 m-1">
-                <div class="preview">
-                    <iframe ka.prop.src="'/html?className=' + i.className"></iframe>
-                    <div class="overlay"><a ka.prop.href="'/html?className=' + i.className">Show</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-`;
-let ShowcaseElement = class extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.KaCustomElement {
-  constructor() {
-    super();
-    let scope = this.init({
-      desc: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.data,
-      $on: {}
-    });
-  }
-  connectedCallback() {
-    return __async(this, null, function* () {
-      yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.ka_sleep)(1);
-      this.scope.desc = _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.data.filter((e) => e.category === this.getAttribute("data-category"));
-      console.log("connectedCallback", this.scope.desc);
-      __superGet(ShowcaseElement.prototype, this, "connectedCallback").call(this);
-    });
-  }
-  disconnectedCallback() {
-    return __async(this, null, function* () {
-      console.log("disconnect", this);
-      this.scope.desc = [];
-      __superGet(ShowcaseElement.prototype, this, "disconnectedCallback").call(this);
-    });
-  }
-};
-ShowcaseElement = __decorateClass([
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.template)(tpl),
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.customElement)("showcase-element")
-], ShowcaseElement);
-
-
-/***/ }),
-
-/***/ "./src.dev/SwitcherElement.ts":
-/*!************************************!*\
-  !*** ./src.dev/SwitcherElement.ts ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
-/* harmony import */ var _kasimirjs_kit_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @kasimirjs/kit-bootstrap */ "./node_modules/@kasimirjs/kit-bootstrap/dist/index.js");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-
-
-const tpl2 = `
-<div>
-    <select ka.options="$scope.desc" ka.bind="$scope.className" style="width:100%"></select>
-    <input ka.bind="$scope.text">
-</div>
-`;
-let SubElement = class extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.KaCustomElement {
-  constructor() {
-    super();
-    this.wrap(new _kasimirjs_kit_bootstrap__WEBPACK_IMPORTED_MODULE_2__.SidebarWrapper());
-    console.log(_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.classes);
-    let scope = this.init({
-      desc: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.classes,
-      text: "test",
-      className: "test",
-      $on: {
-        change: (e) => {
-          window.history.pushState({}, "", "?className=" + scope.className);
-        }
-      }
-    });
-    let last = "";
-    setInterval(() => __async(this, null, function* () {
-      var _a;
-      if (last === window.location.href) {
-        return;
-      }
-      console.log(window.location.href, last);
-      last = window.location.href;
-      let url = new URL(window.location.href);
-      let className = url.searchParams.get("className");
-      scope.className = className;
-      let daba = document.getElementsByTagName("joda-content")[0];
-      var MarkdownIt = __webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js");
-      var markdownItAttrs = __webpack_require__(/*! markdown-it-attrs */ "./node_modules/markdown-it-attrs/index.js");
-      var md = new MarkdownIt({
-        html: true
-        // Erlaubt HTML-Input.
-      });
-      md.use(markdownItAttrs);
-      let desc = _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.getDescription(className);
-      if (desc === null) {
-        newElement.innerHTML = "No description found";
-        daba.replaceWith(newElement);
-        return;
-      }
-      document.body.classList.add(...desc.config.bodyClasses);
-      let content = (_a = desc.example) != null ? _a : "No example found";
-      if (desc.config.parseMarkdown) {
-        content = content.replace(/\n{:/gm, "{:");
-        content = md.render(content);
-        content = "<joda-split>" + content + "</joda-split>";
-      }
-      let newElement = document.createElement("joda-content");
-      newElement.innerHTML = content;
-      daba.replaceWith(newElement);
-    }), 100);
-  }
-};
-SubElement = __decorateClass([
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.customElement)("switcher-element"),
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.template)(tpl2)
-], SubElement);
 
 
 /***/ }),
@@ -4247,7 +3379,107 @@ Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDF
 {: layout="use: #key-figures"}
 
 
+## Cards
+{: layout="use: #cards-slider"}
 
+> Warum sollten sich f\xFCr uns entscheiden?
+
+Hier gibt es nichts zu sehen
+
+
+
+
+### Webdesign & Online-Services
+
+![](/images/icons/icon-webdesign.webp)
+
+Dies ist ein Text
+
+### Webdesign & Online-Services
+
+![](/images/icons/icon-webdesign.webp)
+
+Diest ist ein Text
+
+
+## Was unsere Kunden Sagen
+{: layout="use: #customer-reviews"}
+
+> Das sagen unsere Kunden \xFCber uns
+
+Es kann ihnen eigentlich egal sein aber hier
+
+### Besser gehts nicht
+
+>  \u201EIch wollte schon die Polizei holen\u201C
+
+### Besser gehts nicht
+
+>  \u201EIch wollte schon die Polizei holen\u201C
+
+
+### Besser gehts nicht
+
+>  \u201EIch wollte schon die Polizei holen\u201C
+
+
+
+## Jetzt kostenlos beraten lassen
+{: layout="use: #cta1"}
+
+[Jetzt Konditionen freischalten](#){: class="btn btn-primary"}
+
+## Kontakt
+{: layout="use: #contact"}
+
+Nehen Sie
+
+
+## Newsletter
+{: layout="use: #newsletter" data-section-style="padding-top: 160px;" data-section-class="dark"}
+
+Melden Sie sich jetzt f\xFCr unseren Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschl\xE4ge und viele weitere hilfreiche Tipps f\xFCr Ihren Onlineauftritt.
+
+
+
+
+
+## Systemwebsite.de
+{: layout="use: #footer"}
+
+> Ihr Partner f\xFCr moderne medizinische Webseiten-Entwicklung
+
+
+
+### Links
+
+- [Konditionen](#)
+- [Leistungen](#)
+- [FAQ](#)
+- [Kontakt](#)
+
+### Links
+
+- [Konditionen](#)
+- [Leistungen](#)
+- [FAQ](#)
+- [Kontakt](#)
+
+### Folgen Sie uns
+
+- [LinkedIn](#)
+- [Xing](#)
+- [Facebook](#)
+- [Instragram](#)
+
+---
+{: .footer-nav}
+
+Copyright (c) 2023 Systemwebsite by leuffen.de
+
+- [AGB](#)
+- [Datenschutz](#)
+- [Impressum](#)
 
 `;
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.addClass(
@@ -4699,6 +3931,380 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./workspaces/jodastyle-dev/index.ts":
+/*!*******************************************!*\
+  !*** ./workspaces/jodastyle-dev/index.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   joda_dev_config: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.joda_dev_config)
+/* harmony export */ });
+/* harmony import */ var _src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/index */ "./workspaces/jodastyle-dev/src/index.ts");
+
+
+
+/***/ }),
+
+/***/ "./workspaces/jodastyle-dev/src/components/ExampleSwitcherElement.ts":
+/*!***************************************************************************!*\
+  !*** ./workspaces/jodastyle-dev/src/components/ExampleSwitcherElement.ts ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ExampleSwitcherElement: () => (/* binding */ ExampleSwitcherElement)
+/* harmony export */ });
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __decorateClass = (decorators, target, key, kind) => {
+  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
+  for (var i = decorators.length - 1, decorator; i >= 0; i--)
+    if (decorator = decorators[i])
+      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
+  if (kind && result)
+    __defProp(target, key, result);
+  return result;
+};
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+
+
+const tpl2 = `
+<div>
+    <select ka.options="$scope.desc" ka.bind="$scope.className" style="width:100%"></select>
+    <input ka.bind="$scope.text">
+</div>
+`;
+let ExampleSwitcherElement = class extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.KaCustomElement {
+  constructor() {
+    super();
+    console.log(_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.classes);
+    let scope = this.init({
+      desc: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.classes,
+      text: "test",
+      className: "test",
+      $on: {
+        change: (e) => {
+          window.history.pushState({}, "", "?className=" + scope.className);
+        }
+      }
+    });
+    let last = "";
+    setInterval(() => __async(this, null, function* () {
+      var _a;
+      if (last === window.location.href) {
+        return;
+      }
+      last = window.location.href;
+      let url = new URL(window.location.href);
+      let className = url.searchParams.get("className");
+      if (className === null) {
+        return;
+      }
+      scope.className = className;
+      let daba = document.getElementsByTagName("joda-content")[0];
+      var MarkdownIt = __webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js");
+      var markdownItAttrs = __webpack_require__(/*! markdown-it-attrs */ "./node_modules/markdown-it-attrs/index.js");
+      var md = new MarkdownIt({
+        html: true
+        // Erlaubt HTML-Input.
+      }, null);
+      md.use(markdownItAttrs);
+      let desc = _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.getDescription(className);
+      if (desc === void 0 || desc === null) {
+        let newElement2 = document.createElement("div");
+        newElement2.innerHTML = "No description found";
+        daba.replaceWith(newElement2);
+        return;
+      }
+      document.body.classList.add(...desc.config.bodyClasses);
+      let content = (_a = desc.example) != null ? _a : "No example found";
+      if (desc.config.parseMarkdown) {
+        content = content.replace(/\n{:/gm, "{:");
+        content = md.render(content);
+        content = "<joda-split>" + content + "</joda-split>";
+      }
+      let newElement = document.createElement("joda-content");
+      newElement.innerHTML = content;
+      daba.replaceWith(newElement);
+    }), 100);
+  }
+};
+ExampleSwitcherElement = __decorateClass([
+  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.customElement)("joda-example-switcher"),
+  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.template)(tpl2)
+], ExampleSwitcherElement);
+
+
+/***/ }),
+
+/***/ "./workspaces/jodastyle-dev/src/components/JodaDevSidebarElement.ts":
+/*!**************************************************************************!*\
+  !*** ./workspaces/jodastyle-dev/src/components/JodaDevSidebarElement.ts ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _kasimirjs_kit_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @kasimirjs/kit-bootstrap */ "./node_modules/@kasimirjs/kit-bootstrap/dist/index.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../index */ "./workspaces/jodastyle-dev/src/index.ts");
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __decorateClass = (decorators, target, key, kind) => {
+  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
+  for (var i = decorators.length - 1, decorator; i >= 0; i--)
+    if (decorator = decorators[i])
+      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
+  if (kind && result)
+    __defProp(target, key, result);
+  return result;
+};
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+
+
+
+
+const config = {
+  icon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-display-fill" viewBox="0 0 16 16">
+      <path d="M6 12c0 .667-.083 1.167-.25 1.5H5a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-.75c-.167-.333-.25-.833-.25-1.5h4c2 0 2-2 2-2V4c0-2-2-2-2-2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h4z"/>
+    </svg>`
+};
+const tpl2 = `
+<div>
+    
+    <h3 class="">JodaStyle Dev</h3>
+    <quick-input ka.bind="$scope.siteConfig.disable_split" data-label="Disable Joda Split " data-name="test" data-type="switch"></quick-input>
+    <quick-input ka.bind="$scope.siteConfig.disable_templates" data-label="Disable Joda Templates " data-name="test" data-type="switch"></quick-input>
+    <quick-input ka.bind="$scope.siteConfig.disable_responsive" data-label="Disable Joda Responsive" data-name="test" data-type="switch"></quick-input>
+    <quick-input ka.bind="$scope.siteConfig.debug_visualize" data-label="Joda Debug Visualize" data-name="test" data-type="switch"></quick-input>
+    <quick-input ka.if="siteConfig.debug_visualize" ka.bind="$scope.siteConfig.debug_visualize_attribute" data-label="Add Attributes to Visualize" data-name="test" data-type="switch"></quick-input>
+    <hr>
+    <joda-example-switcher></joda-example-switcher>
+</div>
+`;
+let JodaDevSidebarElement = class extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.KaCustomElement {
+  constructor() {
+    super();
+    this.shadowRootConfig.mode = "closed";
+    this.shadowRootConfig.stylesheets = [
+      _index__WEBPACK_IMPORTED_MODULE_3__.joda_dev_config.stylesheet
+    ];
+    this.wrap(new _kasimirjs_kit_bootstrap__WEBPACK_IMPORTED_MODULE_2__.SidebarWrapper(config));
+    let scope = this.init({
+      desc: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.classes,
+      siteConfig: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.jodaSiteConfig,
+      $on: {
+        change: (e) => __async(this, null, function* () {
+          yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(100);
+          window.location.reload();
+        })
+      }
+    });
+    let last = "";
+  }
+};
+JodaDevSidebarElement = __decorateClass([
+  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.customElement)("joda-dev-sidebar"),
+  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.template)(tpl2)
+], JodaDevSidebarElement);
+(() => __async(undefined, null, function* () {
+  yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_dom_ready)();
+  document.body.append(new JodaDevSidebarElement());
+}))();
+
+
+/***/ }),
+
+/***/ "./workspaces/jodastyle-dev/src/components/JodaShowcaseElement.ts":
+/*!************************************************************************!*\
+  !*** ./workspaces/jodastyle-dev/src/components/JodaShowcaseElement.ts ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../index */ "./workspaces/jodastyle-dev/src/index.ts");
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getProtoOf = Object.getPrototypeOf;
+var __reflectGet = Reflect.get;
+var __decorateClass = (decorators, target, key, kind) => {
+  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
+  for (var i = decorators.length - 1, decorator; i >= 0; i--)
+    if (decorator = decorators[i])
+      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
+  if (kind && result)
+    __defProp(target, key, result);
+  return result;
+};
+var __superGet = (cls, obj, key) => __reflectGet(__getProtoOf(cls), key, obj);
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+
+
+
+const tpl = `
+    <div class="joda-showcase-element" ka.classlist="classes">
+        <div class="row " >
+            <div class="col col-auto" ka.for="let i of desc ">
+                <div class="card">
+                    <div class="card-body p-1 m-1">
+                        <div class="preview">
+                            <iframe ka.prop.src="'/html?className=' + i.className"></iframe>
+                            <div class="overlay"><a ka.prop.href="'/html?className=' + i.className">Show</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+let JodaShowcaseElement = class extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.KaCustomElement {
+  constructor() {
+    super();
+    this.shadowRootConfig.mode = "closed";
+    this.shadowRootConfig.stylesheets = [
+      _index__WEBPACK_IMPORTED_MODULE_2__.joda_dev_config.stylesheet
+    ];
+    let scope = this.init({
+      desc: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.data,
+      classes: [],
+      $on: {}
+    });
+  }
+  connectedCallback() {
+    return __async(this, null, function* () {
+      yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.ka_sleep)(1);
+      this.scope.classes = this.getAttribute("class");
+      this.scope.desc = _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.data.filter((e) => e.category === this.getAttribute("data-category"));
+      console.log("connectedCallback", this.scope.desc);
+      __superGet(JodaShowcaseElement.prototype, this, "connectedCallback").call(this);
+    });
+  }
+  disconnectedCallback() {
+    return __async(this, null, function* () {
+      console.log("disconnect", this);
+      this.scope.desc = [];
+      __superGet(JodaShowcaseElement.prototype, this, "disconnectedCallback").call(this);
+    });
+  }
+};
+JodaShowcaseElement = __decorateClass([
+  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.template)(tpl),
+  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.customElement)("joda-showcase-element")
+], JodaShowcaseElement);
+
+
+/***/ }),
+
+/***/ "./workspaces/jodastyle-dev/src/config.ts":
+/*!************************************************!*\
+  !*** ./workspaces/jodastyle-dev/src/config.ts ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   joda_dev_config: () => (/* binding */ joda_dev_config)
+/* harmony export */ });
+let joda_dev_config = {
+  stylesheet: "/assets/dist/dev.css"
+  // Define the stylsheet to use for shadowRoot
+};
+
+
+/***/ }),
+
+/***/ "./workspaces/jodastyle-dev/src/index.ts":
+/*!***********************************************!*\
+  !*** ./workspaces/jodastyle-dev/src/index.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   joda_dev_config: () => (/* reexport safe */ _config__WEBPACK_IMPORTED_MODULE_0__.joda_dev_config)
+/* harmony export */ });
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config */ "./workspaces/jodastyle-dev/src/config.ts");
+/* harmony import */ var _components_JodaShowcaseElement__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/JodaShowcaseElement */ "./workspaces/jodastyle-dev/src/components/JodaShowcaseElement.ts");
+/* harmony import */ var _components_JodaDevSidebarElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/JodaDevSidebarElement */ "./workspaces/jodastyle-dev/src/components/JodaDevSidebarElement.ts");
+/* harmony import */ var _components_ExampleSwitcherElement__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ExampleSwitcherElement */ "./workspaces/jodastyle-dev/src/components/ExampleSwitcherElement.ts");
+
+
+
+
+
+
+/***/ }),
+
 /***/ "./workspaces/jodastyle/index.ts":
 /*!***************************************!*\
   !*** ./workspaces/jodastyle/index.ts ***!
@@ -4731,8 +4337,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _processor_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../processor/jodastyle */ "./workspaces/jodastyle/src/processor/jodastyle.ts");
 /* harmony import */ var _processor_jodaresponsive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../processor/jodaresponsive */ "./workspaces/jodastyle/src/processor/jodaresponsive.ts");
 /* harmony import */ var _helper_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helper/logger */ "./workspaces/jodastyle/src/helper/logger.ts");
-/* harmony import */ var _processor_jodaimageproc__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../processor/jodaimageproc */ "./workspaces/jodastyle/src/processor/jodaimageproc.ts");
-/* harmony import */ var _processor_jodavisualize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../processor/jodavisualize */ "./workspaces/jodastyle/src/processor/jodavisualize.ts");
+/* harmony import */ var _processor_jodavisualize__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../processor/jodavisualize */ "./workspaces/jodastyle/src/processor/jodavisualize.ts");
+/* harmony import */ var _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../helper/JodaSiteConfig */ "./workspaces/jodastyle/src/helper/JodaSiteConfig.ts");
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __decorateClass = (decorators, target, key, kind) => {
@@ -4747,10 +4353,6 @@ var __decorateClass = (decorators, target, key, kind) => {
 var __accessCheck = (obj, member, msg) => {
   if (!member.has(obj))
     throw TypeError("Cannot " + msg);
-};
-var __privateGet = (obj, member, getter) => {
-  __accessCheck(obj, member, "read from private field");
-  return getter ? getter.call(obj) : member.get(obj);
 };
 var __privateAdd = (obj, member, value) => {
   if (member.has(obj))
@@ -4838,19 +4440,20 @@ let JodaContentElement = class extends HTMLElement {
     return __async(this, null, function* () {
       let logger = new _helper_logger__WEBPACK_IMPORTED_MODULE_3__.Logger("joda-content");
       yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(1);
-      let jodaImage = new _processor_jodaimageproc__WEBPACK_IMPORTED_MODULE_4__.JodaImageProc(logger);
-      yield jodaImage.process(this);
       yield this.awaitStyles();
       __privateSet(this, _origContentTemplate, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("template"));
       __privateSet(this, _outputDiv, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("div"));
+      if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.disable_templates) {
+        this.setLoaded();
+        return;
+      }
       let jodaStyle = new _processor_jodastyle__WEBPACK_IMPORTED_MODULE_1__.Jodastyle(logger);
       yield jodaStyle.process(this);
       let jodaresponsive = new _processor_jodaresponsive__WEBPACK_IMPORTED_MODULE_2__.Jodaresponsive(logger);
       let currentBreakpoint = (0,_processor_jodaresponsive__WEBPACK_IMPORTED_MODULE_2__.getCurrentBreakpoint)();
       jodaresponsive.process(this);
-      if (this.hasAttribute("visualize")) {
-        logger.log("Adding class and tag names");
-        new _processor_jodavisualize__WEBPACK_IMPORTED_MODULE_5__.Jodavisualize().process(__privateGet(this, _outputDiv));
+      if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.debug_visualize && _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.debug_visualize_attribute) {
+        new _processor_jodavisualize__WEBPACK_IMPORTED_MODULE_4__.Jodavisualize().process(this);
       }
       this.setLoaded();
       window.addEventListener("resize", () => {
@@ -4956,6 +4559,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _processor_jodasplit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../processor/jodasplit */ "./workspaces/jodastyle/src/processor/jodasplit.ts");
 /* harmony import */ var _helper_logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/logger */ "./workspaces/jodastyle/src/helper/logger.ts");
 /* harmony import */ var _processor_jodashorts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../processor/jodashorts */ "./workspaces/jodastyle/src/processor/jodashorts.ts");
+/* harmony import */ var _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helper/JodaSiteConfig */ "./workspaces/jodastyle/src/helper/JodaSiteConfig.ts");
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __decorateClass = (decorators, target, key, kind) => {
@@ -5010,6 +4614,7 @@ var _ready;
 
 
 
+
 let JodaSplit = class extends HTMLElement {
   constructor() {
     super(...arguments);
@@ -5022,6 +4627,13 @@ let JodaSplit = class extends HTMLElement {
     return __async(this, null, function* () {
       let logger = new _helper_logger__WEBPACK_IMPORTED_MODULE_2__.Logger("joda-split");
       yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(1);
+      if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_4__.jodaSiteConfig.debug_visualize) {
+        this.classList.add("joda-debug-visualize");
+      }
+      if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_4__.jodaSiteConfig.disable_split) {
+        __privateSet(this, _ready, true);
+        return;
+      }
       let jodaShorts = new _processor_jodashorts__WEBPACK_IMPORTED_MODULE_3__.Jodashorts(logger);
       this.innerHTML = yield jodaShorts.process(this.innerHTML);
       let jodaSplit = new _processor_jodasplit__WEBPACK_IMPORTED_MODULE_1__.Jodasplit(logger);
@@ -5086,6 +4698,10 @@ class __JodaDescriptionManager {
   }
   get data() {
     var _a;
+    if (window["jodastyle"] === void 0) {
+      console.warn("[jodastyle description manager] No jodastyle descriptions found (Make sure you imported a theme) => window.jodastyle is undefined");
+      return [];
+    }
     return (_a = window["jodastyle"]["descriptions"]) != null ? _a : [];
   }
   get classes() {
@@ -5218,116 +4834,30 @@ JodaErrorElement = __decorateClass([
 
 /***/ }),
 
-/***/ "./workspaces/jodastyle/src/helper/MediaSupport.ts":
-/*!*********************************************************!*\
-  !*** ./workspaces/jodastyle/src/helper/MediaSupport.ts ***!
-  \*********************************************************/
+/***/ "./workspaces/jodastyle/src/helper/JodaSiteConfig.ts":
+/*!***********************************************************!*\
+  !*** ./workspaces/jodastyle/src/helper/JodaSiteConfig.ts ***!
+  \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MediaSupport: () => (/* binding */ MediaSupport),
-/* harmony export */   getMediaSupport: () => (/* binding */ getMediaSupport)
+/* harmony export */   jodaSiteConfig: () => (/* binding */ jodaSiteConfig)
 /* harmony export */ });
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-const bestFormats = [
-  "svg",
-  "avif",
-  "webp",
-  "jpg",
-  "jpeg",
-  "png",
-  "gif"
-];
-class MediaSupport {
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+
+class JodaSiteConfig {
   constructor() {
-    this.avif = null;
-    this.webp = null;
-    this.jpg = true;
-    this.jpeg = true;
-    this.gif = true;
-    this.png = true;
-    this.valid = false;
+    this.disable_split = false;
+    this.disable_templates = false;
+    this.disable_responsive = false;
+    this.debug_visualize = false;
+    this.debug_visualize_attribute = false;
   }
-  detect() {
-    return __async(this, null, function* () {
-      this.webp = yield testWebP();
-      this.avif = yield testAvif();
-      console.log("Media supports", this);
-      this.valid = true;
-    });
-  }
-  isSupported(extension) {
-    extension = extension.trim().toLowerCase();
-    if (typeof this[extension] === "undefined")
-      return false;
-    return this[extension];
-  }
-  getBestExtension(extensions) {
-    for (let curExt of bestFormats) {
-      if (typeof extensions.find((e) => e === curExt) !== "undefined" && this.isSupported(curExt))
-        return curExt;
-    }
-    return null;
-  }
+  // Add Attribution to visualized elements
 }
-function testWebP() {
-  return new Promise((res) => {
-    const webP = new Image();
-    webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
-    webP.onload = webP.onerror = () => {
-      res(webP.height === 2);
-    };
-  });
-}
-;
-function testAvif() {
-  return new Promise((res) => {
-    const webP = new Image();
-    webP.src = "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
-    webP.onload = webP.onerror = () => {
-      res(webP.height === 2);
-    };
-  });
-}
-;
-let promises = null;
-let mediaSupport = new MediaSupport();
-function getMediaSupport() {
-  return __async(this, null, function* () {
-    if (promises === null) {
-      promises = [];
-      yield mediaSupport.detect();
-      promises.forEach((exec) => exec(mediaSupport));
-    }
-    if (mediaSupport.valid === false) {
-      return new Promise((resolve) => {
-        promises.push(resolve);
-      });
-    }
-    return mediaSupport;
-  });
-}
+const jodaSiteConfig = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_session_storage)(new JodaSiteConfig(), "jodaSiteConfig");
 
 
 /***/ }),
@@ -5565,6 +5095,17 @@ function parseConfigString(input) {
   }
   return obj;
 }
+function copyDataChildAttributes(source, target) {
+  Array.from(source.attributes).forEach((attr) => {
+    if (attr.name.startsWith("data-child-")) {
+      if (attr.name === "data-child-class") {
+        target.classList.add(...attr.value.split(" ").filter((value) => value !== ""));
+        return;
+      }
+      target.setAttribute(attr.name.substring(11), attr.value);
+    }
+  });
+}
 let slotIndex = 0;
 function getTemplateFilledWithContent(templateSelector, content, origElement) {
   return __async(this, null, function* () {
@@ -5605,6 +5146,9 @@ function getTemplateFilledWithContent(templateSelector, content, origElement) {
       } else {
         selected = Array.from(content.querySelectorAll(select)).map((element) => element.cloneNode(true));
       }
+      selected.forEach((element) => {
+        copyDataChildAttributes(slot2, element);
+      });
       if (selected.length === 0) {
         console.warn("No element found for selector: " + select + " in template: " + templateSelector + " for slot: ", slot2);
         return;
@@ -5632,11 +5176,9 @@ function getTemplateFilledWithContent(templateSelector, content, origElement) {
         console.warn("No element found for selector: " + select + " in template: " + templateSelector + " for slot: ", slot2);
         return;
       }
-      if (slot2.hasAttribute("data-class")) {
-        selected.forEach((element) => {
-          element.classList.add(...slot2.getAttribute("data-class").split(" ").filter((value) => value !== ""));
-        });
-      }
+      selected.forEach((element) => {
+        copyDataChildAttributes(slot2, element);
+      });
       if (slot2.hasAttribute("data-replace") && selected) {
         slot2.replaceWith(...selected);
       } else if (selected) {
@@ -5809,7 +5351,7 @@ class Logger {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DefaultLayout: () => (/* reexport safe */ _types_DefaultLayout__WEBPACK_IMPORTED_MODULE_6__.DefaultLayout),
-/* harmony export */   Joda: () => (/* reexport safe */ _joda__WEBPACK_IMPORTED_MODULE_10__.Joda),
+/* harmony export */   Joda: () => (/* reexport safe */ _joda__WEBPACK_IMPORTED_MODULE_11__.Joda),
 /* harmony export */   JodaContentElement: () => (/* reexport safe */ _component_joda_content_element__WEBPACK_IMPORTED_MODULE_1__.JodaContentElement),
 /* harmony export */   JodaDescriptionManager: () => (/* reexport safe */ _helper_JodaDescriptionManager__WEBPACK_IMPORTED_MODULE_7__.JodaDescriptionManager),
 /* harmony export */   Jodasplit: () => (/* reexport safe */ _processor_jodasplit__WEBPACK_IMPORTED_MODULE_9__.Jodasplit),
@@ -5820,6 +5362,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getCleanVariableValue: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.getCleanVariableValue),
 /* harmony export */   getTemplateFilledWithContent: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.getTemplateFilledWithContent),
 /* harmony export */   jodaRenderer: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.jodaRenderer),
+/* harmony export */   jodaSiteConfig: () => (/* reexport safe */ _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_10__.jodaSiteConfig),
 /* harmony export */   parseConfigString: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.parseConfigString),
 /* harmony export */   registerJodaRenderer: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.registerJodaRenderer),
 /* harmony export */   splitChildrenBySelector: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.splitChildrenBySelector),
@@ -5843,7 +5386,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helper_JodaDescriptionManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helper/JodaDescriptionManager */ "./workspaces/jodastyle/src/helper/JodaDescriptionManager.ts");
 /* harmony import */ var _helper_logger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helper/logger */ "./workspaces/jodastyle/src/helper/logger.ts");
 /* harmony import */ var _processor_jodasplit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./processor/jodasplit */ "./workspaces/jodastyle/src/processor/jodasplit.ts");
-/* harmony import */ var _joda__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./joda */ "./workspaces/jodastyle/src/joda.ts");
+/* harmony import */ var _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helper/JodaSiteConfig */ "./workspaces/jodastyle/src/helper/JodaSiteConfig.ts");
+/* harmony import */ var _joda__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./joda */ "./workspaces/jodastyle/src/joda.ts");
+
 
 
 
@@ -5926,92 +5471,6 @@ class LayoutProcessor {
       node.style.setProperty("--layout-" + key, layout[key]);
     }
     return node;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/processor/jodaimageproc.ts":
-/*!*************************************************************!*\
-  !*** ./workspaces/jodastyle/src/processor/jodaimageproc.ts ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   JodaImageProc: () => (/* binding */ JodaImageProc)
-/* harmony export */ });
-/* harmony import */ var _vendor_LeuCDNImageProc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../vendor/LeuCDNImageProc */ "./workspaces/jodastyle/src/vendor/LeuCDNImageProc.ts");
-/* harmony import */ var _helper_MediaSupport__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/MediaSupport */ "./workspaces/jodastyle/src/helper/MediaSupport.ts");
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-
-let imageIndex = 0;
-class JodaImageProc {
-  constructor(logger) {
-    this.logger = logger;
-  }
-  getBestResolution(data) {
-    data.sort((a, b) => {
-      if (a.width < b.width)
-        return -1;
-      if (a.width > b.width)
-        return 1;
-      return 0;
-    });
-    let fit = data.find((e) => e.width >= window.innerWidth);
-    if (typeof fit === "undefined")
-      fit = data[data.length - 1];
-    return fit != null ? fit : { width: 0, height: 0 };
-  }
-  getBestFormat(formats, mediaSupport) {
-    return mediaSupport.getBestExtension(formats);
-  }
-  process(node) {
-    return __async(this, null, function* () {
-      let processor = new _vendor_LeuCDNImageProc__WEBPACK_IMPORTED_MODULE_0__.LeuCDNImageProc();
-      let mediaSupport = yield (0,_helper_MediaSupport__WEBPACK_IMPORTED_MODULE_1__.getMediaSupport)();
-      for (let imgNode of node.querySelectorAll("img[src]")) {
-        imageIndex++;
-        let src = imgNode.getAttribute("src");
-        if (!processor.isSuitable(src))
-          continue;
-        imgNode.setAttribute("data-src-orig", src);
-        let data = processor.parseUrl(src);
-        let bestFit = this.getBestResolution(data.resolutions);
-        imgNode.setAttribute("width", bestFit.width.toString());
-        imgNode.setAttribute("height", bestFit.height.toString());
-        if (imgNode.getAttribute("alt") === null)
-          imgNode.setAttribute("alt", data.alt);
-        imgNode.setAttribute("src", data.getUrl(bestFit, this.getBestFormat(data.formats, mediaSupport)));
-        if (imageIndex < 3) {
-          imgNode.setAttribute("loading", "eager");
-        } else {
-          imgNode.setAttribute("loading", "lazy");
-        }
-      }
-    });
   }
 }
 
@@ -6222,6 +5681,24 @@ var __privateSet = (obj, member, value, setter) => {
 };
 var _target, _parents, _currentParent, _currentContent, _currentChildren;
 
+function copySectionAttributes(source, target) {
+  source.getAttributeNames().forEach((name) => {
+    if (!name.startsWith("data-section-")) {
+      return;
+    }
+    let value = source.getAttribute(name);
+    name = name.substr(13);
+    if (name === "class") {
+      target.classList.add(...value.split(" ").filter((c) => c.length > 0));
+      return;
+    }
+    if (name === "style") {
+      target.setAttribute("style", (target.getAttribute("style") || "") + value);
+      return;
+    }
+    target.setAttribute(name, value);
+  });
+}
 class Jodasplit {
   constructor(logger) {
     this.logger = logger;
@@ -6288,6 +5765,7 @@ class Jodasplit {
         let e = this.createNewElement(child.tagName.toLowerCase(), layer, tag);
         e.setAttribute("layout", child.getAttribute("layout") || "");
         child.removeAttribute("layout");
+        copySectionAttributes(child, e);
         if (child.tagName === "HR" && !child.classList.contains("hr")) {
           e.setAttribute("style", child.getAttribute("style") || "");
           child.removeAttribute("style");
@@ -6297,7 +5775,6 @@ class Jodasplit {
         }
       }
       if (child.tagName === "HR" && !child.classList.contains("hr")) {
-        console.log("hr", child);
         child.setAttribute("orig-pre-split-class", child.getAttribute("class"));
         child.setAttribute("class", "d-none");
       }
@@ -6603,65 +6080,6 @@ class DefaultLayout {
   constructor() {
     this.container = "container";
     this.break1 = "xl";
-  }
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/vendor/LeuCDNImageProc.ts":
-/*!************************************************************!*\
-  !*** ./workspaces/jodastyle/src/vendor/LeuCDNImageProc.ts ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   LeuCDNImageProc: () => (/* binding */ LeuCDNImageProc)
-/* harmony export */ });
-class LeuCDNImageProc {
-  isSuitable(url) {
-    return url.startsWith("cdn") || url.startsWith("data:image,cdn");
-  }
-  parseUrl(url) {
-    let ret = {
-      formats: [],
-      resolutions: []
-    };
-    url = url.replace("cdn+https://", "https://");
-    url = url.replace("cdn://", "https://cdn.leuffen.de");
-    url = url.replace(/\/(([0-9]+x[0-9]+|[,_])+)\//ig, (p0, sizes) => {
-      sizes.split(/[,_]/g).forEach((size) => {
-        ret.resolutions.push(
-          {
-            width: parseInt(size.split("x")[0]),
-            height: parseInt(size.split("x")[1])
-          }
-        );
-      });
-      return "/@size@/";
-    });
-    ret.resolutions.sort((a, b) => {
-      if (a.width < b.width)
-        return -1;
-      if (a.width > b.width)
-        return 1;
-      return 0;
-    });
-    url = url.replace(/([a-z0-9_\-]+)\.([a-z0-9\,_]+)$/ig, (p0, name, formats) => {
-      ret.formats = formats.replace(/,/gm, "_").split("_");
-      ret.filename = name;
-      ret["__filename"] = name;
-      ret.alt = name.replace(/_+/, " ");
-      return "@file@";
-    });
-    ret.getUrl = (resolution, format) => {
-      let loadUrl = url.replace(/@size@/g, resolution.width + "x" + resolution.height);
-      loadUrl = loadUrl.replace(/@file@/g, ret.filename + "." + format);
-      return loadUrl;
-    };
-    return ret;
   }
 }
 
@@ -16068,19 +15486,6 @@ module.exports = urlParse;
 
 /***/ }),
 
-/***/ "./src.dev/dev.scss":
-/*!**************************!*\
-  !*** ./src.dev/dev.scss ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./node_modules/punycode/punycode.es6.js":
 /*!***********************************************!*\
   !*** ./node_modules/punycode/punycode.es6.js ***!
@@ -16646,6 +16051,243 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols",
 
 /***/ }),
 
+/***/ "./sections/cards-slider/cards-slider.ts":
+/*!***********************************************!*\
+  !*** ./sections/cards-slider/cards-slider.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-slider__list-item",
+    // language=HTML
+    `
+        <li class="tjs-cards-slider__list-item" data-card-id="1">
+            <div class="tjs-cards-slider__list-item-body">
+                <div class="tjs-cards-slider__list-item-body--row">
+                    <div class="tjs-cards-slider__list-item-body--row__col">
+                        <slot data-select="h3"></slot>
+                    </div>
+                    <div class="tjs-cards-slider__list-item-body--row__col">
+                        <slot data-select="img"></slot>
+                    </div>
+                </div>
+                <div class="tjs-cards-slider__list-item-body--text">
+                   <slot></slot>
+                </div>
+            </div>
+        </li>
+    `)
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-slider",
+    // language=HTML
+    `
+        <div class="tjs-cards-slider">
+            <div class="tjs-wrapper container">
+                <div class="tjs-cards-slider__col">
+                    <div class="tjs-cards-slider__text">
+                        <slot></slot>
+                    </div>
+                </div>
+                <div class="tjs-cards-slider__col">
+                    <ul class="tjs-cards-slider__list">
+                        <slot data-select=".children > *" data-child-layout="use: #cards-slider__list-item;"></slot>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    `);
+
+
+/***/ }),
+
+/***/ "./sections/contact/contact.ts":
+/*!*************************************!*\
+  !*** ./sections/contact/contact.ts ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("contact",
+    // language=HTML
+    `
+        <section class="tjs__contact overlap-next">
+            <div class="tjs__wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 tjs__newsletter__text">
+                            <strong>Kontakt</strong>
+                            <h2>Vereinbaren Sie ein kostenloses Beratungs&shy;gespräch.</h2>
+
+                            <div class="tjs__newsletter__list">
+                                <strong>Ihre Vorteile</strong>
+                                <ul>
+                                    <li>Keine Einrichtungskosten</li>
+                                    <li>Jederzeit kündbar</li>
+                                    <li>30-Tage Geld-Zurück-Garantie</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <form>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" placeholder="Ihr Vor- und Nachname" id="contact-input-name" required>
+                                    <label for="contact-input-name">Ihr Vor- und Nachname</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" placeholder="Ihre E-Mail-Adresse" id="contact-input-email" required>
+                                    <label for="contact-input-email">Ihre E-Mail-Adresse</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="tel" class="form-control" placeholder="Ihre Telefonnummer (optional)" id="contact-input-phone">
+                                    <label for="contact-input-phone">Ihre Telefonnummer (optional)</label>
+                                </div>
+
+                                <div class="tjs__newsletter__callback-wrapper">
+                                    <span>Kontaktieren Sie mich per:</span>
+                                    <div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="contact-input-callback-type" id="contact-input-callback-type-phone">
+                                            <label class="form-check-label" for="contact-input-callback-type-phone">
+                                                Telefon
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="contact-input-callback-type" id="contact-input-callback-type-email" checked>
+                                            <label class="form-check-label" for="contact-input-callback-type-email">
+                                                E-Mail
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tjs__newsletter__privacy-wrapper">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="contact-input-callback-privacy">
+                                        <label class="form-check-label" for="contact-input-callback-privacy">
+                                            Ich akzeptiere die <a href="#">Nutzungsbedingungen</a> und <a href="#">Datenschutzerklärungen</a>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button type="submit">Absenden</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `);
+
+
+/***/ }),
+
+/***/ "./sections/cta1/cta1.ts":
+/*!*******************************!*\
+  !*** ./sections/cta1/cta1.ts ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cta1",
+    // language=HTML
+    `
+        <div class="tjs-2-cols-bg">
+            <div class="tjs-wrapper tjs-2-cols-bg--special container">
+                <div class="tjs-2-cols-bg__disturber-image">
+
+                    <img loading="lazy" src="/images/man-showing.webp">
+
+                </div>
+                <div class="tjs-2-cols-bg__disturber-stars">
+
+                        <img loading="lazy" class="tjs-2-cols-bg__disturber-stars--left" src="/images/stars.webp">
+                    <img loading="lazy" class="tjs-2-cols-bg__disturber-stars--right" src="/images/stars.webp">
+
+                </div>
+                <div class="tjs-2-cols-bg__row tjs-2-cols-bg__row--special">
+                    <div class="tjs-2-cols-bg__col tjs-2-cols-bg__col--text-content">
+                        <slot></slot>
+                    </div>
+                    <div class="tjs-2-cols-bg__col tjs-2-cols-bg__col--button-content">
+                        <slot data-select=".btn"></slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `);
+
+
+/***/ }),
+
+/***/ "./sections/customer-reviews/customer-reviews.ts":
+/*!*******************************************************!*\
+  !*** ./sections/customer-reviews/customer-reviews.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("customer-reviews__carousel--slide",
+    // language=HTML
+    `
+        <div class="tjs-customer-reviews__carousel--slide">
+            <div class="tjs-customer-reviews__carousel--slide__stars">
+                Sterne Icon?
+            </div>
+            <div class="tjs-customer-reviews__carousel--slide__text">
+                <slot data-select="blockquote"></slot>
+            </div>
+            <div class="tjs-customer-reviews__carousel--slide__author">
+                <slot></slot>
+            </div>
+        </div>
+    `)
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("customer-reviews",
+    // language=HTML
+    `
+        <div class="tjs-customer-reviews">
+            <div class="tjs-wrapper container-fluid">
+                <div class="tjs-customer-reviews__content--container">
+                    <div class="tjs-customer-reviews__content container">
+                        <div class="tjs-customer-reviews__content--headline">
+                            <slot><slot>
+                        </div>
+                        <div class="tjs-customer-reviews__content--row">
+                            <div class="tjs-customer-reviews__content--col tjs-customer-reviews__carousel">
+                                <slot data-select=".children > *" data-child-layout="use: #customer-reviews__carousel--slide;"></slot>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `);
+
+
+/***/ }),
+
 /***/ "./sections/disturber/disturber.ts":
 /*!*****************************************!*\
   !*** ./sections/disturber/disturber.ts ***!
@@ -16667,6 +16309,96 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("disturber
                 </div>
             </div>
         </div>
+    `);
+
+
+/***/ }),
+
+/***/ "./sections/footer/footer.ts":
+/*!***********************************!*\
+  !*** ./sections/footer/footer.ts ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("footer",
+    // language=HTML
+    `
+        <section class="tjs__footer">
+            <div class="tjs__footer__shape"></div>
+            <div class="tjs__footer__shape"></div>
+            <div class="tjs__wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-3">
+                            <img
+                                src="/static/images/logo-systemwebsite-white.png"
+                                alt="Logo Systemwebseite"
+                                class="tjs__footer__logo"
+                            >
+                            <p>Ihr Partner für moderne medizinische Webseiten-Entwicklung</p>
+                        </div>
+                        <div class="col-6 col-lg-2 offset-lg-3 tjs__footer_links">
+                            <strong>Links</strong>
+                            <div>
+                                <a href="#">Konditionen</a>
+                                <a href="#">Leistungen</a>
+                                <a href="#">FAQ</a>
+                                <a href="#">Kontakt</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-2 tjs__footer_links">
+                            <strong>Links</strong>
+                            <div>
+                                <a href="#">Konditionen</a>
+                                <a href="#">Leistungen</a>
+                                <a href="#">FAQ</a>
+                                <a href="#">Kontakt</a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-2 tjs__footer_links tjs__footer_links__mobile__images">
+                            <strong>Folgen Sie Uns</strong>
+                            <div>
+                                <a href="#">
+                                    <img src="/static/icons/linkedin.svg" alt="">
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="#">
+                                    <img src="/static/icons/xing.svg" alt="">
+                                    <span>Xing</span>
+                                </a>
+                                <a href="#">
+                                    <img src="/static/icons/facebook.svg" alt="">
+                                    <span>Facebook</span>
+                                </a>
+                                <a href="#">
+                                    <img src="/static/icons/instagram.svg" alt="">
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <hr>
+                        <div class="tjs__footer__legal">
+                            <span>Copyright &copy; 2023 SYSTEMWEBSEITE</span>
+                            <div class="tjs__footer__legal__links">
+                                <span><a href="#">AGB</a></span>
+                                <span><a href="#">Datenschutz</a></span>
+                                <span><a href="#">Impressum</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     `);
 
 
@@ -16783,7 +16515,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("icon-catc
                     <slot></slot>
                 </div>
                 <div class="tjs-icon-catchphrases__items">
-                    <slot data-select="ul > li"></slot>
+                    <slot data-select="ul > li" data-child-layout="wrap:  #icon-catchprases__item"></slot>
                 </div>
             </div>
         </section>
@@ -16842,6 +16574,47 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("key-figur
 
 /***/ }),
 
+/***/ "./sections/newsletter/newsletter.ts":
+/*!*******************************************!*\
+  !*** ./sections/newsletter/newsletter.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("newsletter",
+    // language=HTML
+    `
+        <div class="tjs__newsletter dark">
+            <div class="tjs__wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-6 tjs__newsletter__text">
+                            <strong>Newsletter</strong>
+                            <p>Melden Sie sich zum Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschläge und viele weitere hilfreiche Tipps für Ihren Onlineauftritt.</p>
+                        </div>
+                        <div class="col-12 col-md-6 tjs__newsletter__input-wrapper">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="E-Mail eintragen">
+                                <span class="input-group-text inside">Anmelden</span>
+                            </div>
+                            <span class="input-group-text outside">Anmelden</span>
+                        </div>
+                        <img src="/images/icons/stars-left.svg" alt="0" class="tjs__newsletter__icon">
+                        <img src="/images/icons/stars-right.svg" alt="0" class="tjs__newsletter__icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+    `);
+
+
+/***/ }),
+
 /***/ "./sections/sections.ts":
 /*!******************************!*\
   !*** ./sections/sections.ts ***!
@@ -16856,6 +16629,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _service_slider_service_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./service-slider/service-slider */ "./sections/service-slider/service-slider.ts");
 /* harmony import */ var _2_cols_2_cols__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./2-cols/2-cols */ "./sections/2-cols/2-cols.ts");
 /* harmony import */ var _key_figures_key_figures__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./key-figures/key-figures */ "./sections/key-figures/key-figures.ts");
+/* harmony import */ var _cards_slider_cards_slider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cards-slider/cards-slider */ "./sections/cards-slider/cards-slider.ts");
+/* harmony import */ var _customer_reviews_customer_reviews__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./customer-reviews/customer-reviews */ "./sections/customer-reviews/customer-reviews.ts");
+/* harmony import */ var _cta1_cta1__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./cta1/cta1 */ "./sections/cta1/cta1.ts");
+/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./footer/footer */ "./sections/footer/footer.ts");
+/* harmony import */ var _newsletter_newsletter__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./newsletter/newsletter */ "./sections/newsletter/newsletter.ts");
+/* harmony import */ var _contact_contact__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./contact/contact */ "./sections/contact/contact.ts");
+
+
+
+
+
+
+
 
 
 
@@ -16926,7 +16712,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-s
                                     <div class="tjs-service-slider__carousel--nav-points__point" data-id="3"></div>
                                 </div>
 
-                                <slot class="subelements" data-select=".children > *"></slot>
+                                <slot data-select=".children > *" data-child-layout="use: #service-slider__carousel--slide;"></slot>
                             </div>
                             <div class="tjs-service-slider__content--col tjs-service-slider__content--col__mobile-button">
                                 <a href="#" class="btn btn-outline-primary">Alle Leistungen entdecken</a>
@@ -17025,18 +16811,12 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/*!******************************!*\
-  !*** ./src.dev/index-dev.ts ***!
-  \******************************/
+/*!****************************!*\
+  !*** ./docs/_src/index.ts ***!
+  \****************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index */ "./index.ts");
-/* harmony import */ var _index_dev__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../index.dev */ "./index.dev.ts");
-/* harmony import */ var _SwitcherElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SwitcherElement */ "./src.dev/SwitcherElement.ts");
-/* harmony import */ var _ShowcaseElement__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ShowcaseElement */ "./src.dev/ShowcaseElement.ts");
-/* harmony import */ var _showcase_default_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./showcase/default-page */ "./src.dev/showcase/default-page.ts");
-
-
-
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../index */ "./index.ts");
+/* harmony import */ var _dev__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../dev */ "./dev.ts");
 
 
 

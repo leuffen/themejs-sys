@@ -48,7 +48,7 @@ Joda.registerTemplate("service-slider",
                                     <div class="tjs-service-slider__carousel--nav-points__point" data-id="3"></div>
                                 </div>
 
-                                <slot class="subelements" data-select=".children > *"></slot>
+                                <slot data-select=".children > *" data-child-layout="use: #service-slider__carousel--slide;"></slot>
                             </div>
                             <div class="tjs-service-slider__content--col tjs-service-slider__content--col__mobile-button">
                                 <a href="#" class="btn btn-outline-primary">Alle Leistungen entdecken</a>

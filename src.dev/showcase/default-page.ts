@@ -80,7 +80,107 @@ Eine gute Positionierung in den Suchmaschinen ist für eine Praxis von großer B
 {: layout="use: #key-figures"}
 
 
+## Cards
+{: layout="use: #cards-slider"}
 
+> Warum sollten sich für uns entscheiden?
+
+Hier gibt es nichts zu sehen
+
+
+
+
+### Webdesign & Online-Services
+
+![](/images/icons/icon-webdesign.webp)
+
+Dies ist ein Text
+
+### Webdesign & Online-Services
+
+![](/images/icons/icon-webdesign.webp)
+
+Diest ist ein Text
+
+
+## Was unsere Kunden Sagen
+{: layout="use: #customer-reviews"}
+
+> Das sagen unsere Kunden über uns
+
+Es kann ihnen eigentlich egal sein aber hier
+
+### Besser gehts nicht
+
+>  „Ich wollte schon die Polizei holen“
+
+### Besser gehts nicht
+
+>  „Ich wollte schon die Polizei holen“
+
+
+### Besser gehts nicht
+
+>  „Ich wollte schon die Polizei holen“
+
+
+
+## Jetzt kostenlos beraten lassen
+{: layout="use: #cta1"}
+
+[Jetzt Konditionen freischalten](#){: class="btn btn-primary"}
+
+## Kontakt
+{: layout="use: #contact"}
+
+Nehen Sie
+
+
+## Newsletter
+{: layout="use: #newsletter" data-section-style="padding-top: 160px;" data-section-class="dark"}
+
+Melden Sie sich jetzt für unseren Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschläge und viele weitere hilfreiche Tipps für Ihren Onlineauftritt.
+
+
+
+
+
+## Systemwebsite.de
+{: layout="use: #footer"}
+
+> Ihr Partner für moderne medizinische Webseiten-Entwicklung
+
+
+
+### Links
+
+- [Konditionen](#)
+- [Leistungen](#)
+- [FAQ](#)
+- [Kontakt](#)
+
+### Links
+
+- [Konditionen](#)
+- [Leistungen](#)
+- [FAQ](#)
+- [Kontakt](#)
+
+### Folgen Sie uns
+
+- [LinkedIn](#)
+- [Xing](#)
+- [Facebook](#)
+- [Instragram](#)
+
+---
+{: .footer-nav}
+
+Copyright (c) 2023 Systemwebsite by leuffen.de
+
+- [AGB](#)
+- [Datenschutz](#)
+- [Impressum](#)
 
 `;
 

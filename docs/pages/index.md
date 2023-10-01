@@ -9,31 +9,31 @@ permalink: /
 
 ## Heros
 
-<showcase-element data-category="hero">
-</showcase-element>
+<joda-showcase-element data-category="hero">
+</joda-showcase-element>
 
 ## Sections
 
-<showcase-element data-category="section">
-</showcase-element>
+<joda-showcase-element data-category="section">
+</joda-showcase-element>
 
 
 
 ## Footer
 
-<showcase-element data-category="footer">
-</showcase-element>
+<joda-showcase-element data-category="footer">
+</joda-showcase-element>
 
 
 ## Elements
 
-<showcase-element data-category="element">
-</showcase-element>
+<joda-showcase-element data-category="element">
+</joda-showcase-element>
 
 ## pages
 
-<showcase-element data-category="page" class="big">
-</showcase-element>
+<joda-showcase-element data-category="page" class="big">
+</joda-showcase-element>
 
 
 

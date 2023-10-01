@@ -65,3 +65,26 @@ $col-background: #263238;
 
 @import "typography";
 
+$color-placeholder: #808080;
+$color-grey-muted: #a0a0a0;
+$color-grey-dark: #263238;
+$color-grey-dark-2: #30383c;
+$color-grey-dark-3: #3c4347;
+$color-grey-dark-4: #495055;
+$color-green: #41C7A8;
+
+$custom-colors: (
+    placeholder: $color-placeholder,
+    grey-muted: $color-grey-muted,
+    grey-dark: $color-grey-dark,
+    grey-dark-2: $color-grey-dark-2,
+    grey-dark-3: $color-grey-dark-3,
+    grey-dark-4: $color-grey-dark-4,
+    "green": $color-green
+);
+
+:root {
+    @each $color, $value in $custom-colors {
+        --color-#{$color}: #{$value};
+    }
+}

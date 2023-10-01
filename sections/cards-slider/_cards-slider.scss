@@ -1,0 +1,107 @@
+/**
+ * Komponente: cards
+ */
+
+/** könnte alternativ auch als "--cards" Variable im Template stehen, um automatisiert mit der Anzahl der Karten befüllt zu werden */
+$cards: 4;
+$cardHeightMobile: rem(360px);
+$cardTopPadding: 1rem;
+
+.tjs-cards-slider {
+    @include element-to-element-margin-large;
+
+    .tjs-wrapper {
+        display: flex;
+    }
+
+    &__col {
+        flex-basis: 50%;
+        @include col-side-paddings;
+        @include col-mobile-bottom-paddings;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    h3 {
+        @include h3;
+        margin-top: rem(45px);
+    }
+
+    &__text {
+        position: sticky;
+        top: rem(30px);
+
+        blockquote {
+            color: $primary;
+            font-size: rem(18px);
+            text-transform: uppercase;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat($cards, auto);
+
+        @for $i from 1 through $cards {
+            &-item[data-card-id="#{$i}"] {
+                --index: #{$i};
+                --indexRem: #{$i}rem;
+            }
+        }
+
+        &-item {
+            position: sticky;
+            top: rem(30px);
+
+            &:not(:first-child) {
+                padding-top: var(--indexRem);
+                margin-top: calc(var(--index) * -0.5rem);
+            }
+
+            &:nth-child(even) {
+                transform: rotate(-0.003turn);
+            }
+
+            &-body {
+                box-sizing: border-box;
+                padding: rem(20px);
+                border-radius: 20px;
+                height: auto;
+                transition: all 0.5s;
+                border: 1px solid $element-border-color;
+                background: $white;
+
+                &--text {
+                    font-size: rem(18px);
+                }
+
+                &--row {
+                    display: flex;
+
+                    &__col {
+                        flex-basis: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+    &.mobile {
+        margin-bottom: 0;
+
+        .tjs-wrapper {
+            flex-direction: column;
+        }
+
+        .tjs-cards-slider {
+            &__col {
+                flex-basis: 100%;
+            }
+        }
+    }
+}

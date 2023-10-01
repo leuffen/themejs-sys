@@ -5,9 +5,7 @@
 .tjs-service-slider {
     @include element-to-element-margin-medium;
 
-    .tjs-service-slider__carousel > slot > * {
-        --joda-use: #service-slider__carousel--slide;
-    }
+
 
     &__content--container {
         background: transparent linear-gradient(293deg, #DCF2DE 0%, #E8F6FF 100%) no-repeat;

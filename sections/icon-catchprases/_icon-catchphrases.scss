@@ -15,11 +15,7 @@
     &__items {
         display: flex;
 
-        & li {
-            /* ============ MAGIC AHEAD ============ */
-            /* JODA-WRAP: Wrap these elments in the joda-template */
-            --joda-wrap: #icon-catchprases__item;
-        }
+
         &--item {
             display: flex;
             flex-direction: column;

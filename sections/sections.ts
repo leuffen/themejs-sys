@@ -5,3 +5,10 @@ import "./icon-catchprases/icon-catchphrases";
 import "./service-slider/service-slider";
 import "./2-cols/2-cols";
 import "./key-figures/key-figures";
+import "./cards-slider/cards-slider";
+import "./customer-reviews/customer-reviews";
+import "./cta1/cta1";
+
+import "./footer/footer";
+import "./newsletter/newsletter";
+import "./contact/contact";
