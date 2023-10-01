@@ -2,7 +2,7 @@ import {JodaDescriptionManager} from "@leuffen/jodastyle";
 
 let html =`
 
-<nav layout="use: #navbar-blox">
+<!--nav layout="use: #navbar-blox">
     <div class="brand">Logo</div>
     <ul class="nav-bar-main">
         <li><a href="#home">Hello World</a></li>
@@ -11,7 +11,7 @@ let html =`
         <li><a href="#home">Home</a></li>
     </ul>
 </ul>
-</nav>
+</nav-->
 
 # Die perfekte Website für <br><typewriter-element>Ärzte, Zahnärzte, Hausärzte, Fachärzte, Gynäkologen,</typewriter-element>
 {: layout="use: #header1"}

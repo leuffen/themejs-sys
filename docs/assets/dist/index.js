@@ -3301,7 +3301,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let html = `
 
-<nav layout="use: #navbar-blox">
+<!--nav layout="use: #navbar-blox">
     <div class="brand">Logo</div>
     <ul class="nav-bar-main">
         <li><a href="#home">Hello World</a></li>
@@ -3310,7 +3310,7 @@ let html = `
         <li><a href="#home">Home</a></li>
     </ul>
 </ul>
-</nav>
+</nav-->
 
 # Die perfekte Website f\xFCr <br><typewriter-element>\xC4rzte, Zahn\xE4rzte, Haus\xE4rzte, Fach\xE4rzte, Gyn\xE4kologen,</typewriter-element>
 {: layout="use: #header1"}
