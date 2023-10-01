@@ -1,20 +1,16 @@
-# themejs1
+# themejs-sys
 
 ***This open source software package is commercial! Any use without licence is prohibited!***
 
-ThemeJS Version 1
+## Ressource
+
+- [Deflault-Page Markdown Template](/src.dev/showcase/default-page.ts)
+- [All Section Elements (HTML & SCSS)](/sections)
+- [Root of the Jekyll Github Pages Site](/docs)
 
 
-## Templating using CSS Styles
 
 
+## External Libraries
 
-## Browser Compat
-
-| Browser | Version | Support |
-|---------|---------|---------|
-| Chrome  | 92      |         |
-| Firefox | 90      |         |
-| Safari  | >10     | Yes     |
-| Edge    | 92      |         |
-| IE      | 11      |         |
+- [JodaStyle Theme Documentation](https://github.com/leuffen/jodastyle/blob/main/README_TEMPLATES.md)
