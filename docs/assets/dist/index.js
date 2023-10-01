@@ -3312,36 +3312,42 @@ let html = `
 </ul>
 </nav-->
 
-# Die perfekte Website f\xFCr <br><typewriter-element>\xC4rzte, Zahn\xE4rzte, Haus\xE4rzte, Fach\xE4rzte, Gyn\xE4kologen,</typewriter-element>
+# Wir entwickeln moderne<br> Webseiten f\xFCr <typewriter-element>Haus\xE4rzte, Zahn\xE4rzte, Kardiologen, Augen\xE4rzte, Gyn\xE4kologen,</typewriter-element>
 {: layout="use: #header1"}
 
+![Webdesign f\xFCr \xC4rzte](/images/hero-image.webp)
 
-![Titelbild](/images/illustration-01.svg)
+Sicher. Modular. Auf Ihre Bed\xFCrfnisse angepasst.
 
-Facharzt f\xFCr Neurologie <br> Facharzt f\xFCr Psychiatrie
+[Mehr erfahren](#)
+{: .btn .btn-primary}
 
 
 ## Hero Section
 {: layout="use: #disturber"}
 
-Jetzt 30 Tage Geld-zur\xFCck-Garantie sichern!
+Wir garantieren Ihnen 100% Zufriedenheit mit unserer <b class="text-primary">30 Tage Geld-zur\xFCck-Garantie!</b>
 
 
-## Was wir k\xF6nnen, kann keiner
+## Ihre Website vom Experten f\xFCr Webdesign-Pooling:
 {: layout="use: #icon-catchprases"}
 
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) *Wir k\xF6nnen das*
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) <span>Wir k\xF6nnen das</span>
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir k\xF6nnen das
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir k\xF6nnen das
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir k\xF6nnen das
+Individuell, effizient und schnell einsatzbereit.
+
+
+
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) *Modularer<br>Aufbau*
+- ![Some Image](/images/icons/icon-monitor-mobile.webp) *Mobil & SEO <br>optimiert*
+- ![Some Image](/images/icons/icon-shield.webp) *DSGVO konform<br>& sicheres Hosting*
+- ![Some Image](/images/icons/icon-time.webp) *Schnelle<br> Umsetzung*
+- ![Some Image](/images/icons/icon-smiley.webp) *Zufriedenheits-<br>garantie*
 
 ## Service
 {: layout="use: #service-slider"}
 
 > Nutzen Sie unsere Leistungen f\xFCr Ihren Erfolg
 
-Hier steht noch ein kleiner Text
+Lorem ipsum
 
 <a href="#" class="btn btn-outline-primary desktop-button">Alle Leistungen entdecken</a>
 
@@ -3353,6 +3359,32 @@ Hier steht noch ein kleiner Text
 Individuell gestaltet nach unserem Design-Pool-Konzept
 
 
+### Praxis-Fotografie
+
+![](/images/icons/icon-webdesign.webp)
+
+Individuell gestaltet nach unserem Design-Pool-Konzept
+
+### Fertige Texte & Bilder
+
+![](/images/icons/icon-webdesign.webp)
+
+Mit unseren Text- & Bildvorlagen f\xFCr alle Fachrichtungen kann Ihre
+Website schnell online gehen. Fotos und Texte tauschen wir sp\xE4ter kostenlos aus.
+
+### Logo-Design & Vorlagen
+
+![](/images/icons/icon-webdesign.webp)
+
+Wir erstellen Professionelle Logos und Vorlagen f\xFCr Briefk\xF6pfe,
+Praxisschild, Visitenkarten, u.v.m.
+
+### Google & Bing Optimierung
+
+![](/images/icons/icon-webdesign.webp)
+
+Damit Ihre Website \xFCberall gefunden wird: Als Google Partner..
+
 
 ## Praxiswert steigern
 {: layout="use: #2-cols"}
@@ -3363,77 +3395,95 @@ Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDF
 
 [Weiterlesen]()
 
-## Praxiswert steigern
+## Mit Digiatlisierung sparen
 {: layout="use: #2-cols"}
 
-![](/images/illustration-01.svg)
+![](/images/illustration-03.svg)
 
 Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDFer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu pr\xE4sentieren und Ihre Patienten zu informieren.
 
 [Weiterlesen]()
 
-## Praxiswert steigern
+## Datenschutz vom Experten
 {: layout="use: #2-cols-bg"}
-
-> Disturber
 
 ![](/images/illustration-03.webp)
 
+> Rundum Sorglos-Paket
+
+
 Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDFer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu pr\xE4sentieren und Ihre Patienten zu informieren.
 
-[Weiterlesen]()
+[Mehr erfahren](#)
+
 
 
 ## Key Figures
 {: layout="use: #key-figures"}
 
 
-## Cards
+## Ablauf
 {: layout="use: #cards-slider"}
 
-> Warum sollten sich f\xFCr uns entscheiden?
+> Was passiert, nachdem Sie ein Angebot von uns erhalten Haben?
 
-Hier gibt es nichts zu sehen
+Text, Text, Text
+
+[Sie haben Fragen?](#)
+{: .btn .btn-primary}
 
 
 
-
-### Webdesign & Online-Services
+### Design-Entwurf
 
 ![](/images/icons/icon-webdesign.webp)
 
 Dies ist ein Text
 
-### Webdesign & Online-Services
+### Anpassen
 
 ![](/images/icons/icon-webdesign.webp)
 
-Diest ist ein Text
+Per Videokonferenz besprechen Sie Ihre Website mit einem Experten.
+Wir \xE4ndern alles nach Ihren W\xFCnschen.
 
+### Online gehen
 
-## Was unsere Kunden Sagen
+![](/images/icons/icon-webdesign.webp)
+
+Per Videokonferenz besprechen Sie Ihre Website mit einem Experten.
+Wir \xE4ndern alles nach Ihren W\xFCnschen.
+
+### Optimieren
+
+![](/images/icons/icon-webdesign.webp)
+
+Per Videokonferenz besprechen Sie Ihre Website mit einem Experten.
+Wir \xE4ndern alles nach Ihren W\xFCnschen.
+
+## Was sagen unsere Kunden?
 {: layout="use: #customer-reviews"}
 
-> Das sagen unsere Kunden \xFCber uns
+Lorem ipsum,...
 
-Es kann ihnen eigentlich egal sein aber hier
-
-### Besser gehts nicht
+### Robert XYZ
 
 >  \u201EIch wollte schon die Polizei holen\u201C
 
-### Besser gehts nicht
-
->  \u201EIch wollte schon die Polizei holen\u201C
-
+[Zahnarztpraxis Robert]()
 
 ### Besser gehts nicht
 
 >  \u201EIch wollte schon die Polizei holen\u201C
 
 
+### Besser gehts nicht
 
-## Jetzt kostenlos beraten lassen
+>  \u201EIch wollte schon die Polizei holen\u201C
+
+
+
+## Erhalten Sie kostenlos Ihr unverbindliches Angebot mit nur wenigen Klicks!
 {: layout="use: #cta1"}
 
 [Jetzt Konditionen freischalten](#){: class="btn btn-primary"}

@@ -13,36 +13,42 @@ let html =`
 </ul>
 </nav-->
 
-# Die perfekte Website für <br><typewriter-element>Ärzte, Zahnärzte, Hausärzte, Fachärzte, Gynäkologen,</typewriter-element>
+# Wir entwickeln moderne<br> Webseiten für <typewriter-element>Hausärzte, Zahnärzte, Kardiologen, Augenärzte, Gynäkologen,</typewriter-element>
 {: layout="use: #header1"}
 
+![Webdesign für Ärzte](/images/hero-image.webp)
 
-![Titelbild](/images/illustration-01.svg)
+Sicher. Modular. Auf Ihre Bedürfnisse angepasst.
 
-Facharzt für Neurologie <br> Facharzt für Psychiatrie
+[Mehr erfahren](#)
+{: .btn .btn-primary}
 
 
 ## Hero Section
 {: layout="use: #disturber"}
 
-Jetzt 30 Tage Geld-zurück-Garantie sichern!
+Wir garantieren Ihnen 100% Zufriedenheit mit unserer <b class="text-primary">30 Tage Geld-zurück-Garantie!</b>
 
 
-## Was wir können, kann keiner
+## Ihre Website vom Experten für Webdesign-Pooling:
 {: layout="use: #icon-catchprases"}
 
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) *Wir können das*
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) <span>Wir können das</span>
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir können das
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir können das
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) Wir können das
+Individuell, effizient und schnell einsatzbereit.
+
+
+
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) *Modularer<br>Aufbau*
+- ![Some Image](/images/icons/icon-monitor-mobile.webp) *Mobil & SEO <br>optimiert*
+- ![Some Image](/images/icons/icon-shield.webp) *DSGVO konform<br>& sicheres Hosting*
+- ![Some Image](/images/icons/icon-time.webp) *Schnelle<br> Umsetzung*
+- ![Some Image](/images/icons/icon-smiley.webp) *Zufriedenheits-<br>garantie*
 
 ## Service
 {: layout="use: #service-slider"}
 
 > Nutzen Sie unsere Leistungen für Ihren Erfolg
 
-Hier steht noch ein kleiner Text
+Lorem ipsum
 
 <a href="#" class="btn btn-outline-primary desktop-button">Alle Leistungen entdecken</a>
 
@@ -54,6 +60,32 @@ Hier steht noch ein kleiner Text
 Individuell gestaltet nach unserem Design-Pool-Konzept
 
 
+### Praxis-Fotografie
+
+![](/images/icons/icon-webdesign.webp)
+
+Individuell gestaltet nach unserem Design-Pool-Konzept
+
+### Fertige Texte & Bilder
+
+![](/images/icons/icon-webdesign.webp)
+
+Mit unseren Text- & Bildvorlagen für alle Fachrichtungen kann Ihre
+Website schnell online gehen. Fotos und Texte tauschen wir später kostenlos aus.
+
+### Logo-Design & Vorlagen
+
+![](/images/icons/icon-webdesign.webp)
+
+Wir erstellen Professionelle Logos und Vorlagen für Briefköpfe,
+Praxisschild, Visitenkarten, u.v.m.
+
+### Google & Bing Optimierung
+
+![](/images/icons/icon-webdesign.webp)
+
+Damit Ihre Website überall gefunden wird: Als Google Partner..
+
 
 ## Praxiswert steigern
 {: layout="use: #2-cols"}
@@ -64,77 +96,95 @@ Eine gute Positionierung in den Suchmaschinen ist für eine Praxis von großer B
 
 [Weiterlesen]()
 
-## Praxiswert steigern
+## Mit Digiatlisierung sparen
 {: layout="use: #2-cols"}
 
-![](/images/illustration-01.svg)
+![](/images/illustration-03.svg)
 
 Eine gute Positionierung in den Suchmaschinen ist für eine Praxis von großer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu präsentieren und Ihre Patienten zu informieren.
 
 [Weiterlesen]()
 
-## Praxiswert steigern
+## Datenschutz vom Experten
 {: layout="use: #2-cols-bg"}
-
-> Disturber
 
 ![](/images/illustration-03.webp)
 
+> Rundum Sorglos-Paket
+
+
 Eine gute Positionierung in den Suchmaschinen ist für eine Praxis von großer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu präsentieren und Ihre Patienten zu informieren.
 
-[Weiterlesen]()
+[Mehr erfahren](#)
+
 
 
 ## Key Figures
 {: layout="use: #key-figures"}
 
 
-## Cards
+## Ablauf
 {: layout="use: #cards-slider"}
 
-> Warum sollten sich für uns entscheiden?
+> Was passiert, nachdem Sie ein Angebot von uns erhalten Haben?
 
-Hier gibt es nichts zu sehen
+Text, Text, Text
+
+[Sie haben Fragen?](#)
+{: .btn .btn-primary}
 
 
 
-
-### Webdesign & Online-Services
+### Design-Entwurf
 
 ![](/images/icons/icon-webdesign.webp)
 
 Dies ist ein Text
 
-### Webdesign & Online-Services
+### Anpassen
 
 ![](/images/icons/icon-webdesign.webp)
 
-Diest ist ein Text
+Per Videokonferenz besprechen Sie Ihre Website mit einem Experten.
+Wir ändern alles nach Ihren Wünschen.
 
+### Online gehen
 
-## Was unsere Kunden Sagen
+![](/images/icons/icon-webdesign.webp)
+
+Per Videokonferenz besprechen Sie Ihre Website mit einem Experten.
+Wir ändern alles nach Ihren Wünschen.
+
+### Optimieren
+
+![](/images/icons/icon-webdesign.webp)
+
+Per Videokonferenz besprechen Sie Ihre Website mit einem Experten.
+Wir ändern alles nach Ihren Wünschen.
+
+## Was sagen unsere Kunden?
 {: layout="use: #customer-reviews"}
 
-> Das sagen unsere Kunden über uns
+Lorem ipsum,...
 
-Es kann ihnen eigentlich egal sein aber hier
-
-### Besser gehts nicht
+### Robert XYZ
 
 >  „Ich wollte schon die Polizei holen“
 
-### Besser gehts nicht
-
->  „Ich wollte schon die Polizei holen“
-
+[Zahnarztpraxis Robert]()
 
 ### Besser gehts nicht
 
 >  „Ich wollte schon die Polizei holen“
 
 
+### Besser gehts nicht
 
-## Jetzt kostenlos beraten lassen
+>  „Ich wollte schon die Polizei holen“
+
+
+
+## Erhalten Sie kostenlos Ihr unverbindliches Angebot mit nur wenigen Klicks!
 {: layout="use: #cta1"}
 
 [Jetzt Konditionen freischalten](#){: class="btn btn-primary"}
