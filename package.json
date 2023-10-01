@@ -28,8 +28,8 @@
   ],
   "author": "",
   "dependencies": {
-    "@leuffen/jodastyle": "^2.1.3",
-    "@leuffen/jodastyle-dev": "^2.1.5",
+    "@leuffen/jodastyle": "^3.0.1",
+    "@leuffen/jodastyle-dev": "^3.0.1",
     "@leuffen/isl-base": "^2.0.1",
     "@leuffen/liscom": "^2.0.1",
     "@leuffen/liweco-base": "^2.0.2",

@@ -5917,8 +5917,29 @@ jodaStyleCommands["--joda-use"] = (value, target, element, logger) => __async(vo
       placeholder.append(child);
     });
     let newElement = yield (0,_helper_functions__WEBPACK_IMPORTED_MODULE_1__.getTemplateFilledWithContent)(value, placeholder, element);
-    element.append(newElement);
-    return element;
+    console.log("new: ", newElement, newElement.firstElementChild);
+    let firstElement = newElement.firstElementChild;
+    firstElement["joda-style-processed"] = true;
+    let debugElement = element.outerHTML.split("\n")[0];
+    firstElement.setAttribute("_orig_elem", debugElement);
+    element.getAttributeNames().forEach((attrName) => {
+      if (attrName === "class") {
+        firstElement.setAttribute(attrName, element.getAttribute(attrName) + " " + firstElement.getAttribute(attrName));
+        return;
+      }
+      if (attrName === "style") {
+        firstElement.setAttribute(attrName, element.getAttribute(attrName) + " " + firstElement.getAttribute(attrName));
+        return;
+      }
+      if (attrName.startsWith("layout")) {
+        firstElement.setAttribute("layout-orig", element.getAttribute(attrName));
+        return;
+      }
+      firstElement.setAttribute(attrName, element.getAttribute(attrName));
+    });
+    element.parentElement.insertBefore(newElement, element);
+    element.parentElement.removeChild(element);
+    return firstElement;
   }
   let matches = value.match(/([a-z0-9\_-]+)\s*\((.*?)\)/);
   if (!matches) {
@@ -16033,7 +16054,7 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols",
     // language=HTML
     `
-        <div class="tjs-2-cols [[ layout.class ]]">
+        <section class="tjs-2-cols [[ layout.class ]]">
             <div class="tjs-wrapper container ">
                 <div class="tjs-2-cols-bg__disturber">
                     <slot data-select="blockquote"></slot>
@@ -16045,7 +16066,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols",
                     <slot></slot>
                 </div>
             </div>
-        </div>
+        </section>
     `);
 
 
@@ -16418,7 +16439,7 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("header1",
     // language=HTML
     `
-        <div class="tjs-header1">
+        <section class="tjs-header1">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-header1__top-bar container-xxl">
                     <div class="tjs-header1__top-bar--item">
@@ -16474,7 +16495,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("header1",
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
     `);
 
@@ -16515,7 +16536,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("icon-catc
                     <slot></slot>
                 </div>
                 <div class="tjs-icon-catchphrases__items">
-                    <slot data-select="ul > li" data-child-layout="wrap:  #icon-catchprases__item"></slot>
+                    <slot data-select="ul > li" data-child-layout="use:  #icon-catchprases__item"></slot>
                 </div>
             </div>
         </section>

@@ -3,7 +3,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("2-cols",
     // language=HTML
     `
-        <div class="tjs-2-cols [[ layout.class ]]">
+        <section class="tjs-2-cols [[ layout.class ]]">
             <div class="tjs-wrapper container ">
                 <div class="tjs-2-cols-bg__disturber">
                     <slot data-select="blockquote"></slot>
@@ -15,5 +15,5 @@ Joda.registerTemplate("2-cols",
                     <slot></slot>
                 </div>
             </div>
-        </div>
+        </section>
     `);
