@@ -6380,7 +6380,10 @@ class MyComponent extends HTMLElement {
     this.isDragging = false;
     this.style.cursor = "";
     this.style.scrollSnapType = null;
-    this.dispatchEvent(new Event("scroll"));
+    setTimeout(() => {
+      this.scrollBy(1, 0);
+      this.scrollBy(0, 1);
+    }, 0);
   }
   dragMove(e) {
     if (!this.isDragging)
