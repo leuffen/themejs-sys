@@ -13361,6 +13361,9 @@ b {
   font-family: "Roboto Flex", sans-serif;
   position: relative;
 }
+.tjs__contact input, .tjs__contact textarea, .tjs__contact select {
+  --joda-use: "input()";
+}
 .tjs__contact .row {
   padding: 2rem 1rem;
   background: transparent linear-gradient(297deg, #DCF2DE 0%, #E8F6FF 100%) 0% 0% no-repeat padding-box;

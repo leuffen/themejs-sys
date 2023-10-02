@@ -24,18 +24,7 @@ Joda.registerTemplate("contact",
                         </div>
                         <div class="col-12 col-lg-6">
                             <form>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" placeholder="Ihr Vor- und Nachname" id="contact-input-name" required>
-                                    <label for="contact-input-name">Ihr Vor- und Nachname</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" placeholder="Ihre E-Mail-Adresse" id="contact-input-email" required>
-                                    <label for="contact-input-email">Ihre E-Mail-Adresse</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="tel" class="form-control" placeholder="Ihre Telefonnummer (optional)" id="contact-input-phone">
-                                    <label for="contact-input-phone">Ihre Telefonnummer (optional)</label>
-                                </div>
+                                <slot></slot>
 
                                 <div class="tjs__newsletter__callback-wrapper">
                                     <span>Kontaktieren Sie mich per:</span>

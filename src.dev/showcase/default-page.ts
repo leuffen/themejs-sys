@@ -37,7 +37,7 @@ Individuell, effizient und schnell einsatzbereit.
 
 
 
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) *Modularer<br>Aufbau*
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) **Modularer<br>Aufbau**
 - ![Some Image](/images/icons/icon-monitor-mobile.webp) *Mobil & SEO <br>optimiert*
 - ![Some Image](/images/icons/icon-shield.webp) *DSGVO konform<br>& sicheres Hosting*
 - ![Some Image](/images/icons/icon-time.webp) *Schnelle<br> Umsetzung*
@@ -194,11 +194,15 @@ Lorem ipsum,...
 
 Nehen Sie
 
+[input type="text"  name="Name" required .mb-3]
+[input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine gültige E-Mail Adresse ein" required .mb-3]
+[input type="tel" name="Telefon" .mb-3]
 
 ## Newsletter
 {: layout="use: #newsletter" data-section-style="padding-top: 160px;" data-section-class="dark"}
 
 Melden Sie sich jetzt für unseren Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschläge und viele weitere hilfreiche Tipps für Ihren Onlineauftritt.
+
 
 
 

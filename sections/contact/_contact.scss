@@ -6,6 +6,10 @@
     font-family: 'Roboto Flex', sans-serif;
     position: relative;
 
+    input, textarea, select {
+        --joda-use: "input()";
+    }
+
     .row {
         padding: 2rem 1rem;
         background: transparent linear-gradient(297deg, #DCF2DE 0%, #E8F6FF 100%) 0% 0% no-repeat padding-box;

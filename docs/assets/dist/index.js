@@ -115,6 +115,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 (0,_leuffen_liscom__WEBPACK_IMPORTED_MODULE_0__.liscom_enable)();
 
 
@@ -3336,7 +3337,7 @@ Individuell, effizient und schnell einsatzbereit.
 
 
 
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) *Modularer<br>Aufbau*
+- ![Some Image](/images/icons/icon-modularer-aufbau.webp) **Modularer<br>Aufbau**
 - ![Some Image](/images/icons/icon-monitor-mobile.webp) *Mobil & SEO <br>optimiert*
 - ![Some Image](/images/icons/icon-shield.webp) *DSGVO konform<br>& sicheres Hosting*
 - ![Some Image](/images/icons/icon-time.webp) *Schnelle<br> Umsetzung*
@@ -3493,11 +3494,15 @@ Lorem ipsum,...
 
 Nehen Sie
 
+[input type="text"  name="Name" required .mb-3]
+[input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine g\xFCltige E-Mail Adresse ein" required .mb-3]
+[input type="tel" name="Telefon" .mb-3]
 
 ## Newsletter
 {: layout="use: #newsletter" data-section-style="padding-top: 160px;" data-section-class="dark"}
 
 Melden Sie sich jetzt f\xFCr unseren Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschl\xE4ge und viele weitere hilfreiche Tipps f\xFCr Ihren Onlineauftritt.
+
 
 
 
@@ -16267,7 +16272,8 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-sli
                 </div>
             </div>
         </li>
-    `)
+    `,
+    )
 
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-slider",
     // language=HTML
@@ -16328,18 +16334,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("contact",
                         </div>
                         <div class="col-12 col-lg-6">
                             <form>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" placeholder="Ihr Vor- und Nachname" id="contact-input-name" required>
-                                    <label for="contact-input-name">Ihr Vor- und Nachname</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" placeholder="Ihre E-Mail-Adresse" id="contact-input-email" required>
-                                    <label for="contact-input-email">Ihre E-Mail-Adresse</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="tel" class="form-control" placeholder="Ihre Telefonnummer (optional)" id="contact-input-phone">
-                                    <label for="contact-input-phone">Ihre Telefonnummer (optional)</label>
-                                </div>
+                                <slot></slot>
 
                                 <div class="tjs__newsletter__callback-wrapper">
                                     <span>Kontaktieren Sie mich per:</span>
@@ -16605,7 +16600,7 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("header1",
     // language=HTML
     `
-        <section class="tjs-header1 :: mobile :lg:">
+        <section class="tjs-header1 :: mobile :lg: ">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-header1__top-bar container-xxl">
                     <div class="tjs-header1__top-bar--item">

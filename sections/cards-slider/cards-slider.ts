@@ -18,7 +18,8 @@ Joda.registerTemplate("cards-slider__list-item",
                 </div>
             </div>
         </li>
-    `)
+    `,
+    )
 
 Joda.registerTemplate("cards-slider",
     // language=HTML

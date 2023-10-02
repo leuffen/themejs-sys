@@ -6,6 +6,7 @@ export * from "@leuffen/isl-base";
 import "@leuffen/jodastyle";
 import "@leuffen/liweco-base"
 import "@leuffen/liscom";
+import "@leuffen/isl-base";
 
 liscom_enable();
 
