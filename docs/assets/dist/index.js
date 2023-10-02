@@ -3927,7 +3927,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const html = `
 
-    <nav class="isl-navbar-switch1">
+    <nav class="isl-navbar-switch1 :: mobile :xl:">
 
         <div class="isl-navbar-switch1__top-bar container-xxl">
             <slot data-select="ul.navbar-top"></slot>
