@@ -3302,16 +3302,23 @@ __webpack_require__.r(__webpack_exports__);
 
 let html = `
 
-<!--nav layout="use: #navbar-blox">
-    <div class="brand">Logo</div>
-    <ul class="nav-bar-main">
+<nav layout="use: #navbar-switch1">
+    <div class="brand"><a href=""><img src="/images/logo-systemwebsite.webp"></a></div>
+    <ul class="navbar-top">
+        <li class=":: d-none :lg: "><a href="">Beratungstelefon</a></li>
+        <li class=":: :lg: d-none"><a href="">Beratung-Tel.: (0201) 12345</a></li>
+        <li><a href="">Angebot anfordern</a></li>
+    </ul>
+    <ul class="navbar-main">
+        <li><a href="#home">Punkt1</a></li>
+        <li><a href="#home">Punkt2</a></li>
+        <li><a href="#home">Hello World</a></li>
         <li><a href="#home">Hello World</a></li>
     </ul>
     <ul class="nav-menu">
         <li><a href="#home">Home</a></li>
     </ul>
-</ul>
-</nav-->
+</nav>
 
 # Wir entwickeln moderne<br> Webseiten f\xFCr <typewriter-element>Haus\xE4rzte, Zahn\xE4rzte, Kardiologen, Augen\xE4rzte, Gyn\xE4kologen,</typewriter-element>
 {: layout="use: #header1"}
@@ -3908,6 +3915,48 @@ Map = __decorateClass([
 
 /***/ }),
 
+/***/ "./workspaces/isl-base/elements/navbar-switch1/navbar-switch1.ts":
+/*!***********************************************************************!*\
+  !*** ./workspaces/isl-base/elements/navbar-switch1/navbar-switch1.ts ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+
+const html = `
+
+    <nav class="isl-navbar-switch1">
+
+        <div class="isl-navbar-switch1__top-bar container-xxl">
+            <slot data-select="ul.navbar-top"></slot>
+        </div>
+        <div class="isl-navbar-switch1__nav">
+            <div class="container-xl">
+                <div class="isl-navbar-switch1__nav--inner">
+                    <div class="isl-navbar-switch1__nav--logo">
+                        <slot data-select=".brand"></slot>
+                    </div>
+                    <div class="isl-navbar-switch1__nav--items">
+                        <slot data-select="ul.navbar-main" data-child-class="isl-navbar-switch1__nav--items-item"></slot>
+                    </div>
+                    <div class="isl-navbar-switch1__nav--mobile-menu">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+`;
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("navbar-switch1", html);
+
+
+/***/ }),
+
 /***/ "./workspaces/isl-base/elements/screen/screen.ts":
 /*!*******************************************************!*\
   !*** ./workspaces/isl-base/elements/screen/screen.ts ***!
@@ -3986,6 +4035,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elements_input_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements/input/input */ "./workspaces/isl-base/elements/input/input.ts");
 /* harmony import */ var _elements_map_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./elements/map/map */ "./workspaces/isl-base/elements/map/map.ts");
 /* harmony import */ var _elements_screen_screen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./elements/screen/screen */ "./workspaces/isl-base/elements/screen/screen.ts");
+/* harmony import */ var _elements_navbar_switch1_navbar_switch1__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./elements/navbar-switch1/navbar-switch1 */ "./workspaces/isl-base/elements/navbar-switch1/navbar-switch1.ts");
+
 
 
 
@@ -4502,25 +4553,23 @@ let JodaContentElement = class extends HTMLElement {
   }
   connectedCallback() {
     return __async(this, null, function* () {
-      console.timeLog("jodaTime", "Connected");
       let logger = new _helper_logger__WEBPACK_IMPORTED_MODULE_3__.Logger("joda-content");
       yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(1);
       yield this.awaitStyles();
-      console.timeLog("jodaTime", "Awaited styles");
       __privateSet(this, _origContentTemplate, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("template"));
       __privateSet(this, _outputDiv, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("div"));
       if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.disable_templates) {
         this.setLoaded();
+        if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.debug_visualize && _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.debug_visualize_attribute) {
+          new _processor_jodavisualize__WEBPACK_IMPORTED_MODULE_4__.Jodavisualize().process(this);
+        }
         return;
       }
-      console.timeLog("jodaTime", "Start processing");
       let jodaStyle = new _processor_jodastyle__WEBPACK_IMPORTED_MODULE_1__.Jodastyle(logger);
       yield jodaStyle.process(this);
-      console.timeLog("jodaTime", "Style processing");
       let jodaresponsive = new _processor_jodaresponsive__WEBPACK_IMPORTED_MODULE_2__.Jodaresponsive(logger);
       let currentBreakpoint = (0,_processor_jodaresponsive__WEBPACK_IMPORTED_MODULE_2__.getCurrentBreakpoint)();
       jodaresponsive.process(this);
-      console.timeLog("jodaTime", "JodaResponsive processing");
       if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.debug_visualize && _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.debug_visualize_attribute) {
         new _processor_jodavisualize__WEBPACK_IMPORTED_MODULE_4__.Jodavisualize().process(this);
       }
@@ -16602,49 +16651,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("header1",
     `
         <section class="tjs-header1 :: mobile :lg: ">
             <div class="tjs-wrapper container-fluid">
-                <div class="tjs-header1__top-bar container-xxl">
-                    <div class="tjs-header1__top-bar--item">
-                        <div class="tjs-header1__top-bar--item-inner d-none d-md-block">
-                            <p><b>Service-Tel.:</b> +49 1234 56789-0</p>
-                        </div>
-                        <a href="#">
-                            <div class="tjs-header1__top-bar--item-inner d-md-none">
-                                <p>Service anrufen</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="tjs-header1__top-bar--item">
-                        <a href="#">
-                            <div class="tjs-header1__top-bar--item-inner">
-                                <p>Angebot anfordern</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="tjs-header1__nav">
-                    <div class="container-xl">
-                        <div class="tjs-header1__nav--inner">
-                            <div class="tjs-header1__nav--logo">
-                                <picture>
-                                    <source srcset="/images/logo-systemwebsite.webp" type="image/webp">
-                                    <source srcset="/images/logo-systemwebsite.png" type="image/png">
-                                    <img src="/images/logo-systemwebsite.png">
-                                </picture>
-                            </div>
-                            <div class="tjs-header1__nav--items">
-                                <a class="tjs-header1__nav--items-item" href="#">Service</a>
-                                <a class="tjs-header1__nav--items-item" href="#">Vorteile</a>
-                                <a class="tjs-header1__nav--items-item" href="#">Ablauf</a>
-                                <a class="tjs-header1__nav--items-item" href="#">Kontakt</a>
-                            </div>
-                            <div class="tjs-header1__nav--mobile-menu">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="tjs-header1__hero container">
                     <div class="tjs-header1__hero--row">
                         <div class="tjs-header1__hero--col tjs-header1__hero--col-text">

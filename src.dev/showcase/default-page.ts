@@ -2,16 +2,23 @@ import {JodaDescriptionManager} from "@leuffen/jodastyle";
 
 let html =`
 
-<!--nav layout="use: #navbar-blox">
-    <div class="brand">Logo</div>
-    <ul class="nav-bar-main">
+<nav layout="use: #navbar-switch1">
+    <div class="brand"><a href=""><img src="/images/logo-systemwebsite.webp"></a></div>
+    <ul class="navbar-top">
+        <li class=":: d-none :lg: "><a href="">Beratungstelefon</a></li>
+        <li class=":: :lg: d-none"><a href="">Beratung-Tel.: (0201) 12345</a></li>
+        <li><a href="">Angebot anfordern</a></li>
+    </ul>
+    <ul class="navbar-main">
+        <li><a href="#home">Punkt1</a></li>
+        <li><a href="#home">Punkt2</a></li>
+        <li><a href="#home">Hello World</a></li>
         <li><a href="#home">Hello World</a></li>
     </ul>
     <ul class="nav-menu">
         <li><a href="#home">Home</a></li>
     </ul>
-</ul>
-</nav-->
+</nav>
 
 # Wir entwickeln moderne<br> Webseiten für <typewriter-element>Hausärzte, Zahnärzte, Kardiologen, Augenärzte, Gynäkologen,</typewriter-element>
 {: layout="use: #header1"}

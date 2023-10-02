@@ -28,9 +28,9 @@
   ],
   "author": "",
   "dependencies": {
-    "@leuffen/jodastyle": "^3.0.1",
+    "@leuffen/jodastyle": "^3.0.2",
     "@leuffen/jodastyle-dev": "^3.0.1",
-    "@leuffen/isl-base": "^2.0.1",
+    "@leuffen/isl-base": "^2.0.2",
     "@leuffen/liscom": "^2.0.2",
     "@leuffen/liweco-base": "^2.0.2",
     "bootstrap": "^5.3.2"
