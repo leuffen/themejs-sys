@@ -6295,6 +6295,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _details_title_details_title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./details-title/details-title */ "./workspaces/liscom/src/details-title/details-title.ts");
 /* harmony import */ var _typewriter_element_typewriter_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./typewriter-element/typewriter-element */ "./workspaces/liscom/src/typewriter-element/typewriter-element.ts");
 /* harmony import */ var _typewriter_element_typewriter_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_typewriter_element_typewriter_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _slider_liscom_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slider/liscom-slider */ "./workspaces/liscom/src/slider/liscom-slider.ts");
+/* harmony import */ var _slider_liscom_slider__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_slider_liscom_slider__WEBPACK_IMPORTED_MODULE_3__);
 var __defProp = Object.defineProperty;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
@@ -6327,6 +6329,71 @@ function liscom_enable(liscomConfig = {}) {
 
 
 
+
+
+
+/***/ }),
+
+/***/ "./workspaces/liscom/src/slider/liscom-slider.ts":
+/*!*******************************************************!*\
+  !*** ./workspaces/liscom/src/slider/liscom-slider.ts ***!
+  \*******************************************************/
+/***/ (() => {
+
+class MyComponent extends HTMLElement {
+  constructor() {
+    super();
+    this.currentSection = 0;
+    // Define your dragStart, dragEnd, and dragMove methods here to handle mouse drag
+    this.isDragging = false;
+    this.startY = 0;
+    this.startX = 0;
+    this.scrollStartY = 0;
+    this.scrollStartX = 0;
+  }
+  connectedCallback() {
+    console.log("connected");
+    this.addEventListener("mousedown", this.dragStart);
+    this.addEventListener("mouseup", this.dragEnd);
+    this.addEventListener("mouseleave", this.dragEnd);
+    this.addEventListener("mousemove", this.dragMove);
+  }
+  doScroll(direction) {
+    this.currentSection = Math.max(0, Math.min(this.sections.length - 1, this.currentSection + direction));
+    this.sections[this.currentSection].scrollIntoView({ behavior: "smooth" });
+  }
+  // ... other methods
+  dragStart(e) {
+    console.log("mousedown");
+    e.preventDefault();
+    this.isDragging = true;
+    this.startY = e.clientY;
+    this.startX = e.clientX;
+    this.style.scrollSnapType = "unset";
+    this.scrollStartY = this.scrollTop;
+    this.scrollStartX = this.scrollLeft;
+    this.style.cursor = "grabbing";
+  }
+  dragEnd(e) {
+    if (!this.isDragging)
+      return;
+    this.isDragging = false;
+    this.style.cursor = "";
+    this.style.scrollSnapType = null;
+    this.dispatchEvent(new Event("scroll"));
+  }
+  dragMove(e) {
+    if (!this.isDragging)
+      return;
+    const y = e.clientY;
+    const x = e.clientX;
+    const deltaY = this.startY - y;
+    this.scrollTop = this.scrollStartY + deltaY;
+    const deltaX = this.startX - x;
+    this.scrollLeft = this.scrollStartX + deltaX;
+  }
+}
+customElements.define("liscom-slider", MyComponent);
 
 
 /***/ }),
@@ -16880,7 +16947,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-s
                             <div class="tjs-service-slider__content--col tjs-service-slider__content--col-text">
                                 <slot></slot>
                             </div>
-                            <div class="tjs-service-slider__content--col tjs-service-slider__carousel">
+                            <liscom-slider class="tjs-service-slider__content--col tjs-service-slider__carousel">
                                 <div class="tjs-service-slider__carousel--navigation">
                                     <div class="tjs-service-slider__carousel--navigation-prev">
                                         <picture>
@@ -16904,7 +16971,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-s
                                 </div>
 
                                 <slot data-select=".children > *" data-child-layout="use: #service-slider__carousel--slide;"></slot>
-                            </div>
+                            </liscom-slider>
                             <div class="tjs-service-slider__content--col tjs-service-slider__content--col__mobile-button">
                                 <a href="#" class="btn btn-outline-primary">Alle Leistungen entdecken</a>
                             </div>

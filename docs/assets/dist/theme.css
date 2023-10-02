@@ -25866,6 +25866,15 @@ typewriter-element .cursor {
   animation: liscom-blink 1s step-end infinite;
 }
 
+liscom-slider {
+  scroll-snap-type: both mandatory;
+  scroll-snap-stop: normal;
+  scroll-behavior: smooth;
+}
+liscom-slider > slot > * {
+  scroll-snap-align: start;
+}
+
 .joda-showcase-element {
   width: 368px;
   --aspect-ratio: calc(16 / 9);

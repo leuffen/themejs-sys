@@ -25,7 +25,7 @@ Joda.registerTemplate("service-slider",
                             <div class="tjs-service-slider__content--col tjs-service-slider__content--col-text">
                                 <slot></slot>
                             </div>
-                            <div class="tjs-service-slider__content--col tjs-service-slider__carousel">
+                            <liscom-slider class="tjs-service-slider__content--col tjs-service-slider__carousel">
                                 <div class="tjs-service-slider__carousel--navigation">
                                     <div class="tjs-service-slider__carousel--navigation-prev">
                                         <picture>
@@ -49,7 +49,7 @@ Joda.registerTemplate("service-slider",
                                 </div>
 
                                 <slot data-select=".children > *" data-child-layout="use: #service-slider__carousel--slide;"></slot>
-                            </div>
+                            </liscom-slider>
                             <div class="tjs-service-slider__content--col tjs-service-slider__content--col__mobile-button">
                                 <a href="#" class="btn btn-outline-primary">Alle Leistungen entdecken</a>
                             </div>
