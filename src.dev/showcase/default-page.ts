@@ -2,7 +2,7 @@ import {JodaDescriptionManager} from "@leuffen/jodastyle";
 
 let html =`
 
-<nav layout="use: #navbar-switch1">
+<nav layout="use: #navbar-switch1" class="floating">
     <div class="brand"><a href=""><img src="/images/logo-systemwebsite.webp"></a></div>
     <ul class="navbar-top">
         <li class=":: d-none :lg: "><a href="">Beratungstelefon</a></li>
