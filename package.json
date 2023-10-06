@@ -29,7 +29,7 @@
   "author": "",
   "dependencies": {
     "@leuffen/jodastyle": "^3.0.2",
-    "@leuffen/jodastyle-dev": "^3.0.2",
+    "@leuffen/jodastyle-dev": "^3.0.4",
     "@leuffen/isl-base": "^2.0.5",
     "@leuffen/liscom": "^2.0.4",
     "@leuffen/liweco-base": "^2.0.2",
