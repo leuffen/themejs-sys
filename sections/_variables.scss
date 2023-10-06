@@ -84,6 +84,8 @@ $custom-colors: (
 );
 
 :root {
+    --t-hero-top-space: 250px; // Space for navbar
+
     @each $color, $value in $custom-colors {
         --color-#{$color}: #{$value};
     }

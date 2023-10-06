@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle_dev__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle-dev */ "./workspaces/jodastyle-dev/index.ts");
+/* harmony import */ var _leuffen_jodastyle_dev__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle-dev */ "./node_modules/@leuffen/jodastyle-dev/dist/index.js");
 /* harmony import */ var _src_dev_index_dev__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./src.dev/index-dev */ "./src.dev/index-dev.ts");
 
 
@@ -25,7 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 
@@ -54,7 +54,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("e-card-de
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 
@@ -93,18 +93,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AccordionLayout: () => (/* reexport safe */ _leuffen_isl_base__WEBPACK_IMPORTED_MODULE_3__.AccordionLayout),
-/* harmony export */   HamburgerLayout: () => (/* reexport safe */ _leuffen_isl_base__WEBPACK_IMPORTED_MODULE_3__.HamburgerLayout),
-/* harmony export */   InputLayout: () => (/* reexport safe */ _leuffen_isl_base__WEBPACK_IMPORTED_MODULE_3__.InputLayout),
-/* harmony export */   MapLayout: () => (/* reexport safe */ _leuffen_isl_base__WEBPACK_IMPORTED_MODULE_3__.MapLayout),
-/* harmony export */   ScreenLayout: () => (/* reexport safe */ _leuffen_isl_base__WEBPACK_IMPORTED_MODULE_3__.ScreenLayout)
-/* harmony export */ });
-/* harmony import */ var _leuffen_liscom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/liscom */ "./workspaces/liscom/index.ts");
+/* harmony import */ var _leuffen_liscom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/liscom */ "./node_modules/@leuffen/liscom/dist/index.js");
 /* harmony import */ var _sections_sections__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sections/sections */ "./sections/sections.ts");
 /* harmony import */ var _elements_elements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements/elements */ "./elements/elements.ts");
-/* harmony import */ var _leuffen_isl_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @leuffen/isl-base */ "./workspaces/isl-base/index.ts");
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_isl_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @leuffen/isl-base */ "./node_modules/@leuffen/isl-base/dist/index.js");
+/* harmony import */ var _leuffen_isl_base__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_leuffen_isl_base__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _leuffen_isl_base__WEBPACK_IMPORTED_MODULE_3__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _leuffen_isl_base__WEBPACK_IMPORTED_MODULE_3__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 /* harmony import */ var _leuffen_liweco_base__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @leuffen/liweco-base */ "./node_modules/@leuffen/liweco-base/dist/index.js");
 
 
@@ -2793,6 +2790,2848 @@ SidebarWrapper = __decorate([
 
 /***/ }),
 
+/***/ "./node_modules/@leuffen/isl-base/dist/elements/accordion/accordion.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@leuffen/isl-base/dist/elements/accordion/accordion.js ***!
+  \*****************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AccordionLayout = void 0;
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const jodastyle_1 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+// language=HTML
+const tpl = `
+    <div class="as__image">
+        <div class="header" data-ref="header"></div>
+        <div class="image" data-ref="image">
+        </div>
+        <div class="footer" data-ref="footer"></div>
+    </div>
+`;
+class AccordionLayout extends jodastyle_1.DefaultLayout {
+    constructor() {
+        super(...arguments);
+        this.accordion_auto_open = "first";
+    }
+}
+exports.AccordionLayout = AccordionLayout;
+let Accordion = class Accordion {
+    render(element, layout) {
+        var _a;
+        element.classList.add("as__accordion");
+        Array.from(element.querySelectorAll(":scope > .children > .section-h3 > .content h3")).forEach((e, i) => __awaiter(this, void 0, void 0, function* () {
+            let newElem = (0, embed_1.ka_create_element)("a", { class: "as__accordion-header" });
+            e.parentNode.parentNode.insertBefore(newElem, e.parentNode);
+            newElem.append(e);
+            let update = () => {
+                element.querySelectorAll(".section-h3 > .content,.children").forEach((e) => __awaiter(this, void 0, void 0, function* () {
+                    e.style.setProperty("--orig-height", e.scrollHeight + "px");
+                }));
+            };
+            newElem.onclick = () => {
+                var _a;
+                update();
+                Array.from(newElem.closest(".children").children).forEach((e) => {
+                    if (e === newElem.closest(".section-h3"))
+                        return;
+                    e.classList.remove("open");
+                });
+                (_a = newElem.closest(".section-h3")) === null || _a === void 0 ? void 0 : _a.classList.toggle("open");
+            };
+        }));
+        console.log("acc", layout);
+        if (layout.accordion_auto_open === "first") {
+            (_a = element.querySelector(".section-h3")) === null || _a === void 0 ? void 0 : _a.classList.add("open");
+        }
+        return element;
+    }
+};
+Accordion = __decorate([
+    (0, jodastyle_1.jodaRenderer)("accordion", AccordionLayout)
+], Accordion);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/isl-base/dist/elements/hamburger/hamburger.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@leuffen/isl-base/dist/elements/hamburger/hamburger.js ***!
+  \*****************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.HamburgerLayout = void 0;
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const jodastyle_1 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+const jodastyle_2 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+// language=HTML
+const tpl = (0, embed_1.ka_html)(`
+<a class="as__hamburger" href="javascript:void(0);" aria-label="Menü">
+    <div class="as__hamburger-bar" ></div>
+    <div class="as__hamburger-bar" ></div>
+    <div class="as__hamburger-bar" ></div>
+    <div class="as__hamburger-menu">Menü</div>
+</a>
+`);
+class HamburgerLayout extends jodastyle_1.DefaultLayout {
+}
+exports.HamburgerLayout = HamburgerLayout;
+let Hamburger = class Hamburger {
+    render(element, layout) {
+        let main = new jodastyle_2.QTemplate(tpl);
+        element.append(main.content);
+        main.content.addEventListener("click", () => {
+            document.body.classList.toggle("nav-open");
+        });
+        return element;
+    }
+};
+Hamburger = __decorate([
+    (0, jodastyle_1.jodaRenderer)("hamburger", HamburgerLayout)
+], Hamburger);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/isl-base/dist/elements/input/input.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@leuffen/isl-base/dist/elements/input/input.js ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.InputLayout = void 0;
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const jodastyle_1 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+const jodastyle_2 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+const tplDefault = `
+<div class="as__input [[layout.style]] [[classes]]">
+  <div data-ref="main"></div>
+  <label for="[[ id ]]">[[ label ]]</label>
+</div>
+`;
+const tplCheckbox = `
+<div class="as__input [[classes]] form-check">
+ <div data-ref="main"></div>
+  <label class="form-check-label" for="[[ id ]]">
+    [[ label ]]
+  </label>
+</div>
+`;
+class InputLayout extends jodastyle_1.DefaultLayout {
+    constructor() {
+        super(...arguments);
+        this.style = "form-floating";
+        this.classes = "";
+    }
+}
+exports.InputLayout = InputLayout;
+let idCounter = 0;
+let Input = class Input {
+    render(element, layout) {
+        var _a, _b, _c, _d;
+        let main = new jodastyle_2.QTemplate(tplDefault);
+        if (element instanceof HTMLInputElement) {
+            if (element.type === "checkbox" || element.type === "radio") {
+                main = new jodastyle_2.QTemplate(tplCheckbox);
+            }
+            else if (element.type === "submit") {
+                main = new jodastyle_2.QTemplate(`<div class="as__input [[classes]]"><div data-ref="main"></div></div>`);
+            }
+        }
+        element.id = element.id === "" ? "as__input_" + idCounter++ : element.id;
+        if (element instanceof HTMLSelectElement) {
+            let options = [];
+            // Default: No preset, no options
+            options.push({ value: "", label: (_a = element.getAttribute("data-initial")) !== null && _a !== void 0 ? _a : "", disabled: true, selected: true });
+            if (element.hasAttribute("data-options")) {
+                // if dataset.options starts with [ tread as array, if { tread as object
+                if (element.dataset.options.startsWith("[")) {
+                    options.push(...JSON.parse(element.dataset.options).map((o) => {
+                        return { value: o, label: o };
+                    }));
+                }
+                else if (element.dataset.options.startsWith("{")) {
+                    let data = JSON.parse(element.dataset.options);
+                    options = Object.keys(data).map((o) => {
+                        return { value: o, label: data[o] };
+                    });
+                }
+                else {
+                    options.push(...element.dataset.options.split(",").map((o) => {
+                        return { value: o, label: o };
+                    }));
+                }
+            }
+            for (let option of options) {
+                let o = { value: option.value };
+                if (option.selected) {
+                    o["selected"] = "selected";
+                }
+                if (option.disabled) {
+                    o["disabled"] = "true";
+                }
+                let opt = (0, embed_1.ka_create_element)("option", o, option.label);
+                element.append(opt);
+            }
+        }
+        main.parse({
+            layout,
+            classes: (_b = layout.classes + " " + element.getAttribute("data-class")) !== null && _b !== void 0 ? _b : "",
+            id: element.id,
+            label: (_d = (_c = element.getAttribute("label")) !== null && _c !== void 0 ? _c : element.getAttribute("name")) !== null && _d !== void 0 ? _d : element.id
+        });
+        if (element instanceof HTMLSelectElement) {
+            element.classList.add("form-select");
+        }
+        else if (element instanceof HTMLInputElement && (element.type === "checkbox" || element.type === "radio")) {
+            element.classList.add("form-check-input");
+        }
+        else if (element instanceof HTMLInputElement && element.type === "submit") {
+            element.classList.add("btn", "bn-primary");
+        }
+        else {
+            element.classList.add("form-control");
+        }
+        element.parentNode.replaceChild(main.content, element);
+        main.select("main").selected.replaceWith(element);
+        return main.content;
+    }
+};
+Input = __decorate([
+    (0, jodastyle_1.jodaRenderer)("input", InputLayout)
+], Input);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/isl-base/dist/elements/map/map.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@leuffen/isl-base/dist/elements/map/map.js ***!
+  \*****************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.MapLayout = void 0;
+const jodastyle_1 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+const jodastyle_2 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+// language=HTML
+const tpl = `
+    <div class="as__map [[ layout.mapClass ]]">
+        <div class="as__map-overlay" data-ref="overlay">
+            <img src="[[ layout.mapPreviewUrl ]]" loading="lazy" width="1461" height="729" alt="map preview" />
+            <div>
+                <div>
+
+                    <button class="btn btn-secondary mx-auto my-auto btn-lg" data-ref="button">Mit Google Maps anzeigen</button>
+                    <p class="mx-auto">Erst nach dem Klick werden Inhalte von Google Maps geladen.</p>
+                </div>
+
+            </div>
+        </div>
+        <iframe width="100%" hidden title="Google Maps" height="100%" data-ref="iframe"></iframe>
+        <script>
+        </script>
+    </div>
+`;
+class MapLayout extends jodastyle_1.DefaultLayout {
+    constructor() {
+        super(...arguments);
+        this.mapPreviewUrl = "https://cdn.leuffen.de/hyperpage-components/v1.0/google-maps/maps-preview.jpg";
+    }
+}
+exports.MapLayout = MapLayout;
+let Map = class Map {
+    render(element, layout) {
+        var _a;
+        let main = new jodastyle_2.QTemplate(tpl);
+        main.parse({ layout });
+        let mapUrl = (_a = window["mapUrl"]) !== null && _a !== void 0 ? _a : null;
+        if (element.hasAttribute("data-map-preview-url")) {
+            mapUrl = element.getAttribute("data-map-url");
+        }
+        if (mapUrl === null) {
+            console.warn("Missing data-map-url attribute on element (nor window[mapUrl] is set)", element);
+        }
+        main.select("button").selected.addEventListener("click", () => {
+            main.select("iframe").selected.removeAttribute("hidden");
+            main.select("iframe").selected.setAttribute("src", mapUrl);
+            main.select("overlay").selected.setAttribute("hidden", "true");
+        });
+        element.append(main.content);
+        return main.content;
+    }
+};
+Map = __decorate([
+    (0, jodastyle_1.jodaRenderer)("map", MapLayout)
+], Map);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/isl-base/dist/elements/navbar-switch1/navbar-switch1.js":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@leuffen/isl-base/dist/elements/navbar-switch1/navbar-switch1.js ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+// language=HTML
+const jodastyle_1 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+const html = `
+
+    <nav class="isl-navbar-switch1 :: mobile :xl:">
+
+        <div class="isl-navbar-switch1__top-bar container-xxl">
+            <slot data-select="ul.navbar-top"></slot>
+        </div>
+        <div class="isl-navbar-switch1__nav">
+            <div class="container-xl">
+                <div class="isl-navbar-switch1__nav--inner">
+                    <div class="isl-navbar-switch1__nav--logo">
+                        <slot data-select=".brand"></slot>
+                    </div>
+                    <div class="isl-navbar-switch1__nav--items">
+                        <slot data-select="ul.navbar-main" data-child-class="isl-navbar-switch1__nav--items-item"></slot>
+                    </div>
+                    <div class="isl-navbar-switch1__nav--mobile-menu :: :xl: d-none" onclick="this.closest('nav').classList.toggle('sidebar')">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside>
+            <div class="backdrop" onclick="this.closest('nav').classList.remove('sidebar')"></div>
+            <div class="menu">
+                <div class="menu-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"  onclick="this.closest('nav').classList.remove('sidebar')">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                    </svg>
+                </div>
+                <slot data-select="ul.navbar-main" data-copy="1" data-child-class="isl-navbar-switch1__nav--items-item"></slot>
+            </div>
+        </aside>
+    </nav>
+
+`;
+jodastyle_1.Joda.registerTemplate("navbar-switch1", html);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/isl-base/dist/elements/screen/screen.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@leuffen/isl-base/dist/elements/screen/screen.js ***!
+  \***********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ScreenLayout = void 0;
+const jodastyle_1 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+const jodastyle_2 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+// language=HTML
+const tpl = `
+    <div class="as__screen [[layout.type]]">
+        <div class="as__screen-shadow" style="background-image: url([[layout.cdnBaseUrl]]/screens/[[layout.type]]-shadow.svg);"></div>
+        <div class="as__screen-image" data-ref="image"></div>
+        <div class="as__screen-overlay" style="background-image: url([[layout.cdnBaseUrl]]/screens/[[layout.type]].svg)"></div>
+    </div>
+`;
+class ScreenLayout extends jodastyle_1.DefaultLayout {
+    constructor() {
+        super(...arguments);
+        this.cdnBaseUrl = "https://cdn.leuffen.de/hyperpage-components/v1.0";
+        this.type = "mobile";
+    }
+}
+exports.ScreenLayout = ScreenLayout;
+let Screen = class Screen {
+    render(element, layout) {
+        let q = new jodastyle_2.QTemplate(tpl);
+        q.parse({ layout: layout });
+        q.content.classList.add(...Array.from(element.classList));
+        q.content.setAttribute("style", element.getAttribute("style"));
+        element.setAttribute("style", "");
+        element.parentElement.replaceChild(q.content, element);
+        q.select("image").append(element);
+        return q.content;
+    }
+};
+Screen = __decorate([
+    (0, jodastyle_1.jodaRenderer)("screen", ScreenLayout)
+], Screen);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/isl-base/dist/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/@leuffen/isl-base/dist/index.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+__exportStar(__webpack_require__(/*! ./elements/accordion/accordion */ "./node_modules/@leuffen/isl-base/dist/elements/accordion/accordion.js"), exports);
+__exportStar(__webpack_require__(/*! ./elements/hamburger/hamburger */ "./node_modules/@leuffen/isl-base/dist/elements/hamburger/hamburger.js"), exports);
+__exportStar(__webpack_require__(/*! ./elements/input/input */ "./node_modules/@leuffen/isl-base/dist/elements/input/input.js"), exports);
+__exportStar(__webpack_require__(/*! ./elements/map/map */ "./node_modules/@leuffen/isl-base/dist/elements/map/map.js"), exports);
+__exportStar(__webpack_require__(/*! ./elements/screen/screen */ "./node_modules/@leuffen/isl-base/dist/elements/screen/screen.js"), exports);
+__exportStar(__webpack_require__(/*! ./elements/navbar-switch1/navbar-switch1 */ "./node_modules/@leuffen/isl-base/dist/elements/navbar-switch1/navbar-switch1.js"), exports);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle-dev/dist/components/ExampleSwitcherElement.js":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle-dev/dist/components/ExampleSwitcherElement.js ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ExampleSwitcherElement: () => (/* binding */ ExampleSwitcherElement)
+/* harmony export */ });
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+
+
+// language=HTML
+const tpl2 = `
+<div>
+    <select ka.options="$scope.desc" ka.bind="$scope.className" style="width:100%"></select>
+    <input ka.bind="$scope.text">
+</div>
+`;
+let ExampleSwitcherElement = class ExampleSwitcherElement extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.KaCustomElement {
+    constructor() {
+        super();
+        console.log(_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.classes);
+        let scope = this.init({
+            desc: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.classes,
+            text: "test",
+            className: "test",
+            $on: {
+                change: (e) => {
+                    window.history.pushState({}, "", "?className=" + scope.className);
+                }
+            }
+        });
+        let last = "";
+        setInterval(() => __awaiter(this, void 0, void 0, function* () {
+            var _a;
+            if (last === window.location.href) {
+                return;
+            }
+            last = window.location.href;
+            let url = new URL(window.location.href);
+            let className = url.searchParams.get("className");
+            if (className === null) {
+                return;
+            }
+            scope.className = className;
+            let daba = document.getElementsByTagName("joda-content")[0];
+            var MarkdownIt = __webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js");
+            var markdownItAttrs = __webpack_require__(/*! markdown-it-attrs */ "./node_modules/markdown-it-attrs/index.js");
+            var md = new MarkdownIt({
+                html: true // Erlaubt HTML-Input.
+            }, null);
+            md.use(markdownItAttrs);
+            let desc = _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.getDescription(className);
+            if (desc === undefined || desc === null) {
+                let newElement = document.createElement("div");
+                newElement.innerHTML = "No description found";
+                daba.replaceWith(newElement);
+                return;
+            }
+            document.body.classList.add(...desc.config.bodyClasses);
+            let content = (_a = desc.example) !== null && _a !== void 0 ? _a : "No example found";
+            if (desc.config.parseMarkdown) {
+                content = content.replace(/\n{:/gm, "{:");
+                content = md.render(content);
+                content = "<joda-split>" + content + "</joda-split>";
+            }
+            let newElement = document.createElement("joda-content");
+            newElement.innerHTML = content;
+            daba.replaceWith(newElement);
+        }), 100);
+    }
+};
+ExampleSwitcherElement = __decorate([
+    (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.customElement)("joda-example-switcher"),
+    (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.template)(tpl2),
+    __metadata("design:paramtypes", [])
+], ExampleSwitcherElement);
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle-dev/dist/components/JodaDevSidebarElement.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle-dev/dist/components/JodaDevSidebarElement.js ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+/* harmony import */ var _kasimirjs_kit_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @kasimirjs/kit-bootstrap */ "./node_modules/@kasimirjs/kit-bootstrap/dist/index.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../index */ "./node_modules/@leuffen/jodastyle-dev/dist/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+
+
+
+
+const config = {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-display-fill" viewBox="0 0 16 16">
+      <path d="M6 12c0 .667-.083 1.167-.25 1.5H5a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-.75c-.167-.333-.25-.833-.25-1.5h4c2 0 2-2 2-2V4c0-2-2-2-2-2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h4z"/>
+    </svg>`
+};
+// language=HTML
+const tpl2 = `
+<div>
+    
+    <h3 class="">JodaStyle Dev</h3>
+    <quick-input ka.bind="$scope.siteConfig.disable_split" data-label="Disable Joda Split " data-name="test" data-type="switch"></quick-input>
+    <quick-input ka.bind="$scope.siteConfig.disable_templates" data-label="Disable Joda Templates " data-name="test" data-type="switch"></quick-input>
+    <quick-input ka.bind="$scope.siteConfig.disable_responsive" data-label="Disable Joda Responsive" data-name="test" data-type="switch"></quick-input>
+    <quick-input ka.bind="$scope.siteConfig.debug_visualize" data-label="Joda Debug Visualize" data-name="test" data-type="switch"></quick-input>
+    <quick-input ka.if="siteConfig.debug_visualize" ka.bind="$scope.siteConfig.debug_visualize_attribute" data-label="Add Attributes to Visualize" data-name="test" data-type="switch"></quick-input>
+    <hr>
+    <joda-example-switcher></joda-example-switcher>
+</div>
+`;
+let JodaDevSidebarElement = class JodaDevSidebarElement extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.KaCustomElement {
+    constructor() {
+        super();
+        this.shadowRootConfig.mode = "closed";
+        this.shadowRootConfig.stylesheets = [
+            _index__WEBPACK_IMPORTED_MODULE_3__.joda_dev_config.stylesheet,
+        ];
+        this.wrap(new _kasimirjs_kit_bootstrap__WEBPACK_IMPORTED_MODULE_2__.SidebarWrapper(config));
+        let scope = this.init({
+            desc: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.classes,
+            siteConfig: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.jodaSiteConfig,
+            $on: {
+                change: (e) => __awaiter(this, void 0, void 0, function* () {
+                    yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(100);
+                    window.location.reload();
+                })
+            }
+        });
+        let last = "";
+    }
+};
+JodaDevSidebarElement = __decorate([
+    (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.customElement)("joda-dev-sidebar"),
+    (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.template)(tpl2),
+    __metadata("design:paramtypes", [])
+], JodaDevSidebarElement);
+(() => __awaiter(void 0, void 0, void 0, function* () {
+    yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_dom_ready)();
+    document.body.append(new JodaDevSidebarElement());
+}))();
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle-dev/dist/components/JodaShowcaseElement.js":
+/*!************************************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle-dev/dist/components/JodaShowcaseElement.js ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../index */ "./node_modules/@leuffen/jodastyle-dev/dist/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+
+
+
+// language=HTML
+const tpl = `
+    <div class="joda-showcase-element" ka.classlist="classes">
+        <div class="row " >
+            <div class="col col-auto" ka.for="let i of desc ">
+                <div class="card">
+                    <div class="card-body p-1 m-1">
+                        <div class="preview">
+                            <iframe ka.prop.src="'/html?className=' + i.className"></iframe>
+                            <div class="overlay"><a ka.prop.href="'/html?className=' + i.className">Show</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+let JodaShowcaseElement = class JodaShowcaseElement extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.KaCustomElement {
+    constructor() {
+        super();
+        this.shadowRootConfig.mode = "closed";
+        this.shadowRootConfig.stylesheets = [
+            _index__WEBPACK_IMPORTED_MODULE_2__.joda_dev_config.stylesheet
+        ];
+        let scope = this.init({
+            desc: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.data,
+            classes: [],
+            $on: {}
+        });
+    }
+    connectedCallback() {
+        const _super = Object.create(null, {
+            connectedCallback: { get: () => super.connectedCallback }
+        });
+        return __awaiter(this, void 0, void 0, function* () {
+            yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.ka_sleep)(1);
+            this.scope.classes = this.getAttribute("class");
+            this.scope.desc = _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.data.filter(e => e.category === this.getAttribute("data-category"));
+            console.log("connectedCallback", this.scope.desc);
+            _super.connectedCallback.call(this);
+        });
+    }
+    disconnectedCallback() {
+        const _super = Object.create(null, {
+            disconnectedCallback: { get: () => super.disconnectedCallback }
+        });
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log("disconnect", this);
+            this.scope.desc = [];
+            _super.disconnectedCallback.call(this);
+        });
+    }
+};
+JodaShowcaseElement = __decorate([
+    (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.template)(tpl),
+    (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.customElement)("joda-showcase-element"),
+    __metadata("design:paramtypes", [])
+], JodaShowcaseElement);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle-dev/dist/config.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle-dev/dist/config.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   joda_dev_config: () => (/* binding */ joda_dev_config)
+/* harmony export */ });
+let joda_dev_config = {
+    stylesheet: "/assets/dist/dev.css" // Define the stylsheet to use for shadowRoot
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle-dev/dist/index.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle-dev/dist/index.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   joda_dev_config: () => (/* reexport safe */ _config__WEBPACK_IMPORTED_MODULE_0__.joda_dev_config)
+/* harmony export */ });
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config */ "./node_modules/@leuffen/jodastyle-dev/dist/config.js");
+/* harmony import */ var _components_JodaShowcaseElement__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/JodaShowcaseElement */ "./node_modules/@leuffen/jodastyle-dev/dist/components/JodaShowcaseElement.js");
+/* harmony import */ var _components_JodaDevSidebarElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/JodaDevSidebarElement */ "./node_modules/@leuffen/jodastyle-dev/dist/components/JodaDevSidebarElement.js");
+/* harmony import */ var _components_ExampleSwitcherElement__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ExampleSwitcherElement */ "./node_modules/@leuffen/jodastyle-dev/dist/components/ExampleSwitcherElement.js");
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/component/joda-content-element.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/component/joda-content-element.js ***!
+  \********************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+};
+var _JodaContentElement_origContentTemplate, _JodaContentElement_outputDiv;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.JodaContentElement = void 0;
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const jodastyle_1 = __webpack_require__(/*! ../processor/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/processor/jodastyle.js");
+const jodaresponsive_1 = __webpack_require__(/*! ../processor/jodaresponsive */ "./node_modules/@leuffen/jodastyle/dist/processor/jodaresponsive.js");
+const logger_1 = __webpack_require__(/*! ../helper/logger */ "./node_modules/@leuffen/jodastyle/dist/helper/logger.js");
+const jodavisualize_1 = __webpack_require__(/*! ../processor/jodavisualize */ "./node_modules/@leuffen/jodastyle/dist/processor/jodavisualize.js");
+const JodaSiteConfig_1 = __webpack_require__(/*! ../helper/JodaSiteConfig */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaSiteConfig.js");
+function getCSSRule(ruleName) {
+    ruleName = ruleName.toLowerCase();
+    var result = null;
+    var find = Array.prototype.find;
+    find.call(document.styleSheets, styleSheet => {
+        result = find.call(styleSheet.cssRules, cssRule => {
+            return cssRule instanceof CSSStyleRule
+                && cssRule.selectorText.toLowerCase() == ruleName;
+        });
+        return result != null;
+    });
+    return result;
+}
+console.time("jodaTime");
+let JodaContentElement = class JodaContentElement extends HTMLElement {
+    constructor() {
+        super(...arguments);
+        _JodaContentElement_origContentTemplate.set(this, void 0);
+        _JodaContentElement_outputDiv.set(this, void 0);
+    }
+    awaitStyles() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let index = 0;
+            while (true) {
+                index++;
+                let initValue = getComputedStyle(this).getPropertyValue("--joda-init");
+                if (initValue.indexOf("true") !== -1) {
+                    break;
+                }
+                if (index > 100) {
+                    index = 0;
+                    console.warn("Still waiting for --joda-init: true", this, "current value:", initValue, "on url", window.location.href);
+                }
+                yield (0, embed_1.ka_sleep)(50 + index);
+            }
+        });
+    }
+    setLoaded() {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield (0, embed_1.ka_sleep)(10);
+            this.classList.add("loaded");
+            yield (0, embed_1.ka_sleep)(100);
+            document.body.classList.add("loaded");
+            document.querySelector("html").classList.remove("loader");
+        });
+    }
+    connectedCallback() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let logger = new logger_1.Logger("joda-content");
+            yield (0, embed_1.ka_sleep)(1);
+            yield this.awaitStyles();
+            __classPrivateFieldSet(this, _JodaContentElement_origContentTemplate, (0, embed_1.ka_create_element)("template"), "f");
+            __classPrivateFieldSet(this, _JodaContentElement_outputDiv, (0, embed_1.ka_create_element)("div"), "f");
+            //this.#origContentTemplate.innerHTML = this.innerHTML;
+            //this.innerHTML = "";
+            //this.appendChild(this.#origContentTemplate);
+            //this.appendChild(this.#outputDiv);
+            if (JodaSiteConfig_1.jodaSiteConfig.disable_templates) {
+                this.setLoaded();
+                // For documentation: Add Class and Tag-Names
+                if (JodaSiteConfig_1.jodaSiteConfig.debug_visualize && JodaSiteConfig_1.jodaSiteConfig.debug_visualize_attribute) {
+                    (new jodavisualize_1.Jodavisualize()).process(this);
+                }
+                return;
+            }
+            // Process the content
+            let jodaStyle = new jodastyle_1.Jodastyle(logger);
+            yield jodaStyle.process(this);
+            let jodaresponsive = new jodaresponsive_1.Jodaresponsive(logger);
+            let currentBreakpoint = (0, jodaresponsive_1.getCurrentBreakpoint)();
+            jodaresponsive.process(this);
+            // For documentation: Add Class and Tag-Names
+            if (JodaSiteConfig_1.jodaSiteConfig.debug_visualize && JodaSiteConfig_1.jodaSiteConfig.debug_visualize_attribute) {
+                (new jodavisualize_1.Jodavisualize()).process(this);
+            }
+            this.setLoaded();
+            window.addEventListener("resize", () => {
+                if (currentBreakpoint === (0, jodaresponsive_1.getCurrentBreakpoint)()) {
+                    return;
+                }
+                currentBreakpoint = (0, jodaresponsive_1.getCurrentBreakpoint)();
+                logger.log("Breakpoint changed to " + currentBreakpoint);
+                jodaresponsive.process(this);
+            });
+        });
+    }
+    setContent(content) {
+        this.innerHTML = content;
+        this.connectedCallback();
+    }
+};
+exports.JodaContentElement = JodaContentElement;
+_JodaContentElement_origContentTemplate = new WeakMap();
+_JodaContentElement_outputDiv = new WeakMap();
+exports.JodaContentElement = JodaContentElement = __decorate([
+    (0, embed_1.customElement)("joda-content")
+], JodaContentElement);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/component/joda-fetch.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/component/joda-fetch.js ***!
+  \**********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const jodastyle_1 = __webpack_require__(/*! ../processor/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/processor/jodastyle.js");
+const logger_1 = __webpack_require__(/*! ../helper/logger */ "./node_modules/@leuffen/jodastyle/dist/helper/logger.js");
+let JodaFetch = class JodaFetch extends HTMLElement {
+    connectedCallback() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let select = this.getAttribute("data-select");
+            let elem = document.querySelector(select);
+            if (elem === null) {
+                console.error("joda-fetch: Element not found", select, "in element", this);
+                return;
+            }
+            let jodaStyle = new jodastyle_1.Jodastyle(new logger_1.Logger("joda-fetch"));
+            this.innerHTML = elem.innerHTML;
+            yield jodaStyle.process(this);
+        });
+    }
+};
+JodaFetch = __decorate([
+    (0, embed_1.customElement)('joda-fetch')
+], JodaFetch);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/component/joda-split.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/component/joda-split.js ***!
+  \**********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
+var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+};
+var _JodaSplit_ready;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const jodasplit_1 = __webpack_require__(/*! ../processor/jodasplit */ "./node_modules/@leuffen/jodastyle/dist/processor/jodasplit.js");
+const logger_1 = __webpack_require__(/*! ../helper/logger */ "./node_modules/@leuffen/jodastyle/dist/helper/logger.js");
+const jodashorts_1 = __webpack_require__(/*! ../processor/jodashorts */ "./node_modules/@leuffen/jodastyle/dist/processor/jodashorts.js");
+const JodaSiteConfig_1 = __webpack_require__(/*! ../helper/JodaSiteConfig */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaSiteConfig.js");
+let JodaSplit = class JodaSplit extends HTMLElement {
+    constructor() {
+        super(...arguments);
+        _JodaSplit_ready.set(this, false);
+    }
+    get ready() {
+        return __classPrivateFieldGet(this, _JodaSplit_ready, "f");
+    }
+    connectedCallback() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let logger = new logger_1.Logger("joda-split");
+            yield (0, embed_1.ka_sleep)(1);
+            if (JodaSiteConfig_1.jodaSiteConfig.debug_visualize) {
+                this.classList.add("joda-debug-visualize");
+            }
+            if (JodaSiteConfig_1.jodaSiteConfig.disable_split) {
+                __classPrivateFieldSet(this, _JodaSplit_ready, true, "f");
+                return;
+            }
+            let jodaShorts = new jodashorts_1.Jodashorts(logger);
+            this.innerHTML = yield jodaShorts.process(this.innerHTML);
+            let jodaSplit = new jodasplit_1.Jodasplit(logger);
+            let fragment = document.createDocumentFragment();
+            fragment.append(yield jodaSplit.process(this));
+            this.innerHTML = "";
+            this.append(fragment);
+            __classPrivateFieldSet(this, _JodaSplit_ready, true, "f");
+        });
+    }
+};
+_JodaSplit_ready = new WeakMap();
+JodaSplit = __decorate([
+    (0, embed_1.customElement)('joda-split')
+], JodaSplit);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/helper/JodaDescriptionManager.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/helper/JodaDescriptionManager.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.JodaDescriptionManager = exports.__JodaDescriptionManager = void 0;
+class __JodaDescriptionManager {
+    addClass(category, className, description, example, modifiers, config = {}) {
+        let defaultConfig = {
+            bodyClasses: [],
+            parseMarkdown: true
+        };
+        config = Object.assign(Object.assign({}, defaultConfig), config);
+        if (window["jodastyle"] === undefined) {
+            window["jodastyle"] = {};
+        }
+        if (window["jodastyle"]["descriptions"] === undefined) {
+            window["jodastyle"]["descriptions"] = [];
+        }
+        window["jodastyle"]["descriptions"].push({ category, className, description, example, modifiers, config });
+    }
+    get data() {
+        var _a;
+        if (window["jodastyle"] === undefined) {
+            console.warn("[jodastyle description manager] No jodastyle descriptions found (Make sure you imported a theme) => window.jodastyle is undefined");
+            return [];
+        }
+        return (_a = window["jodastyle"]["descriptions"]) !== null && _a !== void 0 ? _a : [];
+    }
+    get classes() {
+        return this.data.map(e => e.className);
+    }
+    getDescription(className) {
+        return this.data.find(e => e.className === className);
+    }
+}
+exports.__JodaDescriptionManager = __JodaDescriptionManager;
+exports.JodaDescriptionManager = new __JodaDescriptionManager();
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/helper/JodaElementException.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/helper/JodaElementException.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.JodaElementException = void 0;
+class JodaElementException {
+    constructor(message, element = null, triggerCommand = null) {
+        this.message = message;
+        this.element = element;
+        this.triggerCommand = triggerCommand;
+    }
+}
+exports.JodaElementException = JodaElementException;
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/helper/JodaErrorElement.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/helper/JodaErrorElement.js ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.JodaErrorElement = void 0;
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+let tpl = `
+<style>
+.joda-error {
+    display: block;
+    background-color: rgba(241,179,179,0.17);
+    margin: 1em;
+    padding: 1em;
+    color: red;
+    font-weight: bold;
+    border: 3px solid red;
+}
+</style>
+<div class="joda-error">
+    [[ message ]]
+</div>
+`;
+let JodaErrorElement = class JodaErrorElement extends embed_1.KaCustomElement {
+    constructor(message) {
+        super();
+        this.message = message;
+        let scope = this.init({
+            message: message
+        });
+    }
+    connectedCallback() {
+        const _super = Object.create(null, {
+            connectedCallback: { get: () => super.connectedCallback }
+        });
+        return __awaiter(this, void 0, void 0, function* () {
+            yield _super.connectedCallback.call(this);
+            this.scope.message = this.message;
+        });
+    }
+};
+exports.JodaErrorElement = JodaErrorElement;
+exports.JodaErrorElement = JodaErrorElement = __decorate([
+    (0, embed_1.customElement)('joda-error'),
+    (0, embed_1.template)(tpl),
+    __metadata("design:paramtypes", [Object])
+], JodaErrorElement);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/helper/JodaRenderer.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/helper/JodaRenderer.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/helper/JodaSiteConfig.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/helper/JodaSiteConfig.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.jodaSiteConfig = void 0;
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+class JodaSiteConfig {
+    constructor() {
+        this.disable_split = false;
+        this.disable_templates = false;
+        this.disable_responsive = false;
+        this.debug_visualize = false;
+        this.debug_visualize_attribute = false; // Add Attribution to visualized elements
+    }
+}
+exports.jodaSiteConfig = (0, embed_1.ka_session_storage)(new JodaSiteConfig(), "jodaSiteConfig");
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/helper/QTemplate.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/helper/QTemplate.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.QTemplate = exports.template_parse = void 0;
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_2 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/**
+ * Searches for occurence of ${javascript expression} and replaces them with the result of the expression
+ */
+function template_parse(input, scope, element) {
+    // Search for ${...} by preg and replace them with the result of the expression
+    return input.replace(/\[\[(.*?)]]/gmi, (match, p1) => {
+        let val = (0, embed_1.ka_eval)(p1, scope, element, {});
+        return val;
+    });
+}
+exports.template_parse = template_parse;
+class QTemplate {
+    constructor(content) {
+        if (typeof content === "string") {
+            this.content = (0, embed_2.ka_create_element)("template");
+            this.content.innerHTML = content;
+        }
+        else {
+            this.content = content;
+        }
+        if (this.content instanceof HTMLTemplateElement) {
+            if (this.content.content.children.length > 1) {
+                throw new Error("Template must have exactly one root element. Found: " + this.content.innerHTML);
+            }
+            this.content = this.content.content.firstElementChild.cloneNode(true);
+        }
+        this.selected = null;
+    }
+    parse(scope) {
+        let tpl = (0, embed_2.ka_create_element)("template", {}, [], null);
+        tpl.content.append(this.content);
+        //console.log("Parse", this.content, this.content.toString());
+        tpl.innerHTML = template_parse(tpl.innerHTML, scope, tpl);
+        this.content = tpl.content.firstElementChild;
+        return this;
+    }
+    /**
+     * Returns the element with the given data-ref attribute
+     * @param data_ref
+     */
+    by(data_ref) {
+        let selector = `[data-ref="${data_ref}"]`;
+        if (this.content.matches(selector)) {
+            return this.content;
+        }
+        return this.content.querySelector(selector);
+    }
+    select(data_ref) {
+        this.selected = this.by(data_ref);
+        if (this.selected === null) {
+            console.error("Element with data-ref '" + data_ref + "' not found.", this.content);
+            throw "Element with data-ref '" + data_ref + "' not found.";
+        }
+        return this;
+    }
+    /**
+     * Pick elements by selector and append them to the selected element
+     *
+     * @param source
+     * @param selector
+     */
+    pick(source, selector, modifier = null) {
+        Array.from(source.querySelectorAll(selector)).forEach((e) => {
+            if (modifier !== null) {
+                e = modifier(e);
+            }
+            this.selected.append(e);
+        });
+        return this;
+    }
+    /**
+     * Select and return own wrapper
+     *
+     * @param data_ref
+     */
+    with(data_ref) {
+        let instance = new QTemplate(this.content);
+        instance.select(data_ref);
+        return instance;
+    }
+    append(element) {
+        if (element instanceof QTemplate) {
+            this.selected.append(element.content);
+            return this;
+        }
+        if (element instanceof NodeList) {
+            Array.from(element).forEach(e => this.selected.append(e));
+            return this;
+        }
+        if (Array.isArray(element) || element instanceof NodeList) {
+            element.forEach(e => this.selected.append(e));
+            return this;
+        }
+        this.selected.append(element);
+        return this;
+    }
+    clone() {
+        return new QTemplate(this.content.cloneNode(true));
+    }
+}
+exports.QTemplate = QTemplate;
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/helper/functions.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/helper/functions.js ***!
+  \******************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getTemplateFilledWithContent = exports.parseConfigString = exports.getCleanVariableValue = exports.splitChildrenBySelector = exports.jodaRenderer = exports.registerJodaRenderer = exports.wrapElement = exports.await_property = void 0;
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const JodaElementException_1 = __webpack_require__(/*! ./JodaElementException */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaElementException.js");
+const QTemplate_1 = __webpack_require__(/*! ./QTemplate */ "./node_modules/@leuffen/jodastyle/dist/helper/QTemplate.js");
+const joda_1 = __webpack_require__(/*! ../joda */ "./node_modules/@leuffen/jodastyle/dist/joda.js");
+function await_property(object, property, wait = 10) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (typeof property === "string") {
+            property = property.split(".");
+        }
+        let value = undefined;
+        let index = 0;
+        while (value === undefined) {
+            index++;
+            let curObject = object;
+            for (let i = 0; i < property.length; i++) {
+                if (curObject === undefined) {
+                    break;
+                }
+                curObject = curObject[property[i]];
+            }
+            value = curObject;
+            if (value === undefined)
+                yield (0, embed_1.ka_sleep)(wait);
+            if (index > 1000) {
+                index = 0;
+                console.warn("Still waiting for property: ", property, "in object", object);
+            }
+        }
+        return value;
+    });
+}
+exports.await_property = await_property;
+function wrapElement(element, wrapper) {
+    var _a;
+    (_a = element.parentNode) === null || _a === void 0 ? void 0 : _a.insertBefore(wrapper, element);
+    wrapper.appendChild(element);
+}
+exports.wrapElement = wrapElement;
+function registerJodaRenderer(name, renderer, config) {
+    if (window["jodastyle"] === undefined) {
+        window["jodastyle"] = {};
+    }
+    if (window["jodastyle"]["renderer"] === undefined) {
+        window["jodastyle"]["renderer"] = {};
+    }
+    window["jodastyle"]["renderer"][name] = { renderer, config };
+}
+exports.registerJodaRenderer = registerJodaRenderer;
+function jodaRenderer(name, config) {
+    return function (classOrDescriptor) {
+        registerJodaRenderer(name, classOrDescriptor, config);
+    };
+}
+exports.jodaRenderer = jodaRenderer;
+function splitChildrenBySelector(element, splitBySelctor) {
+    let ret = [];
+    Array.from(element.children).forEach(child => {
+        if (child.matches(splitBySelctor)) {
+            ret.push(document.createDocumentFragment());
+        }
+        if (ret.length > 0) {
+            ret[ret.length - 1].append(child);
+        }
+    });
+    return ret;
+}
+exports.splitChildrenBySelector = splitChildrenBySelector;
+function getCleanVariableValue(styleValue) {
+    return styleValue.trim().replace(/^["']/g, '').replace(/["']$/, '').trim();
+}
+exports.getCleanVariableValue = getCleanVariableValue;
+/**
+ * Parse config string formattes as key-value pairs like this: key1: value1; key2: value2; ... into an object.
+ *
+ * @param input String representing key-value pair separated by colon and each line separated by semicolon
+ * @returns Object containing key-value pairs from string
+ */
+function parseConfigString(input) {
+    // Check if input is null or undefined
+    if (input == null) {
+        return {};
+    }
+    // Split input string and filter invalid lines
+    const obj = {};
+    const lines = input.trim().split(';');
+    for (let line of lines) {
+        const parts = line.trim().split(':');
+        if (parts.length == 2) {
+            obj[parts[0].trim()] = parts[1].trim();
+        }
+    }
+    return obj;
+}
+exports.parseConfigString = parseConfigString;
+/**
+ * Copy all data-child-* attributes from source to target element
+ *
+ * e.g. <slot data-child-class="abc"> Will result in <div class="abc">
+ *     Also: <slot data-child-layout="use: #someElement"> Will result in <div layout="use: #someElement">
+ * @param source
+ * @param target
+ */
+function copyDataChildAttributes(source, target) {
+    Array.from(source.attributes).forEach((attr) => {
+        if (attr.name.startsWith("data-child-")) {
+            // if attribute is class, append classed to existing class attribute
+            if (attr.name === "data-child-class") {
+                target.classList.add(...attr.value.split(" ").filter((value) => value !== ""));
+                return;
+            }
+            target.setAttribute(attr.name.substring(11), attr.value);
+        }
+    });
+}
+let slotIndex = 0;
+function getTemplateFilledWithContent(templateSelector, content, origElement) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let templateHtml = joda_1.Joda.getRegisteredTemplate(templateSelector);
+        if (templateHtml === null) {
+            let template = document.querySelector(templateSelector);
+            if (template === null) {
+                throw new JodaElementException_1.JodaElementException("Template not found: " + templateSelector);
+            }
+            templateHtml = template.innerHTML;
+        }
+        // Load --layout-* variables to template parser
+        let layout = {};
+        let props = getComputedStyle(origElement);
+        // Attention: Chrome cannot list defined CSS Variables!
+        templateHtml = (0, QTemplate_1.template_parse)(templateHtml, {
+            layout: new Proxy({}, {
+                get: function (target, name) {
+                    let val = props.getPropertyValue("--layout-" + name.toString());
+                    //console.log("Get layout property: ", name, val);
+                    if (val === "true")
+                        return true;
+                    if (val === "false")
+                        return false;
+                    return val;
+                }
+            })
+        }, content);
+        let clone = document.createRange().createContextualFragment(templateHtml);
+        let done = [];
+        clone.querySelectorAll("slot[data-select][data-copy]").forEach((slot) => {
+            if (done.includes(slot)) {
+                return;
+            }
+            done.push(slot);
+            slot.setAttribute("_slotIndex", (++slotIndex).toString());
+            let select = slot.getAttribute("data-select");
+            let selected;
+            if (slot.getAttribute("data-limit") === "1") {
+                selected = Array.from([content.querySelector(select)]).map((element) => element.cloneNode(true));
+            }
+            else {
+                selected = Array.from(content.querySelectorAll(select)).map((element) => element.cloneNode(true));
+            }
+            selected.forEach((element) => {
+                copyDataChildAttributes(slot, element);
+            });
+            if (selected.length === 0) {
+                console.warn("No element found for selector: " + select + " in template: " + templateSelector + " for slot: ", slot);
+                return;
+            }
+            if (slot.hasAttribute("data-replace") && selected) {
+                slot.replaceWith(...selected);
+            }
+            else if (selected) {
+                slot.append(...selected);
+            }
+        });
+        clone.querySelectorAll("slot[data-select]").forEach((slot) => {
+            if (done.includes(slot)) {
+                return;
+            }
+            done.push(slot);
+            slot.setAttribute("_slotIndex", (++slotIndex).toString());
+            let select = slot.getAttribute("data-select");
+            let selected;
+            if (slot.getAttribute("data-limit") === "1") {
+                selected = Array.from([content.querySelector(select)]);
+            }
+            else {
+                selected = Array.from(content.querySelectorAll(select));
+            }
+            if (selected.length === 0) {
+                console.warn("No element found for selector: " + select + " in template: " + templateSelector + " for slot: ", slot);
+                return;
+            }
+            selected.forEach((element) => {
+                copyDataChildAttributes(slot, element);
+            });
+            if (slot.hasAttribute("data-replace") && selected) {
+                slot.replaceWith(...selected);
+            }
+            else if (selected) {
+                slot.append(...selected);
+            }
+        });
+        // Select <slot> element with no data-select attribute
+        let slot = clone.querySelector("slot:not([data-select])");
+        if (slot !== null && slot.hasAttribute("data-class")) {
+            if (done.includes(slot)) {
+                return;
+            }
+            done.push(slot);
+            slot.setAttribute("_slotIndex", (++slotIndex).toString());
+            Array.from(content.children).forEach((element) => {
+                // Add all classes from data-class attribute to selected element
+                element.classList.add(...slot.getAttribute("data-class").split(" ").filter((value) => value !== ""));
+            });
+        }
+        if (slot !== null && slot.hasAttribute("data-replace")) {
+            slot.replaceWith(...Array.from(content.children));
+        }
+        else if (slot !== null) {
+            slot.append(...Array.from(content.children));
+        }
+        else {
+            content.remove();
+        }
+        return clone;
+    });
+}
+exports.getTemplateFilledWithContent = getTemplateFilledWithContent;
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/helper/ka-quick-template.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/helper/ka-quick-template.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.createElementTree = exports.createElement = exports.parseAttributeStr = exports.parseVariableStr = exports.parseVariableAndStyleStr = void 0;
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+function parseVariableAndStyleStr(varString) {
+    let attrs = { "$": {}, "@": {} };
+    let regex = new RegExp(`([@$])[^@^$]+`, "gi");
+    varString.replace(regex, (match, type) => {
+        match = match.substring(1);
+        if (match.indexOf("=") === -1 && type === "@") {
+            if (typeof attrs[type].class === "undefined")
+                attrs[type].class = "";
+            attrs[type].class += " " + match;
+            attrs[type].class = attrs[type].class.trim();
+        }
+        else {
+            let res = match.split("=");
+            attrs[type][res.shift()] = res.join("=").trim();
+        }
+        return "";
+    });
+    return attrs;
+}
+exports.parseVariableAndStyleStr = parseVariableAndStyleStr;
+function parseVariableStr(varString, delimiter = "@") {
+    let attrs = {};
+    let regex = new RegExp(`\\${delimiter}[^${delimiter}]+`, "gi");
+    varString.replace(regex, (match) => {
+        match = match.substring(1);
+        if (match.indexOf("=") === -1) {
+            if (typeof attrs.class === "undefined")
+                attrs.class = "";
+            attrs.class += " " + match;
+            attrs.class = attrs.class.trim();
+        }
+        else {
+            let res = match.split("=");
+            attrs[res.shift()] = res.join("=").trim();
+        }
+        return "";
+    });
+    return attrs;
+}
+exports.parseVariableStr = parseVariableStr;
+function parseAttributeStr(attrString) {
+    return parseVariableStr(attrString, "@");
+}
+exports.parseAttributeStr = parseAttributeStr;
+function createElement(definition) {
+    let defRest = definition.trim();
+    let tag = "div";
+    defRest = defRest.replace(/^[a-z0-9_\:\-]+/ig, (match) => {
+        tag = match;
+        return "";
+    });
+    let attrs = parseAttributeStr(defRest);
+    let element = (0, embed_1.ka_create_element)(tag, attrs);
+    return element;
+}
+exports.createElement = createElement;
+function createElementTree(def) {
+    let start = null;
+    let leaf = null;
+    let splitted = def.split(">");
+    while (splitted.length > 0) {
+        let cur = splitted.shift();
+        let refName = null;
+        cur = cur.replace(/§([a-z0-9_\-]+)/, (a, name) => {
+            refName = name;
+            return "";
+        });
+        if (cur.trim().startsWith("|")) {
+            // TextNode
+            let el = document.createElement("div");
+            if (splitted.length > 0)
+                cur += ">" + splitted.join(">");
+            el.innerHTML = cur.trim().substring(1);
+            el.childNodes.forEach((e) => leaf.append(e.cloneNode(true)));
+            el.remove();
+            break;
+        }
+        let el = createElement(cur);
+        /*if (refName !== null)
+            this.#refs[refName] = el;
+*/
+        if (start === null) {
+            start = leaf = el;
+        }
+        else {
+            if (leaf instanceof HTMLTemplateElement) {
+                leaf.content.appendChild(el);
+            }
+            else {
+                leaf.appendChild(el);
+            }
+            leaf = el;
+        }
+    }
+    return { start, leaf };
+}
+exports.createElementTree = createElementTree;
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/helper/logger.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/helper/logger.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Logger = void 0;
+class Logger {
+    constructor(name) {
+        this.name = name;
+    }
+    log(...args) {
+        console.log("[" + this.name + "]", ...args);
+    }
+    warn(...args) {
+        console.warn("[" + this.name + "]", ...args);
+    }
+}
+exports.Logger = Logger;
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/index.module.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/index.module.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   DefaultLayout: () => (/* reexport safe */ _types_DefaultLayout__WEBPACK_IMPORTED_MODULE_6__.DefaultLayout),
+/* harmony export */   Joda: () => (/* reexport safe */ _joda__WEBPACK_IMPORTED_MODULE_11__.Joda),
+/* harmony export */   JodaDescriptionManager: () => (/* reexport safe */ _helper_JodaDescriptionManager__WEBPACK_IMPORTED_MODULE_7__.JodaDescriptionManager),
+/* harmony export */   Logger: () => (/* reexport safe */ _helper_logger__WEBPACK_IMPORTED_MODULE_8__.Logger),
+/* harmony export */   QTemplate: () => (/* reexport safe */ _helper_QTemplate__WEBPACK_IMPORTED_MODULE_5__.QTemplate),
+/* harmony export */   __JodaDescriptionManager: () => (/* reexport safe */ _helper_JodaDescriptionManager__WEBPACK_IMPORTED_MODULE_7__.__JodaDescriptionManager),
+/* harmony export */   __esModule: () => (/* reexport safe */ _helper_JodaRenderer__WEBPACK_IMPORTED_MODULE_0__.__esModule),
+/* harmony export */   jodaSiteConfig: () => (/* reexport safe */ _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_10__.jodaSiteConfig),
+/* harmony export */   template_parse: () => (/* reexport safe */ _helper_QTemplate__WEBPACK_IMPORTED_MODULE_5__.template_parse)
+/* harmony export */ });
+/* harmony import */ var _helper_JodaRenderer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper/JodaRenderer */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaRenderer.js");
+/* harmony import */ var _component_joda_content_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./component/joda-content-element */ "./node_modules/@leuffen/jodastyle/dist/component/joda-content-element.js");
+/* harmony import */ var _component_joda_content_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_component_joda_content_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _component_joda_content_element__WEBPACK_IMPORTED_MODULE_1__) if(["default","__esModule"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _component_joda_content_element__WEBPACK_IMPORTED_MODULE_1__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+/* harmony import */ var _component_joda_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./component/joda-fetch */ "./node_modules/@leuffen/jodastyle/dist/component/joda-fetch.js");
+/* harmony import */ var _component_joda_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_component_joda_fetch__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _component_joda_fetch__WEBPACK_IMPORTED_MODULE_2__) if(["default","__esModule"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _component_joda_fetch__WEBPACK_IMPORTED_MODULE_2__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+/* harmony import */ var _component_joda_split__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./component/joda-split */ "./node_modules/@leuffen/jodastyle/dist/component/joda-split.js");
+/* harmony import */ var _component_joda_split__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_component_joda_split__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _component_joda_split__WEBPACK_IMPORTED_MODULE_3__) if(["default","__esModule"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _component_joda_split__WEBPACK_IMPORTED_MODULE_3__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+/* harmony import */ var _helper_functions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helper/functions */ "./node_modules/@leuffen/jodastyle/dist/helper/functions.js");
+/* harmony import */ var _helper_functions__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_helper_functions__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _helper_functions__WEBPACK_IMPORTED_MODULE_4__) if(["default","__esModule"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _helper_functions__WEBPACK_IMPORTED_MODULE_4__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+/* harmony import */ var _helper_QTemplate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helper/QTemplate */ "./node_modules/@leuffen/jodastyle/dist/helper/QTemplate.js");
+/* harmony import */ var _types_DefaultLayout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./types/DefaultLayout */ "./node_modules/@leuffen/jodastyle/dist/types/DefaultLayout.js");
+/* harmony import */ var _helper_JodaDescriptionManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helper/JodaDescriptionManager */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaDescriptionManager.js");
+/* harmony import */ var _helper_logger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helper/logger */ "./node_modules/@leuffen/jodastyle/dist/helper/logger.js");
+/* harmony import */ var _processor_jodasplit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./processor/jodasplit */ "./node_modules/@leuffen/jodastyle/dist/processor/jodasplit.js");
+/* harmony import */ var _processor_jodasplit__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_processor_jodasplit__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _processor_jodasplit__WEBPACK_IMPORTED_MODULE_9__) if(["default","__esModule","QTemplate","template_parse","DefaultLayout","JodaDescriptionManager","__JodaDescriptionManager","Logger"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _processor_jodasplit__WEBPACK_IMPORTED_MODULE_9__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+/* harmony import */ var _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helper/JodaSiteConfig */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaSiteConfig.js");
+/* harmony import */ var _joda__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./joda */ "./node_modules/@leuffen/jodastyle/dist/joda.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/joda.js":
+/*!******************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/joda.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Joda = void 0;
+exports.Joda = new (class {
+    /**
+     * Register a template instead of adding <template id="...">...</template> to the DOM
+     *
+     * @param id
+     * @param data
+     */
+    registerTemplate(id, data) {
+        if (!window["jodastyle"])
+            window["jodastyle"] = {};
+        if (!window["jodastyle"]["templates"])
+            window["jodastyle"]["templates"] = {};
+        window["jodastyle"]["templates"][id] = data;
+    }
+    getRegisteredTemplate(id) {
+        var _a, _b, _c;
+        if (id.startsWith("#"))
+            id = id.substring(1);
+        return (_c = (_b = (_a = window["jodastyle"]) === null || _a === void 0 ? void 0 : _a["templates"]) === null || _b === void 0 ? void 0 : _b[id]) !== null && _c !== void 0 ? _c : null;
+    }
+})();
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/processor/LayoutProcessor.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/processor/LayoutProcessor.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LayoutProcessor = void 0;
+const functions_1 = __webpack_require__(/*! ../helper/functions */ "./node_modules/@leuffen/jodastyle/dist/helper/functions.js");
+const commands = ["use", "wrap"];
+class LayoutProcessor {
+    constructor(logger) {
+        this.logger = logger;
+    }
+    processNode(node) {
+        if (!node.hasAttribute("layout"))
+            return node;
+        let layout = (0, functions_1.parseConfigString)(node.getAttribute("layout"));
+        for (let key in layout) {
+            if (commands.includes(key)) {
+                node.style.setProperty("--joda-" + key, layout[key]);
+                continue;
+            }
+            node.style.setProperty("--layout-" + key, layout[key]);
+        }
+        return node;
+    }
+}
+exports.LayoutProcessor = LayoutProcessor;
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/processor/jodaresponsive.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/processor/jodaresponsive.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Jodaresponsive = exports.parseClassStr = exports.getCurrentBreakpoint = exports.breakpoints = void 0;
+exports.breakpoints = {
+    "xsm": 0,
+    "sm": 576,
+    "md": 768,
+    "lg": 992,
+    "xl": 1200,
+    "xxl": 1400
+};
+function getCurrentBreakpoint() {
+    let ret = "";
+    Object.keys(exports.breakpoints).forEach((key) => {
+        if (window.innerWidth >= exports.breakpoints[key]) {
+            ret = key;
+        }
+    });
+    return ret;
+}
+exports.getCurrentBreakpoint = getCurrentBreakpoint;
+class ResponsiveClass {
+    constructor() {
+        this.always = [];
+        this.default = null;
+        this.xsm = null;
+        this.xs = null;
+        this.sm = null;
+        this.md = null;
+        this.lg = null;
+        this.xl = null;
+        this.xxl = null;
+        this.breakpoints = ["xsm", "xs", "sm", "md", "lg", "xl", "xxl"];
+    }
+    getClassesForBreakpoint(breakpoint = null) {
+        if (breakpoint === null) {
+            breakpoint = getCurrentBreakpoint();
+        }
+        let ret = [];
+        ret.push(...this.always);
+        let isDefault = true;
+        for (let bp of this.breakpoints) {
+            //console.log("Breakpoint", bp, this[bp], breakpoint);
+            if (this[bp] !== null) {
+                ret = this[bp];
+                isDefault = false;
+            }
+            if (bp === breakpoint) {
+                break;
+            }
+        }
+        if (isDefault && this.default !== null) {
+            ret.push(...this.default);
+        }
+        ret = ret.filter((item) => item !== "");
+        return ret;
+    }
+    ;
+}
+function parseClassStr(input) {
+    let ret = new ResponsiveClass();
+    let pointer = "always";
+    input.split(" ").map((item) => {
+        let matches = item.match(/\:([a-zA-Z]*)\:/);
+        if (matches === null) {
+            ret[pointer].push(item);
+            return;
+        }
+        pointer = matches[1];
+        if (pointer === "") {
+            pointer = "default";
+        }
+        if (ret[pointer] === null) {
+            ret[pointer] = [];
+        }
+    });
+    return ret;
+}
+exports.parseClassStr = parseClassStr;
+class Jodaresponsive {
+    constructor(logger) {
+        this.logger = logger;
+    }
+    processNode(node) {
+        var _a;
+        const origAttr = "data-class-orig";
+        if (!node.hasAttribute(origAttr)) {
+            let classes = (_a = node.getAttribute("class")) !== null && _a !== void 0 ? _a : "";
+            if (classes.indexOf(":") === -1)
+                return;
+            node.setAttribute(origAttr, classes);
+        }
+        let classes = node.getAttribute(origAttr);
+        let responsiveClasses = parseClassStr(classes);
+        node.setAttribute("class", "");
+        node.classList.add(...responsiveClasses.always.filter((item) => item !== ""));
+        node.classList.add(...responsiveClasses.getClassesForBreakpoint());
+    }
+    process(node) {
+        Array.from([node, ...Array.from(node.querySelectorAll("*"))]).forEach((child) => {
+            this.processNode(child);
+        });
+    }
+}
+exports.Jodaresponsive = Jodaresponsive;
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/processor/jodashorts.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/processor/jodashorts.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Jodashorts = void 0;
+class Jodashorts {
+    constructor(logger) {
+        this.logger = logger;
+    }
+    process(source) {
+        source = source.replace(/\[([a-z0-9\-)]+)(.*?)]/g, (match, name, attrStr) => {
+            let attrs = {
+                "class": []
+            };
+            // Search for name="value" or name='value'. Make sure that starting ' matches ending ' using back reference
+            attrStr = attrStr.replace(/”/g, '"').replace(/“/g, '"').replace(/‘/g, "'").replace(/’/g, "'");
+            attrStr = attrStr.replace(/([a-z0-9\-\.]+)=(["'])(.*?)\2/mig, (match, name, quote, value) => {
+                if (name === "class") {
+                    attrs["class"].push(...value.split(" "));
+                    return "";
+                }
+                attrs[name] = value;
+                return "";
+            });
+            attrStr.split(" ").forEach((attr) => {
+                attr = attr.trim();
+                if (attr === "")
+                    return;
+                if (attr.startsWith(".")) {
+                    attrs["class"].push(attr.substr(1));
+                    return;
+                }
+                attrs[attr] = "";
+            });
+            let attrstr = "";
+            for (let attr in attrs) {
+                if (attr === "class") {
+                    attrstr += ` class="${attrs[attr].join(" ")}"`;
+                }
+                else {
+                    attrstr += ` ${attr}="${attrs[attr]}"`;
+                }
+            }
+            let ret = `<${name}${attrstr}></${name}>`;
+            return ret;
+        });
+        return source;
+    }
+}
+exports.Jodashorts = Jodashorts;
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/processor/jodasplit.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/processor/jodasplit.js ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
+var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+};
+var _Jodasplit_target, _Jodasplit_parents, _Jodasplit_currentParent, _Jodasplit_currentContent, _Jodasplit_currentChildren;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Jodasplit = void 0;
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/**
+ * Copy attributes data-section-* from source to target
+ *
+ * So data-section-class becomes class on target
+ *
+ * On data-section-class it will add the classs to the existing classes
+ * On data-section-style it will add the styles to existing styles
+ *
+ * @param source
+ * @param target
+ */
+function copySectionAttributes(source, target) {
+    source.getAttributeNames().forEach((name) => {
+        if (!name.startsWith("data-section-")) {
+            return;
+        }
+        let value = source.getAttribute(name);
+        name = name.substr(13);
+        if (name === "class") {
+            // Filter empty classes
+            target.classList.add(...value.split(" ").filter((c) => c.length > 0));
+            return;
+        }
+        if (name === "style") {
+            // Filter empty classes
+            target.setAttribute("style", (target.getAttribute("style") || "") + value);
+            return;
+        }
+        // default
+        target.setAttribute(name, value);
+    });
+}
+class Jodasplit {
+    constructor(logger) {
+        this.logger = logger;
+        _Jodasplit_target.set(this, document.createDocumentFragment());
+        _Jodasplit_parents.set(this, [__classPrivateFieldGet(this, _Jodasplit_target, "f")]);
+        _Jodasplit_currentParent.set(this, (0, embed_1.ka_create_element)("section", { class: "section-h1pre" }));
+        _Jodasplit_currentContent.set(this, (0, embed_1.ka_create_element)("div", { class: "content" }, [], __classPrivateFieldGet(this, _Jodasplit_currentParent, "f")));
+        _Jodasplit_currentChildren.set(this, (0, embed_1.ka_create_element)("div", { class: "children" }, [], __classPrivateFieldGet(this, _Jodasplit_currentParent, "f")));
+    }
+    findParentElement(layer) {
+        while (__classPrivateFieldGet(this, _Jodasplit_parents, "f").length > layer) {
+            __classPrivateFieldGet(this, _Jodasplit_parents, "f").pop();
+        }
+        while (__classPrivateFieldGet(this, _Jodasplit_parents, "f")[__classPrivateFieldGet(this, _Jodasplit_parents, "f").length - 1] === undefined) {
+            __classPrivateFieldGet(this, _Jodasplit_parents, "f").pop();
+        }
+        return __classPrivateFieldGet(this, _Jodasplit_parents, "f")[__classPrivateFieldGet(this, _Jodasplit_parents, "f").length - 1];
+    }
+    createNewElement(tagName, layer, tag) {
+        tagName = tagName.toLowerCase();
+        let curParent = this.findParentElement(layer);
+        //console.log("createNewElement", tagName, curParent, this.#parents);
+        let curParentChildren = curParent.childNodes[1];
+        __classPrivateFieldSet(this, _Jodasplit_currentParent, (0, embed_1.ka_create_element)(tag, { class: "section-" + tagName }), "f");
+        while (__classPrivateFieldGet(this, _Jodasplit_parents, "f").length < layer) {
+            __classPrivateFieldGet(this, _Jodasplit_parents, "f").push(undefined);
+        }
+        __classPrivateFieldGet(this, _Jodasplit_parents, "f").push(__classPrivateFieldGet(this, _Jodasplit_currentParent, "f"));
+        if (curParent === __classPrivateFieldGet(this, _Jodasplit_target, "f")) {
+            curParent.appendChild(__classPrivateFieldGet(this, _Jodasplit_currentParent, "f"));
+        }
+        else {
+            curParentChildren.append(__classPrivateFieldGet(this, _Jodasplit_currentParent, "f"));
+        }
+        __classPrivateFieldSet(this, _Jodasplit_currentContent, (0, embed_1.ka_create_element)("div", { class: "content" }, [], __classPrivateFieldGet(this, _Jodasplit_currentParent, "f")), "f");
+        __classPrivateFieldSet(this, _Jodasplit_currentChildren, (0, embed_1.ka_create_element)("div", { class: "children" }, [], __classPrivateFieldGet(this, _Jodasplit_currentParent, "f")), "f");
+        return __classPrivateFieldGet(this, _Jodasplit_currentParent, "f");
+    }
+    process(source) {
+        let lastLayer = 1;
+        __classPrivateFieldGet(this, _Jodasplit_target, "f").append(__classPrivateFieldGet(this, _Jodasplit_currentParent, "f"));
+        // Layout Processor now in JodaStyle
+        //let layoutProcessor = new LayoutProcessor(this.logger);
+        Array.from(source.children).forEach((child) => {
+            if (child instanceof HTMLElement && child.matches("footer")) {
+                // Just copy node
+                __classPrivateFieldGet(this, _Jodasplit_target, "f").appendChild(child);
+                return;
+            }
+            if (child instanceof HTMLElement && child.matches("h1, h2, h3, h4, h5, h6, h7, h8, h9, hr:not(.hr), .section-h2, .section-h3, .section-h4")) {
+                let layer = 1;
+                let tag = "div";
+                if (child.matches("h1,h2,.section-h2")) {
+                    layer = lastLayer = 1;
+                    tag = "section";
+                }
+                else if (child.matches("h3, h4, h5, h6, h7, h8, h9, .section-h3, .section-h4")) {
+                    if (child.matches(".section-h3")) {
+                        layer = lastLayer = 6;
+                    }
+                    else if (child.matches(".section-h4")) {
+                        layer = lastLayer = 8;
+                    }
+                    else {
+                        layer = lastLayer = parseInt(child.tagName.substr(1)) * 2; // Allow HR in between
+                    }
+                    tag = "div";
+                }
+                else if (child.matches("hr")) {
+                    layer = lastLayer + 1; // hr crates subelement of the last element
+                    tag = "div";
+                }
+                //console.log("layer is", layer, lastLayer, child.tagName, child);
+                let e = this.createNewElement(child.tagName.toLowerCase(), layer, tag);
+                e.setAttribute("layout", child.getAttribute("layout") || "");
+                child.removeAttribute("layout");
+                // Copy data-section-* attributes to the new element
+                copySectionAttributes(child, e);
+                if (child.tagName === "HR" && !child.classList.contains("hr")) {
+                    // Only copy styles from HR Elements not marked as .hr
+                    e.setAttribute("style", child.getAttribute("style") || "");
+                    child.removeAttribute("style");
+                    e.classList.add(...child.classList);
+                    child.setAttribute("orig-class", child.getAttribute("class") || "");
+                    child.setAttribute("class", "");
+                }
+                //layoutProcessor.processNode(e);
+            }
+            if (child.tagName === "HR" && !child.classList.contains("hr")) {
+                child.setAttribute("orig-pre-split-class", child.getAttribute("class"));
+                child.setAttribute("class", "d-none");
+            }
+            __classPrivateFieldGet(this, _Jodasplit_currentContent, "f").appendChild(child);
+        });
+        // Remove empty content elements
+        Array.from(__classPrivateFieldGet(this, _Jodasplit_target, "f").querySelectorAll(".children")).forEach((child) => {
+            if (child.children.length === 0) {
+                child.remove();
+            }
+        });
+        // Reove empty content elements
+        Array.from(__classPrivateFieldGet(this, _Jodasplit_target, "f").querySelectorAll(".content")).forEach((child) => {
+            if (child.children.length === 0) {
+                child.remove();
+            }
+        });
+        return __classPrivateFieldGet(this, _Jodasplit_target, "f");
+    }
+}
+exports.Jodasplit = Jodasplit;
+_Jodasplit_target = new WeakMap(), _Jodasplit_parents = new WeakMap(), _Jodasplit_currentParent = new WeakMap(), _Jodasplit_currentContent = new WeakMap(), _Jodasplit_currentChildren = new WeakMap();
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/processor/jodastyle-commands.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/processor/jodastyle-commands.js ***!
+  \******************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.jodaStyleCommands = void 0;
+const ka_quick_template_1 = __webpack_require__(/*! ../helper/ka-quick-template */ "./node_modules/@leuffen/jodastyle/dist/helper/ka-quick-template.js");
+const functions_1 = __webpack_require__(/*! ../helper/functions */ "./node_modules/@leuffen/jodastyle/dist/helper/functions.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+exports.jodaStyleCommands = {};
+/**
+ * Replace the element with the given @class > @id=elementId template
+ *
+ * @param value
+ * @param target
+ * @param element
+ * @param logger
+ */
+exports.jodaStyleCommands["--joda-replace-by"] = (value, target, element, logger) => {
+    let parent = element.parentElement;
+    let ret = (0, ka_quick_template_1.createElementTree)(value);
+    parent.replaceChild(ret.start, element);
+    Array.from(element.children).forEach((child) => {
+        ret.leaf.append(child);
+    });
+    element.remove();
+    return ret.leaf;
+};
+/**
+ * Wrap the selected element with the Template
+ *
+ * @param value
+ * @param target
+ * @param element
+ * @param logger
+ */
+exports.jodaStyleCommands["--joda-wrap"] = (value, target, element, logger) => __awaiter(void 0, void 0, void 0, function* () {
+    let parent = element.parentElement;
+    if (value.startsWith("#")) {
+        console.log("Wrap element", element, "with template", value);
+        let placeholder = document.createElement("div");
+        parent.insertBefore(placeholder, element);
+        // Move Element to placeholder (to be able to access it in <slot>)
+        placeholder.append(element);
+        let newElement = yield (0, functions_1.getTemplateFilledWithContent)(value, placeholder, element);
+        placeholder.replaceWith(newElement);
+        return element;
+    }
+    else {
+        let ret = (0, ka_quick_template_1.createElementTree)(value);
+        parent.replaceChild(ret.start, element);
+        ret.leaf.append(element);
+        return element;
+    }
+});
+exports.jodaStyleCommands["--joda-container"] = (value, target, element, logger) => {
+    let ret = (0, ka_quick_template_1.createElementTree)(value);
+    Array.from(element.children).forEach((child) => {
+        ret.leaf.append(child);
+    });
+    element.append(ret.start);
+    return element;
+};
+exports.jodaStyleCommands["--joda-unwrap"] = (value, target, element, logger) => {
+    let parent = element.parentElement;
+    let grandParent = parent.parentElement;
+    grandParent.insertBefore(element, parent);
+    if (parent.children.length === 0) {
+        parent.remove();
+    }
+    return element;
+};
+/**
+ * --joda-group: @row
+ * @param value
+ * @param target
+ * @param element
+ * @param logger
+ */
+exports.jodaStyleCommands["--joda-group"] = (value, target, element, logger) => {
+    const groupByKey = "jodaIsGroupedBy";
+    if (element[groupByKey] !== undefined) {
+        return element;
+    }
+    let siblings = [];
+    let curSibling = element.nextElementSibling;
+    while (curSibling && (0, functions_1.getCleanVariableValue)(getComputedStyle(curSibling).getPropertyValue("--joda-group")) === value) {
+        siblings.push(curSibling);
+        curSibling[groupByKey] = true;
+        curSibling = curSibling.nextElementSibling;
+    }
+    let parent = element.parentElement;
+    let ret = (0, ka_quick_template_1.createElementTree)(value);
+    // Insert the Element
+    element.parentElement.insertBefore(ret.start, element);
+    ret.leaf.append(element);
+    siblings.forEach((sibling) => {
+        ret.leaf.append(sibling);
+    });
+    return element;
+};
+exports.jodaStyleCommands["--joda-class"] = (value, target, element, logger) => {
+    let ret = (0, ka_quick_template_1.createElementTree)(value);
+    element.setAttribute("class", element.getAttribute("class") + " " + value);
+    return element;
+};
+exports.jodaStyleCommands["--joda-use"] = (value, target, element, logger) => __awaiter(void 0, void 0, void 0, function* () {
+    if (value.startsWith("#")) {
+        let placeholder = document.createElement("div");
+        Array.from(element.children).forEach((child) => {
+            placeholder.append(child);
+        });
+        let newElement = yield (0, functions_1.getTemplateFilledWithContent)(value, placeholder, element);
+        let firstElement = newElement.firstElementChild;
+        firstElement["joda-style-processed"] = true; // Set style as processed (to prevent double processing)
+        // Copy first line of the outerHTML string of the element
+        let debugElement = element.outerHTML.split("\n")[0];
+        firstElement.setAttribute("_orig_elem", debugElement);
+        element.getAttributeNames().forEach((attrName) => {
+            var _a, _b;
+            // copy attributes but. Append class and styles
+            if (attrName === "class") {
+                firstElement.setAttribute(attrName, (_a = element.getAttribute(attrName) + " " + firstElement.getAttribute(attrName)) !== null && _a !== void 0 ? _a : "");
+                return;
+            }
+            if (attrName === "style") {
+                firstElement.setAttribute(attrName, (_b = element.getAttribute(attrName) + " " + firstElement.getAttribute(attrName)) !== null && _b !== void 0 ? _b : "");
+                return;
+            }
+            if (attrName.startsWith("layout")) {
+                firstElement.setAttribute("layout-orig", element.getAttribute(attrName));
+                return;
+            }
+            firstElement.setAttribute(attrName, element.getAttribute(attrName));
+        });
+        element.parentElement.insertBefore(newElement, element);
+        element.parentElement.removeChild(element);
+        return firstElement;
+    }
+    let matches = value.match(/([a-z0-9\_-]+)\s*\((.*?)\)/);
+    if (!matches) {
+        console.error("Invalid --joda-use command: ", value, "in element", element, " should be in format: commandName(arg1: value1, arg2: value2, ...)");
+        throw "Invalid --joda-use command: " + value + " should be in format: commandName(arg1: value1, arg2: value2, ...)";
+    }
+    logger.log("Using renderer: ", matches[1], "with args: ", matches[2], "on element", element);
+    let commandName = matches[1];
+    //console.log("interpret", "{" + matches[2] + "}")
+    let args = (0, embed_1.ka_eval)("{" + matches[2] + "}", {}, target, {});
+    let command = yield (0, functions_1.await_property)(window, ["jodastyle", "renderer", commandName]);
+    let config = new command.config();
+    let style = getComputedStyle(element);
+    Object.keys(config).forEach((key) => {
+        let val = style.getPropertyValue("--layout-" + key.replace(/\_/g, "-"));
+        if (val !== "") {
+            config[key] = val.replace(/^["']/g, '').replace(/["']$/, '').trim();
+        }
+    });
+    Object.assign(config, args);
+    return yield (new command.renderer).render(element, config);
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/processor/jodastyle.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/processor/jodastyle.js ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Jodastyle = void 0;
+const jodastyle_commands_1 = __webpack_require__(/*! ./jodastyle-commands */ "./node_modules/@leuffen/jodastyle/dist/processor/jodastyle-commands.js");
+const functions_1 = __webpack_require__(/*! ../helper/functions */ "./node_modules/@leuffen/jodastyle/dist/helper/functions.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const JodaElementException_1 = __webpack_require__(/*! ../helper/JodaElementException */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaElementException.js");
+const JodaErrorElement_1 = __webpack_require__(/*! ../helper/JodaErrorElement */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaErrorElement.js");
+const LayoutProcessor_1 = __webpack_require__(/*! ./LayoutProcessor */ "./node_modules/@leuffen/jodastyle/dist/processor/LayoutProcessor.js");
+class Jodastyle {
+    constructor(logger) {
+        this.logger = logger;
+    }
+    process(node) {
+        return __awaiter(this, void 0, void 0, function* () {
+            // Wait for all joda-split to be ready
+            for (let child of Array.from(node.getElementsByTagName("joda-split"))) {
+                while (child["ready"] !== true) {
+                    yield (0, embed_1.ka_sleep)(5);
+                }
+            }
+            // Run layout-attribute processor (for whole style - already running on joda-split)
+            let layoutProcessor = new LayoutProcessor_1.LayoutProcessor(this.logger);
+            node.querySelectorAll("[layout]").forEach((node) => {
+                layoutProcessor.processNode(node);
+            });
+            // Run jodastyle commands
+            for (let child of [node, ...Array.from(node.querySelectorAll("*"))]) {
+                if (child["joda-style-processed"] === true) {
+                    continue;
+                }
+                child["joda-style-processed"] = true;
+                let style = getComputedStyle(child);
+                let keys = Object.keys(jodastyle_commands_1.jodaStyleCommands);
+                for (let key of Array.from(keys)) {
+                    let styleValue = style.getPropertyValue(key);
+                    if (styleValue === "") {
+                        continue;
+                    }
+                    if (styleValue === getComputedStyle(child.parentElement).getPropertyValue(key)) {
+                        continue; // Inherited from parent
+                    }
+                    // Replace starting and ending with " or ' with nothing
+                    styleValue = (0, functions_1.getCleanVariableValue)(styleValue);
+                    let command = jodastyle_commands_1.jodaStyleCommands[key];
+                    try {
+                        child = (yield command(styleValue, node, child, this.logger));
+                    }
+                    catch (e) {
+                        if (e instanceof JodaElementException_1.JodaElementException) {
+                            e.triggerCommand = key + ": " + styleValue;
+                            this.logger.warn(e.message, e.element);
+                            child.replaceWith(new JodaErrorElement_1.JodaErrorElement(e.message + " (trigger by: " + e.triggerCommand + ")"));
+                        }
+                        else {
+                            this.logger.warn("Unhandled exception", e, "on element", child, "triggered by", key + ": " + styleValue);
+                            throw e;
+                        }
+                    }
+                }
+                yield this.process(child); // Recursive parse replaced elements
+            }
+        });
+    }
+}
+exports.Jodastyle = Jodastyle;
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/processor/jodavisualize.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/processor/jodavisualize.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Jodavisualize = void 0;
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+class Jodavisualize {
+    process(element) {
+        [element, ...Array.from(element.querySelectorAll("*"))].forEach((e) => {
+            e.insertBefore((0, embed_1.ka_create_element)("div", { class: "joda-visualize" }, `<${e.tagName.toLowerCase()}  class="${Array.from(e.classList).join(", ")}">`), e.firstElementChild);
+        });
+    }
+}
+exports.Jodavisualize = Jodavisualize;
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/jodastyle/dist/types/DefaultLayout.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@leuffen/jodastyle/dist/types/DefaultLayout.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DefaultLayout = void 0;
+class DefaultLayout {
+    constructor() {
+        this.container = "container";
+        this.break1 = "xl";
+    }
+}
+exports.DefaultLayout = DefaultLayout;
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/liscom/dist/details-title/details-title.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@leuffen/liscom/dist/details-title/details-title.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../index */ "./node_modules/@leuffen/liscom/dist/index.js");
+
+
+let observedDataDetailTitle = [];
+setInterval(() => {
+    if ((_index__WEBPACK_IMPORTED_MODULE_1__.__liscom_config === null || _index__WEBPACK_IMPORTED_MODULE_1__.__liscom_config === void 0 ? void 0 : _index__WEBPACK_IMPORTED_MODULE_1__.__liscom_config.detailsTitle) !== true) {
+        return;
+    }
+    let elements = document.querySelectorAll("[data-details-title]");
+    for (let e of Array.from(elements)) {
+        // if already in observedDataDetailTitle, continue
+        if (observedDataDetailTitle.indexOf(e) !== -1)
+            continue;
+        observedDataDetailTitle.push(e);
+        let title = e.getAttribute("data-details-title");
+        let details = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("details", { "data-debug-liscom-element": "details-title" });
+        let summary = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("summary", {}, [], details);
+        e.parentElement.insertBefore(details, e);
+        summary.append(title);
+        details.append(e);
+    }
+}, 1000);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/liscom/dist/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/@leuffen/liscom/dist/index.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   LiscomConfig: () => (/* binding */ LiscomConfig),
+/* harmony export */   __liscom_config: () => (/* binding */ __liscom_config),
+/* harmony export */   liscom_enable: () => (/* binding */ liscom_enable)
+/* harmony export */ });
+/* harmony import */ var _slideshow_slideshow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slideshow/slideshow */ "./node_modules/@leuffen/liscom/dist/slideshow/slideshow.js");
+/* harmony import */ var _details_title_details_title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./details-title/details-title */ "./node_modules/@leuffen/liscom/dist/details-title/details-title.js");
+/* harmony import */ var _typewriter_element_typewriter_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./typewriter-element/typewriter-element */ "./node_modules/@leuffen/liscom/dist/typewriter-element/typewriter-element.js");
+/* harmony import */ var _typewriter_element_typewriter_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_typewriter_element_typewriter_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _slider_liscom_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slider/liscom-slider */ "./node_modules/@leuffen/liscom/dist/slider/liscom-slider.js");
+/* harmony import */ var _slider_liscom_slider__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_slider_liscom_slider__WEBPACK_IMPORTED_MODULE_3__);
+var __liscom_config = null;
+class LiscomConfig {
+    constructor() {
+        this.slideshow = true;
+        this.detailsTitle = true;
+    }
+}
+/**
+ * Activates the liscom components
+ *
+ * @param liscomConfig
+ */
+function liscom_enable(liscomConfig = {}) {
+    let config = new LiscomConfig();
+    config = Object.assign(Object.assign({}, config), liscomConfig);
+    console.log("[liscom] enabled features: ", config);
+    __liscom_config = config;
+}
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/liscom/dist/slider/liscom-slider.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@leuffen/liscom/dist/slider/liscom-slider.js ***!
+  \*******************************************************************/
+/***/ (() => {
+
+class MyComponent extends HTMLElement {
+    constructor() {
+        super();
+        this.currentSection = 0;
+        // Define your dragStart, dragEnd, and dragMove methods here to handle mouse drag
+        this.isDragging = false;
+        this.startY = 0;
+        this.startX = 0;
+        this.scrollStartY = 0;
+        this.scrollStartX = 0;
+    }
+    connectedCallback() {
+        /*
+        this.container = this.shadowRoot!.querySelector('.container')!;
+        this.prevBtn = this.shadowRoot!.getElementById('prevBtn')!;
+        this.nextBtn = this.shadowRoot!.getElementById('nextBtn')!;
+        this.sections = this.querySelectorAll('section');
+
+
+
+        this.prevBtn.addEventListener('click', () => this.scroll(-1));
+        this.nextBtn.addEventListener('click', () => this.scroll(1));
+        */
+        console.log("connected");
+        this.addEventListener('mousedown', this.dragStart);
+        this.addEventListener('mouseup', this.dragEnd);
+        this.addEventListener('mouseleave', this.dragEnd);
+        this.addEventListener('mousemove', this.dragMove);
+    }
+    doScroll(direction) {
+        this.currentSection = Math.max(0, Math.min(this.sections.length - 1, this.currentSection + direction));
+        this.sections[this.currentSection].scrollIntoView({ behavior: 'smooth' });
+    }
+    // ... other methods
+    dragStart(e) {
+        console.log("mousedown");
+        e.preventDefault();
+        this.isDragging = true;
+        this.startY = e.clientY;
+        this.startX = e.clientX;
+        this.style.scrollSnapType = "unset";
+        this.scrollStartY = this.scrollTop;
+        this.scrollStartX = this.scrollLeft;
+        this.style.cursor = 'grabbing';
+    }
+    dragEnd(e) {
+        if (!this.isDragging)
+            return;
+        this.isDragging = false;
+        this.style.cursor = '';
+        this.style.scrollSnapType = null;
+        setTimeout(() => {
+            this.scrollBy(1, 0);
+            this.scrollBy(0, 1);
+        }, 0);
+    }
+    dragMove(e) {
+        if (!this.isDragging)
+            return;
+        const y = e.clientY;
+        const x = e.clientX;
+        const deltaY = this.startY - y;
+        this.scrollTop = this.scrollStartY + deltaY;
+        const deltaX = this.startX - x;
+        this.scrollLeft = this.scrollStartX + deltaX;
+    }
+}
+customElements.define('liscom-slider', MyComponent);
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/liscom/dist/slideshow/slideshow.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@leuffen/liscom/dist/slideshow/slideshow.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index */ "./node_modules/@leuffen/liscom/dist/index.js");
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __classPrivateFieldGet = (undefined && undefined.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
+var __classPrivateFieldSet = (undefined && undefined.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+};
+var _Slideshow_curElement;
+
+
+class Slideshow {
+    constructor(element) {
+        this.element = element;
+        _Slideshow_curElement.set(this, null);
+        let timeout = parseInt(element.getAttribute("data-delay"));
+        if (isNaN(timeout))
+            timeout = 5000;
+        element.setAttribute("data-debug-liscom-element", "slideshow");
+        setTimeout(() => this.switch(true), 100);
+        setTimeout(() => this.switch(), 200);
+        setInterval(() => this.switch(), timeout);
+    }
+    switch(first = false) {
+        if (__classPrivateFieldGet(this, _Slideshow_curElement, "f") !== null) {
+            __classPrivateFieldGet(this, _Slideshow_curElement, "f").classList.add("animateOut");
+            __classPrivateFieldGet(this, _Slideshow_curElement, "f").classList.remove("show");
+            __classPrivateFieldGet(this, _Slideshow_curElement, "f").classList.remove("animateIn");
+        }
+        if (__classPrivateFieldGet(this, _Slideshow_curElement, "f") === null) {
+            __classPrivateFieldSet(this, _Slideshow_curElement, this.element.firstElementChild, "f");
+            return;
+        }
+        else {
+            __classPrivateFieldSet(this, _Slideshow_curElement, __classPrivateFieldGet(this, _Slideshow_curElement, "f").nextElementSibling, "f");
+            if (__classPrivateFieldGet(this, _Slideshow_curElement, "f") === null)
+                __classPrivateFieldSet(this, _Slideshow_curElement, this.element.firstElementChild, "f");
+        }
+        if (!first) {
+            __classPrivateFieldGet(this, _Slideshow_curElement, "f").classList.add("animateIn");
+            __classPrivateFieldGet(this, _Slideshow_curElement, "f").classList.remove("animateOut");
+        }
+        __classPrivateFieldGet(this, _Slideshow_curElement, "f").classList.add("show");
+    }
+}
+_Slideshow_curElement = new WeakMap();
+(() => __awaiter(void 0, void 0, void 0, function* () {
+    yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.ka_dom_ready)();
+    yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.ka_sleep)(1000);
+    if ((_index__WEBPACK_IMPORTED_MODULE_0__.__liscom_config === null || _index__WEBPACK_IMPORTED_MODULE_0__.__liscom_config === void 0 ? void 0 : _index__WEBPACK_IMPORTED_MODULE_0__.__liscom_config.slideshow) !== true) {
+        return;
+    }
+    document.querySelectorAll(".slideshow").forEach((e) => new Slideshow(e));
+}))();
+
+
+/***/ }),
+
+/***/ "./node_modules/@leuffen/liscom/dist/typewriter-element/typewriter-element.js":
+/*!************************************************************************************!*\
+  !*** ./node_modules/@leuffen/liscom/dist/typewriter-element/typewriter-element.js ***!
+  \************************************************************************************/
+/***/ (() => {
+
+class TypewriterElement extends HTMLElement {
+    constructor() {
+        super();
+        this.words = [];
+        this.index = 0;
+        this.charIndex = 0;
+        this.isDeleting = false;
+        // Werte für die Timeouts
+        this.writeSpeed = 100;
+        this.deleteSpeed = 50;
+        this.pauseBeforeDelete = 1500;
+        this.pauseBeforeWrite = 500;
+        this.curTimeout = null;
+        this.container = document.createElement('span');
+        this.cursor = document.createElement('span'); // Erstelle den Cursor Container
+        this.cursor.textContent = '|'; // Setze den Textinhalt des Cursors
+        // Füge den Text- und den Cursorcontainer zum Shadow DOM hinzu
+        this.append(this.container, this.cursor);
+    }
+    connectedCallback() {
+        if (!this.hasAttribute("data-words")) {
+            this.setAttribute('data-words', this.textContent.trim().replace("|", ""));
+            this.textContent = "";
+        }
+        this.words = this.dataset.words.trim().split(',').filter((word) => word.trim() !== "");
+        //this.words = (this.getAttribute('words') || '').split(',');
+        // Setze die Klasse für den Cursor
+        this.cursor.className = 'cursor';
+        this.index = 0;
+        this.charIndex = 0;
+        this.isDeleting = false;
+        // Werte aus den Data-Attributen lesen, wenn vorhanden
+        this.writeSpeed = Number(this.dataset.writeSpeed) || this.writeSpeed;
+        this.deleteSpeed = Number(this.dataset.deleteSpeed) || this.deleteSpeed;
+        this.pauseBeforeDelete = Number(this.dataset.pauseBeforeDelete) || this.pauseBeforeDelete;
+        this.pauseBeforeWrite = Number(this.dataset.pauseBeforeWrite) || this.pauseBeforeWrite;
+        this.type();
+    }
+    type() {
+        if (this.words.length === 0)
+            return;
+        const currentWord = this.words[this.index];
+        const typeSpeed = this.isDeleting ? this.deleteSpeed : this.writeSpeed;
+        if (this.curTimeout)
+            clearTimeout(this.curTimeout);
+        if (this.isDeleting) {
+            this.charIndex--;
+        }
+        else {
+            this.charIndex++;
+        }
+        this.container.textContent = currentWord.substring(0, this.charIndex);
+        if (!this.isDeleting && this.charIndex === currentWord.length) {
+            this.isDeleting = true;
+            this.curTimeout = setTimeout(() => this.type(), this.pauseBeforeDelete);
+        }
+        else if (this.isDeleting && this.charIndex === 0) {
+            this.isDeleting = false;
+            this.index = (this.index + 1) % this.words.length;
+            this.curTimeout = setTimeout(() => this.type(), this.pauseBeforeWrite);
+        }
+        else {
+            this.curTimeout = setTimeout(() => this.type(), typeSpeed + (Math.random() * typeSpeed));
+        }
+    }
+}
+customElements.define('typewriter-element', TypewriterElement);
+
+
+/***/ }),
+
 /***/ "./node_modules/@leuffen/liweco-base/dist/business/office-hours.js":
 /*!*************************************************************************!*\
   !*** ./node_modules/@leuffen/liweco-base/dist/business/office-hours.js ***!
@@ -3298,7 +6137,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 let html = `
 
@@ -3563,3019 +6402,6 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.addClass(
     bodyClasses: ["themejs-sys"]
   }
 );
-
-
-/***/ }),
-
-/***/ "./workspaces/isl-base/elements/accordion/accordion.ts":
-/*!*************************************************************!*\
-  !*** ./workspaces/isl-base/elements/accordion/accordion.ts ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AccordionLayout: () => (/* binding */ AccordionLayout)
-/* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-
-const tpl = `
-    <div class="as__image">
-        <div class="header" data-ref="header"></div>
-        <div class="image" data-ref="image">
-        </div>
-        <div class="footer" data-ref="footer"></div>
-    </div>
-`;
-class AccordionLayout extends _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.DefaultLayout {
-  constructor() {
-    super(...arguments);
-    this.accordion_auto_open = "first";
-  }
-}
-let Accordion = class {
-  render(element, layout) {
-    var _a;
-    element.classList.add("as__accordion");
-    Array.from(element.querySelectorAll(":scope > .children > .section-h3 > .content h3")).forEach((e, i) => __async(this, null, function* () {
-      let newElem = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("a", { class: "as__accordion-header" });
-      e.parentNode.parentNode.insertBefore(newElem, e.parentNode);
-      newElem.append(e);
-      let update = () => {
-        element.querySelectorAll(".section-h3 > .content,.children").forEach((e2) => __async(this, null, function* () {
-          e2.style.setProperty("--orig-height", e2.scrollHeight + "px");
-        }));
-      };
-      newElem.onclick = () => {
-        var _a2;
-        update();
-        Array.from(newElem.closest(".children").children).forEach((e2) => {
-          if (e2 === newElem.closest(".section-h3"))
-            return;
-          e2.classList.remove("open");
-        });
-        (_a2 = newElem.closest(".section-h3")) == null ? void 0 : _a2.classList.toggle("open");
-      };
-    }));
-    console.log("acc", layout);
-    if (layout.accordion_auto_open === "first") {
-      (_a = element.querySelector(".section-h3")) == null ? void 0 : _a.classList.add("open");
-    }
-    return element;
-  }
-};
-Accordion = __decorateClass([
-  (0,_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.jodaRenderer)("accordion", AccordionLayout)
-], Accordion);
-
-
-/***/ }),
-
-/***/ "./workspaces/isl-base/elements/hamburger/hamburger.ts":
-/*!*************************************************************!*\
-  !*** ./workspaces/isl-base/elements/hamburger/hamburger.ts ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   HamburgerLayout: () => (/* binding */ HamburgerLayout)
-/* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-
-
-
-const tpl = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_html)(`
-<a class="as__hamburger" href="javascript:void(0);" aria-label="Men\xFC">
-    <div class="as__hamburger-bar" ></div>
-    <div class="as__hamburger-bar" ></div>
-    <div class="as__hamburger-bar" ></div>
-    <div class="as__hamburger-menu">Men\xFC</div>
-</a>
-`);
-class HamburgerLayout extends _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.DefaultLayout {
-}
-let Hamburger = class {
-  render(element, layout) {
-    let main = new _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.QTemplate(tpl);
-    element.append(main.content);
-    main.content.addEventListener("click", () => {
-      document.body.classList.toggle("nav-open");
-    });
-    return element;
-  }
-};
-Hamburger = __decorateClass([
-  (0,_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.jodaRenderer)("hamburger", HamburgerLayout)
-], Hamburger);
-
-
-/***/ }),
-
-/***/ "./workspaces/isl-base/elements/input/input.ts":
-/*!*****************************************************!*\
-  !*** ./workspaces/isl-base/elements/input/input.ts ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   InputLayout: () => (/* binding */ InputLayout)
-/* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-
-
-
-const tplDefault = `
-<div class="as__input [[layout.style]] [[classes]]">
-  <div data-ref="main"></div>
-  <label for="[[ id ]]">[[ label ]]</label>
-</div>
-`;
-const tplCheckbox = `
-<div class="as__input [[classes]] form-check">
- <div data-ref="main"></div>
-  <label class="form-check-label" for="[[ id ]]">
-    [[ label ]]
-  </label>
-</div>
-`;
-class InputLayout extends _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.DefaultLayout {
-  constructor() {
-    super(...arguments);
-    this.style = "form-floating";
-    this.classes = "";
-  }
-}
-let idCounter = 0;
-let Input = class {
-  render(element, layout) {
-    var _a, _b, _c;
-    let main = new _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.QTemplate(tplDefault);
-    if (element instanceof HTMLInputElement) {
-      if (element.type === "checkbox" || element.type === "radio") {
-        main = new _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.QTemplate(tplCheckbox);
-      } else if (element.type === "submit") {
-        main = new _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.QTemplate(`<div class="as__input [[classes]]"><div data-ref="main"></div></div>`);
-      }
-    }
-    element.id = element.id === "" ? "as__input_" + idCounter++ : element.id;
-    if (element instanceof HTMLSelectElement) {
-      let options = [];
-      options.push({ value: "", label: (_a = element.getAttribute("data-initial")) != null ? _a : "", disabled: true, selected: true });
-      if (element.hasAttribute("data-options")) {
-        if (element.dataset.options.startsWith("[")) {
-          options.push(...JSON.parse(element.dataset.options).map((o) => {
-            return { value: o, label: o };
-          }));
-        } else if (element.dataset.options.startsWith("{")) {
-          let data = JSON.parse(element.dataset.options);
-          options = Object.keys(data).map((o) => {
-            return { value: o, label: data[o] };
-          });
-        } else {
-          options.push(...element.dataset.options.split(",").map((o) => {
-            return { value: o, label: o };
-          }));
-        }
-      }
-      for (let option of options) {
-        let o = { value: option.value };
-        if (option.selected) {
-          o["selected"] = "selected";
-        }
-        if (option.disabled) {
-          o["disabled"] = "true";
-        }
-        let opt = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("option", o, option.label);
-        element.append(opt);
-      }
-    }
-    main.parse({
-      layout,
-      classes: layout.classes + " " + element.getAttribute("data-class"),
-      id: element.id,
-      label: (_c = (_b = element.getAttribute("label")) != null ? _b : element.getAttribute("name")) != null ? _c : element.id
-    });
-    if (element instanceof HTMLSelectElement) {
-      element.classList.add("form-select");
-    } else if (element instanceof HTMLInputElement && (element.type === "checkbox" || element.type === "radio")) {
-      element.classList.add("form-check-input");
-    } else if (element instanceof HTMLInputElement && element.type === "submit") {
-      element.classList.add("btn", "bn-primary");
-    } else {
-      element.classList.add("form-control");
-    }
-    element.parentNode.replaceChild(main.content, element);
-    main.select("main").selected.replaceWith(element);
-    return main.content;
-  }
-};
-Input = __decorateClass([
-  (0,_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.jodaRenderer)("input", InputLayout)
-], Input);
-
-
-/***/ }),
-
-/***/ "./workspaces/isl-base/elements/map/map.ts":
-/*!*************************************************!*\
-  !*** ./workspaces/isl-base/elements/map/map.ts ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MapLayout: () => (/* binding */ MapLayout)
-/* harmony export */ });
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-
-
-const tpl = `
-    <div class="as__map [[ layout.mapClass ]]">
-        <div class="as__map-overlay" data-ref="overlay">
-            <img src="[[ layout.mapPreviewUrl ]]" loading="lazy" width="1461" height="729" alt="map preview" />
-            <div>
-                <div>
-
-                    <button class="btn btn-secondary mx-auto my-auto btn-lg" data-ref="button">Mit Google Maps anzeigen</button>
-                    <p class="mx-auto">Erst nach dem Klick werden Inhalte von Google Maps geladen.</p>
-                </div>
-
-            </div>
-        </div>
-        <iframe width="100%" hidden title="Google Maps" height="100%" data-ref="iframe"></iframe>
-        <script>
-        <\/script>
-    </div>
-`;
-class MapLayout extends _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.DefaultLayout {
-  constructor() {
-    super(...arguments);
-    this.mapPreviewUrl = "https://cdn.leuffen.de/hyperpage-components/v1.0/google-maps/maps-preview.jpg";
-  }
-}
-let Map = class {
-  render(element, layout) {
-    var _a;
-    let main = new _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.QTemplate(tpl);
-    main.parse({ layout });
-    let mapUrl = (_a = window["mapUrl"]) != null ? _a : null;
-    if (element.hasAttribute("data-map-preview-url")) {
-      mapUrl = element.getAttribute("data-map-url");
-    }
-    if (mapUrl === null) {
-      console.warn("Missing data-map-url attribute on element (nor window[mapUrl] is set)", element);
-    }
-    main.select("button").selected.addEventListener("click", () => {
-      main.select("iframe").selected.removeAttribute("hidden");
-      main.select("iframe").selected.setAttribute("src", mapUrl);
-      main.select("overlay").selected.setAttribute("hidden", "true");
-    });
-    element.append(main.content);
-    return main.content;
-  }
-};
-Map = __decorateClass([
-  (0,_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.jodaRenderer)("map", MapLayout)
-], Map);
-
-
-/***/ }),
-
-/***/ "./workspaces/isl-base/elements/navbar-switch1/navbar-switch1.ts":
-/*!***********************************************************************!*\
-  !*** ./workspaces/isl-base/elements/navbar-switch1/navbar-switch1.ts ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
-
-const html = `
-
-    <nav class="isl-navbar-switch1 :: mobile :xl:">
-
-        <div class="isl-navbar-switch1__top-bar container-xxl">
-            <slot data-select="ul.navbar-top"></slot>
-        </div>
-        <div class="isl-navbar-switch1__nav">
-            <div class="container-xl">
-                <div class="isl-navbar-switch1__nav--inner">
-                    <div class="isl-navbar-switch1__nav--logo">
-                        <slot data-select=".brand"></slot>
-                    </div>
-                    <div class="isl-navbar-switch1__nav--items">
-                        <slot data-select="ul.navbar-main" data-child-class="isl-navbar-switch1__nav--items-item"></slot>
-                    </div>
-                    <div class="isl-navbar-switch1__nav--mobile-menu :: :xl: d-none" onclick="this.closest('nav').classList.toggle('sidebar')">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <aside>
-            <div class="backdrop" onclick="this.closest('nav').classList.remove('sidebar')"></div>
-            <div class="menu">
-                <div class="menu-header">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"  onclick="this.closest('nav').classList.remove('sidebar')">
-                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                    </svg>
-                </div>
-                <slot data-select="ul.navbar-main" data-copy="1" data-child-class="isl-navbar-switch1__nav--items-item"></slot>
-            </div>
-        </aside>
-    </nav>
-
-`;
-_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("navbar-switch1", html);
-
-
-/***/ }),
-
-/***/ "./workspaces/isl-base/elements/screen/screen.ts":
-/*!*******************************************************!*\
-  !*** ./workspaces/isl-base/elements/screen/screen.ts ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ScreenLayout: () => (/* binding */ ScreenLayout)
-/* harmony export */ });
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-
-
-const tpl = `
-    <div class="as__screen [[layout.type]]">
-        <div class="as__screen-shadow" style="background-image: url([[layout.cdnBaseUrl]]/screens/[[layout.type]]-shadow.svg);"></div>
-        <div class="as__screen-image" data-ref="image"></div>
-        <div class="as__screen-overlay" style="background-image: url([[layout.cdnBaseUrl]]/screens/[[layout.type]].svg)"></div>
-    </div>
-`;
-class ScreenLayout extends _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.DefaultLayout {
-  constructor() {
-    super(...arguments);
-    this.cdnBaseUrl = "https://cdn.leuffen.de/hyperpage-components/v1.0";
-    this.type = "mobile";
-  }
-}
-let Screen = class {
-  render(element, layout) {
-    let q = new _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.QTemplate(tpl);
-    q.parse({ layout });
-    q.content.classList.add(...Array.from(element.classList));
-    q.content.setAttribute("style", element.getAttribute("style"));
-    element.setAttribute("style", "");
-    element.parentElement.replaceChild(q.content, element);
-    q.select("image").append(element);
-    return q.content;
-  }
-};
-Screen = __decorateClass([
-  (0,_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.jodaRenderer)("screen", ScreenLayout)
-], Screen);
-
-
-/***/ }),
-
-/***/ "./workspaces/isl-base/index.ts":
-/*!**************************************!*\
-  !*** ./workspaces/isl-base/index.ts ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AccordionLayout: () => (/* reexport safe */ _elements_accordion_accordion__WEBPACK_IMPORTED_MODULE_0__.AccordionLayout),
-/* harmony export */   HamburgerLayout: () => (/* reexport safe */ _elements_hamburger_hamburger__WEBPACK_IMPORTED_MODULE_1__.HamburgerLayout),
-/* harmony export */   InputLayout: () => (/* reexport safe */ _elements_input_input__WEBPACK_IMPORTED_MODULE_2__.InputLayout),
-/* harmony export */   MapLayout: () => (/* reexport safe */ _elements_map_map__WEBPACK_IMPORTED_MODULE_3__.MapLayout),
-/* harmony export */   ScreenLayout: () => (/* reexport safe */ _elements_screen_screen__WEBPACK_IMPORTED_MODULE_4__.ScreenLayout)
-/* harmony export */ });
-/* harmony import */ var _elements_accordion_accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements/accordion/accordion */ "./workspaces/isl-base/elements/accordion/accordion.ts");
-/* harmony import */ var _elements_hamburger_hamburger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elements/hamburger/hamburger */ "./workspaces/isl-base/elements/hamburger/hamburger.ts");
-/* harmony import */ var _elements_input_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements/input/input */ "./workspaces/isl-base/elements/input/input.ts");
-/* harmony import */ var _elements_map_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./elements/map/map */ "./workspaces/isl-base/elements/map/map.ts");
-/* harmony import */ var _elements_screen_screen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./elements/screen/screen */ "./workspaces/isl-base/elements/screen/screen.ts");
-/* harmony import */ var _elements_navbar_switch1_navbar_switch1__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./elements/navbar-switch1/navbar-switch1 */ "./workspaces/isl-base/elements/navbar-switch1/navbar-switch1.ts");
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle-dev/index.ts":
-/*!*******************************************!*\
-  !*** ./workspaces/jodastyle-dev/index.ts ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   joda_dev_config: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.joda_dev_config)
-/* harmony export */ });
-/* harmony import */ var _src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/index */ "./workspaces/jodastyle-dev/src/index.ts");
-
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle-dev/src/components/ExampleSwitcherElement.ts":
-/*!***************************************************************************!*\
-  !*** ./workspaces/jodastyle-dev/src/components/ExampleSwitcherElement.ts ***!
-  \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ExampleSwitcherElement: () => (/* binding */ ExampleSwitcherElement)
-/* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-
-const tpl2 = `
-<div>
-    <select ka.options="$scope.desc" ka.bind="$scope.className" style="width:100%"></select>
-    <input ka.bind="$scope.text">
-</div>
-`;
-let ExampleSwitcherElement = class extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.KaCustomElement {
-  constructor() {
-    super();
-    console.log(_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.classes);
-    let scope = this.init({
-      desc: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.classes,
-      text: "test",
-      className: "test",
-      $on: {
-        change: (e) => {
-          window.history.pushState({}, "", "?className=" + scope.className);
-        }
-      }
-    });
-    let last = "";
-    setInterval(() => __async(this, null, function* () {
-      var _a;
-      if (last === window.location.href) {
-        return;
-      }
-      last = window.location.href;
-      let url = new URL(window.location.href);
-      let className = url.searchParams.get("className");
-      if (className === null) {
-        return;
-      }
-      scope.className = className;
-      let daba = document.getElementsByTagName("joda-content")[0];
-      var MarkdownIt = __webpack_require__(/*! markdown-it */ "./node_modules/markdown-it/index.js");
-      var markdownItAttrs = __webpack_require__(/*! markdown-it-attrs */ "./node_modules/markdown-it-attrs/index.js");
-      var md = new MarkdownIt({
-        html: true
-        // Erlaubt HTML-Input.
-      }, null);
-      md.use(markdownItAttrs);
-      let desc = _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.getDescription(className);
-      if (desc === void 0 || desc === null) {
-        let newElement2 = document.createElement("div");
-        newElement2.innerHTML = "No description found";
-        daba.replaceWith(newElement2);
-        return;
-      }
-      document.body.classList.add(...desc.config.bodyClasses);
-      let content = (_a = desc.example) != null ? _a : "No example found";
-      if (desc.config.parseMarkdown) {
-        content = content.replace(/\n{:/gm, "{:");
-        content = md.render(content);
-        content = "<joda-split>" + content + "</joda-split>";
-      }
-      let newElement = document.createElement("joda-content");
-      newElement.innerHTML = content;
-      daba.replaceWith(newElement);
-    }), 100);
-  }
-};
-ExampleSwitcherElement = __decorateClass([
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.customElement)("joda-example-switcher"),
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.template)(tpl2)
-], ExampleSwitcherElement);
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle-dev/src/components/JodaDevSidebarElement.ts":
-/*!**************************************************************************!*\
-  !*** ./workspaces/jodastyle-dev/src/components/JodaDevSidebarElement.ts ***!
-  \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
-/* harmony import */ var _kasimirjs_kit_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @kasimirjs/kit-bootstrap */ "./node_modules/@kasimirjs/kit-bootstrap/dist/index.js");
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../index */ "./workspaces/jodastyle-dev/src/index.ts");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-
-
-
-const config = {
-  icon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-display-fill" viewBox="0 0 16 16">
-      <path d="M6 12c0 .667-.083 1.167-.25 1.5H5a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-.75c-.167-.333-.25-.833-.25-1.5h4c2 0 2-2 2-2V4c0-2-2-2-2-2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h4z"/>
-    </svg>`
-};
-const tpl2 = `
-<div>
-    
-    <h3 class="">JodaStyle Dev</h3>
-    <quick-input ka.bind="$scope.siteConfig.disable_split" data-label="Disable Joda Split " data-name="test" data-type="switch"></quick-input>
-    <quick-input ka.bind="$scope.siteConfig.disable_templates" data-label="Disable Joda Templates " data-name="test" data-type="switch"></quick-input>
-    <quick-input ka.bind="$scope.siteConfig.disable_responsive" data-label="Disable Joda Responsive" data-name="test" data-type="switch"></quick-input>
-    <quick-input ka.bind="$scope.siteConfig.debug_visualize" data-label="Joda Debug Visualize" data-name="test" data-type="switch"></quick-input>
-    <quick-input ka.if="siteConfig.debug_visualize" ka.bind="$scope.siteConfig.debug_visualize_attribute" data-label="Add Attributes to Visualize" data-name="test" data-type="switch"></quick-input>
-    <hr>
-    <joda-example-switcher></joda-example-switcher>
-</div>
-`;
-let JodaDevSidebarElement = class extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.KaCustomElement {
-  constructor() {
-    super();
-    this.shadowRootConfig.mode = "closed";
-    this.shadowRootConfig.stylesheets = [
-      _index__WEBPACK_IMPORTED_MODULE_3__.joda_dev_config.stylesheet
-    ];
-    this.wrap(new _kasimirjs_kit_bootstrap__WEBPACK_IMPORTED_MODULE_2__.SidebarWrapper(config));
-    let scope = this.init({
-      desc: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.JodaDescriptionManager.classes,
-      siteConfig: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_1__.jodaSiteConfig,
-      $on: {
-        change: (e) => __async(this, null, function* () {
-          yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(100);
-          window.location.reload();
-        })
-      }
-    });
-    let last = "";
-  }
-};
-JodaDevSidebarElement = __decorateClass([
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.customElement)("joda-dev-sidebar"),
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.template)(tpl2)
-], JodaDevSidebarElement);
-(() => __async(undefined, null, function* () {
-  yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_dom_ready)();
-  document.body.append(new JodaDevSidebarElement());
-}))();
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle-dev/src/components/JodaShowcaseElement.ts":
-/*!************************************************************************!*\
-  !*** ./workspaces/jodastyle-dev/src/components/JodaShowcaseElement.ts ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../index */ "./workspaces/jodastyle-dev/src/index.ts");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getProtoOf = Object.getPrototypeOf;
-var __reflectGet = Reflect.get;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-var __superGet = (cls, obj, key) => __reflectGet(__getProtoOf(cls), key, obj);
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-
-
-const tpl = `
-    <div class="joda-showcase-element" ka.classlist="classes">
-        <div class="row " >
-            <div class="col col-auto" ka.for="let i of desc ">
-                <div class="card">
-                    <div class="card-body p-1 m-1">
-                        <div class="preview">
-                            <iframe ka.prop.src="'/html?className=' + i.className"></iframe>
-                            <div class="overlay"><a ka.prop.href="'/html?className=' + i.className">Show</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-`;
-let JodaShowcaseElement = class extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.KaCustomElement {
-  constructor() {
-    super();
-    this.shadowRootConfig.mode = "closed";
-    this.shadowRootConfig.stylesheets = [
-      _index__WEBPACK_IMPORTED_MODULE_2__.joda_dev_config.stylesheet
-    ];
-    let scope = this.init({
-      desc: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.data,
-      classes: [],
-      $on: {}
-    });
-  }
-  connectedCallback() {
-    return __async(this, null, function* () {
-      yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.ka_sleep)(1);
-      this.scope.classes = this.getAttribute("class");
-      this.scope.desc = _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.data.filter((e) => e.category === this.getAttribute("data-category"));
-      console.log("connectedCallback", this.scope.desc);
-      __superGet(JodaShowcaseElement.prototype, this, "connectedCallback").call(this);
-    });
-  }
-  disconnectedCallback() {
-    return __async(this, null, function* () {
-      console.log("disconnect", this);
-      this.scope.desc = [];
-      __superGet(JodaShowcaseElement.prototype, this, "disconnectedCallback").call(this);
-    });
-  }
-};
-JodaShowcaseElement = __decorateClass([
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.template)(tpl),
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.customElement)("joda-showcase-element")
-], JodaShowcaseElement);
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle-dev/src/config.ts":
-/*!************************************************!*\
-  !*** ./workspaces/jodastyle-dev/src/config.ts ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   joda_dev_config: () => (/* binding */ joda_dev_config)
-/* harmony export */ });
-let joda_dev_config = {
-  stylesheet: "/assets/dist/dev.css"
-  // Define the stylsheet to use for shadowRoot
-};
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle-dev/src/index.ts":
-/*!***********************************************!*\
-  !*** ./workspaces/jodastyle-dev/src/index.ts ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   joda_dev_config: () => (/* reexport safe */ _config__WEBPACK_IMPORTED_MODULE_0__.joda_dev_config)
-/* harmony export */ });
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config */ "./workspaces/jodastyle-dev/src/config.ts");
-/* harmony import */ var _components_JodaShowcaseElement__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/JodaShowcaseElement */ "./workspaces/jodastyle-dev/src/components/JodaShowcaseElement.ts");
-/* harmony import */ var _components_JodaDevSidebarElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/JodaDevSidebarElement */ "./workspaces/jodastyle-dev/src/components/JodaDevSidebarElement.ts");
-/* harmony import */ var _components_ExampleSwitcherElement__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ExampleSwitcherElement */ "./workspaces/jodastyle-dev/src/components/ExampleSwitcherElement.ts");
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/index.ts":
-/*!***************************************!*\
-  !*** ./workspaces/jodastyle/index.ts ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/index */ "./workspaces/jodastyle/src/index.ts");
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _src_index__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _src_index__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
-
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/component/joda-content-element.ts":
-/*!********************************************************************!*\
-  !*** ./workspaces/jodastyle/src/component/joda-content-element.ts ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   JodaContentElement: () => (/* binding */ JodaContentElement)
-/* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _processor_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../processor/jodastyle */ "./workspaces/jodastyle/src/processor/jodastyle.ts");
-/* harmony import */ var _processor_jodaresponsive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../processor/jodaresponsive */ "./workspaces/jodastyle/src/processor/jodaresponsive.ts");
-/* harmony import */ var _helper_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helper/logger */ "./workspaces/jodastyle/src/helper/logger.ts");
-/* harmony import */ var _processor_jodavisualize__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../processor/jodavisualize */ "./workspaces/jodastyle/src/processor/jodavisualize.ts");
-/* harmony import */ var _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../helper/JodaSiteConfig */ "./workspaces/jodastyle/src/helper/JodaSiteConfig.ts");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-var __accessCheck = (obj, member, msg) => {
-  if (!member.has(obj))
-    throw TypeError("Cannot " + msg);
-};
-var __privateAdd = (obj, member, value) => {
-  if (member.has(obj))
-    throw TypeError("Cannot add the same private member more than once");
-  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-};
-var __privateSet = (obj, member, value, setter) => {
-  __accessCheck(obj, member, "write to private field");
-  setter ? setter.call(obj, value) : member.set(obj, value);
-  return value;
-};
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-var _origContentTemplate, _outputDiv;
-
-
-
-
-
-
-function getCSSRule(ruleName) {
-  ruleName = ruleName.toLowerCase();
-  var result = null;
-  var find = Array.prototype.find;
-  find.call(document.styleSheets, (styleSheet) => {
-    result = find.call(styleSheet.cssRules, (cssRule) => {
-      return cssRule instanceof CSSStyleRule && cssRule.selectorText.toLowerCase() == ruleName;
-    });
-    return result != null;
-  });
-  return result;
-}
-console.time("jodaTime");
-let JodaContentElement = class extends HTMLElement {
-  constructor() {
-    super(...arguments);
-    __privateAdd(this, _origContentTemplate, void 0);
-    __privateAdd(this, _outputDiv, void 0);
-  }
-  awaitStyles() {
-    return __async(this, null, function* () {
-      let index = 0;
-      while (true) {
-        index++;
-        let initValue = getComputedStyle(this).getPropertyValue("--joda-init");
-        if (initValue.indexOf("true") !== -1) {
-          break;
-        }
-        if (index > 100) {
-          index = 0;
-          console.warn("Still waiting for --joda-init: true", this, "current value:", initValue, "on url", window.location.href);
-        }
-        yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(50 + index);
-      }
-    });
-  }
-  setLoaded() {
-    return __async(this, null, function* () {
-      yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(10);
-      this.classList.add("loaded");
-      yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(100);
-      document.body.classList.add("loaded");
-      document.querySelector("html").classList.remove("loader");
-    });
-  }
-  connectedCallback() {
-    return __async(this, null, function* () {
-      let logger = new _helper_logger__WEBPACK_IMPORTED_MODULE_3__.Logger("joda-content");
-      yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(1);
-      yield this.awaitStyles();
-      __privateSet(this, _origContentTemplate, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("template"));
-      __privateSet(this, _outputDiv, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("div"));
-      if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.disable_templates) {
-        this.setLoaded();
-        if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.debug_visualize && _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.debug_visualize_attribute) {
-          new _processor_jodavisualize__WEBPACK_IMPORTED_MODULE_4__.Jodavisualize().process(this);
-        }
-        return;
-      }
-      let jodaStyle = new _processor_jodastyle__WEBPACK_IMPORTED_MODULE_1__.Jodastyle(logger);
-      yield jodaStyle.process(this);
-      let jodaresponsive = new _processor_jodaresponsive__WEBPACK_IMPORTED_MODULE_2__.Jodaresponsive(logger);
-      let currentBreakpoint = (0,_processor_jodaresponsive__WEBPACK_IMPORTED_MODULE_2__.getCurrentBreakpoint)();
-      jodaresponsive.process(this);
-      if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.debug_visualize && _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_5__.jodaSiteConfig.debug_visualize_attribute) {
-        new _processor_jodavisualize__WEBPACK_IMPORTED_MODULE_4__.Jodavisualize().process(this);
-      }
-      this.setLoaded();
-      window.addEventListener("resize", () => {
-        if (currentBreakpoint === (0,_processor_jodaresponsive__WEBPACK_IMPORTED_MODULE_2__.getCurrentBreakpoint)()) {
-          return;
-        }
-        currentBreakpoint = (0,_processor_jodaresponsive__WEBPACK_IMPORTED_MODULE_2__.getCurrentBreakpoint)();
-        logger.log("Breakpoint changed to " + currentBreakpoint);
-        jodaresponsive.process(this);
-      });
-    });
-  }
-  setContent(content) {
-    this.innerHTML = content;
-    this.connectedCallback();
-  }
-};
-_origContentTemplate = new WeakMap();
-_outputDiv = new WeakMap();
-JodaContentElement = __decorateClass([
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.customElement)("joda-content")
-], JodaContentElement);
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/component/joda-fetch.ts":
-/*!**********************************************************!*\
-  !*** ./workspaces/jodastyle/src/component/joda-fetch.ts ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _processor_jodastyle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../processor/jodastyle */ "./workspaces/jodastyle/src/processor/jodastyle.ts");
-/* harmony import */ var _helper_logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/logger */ "./workspaces/jodastyle/src/helper/logger.ts");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-
-
-let JodaFetch = class extends HTMLElement {
-  connectedCallback() {
-    return __async(this, null, function* () {
-      let select = this.getAttribute("data-select");
-      let elem = document.querySelector(select);
-      if (elem === null) {
-        console.error("joda-fetch: Element not found", select, "in element", this);
-        return;
-      }
-      let jodaStyle = new _processor_jodastyle__WEBPACK_IMPORTED_MODULE_1__.Jodastyle(new _helper_logger__WEBPACK_IMPORTED_MODULE_2__.Logger("joda-fetch"));
-      this.innerHTML = elem.innerHTML;
-      yield jodaStyle.process(this);
-    });
-  }
-};
-JodaFetch = __decorateClass([
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.customElement)("joda-fetch")
-], JodaFetch);
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/component/joda-split.ts":
-/*!**********************************************************!*\
-  !*** ./workspaces/jodastyle/src/component/joda-split.ts ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _processor_jodasplit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../processor/jodasplit */ "./workspaces/jodastyle/src/processor/jodasplit.ts");
-/* harmony import */ var _helper_logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/logger */ "./workspaces/jodastyle/src/helper/logger.ts");
-/* harmony import */ var _processor_jodashorts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../processor/jodashorts */ "./workspaces/jodastyle/src/processor/jodashorts.ts");
-/* harmony import */ var _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helper/JodaSiteConfig */ "./workspaces/jodastyle/src/helper/JodaSiteConfig.ts");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-var __accessCheck = (obj, member, msg) => {
-  if (!member.has(obj))
-    throw TypeError("Cannot " + msg);
-};
-var __privateGet = (obj, member, getter) => {
-  __accessCheck(obj, member, "read from private field");
-  return getter ? getter.call(obj) : member.get(obj);
-};
-var __privateAdd = (obj, member, value) => {
-  if (member.has(obj))
-    throw TypeError("Cannot add the same private member more than once");
-  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-};
-var __privateSet = (obj, member, value, setter) => {
-  __accessCheck(obj, member, "write to private field");
-  setter ? setter.call(obj, value) : member.set(obj, value);
-  return value;
-};
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-var _ready;
-
-
-
-
-
-let JodaSplit = class extends HTMLElement {
-  constructor() {
-    super(...arguments);
-    __privateAdd(this, _ready, false);
-  }
-  get ready() {
-    return __privateGet(this, _ready);
-  }
-  connectedCallback() {
-    return __async(this, null, function* () {
-      let logger = new _helper_logger__WEBPACK_IMPORTED_MODULE_2__.Logger("joda-split");
-      yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(1);
-      if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_4__.jodaSiteConfig.debug_visualize) {
-        this.classList.add("joda-debug-visualize");
-      }
-      if (_helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_4__.jodaSiteConfig.disable_split) {
-        __privateSet(this, _ready, true);
-        return;
-      }
-      let jodaShorts = new _processor_jodashorts__WEBPACK_IMPORTED_MODULE_3__.Jodashorts(logger);
-      this.innerHTML = yield jodaShorts.process(this.innerHTML);
-      let jodaSplit = new _processor_jodasplit__WEBPACK_IMPORTED_MODULE_1__.Jodasplit(logger);
-      let fragment = document.createDocumentFragment();
-      fragment.append(yield jodaSplit.process(this));
-      this.innerHTML = "";
-      this.append(fragment);
-      __privateSet(this, _ready, true);
-    });
-  }
-};
-_ready = new WeakMap();
-JodaSplit = __decorateClass([
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.customElement)("joda-split")
-], JodaSplit);
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/helper/JodaDescriptionManager.ts":
-/*!*******************************************************************!*\
-  !*** ./workspaces/jodastyle/src/helper/JodaDescriptionManager.ts ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   JodaDescriptionManager: () => (/* binding */ JodaDescriptionManager),
-/* harmony export */   __JodaDescriptionManager: () => (/* binding */ __JodaDescriptionManager)
-/* harmony export */ });
-var __defProp = Object.defineProperty;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
-class __JodaDescriptionManager {
-  addClass(category, className, description, example, modifiers, config = {}) {
-    let defaultConfig = {
-      bodyClasses: [],
-      parseMarkdown: true
-    };
-    config = __spreadValues(__spreadValues({}, defaultConfig), config);
-    if (window["jodastyle"] === void 0) {
-      window["jodastyle"] = {};
-    }
-    if (window["jodastyle"]["descriptions"] === void 0) {
-      window["jodastyle"]["descriptions"] = [];
-    }
-    window["jodastyle"]["descriptions"].push({ category, className, description, example, modifiers, config });
-  }
-  get data() {
-    var _a;
-    if (window["jodastyle"] === void 0) {
-      console.warn("[jodastyle description manager] No jodastyle descriptions found (Make sure you imported a theme) => window.jodastyle is undefined");
-      return [];
-    }
-    return (_a = window["jodastyle"]["descriptions"]) != null ? _a : [];
-  }
-  get classes() {
-    return this.data.map((e) => e.className);
-  }
-  getDescription(className) {
-    return this.data.find((e) => e.className === className);
-  }
-}
-const JodaDescriptionManager = new __JodaDescriptionManager();
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/helper/JodaElementException.ts":
-/*!*****************************************************************!*\
-  !*** ./workspaces/jodastyle/src/helper/JodaElementException.ts ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   JodaElementException: () => (/* binding */ JodaElementException)
-/* harmony export */ });
-class JodaElementException {
-  constructor(message, element = null, triggerCommand = null) {
-    this.message = message;
-    this.element = element;
-    this.triggerCommand = triggerCommand;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/helper/JodaErrorElement.ts":
-/*!*************************************************************!*\
-  !*** ./workspaces/jodastyle/src/helper/JodaErrorElement.ts ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   JodaErrorElement: () => (/* binding */ JodaErrorElement)
-/* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getProtoOf = Object.getPrototypeOf;
-var __reflectGet = Reflect.get;
-var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i = decorators.length - 1, decorator; i >= 0; i--)
-    if (decorator = decorators[i])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
-    __defProp(target, key, result);
-  return result;
-};
-var __superGet = (cls, obj, key) => __reflectGet(__getProtoOf(cls), key, obj);
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-let tpl = `
-<style>
-.joda-error {
-    display: block;
-    background-color: rgba(241,179,179,0.17);
-    margin: 1em;
-    padding: 1em;
-    color: red;
-    font-weight: bold;
-    border: 3px solid red;
-}
-</style>
-<div class="joda-error">
-    [[ message ]]
-</div>
-`;
-let JodaErrorElement = class extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.KaCustomElement {
-  constructor(message) {
-    super();
-    this.message = message;
-    let scope = this.init({
-      message
-    });
-  }
-  connectedCallback() {
-    return __async(this, null, function* () {
-      yield __superGet(JodaErrorElement.prototype, this, "connectedCallback").call(this);
-      this.scope.message = this.message;
-    });
-  }
-};
-JodaErrorElement = __decorateClass([
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.customElement)("joda-error"),
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.template)(tpl)
-], JodaErrorElement);
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/helper/JodaRenderer.ts":
-/*!*********************************************************!*\
-  !*** ./workspaces/jodastyle/src/helper/JodaRenderer.ts ***!
-  \*********************************************************/
-/***/ (() => {
-
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/helper/JodaSiteConfig.ts":
-/*!***********************************************************!*\
-  !*** ./workspaces/jodastyle/src/helper/JodaSiteConfig.ts ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   jodaSiteConfig: () => (/* binding */ jodaSiteConfig)
-/* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-
-class JodaSiteConfig {
-  constructor() {
-    this.disable_split = false;
-    this.disable_templates = false;
-    this.disable_responsive = false;
-    this.debug_visualize = false;
-    this.debug_visualize_attribute = false;
-  }
-  // Add Attribution to visualized elements
-}
-const jodaSiteConfig = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_session_storage)(new JodaSiteConfig(), "jodaSiteConfig");
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/helper/QTemplate.ts":
-/*!******************************************************!*\
-  !*** ./workspaces/jodastyle/src/helper/QTemplate.ts ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   QTemplate: () => (/* binding */ QTemplate),
-/* harmony export */   template_parse: () => (/* binding */ template_parse)
-/* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-
-
-function template_parse(input, scope, element) {
-  return input.replace(/\[\[(.*?)]]/gmi, (match, p1) => {
-    let val = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(p1, scope, element, {});
-    return val;
-  });
-}
-class QTemplate {
-  constructor(content) {
-    if (typeof content === "string") {
-      this.content = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("template");
-      this.content.innerHTML = content;
-    } else {
-      this.content = content;
-    }
-    if (this.content instanceof HTMLTemplateElement) {
-      if (this.content.content.children.length > 1) {
-        throw new Error("Template must have exactly one root element. Found: " + this.content.innerHTML);
-      }
-      this.content = this.content.content.firstElementChild.cloneNode(true);
-    }
-    this.selected = null;
-  }
-  parse(scope) {
-    let tpl = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("template", {}, [], null);
-    tpl.content.append(this.content);
-    tpl.innerHTML = template_parse(tpl.innerHTML, scope, tpl);
-    this.content = tpl.content.firstElementChild;
-    return this;
-  }
-  /**
-   * Returns the element with the given data-ref attribute
-   * @param data_ref
-   */
-  by(data_ref) {
-    let selector = `[data-ref="${data_ref}"]`;
-    if (this.content.matches(selector)) {
-      return this.content;
-    }
-    return this.content.querySelector(selector);
-  }
-  select(data_ref) {
-    this.selected = this.by(data_ref);
-    if (this.selected === null) {
-      console.error("Element with data-ref '" + data_ref + "' not found.", this.content);
-      throw "Element with data-ref '" + data_ref + "' not found.";
-    }
-    return this;
-  }
-  /**
-   * Pick elements by selector and append them to the selected element
-   *
-   * @param source
-   * @param selector
-   */
-  pick(source, selector, modifier = null) {
-    Array.from(source.querySelectorAll(selector)).forEach((e) => {
-      if (modifier !== null) {
-        e = modifier(e);
-      }
-      this.selected.append(e);
-    });
-    return this;
-  }
-  /**
-   * Select and return own wrapper
-   *
-   * @param data_ref
-   */
-  with(data_ref) {
-    let instance = new QTemplate(this.content);
-    instance.select(data_ref);
-    return instance;
-  }
-  append(element) {
-    if (element instanceof QTemplate) {
-      this.selected.append(element.content);
-      return this;
-    }
-    if (element instanceof NodeList) {
-      Array.from(element).forEach((e) => this.selected.append(e));
-      return this;
-    }
-    if (Array.isArray(element) || element instanceof NodeList) {
-      element.forEach((e) => this.selected.append(e));
-      return this;
-    }
-    this.selected.append(element);
-    return this;
-  }
-  clone() {
-    return new QTemplate(this.content.cloneNode(true));
-  }
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/helper/functions.ts":
-/*!******************************************************!*\
-  !*** ./workspaces/jodastyle/src/helper/functions.ts ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   await_property: () => (/* binding */ await_property),
-/* harmony export */   getCleanVariableValue: () => (/* binding */ getCleanVariableValue),
-/* harmony export */   getTemplateFilledWithContent: () => (/* binding */ getTemplateFilledWithContent),
-/* harmony export */   jodaRenderer: () => (/* binding */ jodaRenderer),
-/* harmony export */   parseConfigString: () => (/* binding */ parseConfigString),
-/* harmony export */   registerJodaRenderer: () => (/* binding */ registerJodaRenderer),
-/* harmony export */   splitChildrenBySelector: () => (/* binding */ splitChildrenBySelector),
-/* harmony export */   wrapElement: () => (/* binding */ wrapElement)
-/* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _JodaElementException__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./JodaElementException */ "./workspaces/jodastyle/src/helper/JodaElementException.ts");
-/* harmony import */ var _QTemplate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QTemplate */ "./workspaces/jodastyle/src/helper/QTemplate.ts");
-/* harmony import */ var _joda__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../joda */ "./workspaces/jodastyle/src/joda.ts");
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-
-
-
-function await_property(object, property, wait = 10) {
-  return __async(this, null, function* () {
-    if (typeof property === "string") {
-      property = property.split(".");
-    }
-    let value = void 0;
-    let index = 0;
-    while (value === void 0) {
-      index++;
-      let curObject = object;
-      for (let i = 0; i < property.length; i++) {
-        if (curObject === void 0) {
-          break;
-        }
-        curObject = curObject[property[i]];
-      }
-      value = curObject;
-      if (value === void 0)
-        yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(wait);
-      if (index > 1e3) {
-        index = 0;
-        console.warn("Still waiting for property: ", property, "in object", object);
-      }
-    }
-    return value;
-  });
-}
-function wrapElement(element, wrapper) {
-  var _a;
-  (_a = element.parentNode) == null ? void 0 : _a.insertBefore(wrapper, element);
-  wrapper.appendChild(element);
-}
-function registerJodaRenderer(name, renderer, config) {
-  if (window["jodastyle"] === void 0) {
-    window["jodastyle"] = {};
-  }
-  if (window["jodastyle"]["renderer"] === void 0) {
-    window["jodastyle"]["renderer"] = {};
-  }
-  window["jodastyle"]["renderer"][name] = { renderer, config };
-}
-function jodaRenderer(name, config) {
-  return function(classOrDescriptor) {
-    registerJodaRenderer(name, classOrDescriptor, config);
-  };
-}
-function splitChildrenBySelector(element, splitBySelctor) {
-  let ret = [];
-  Array.from(element.children).forEach((child) => {
-    if (child.matches(splitBySelctor)) {
-      ret.push(document.createDocumentFragment());
-    }
-    if (ret.length > 0) {
-      ret[ret.length - 1].append(child);
-    }
-  });
-  return ret;
-}
-function getCleanVariableValue(styleValue) {
-  return styleValue.trim().replace(/^["']/g, "").replace(/["']$/, "").trim();
-}
-function parseConfigString(input) {
-  if (input == null) {
-    return {};
-  }
-  const obj = {};
-  const lines = input.trim().split(";");
-  for (let line of lines) {
-    const parts = line.trim().split(":");
-    if (parts.length == 2) {
-      obj[parts[0].trim()] = parts[1].trim();
-    }
-  }
-  return obj;
-}
-function copyDataChildAttributes(source, target) {
-  Array.from(source.attributes).forEach((attr) => {
-    if (attr.name.startsWith("data-child-")) {
-      if (attr.name === "data-child-class") {
-        target.classList.add(...attr.value.split(" ").filter((value) => value !== ""));
-        return;
-      }
-      target.setAttribute(attr.name.substring(11), attr.value);
-    }
-  });
-}
-let slotIndex = 0;
-function getTemplateFilledWithContent(templateSelector, content, origElement) {
-  return __async(this, null, function* () {
-    let templateHtml = _joda__WEBPACK_IMPORTED_MODULE_3__.Joda.getRegisteredTemplate(templateSelector);
-    if (templateHtml === null) {
-      let template2 = document.querySelector(templateSelector);
-      if (template2 === null) {
-        throw new _JodaElementException__WEBPACK_IMPORTED_MODULE_1__.JodaElementException("Template not found: " + templateSelector);
-      }
-      templateHtml = template2.innerHTML;
-    }
-    let layout = {};
-    let props = getComputedStyle(origElement);
-    templateHtml = (0,_QTemplate__WEBPACK_IMPORTED_MODULE_2__.template_parse)(templateHtml, {
-      layout: new Proxy({}, {
-        get: function(target, name) {
-          let val = props.getPropertyValue("--layout-" + name.toString());
-          if (val === "true")
-            return true;
-          if (val === "false")
-            return false;
-          return val;
-        }
-      })
-    }, content);
-    let clone = document.createRange().createContextualFragment(templateHtml);
-    let done = [];
-    clone.querySelectorAll("slot[data-select][data-copy]").forEach((slot2) => {
-      if (done.includes(slot2)) {
-        return;
-      }
-      done.push(slot2);
-      slot2.setAttribute("_slotIndex", (++slotIndex).toString());
-      let select = slot2.getAttribute("data-select");
-      let selected;
-      if (slot2.getAttribute("data-limit") === "1") {
-        selected = Array.from([content.querySelector(select)]).map((element) => element.cloneNode(true));
-      } else {
-        selected = Array.from(content.querySelectorAll(select)).map((element) => element.cloneNode(true));
-      }
-      selected.forEach((element) => {
-        copyDataChildAttributes(slot2, element);
-      });
-      if (selected.length === 0) {
-        console.warn("No element found for selector: " + select + " in template: " + templateSelector + " for slot: ", slot2);
-        return;
-      }
-      if (slot2.hasAttribute("data-replace") && selected) {
-        slot2.replaceWith(...selected);
-      } else if (selected) {
-        slot2.append(...selected);
-      }
-    });
-    clone.querySelectorAll("slot[data-select]").forEach((slot2) => {
-      if (done.includes(slot2)) {
-        return;
-      }
-      done.push(slot2);
-      slot2.setAttribute("_slotIndex", (++slotIndex).toString());
-      let select = slot2.getAttribute("data-select");
-      let selected;
-      if (slot2.getAttribute("data-limit") === "1") {
-        selected = Array.from([content.querySelector(select)]);
-      } else {
-        selected = Array.from(content.querySelectorAll(select));
-      }
-      if (selected.length === 0) {
-        console.warn("No element found for selector: " + select + " in template: " + templateSelector + " for slot: ", slot2);
-        return;
-      }
-      selected.forEach((element) => {
-        copyDataChildAttributes(slot2, element);
-      });
-      if (slot2.hasAttribute("data-replace") && selected) {
-        slot2.replaceWith(...selected);
-      } else if (selected) {
-        slot2.append(...selected);
-      }
-    });
-    let slot = clone.querySelector("slot:not([data-select])");
-    if (slot !== null && slot.hasAttribute("data-class")) {
-      if (done.includes(slot)) {
-        return;
-      }
-      done.push(slot);
-      slot.setAttribute("_slotIndex", (++slotIndex).toString());
-      Array.from(content.children).forEach((element) => {
-        element.classList.add(...slot.getAttribute("data-class").split(" ").filter((value) => value !== ""));
-      });
-    }
-    if (slot !== null && slot.hasAttribute("data-replace")) {
-      slot.replaceWith(...Array.from(content.children));
-    } else if (slot !== null) {
-      slot.append(...Array.from(content.children));
-    } else {
-      content.remove();
-    }
-    return clone;
-  });
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/helper/ka-quick-template.ts":
-/*!**************************************************************!*\
-  !*** ./workspaces/jodastyle/src/helper/ka-quick-template.ts ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   createElement: () => (/* binding */ createElement),
-/* harmony export */   createElementTree: () => (/* binding */ createElementTree),
-/* harmony export */   parseAttributeStr: () => (/* binding */ parseAttributeStr),
-/* harmony export */   parseVariableAndStyleStr: () => (/* binding */ parseVariableAndStyleStr),
-/* harmony export */   parseVariableStr: () => (/* binding */ parseVariableStr)
-/* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-
-function parseVariableAndStyleStr(varString) {
-  let attrs = { "$": {}, "@": {} };
-  let regex = new RegExp(`([@$])[^@^$]+`, "gi");
-  varString.replace(regex, (match, type) => {
-    match = match.substring(1);
-    if (match.indexOf("=") === -1 && type === "@") {
-      if (typeof attrs[type].class === "undefined")
-        attrs[type].class = "";
-      attrs[type].class += " " + match;
-      attrs[type].class = attrs[type].class.trim();
-    } else {
-      let res = match.split("=");
-      attrs[type][res.shift()] = res.join("=").trim();
-    }
-    return "";
-  });
-  return attrs;
-}
-function parseVariableStr(varString, delimiter = "@") {
-  let attrs = {};
-  let regex = new RegExp(`\\${delimiter}[^${delimiter}]+`, "gi");
-  varString.replace(regex, (match) => {
-    match = match.substring(1);
-    if (match.indexOf("=") === -1) {
-      if (typeof attrs.class === "undefined")
-        attrs.class = "";
-      attrs.class += " " + match;
-      attrs.class = attrs.class.trim();
-    } else {
-      let res = match.split("=");
-      attrs[res.shift()] = res.join("=").trim();
-    }
-    return "";
-  });
-  return attrs;
-}
-function parseAttributeStr(attrString) {
-  return parseVariableStr(attrString, "@");
-}
-function createElement(definition) {
-  let defRest = definition.trim();
-  let tag = "div";
-  defRest = defRest.replace(/^[a-z0-9_\:\-]+/ig, (match) => {
-    tag = match;
-    return "";
-  });
-  let attrs = parseAttributeStr(defRest);
-  let element = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)(tag, attrs);
-  return element;
-}
-function createElementTree(def) {
-  let start = null;
-  let leaf = null;
-  let splitted = def.split(">");
-  while (splitted.length > 0) {
-    let cur = splitted.shift();
-    let refName = null;
-    cur = cur.replace(/§([a-z0-9_\-]+)/, (a, name) => {
-      refName = name;
-      return "";
-    });
-    if (cur.trim().startsWith("|")) {
-      let el2 = document.createElement("div");
-      if (splitted.length > 0)
-        cur += ">" + splitted.join(">");
-      el2.innerHTML = cur.trim().substring(1);
-      el2.childNodes.forEach((e) => leaf.append(e.cloneNode(true)));
-      el2.remove();
-      break;
-    }
-    let el = createElement(cur);
-    if (start === null) {
-      start = leaf = el;
-    } else {
-      if (leaf instanceof HTMLTemplateElement) {
-        leaf.content.appendChild(el);
-      } else {
-        leaf.appendChild(el);
-      }
-      leaf = el;
-    }
-  }
-  return { start, leaf };
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/helper/logger.ts":
-/*!***************************************************!*\
-  !*** ./workspaces/jodastyle/src/helper/logger.ts ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Logger: () => (/* binding */ Logger)
-/* harmony export */ });
-class Logger {
-  constructor(name) {
-    this.name = name;
-  }
-  log(...args) {
-    console.log("[" + this.name + "]", ...args);
-  }
-  warn(...args) {
-    console.warn("[" + this.name + "]", ...args);
-  }
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/index.ts":
-/*!*******************************************!*\
-  !*** ./workspaces/jodastyle/src/index.ts ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DefaultLayout: () => (/* reexport safe */ _types_DefaultLayout__WEBPACK_IMPORTED_MODULE_6__.DefaultLayout),
-/* harmony export */   Joda: () => (/* reexport safe */ _joda__WEBPACK_IMPORTED_MODULE_11__.Joda),
-/* harmony export */   JodaContentElement: () => (/* reexport safe */ _component_joda_content_element__WEBPACK_IMPORTED_MODULE_1__.JodaContentElement),
-/* harmony export */   JodaDescriptionManager: () => (/* reexport safe */ _helper_JodaDescriptionManager__WEBPACK_IMPORTED_MODULE_7__.JodaDescriptionManager),
-/* harmony export */   Jodasplit: () => (/* reexport safe */ _processor_jodasplit__WEBPACK_IMPORTED_MODULE_9__.Jodasplit),
-/* harmony export */   Logger: () => (/* reexport safe */ _helper_logger__WEBPACK_IMPORTED_MODULE_8__.Logger),
-/* harmony export */   QTemplate: () => (/* reexport safe */ _helper_QTemplate__WEBPACK_IMPORTED_MODULE_5__.QTemplate),
-/* harmony export */   __JodaDescriptionManager: () => (/* reexport safe */ _helper_JodaDescriptionManager__WEBPACK_IMPORTED_MODULE_7__.__JodaDescriptionManager),
-/* harmony export */   await_property: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.await_property),
-/* harmony export */   getCleanVariableValue: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.getCleanVariableValue),
-/* harmony export */   getTemplateFilledWithContent: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.getTemplateFilledWithContent),
-/* harmony export */   jodaRenderer: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.jodaRenderer),
-/* harmony export */   jodaSiteConfig: () => (/* reexport safe */ _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_10__.jodaSiteConfig),
-/* harmony export */   parseConfigString: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.parseConfigString),
-/* harmony export */   registerJodaRenderer: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.registerJodaRenderer),
-/* harmony export */   splitChildrenBySelector: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.splitChildrenBySelector),
-/* harmony export */   template_parse: () => (/* reexport safe */ _helper_QTemplate__WEBPACK_IMPORTED_MODULE_5__.template_parse),
-/* harmony export */   wrapElement: () => (/* reexport safe */ _helper_functions__WEBPACK_IMPORTED_MODULE_4__.wrapElement)
-/* harmony export */ });
-/* harmony import */ var _helper_JodaRenderer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper/JodaRenderer */ "./workspaces/jodastyle/src/helper/JodaRenderer.ts");
-/* harmony import */ var _helper_JodaRenderer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_helper_JodaRenderer__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _helper_JodaRenderer__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _helper_JodaRenderer__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
-/* harmony import */ var _component_joda_content_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./component/joda-content-element */ "./workspaces/jodastyle/src/component/joda-content-element.ts");
-/* harmony import */ var _component_joda_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./component/joda-fetch */ "./workspaces/jodastyle/src/component/joda-fetch.ts");
-/* harmony import */ var _component_joda_split__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./component/joda-split */ "./workspaces/jodastyle/src/component/joda-split.ts");
-/* harmony import */ var _helper_functions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helper/functions */ "./workspaces/jodastyle/src/helper/functions.ts");
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _helper_JodaRenderer__WEBPACK_IMPORTED_MODULE_0__) if(["default","JodaContentElement","await_property","getCleanVariableValue","getTemplateFilledWithContent","jodaRenderer","parseConfigString","registerJodaRenderer","splitChildrenBySelector","wrapElement"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _helper_JodaRenderer__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
-/* harmony import */ var _helper_QTemplate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helper/QTemplate */ "./workspaces/jodastyle/src/helper/QTemplate.ts");
-/* harmony import */ var _types_DefaultLayout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./types/DefaultLayout */ "./workspaces/jodastyle/src/types/DefaultLayout.ts");
-/* harmony import */ var _helper_JodaDescriptionManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helper/JodaDescriptionManager */ "./workspaces/jodastyle/src/helper/JodaDescriptionManager.ts");
-/* harmony import */ var _helper_logger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helper/logger */ "./workspaces/jodastyle/src/helper/logger.ts");
-/* harmony import */ var _processor_jodasplit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./processor/jodasplit */ "./workspaces/jodastyle/src/processor/jodasplit.ts");
-/* harmony import */ var _helper_JodaSiteConfig__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helper/JodaSiteConfig */ "./workspaces/jodastyle/src/helper/JodaSiteConfig.ts");
-/* harmony import */ var _joda__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./joda */ "./workspaces/jodastyle/src/joda.ts");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/joda.ts":
-/*!******************************************!*\
-  !*** ./workspaces/jodastyle/src/joda.ts ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Joda: () => (/* binding */ Joda)
-/* harmony export */ });
-const Joda = new class {
-  /**
-   * Register a template instead of adding <template id="...">...</template> to the DOM
-   *
-   * @param id
-   * @param data
-   */
-  registerTemplate(id, data) {
-    if (!window["jodastyle"])
-      window["jodastyle"] = {};
-    if (!window["jodastyle"]["templates"])
-      window["jodastyle"]["templates"] = {};
-    window["jodastyle"]["templates"][id] = data;
-  }
-  getRegisteredTemplate(id) {
-    var _a, _b, _c;
-    if (id.startsWith("#"))
-      id = id.substring(1);
-    return (_c = (_b = (_a = window["jodastyle"]) == null ? void 0 : _a["templates"]) == null ? void 0 : _b[id]) != null ? _c : null;
-  }
-}();
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/processor/LayoutProcessor.ts":
-/*!***************************************************************!*\
-  !*** ./workspaces/jodastyle/src/processor/LayoutProcessor.ts ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   LayoutProcessor: () => (/* binding */ LayoutProcessor)
-/* harmony export */ });
-/* harmony import */ var _helper_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helper/functions */ "./workspaces/jodastyle/src/helper/functions.ts");
-
-const commands = ["use", "wrap"];
-class LayoutProcessor {
-  constructor(logger) {
-    this.logger = logger;
-  }
-  processNode(node) {
-    if (!node.hasAttribute("layout"))
-      return node;
-    let layout = (0,_helper_functions__WEBPACK_IMPORTED_MODULE_0__.parseConfigString)(node.getAttribute("layout"));
-    for (let key in layout) {
-      if (commands.includes(key)) {
-        node.style.setProperty("--joda-" + key, layout[key]);
-        continue;
-      }
-      node.style.setProperty("--layout-" + key, layout[key]);
-    }
-    return node;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/processor/jodaresponsive.ts":
-/*!**************************************************************!*\
-  !*** ./workspaces/jodastyle/src/processor/jodaresponsive.ts ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Jodaresponsive: () => (/* binding */ Jodaresponsive),
-/* harmony export */   breakpoints: () => (/* binding */ breakpoints),
-/* harmony export */   getCurrentBreakpoint: () => (/* binding */ getCurrentBreakpoint),
-/* harmony export */   parseClassStr: () => (/* binding */ parseClassStr)
-/* harmony export */ });
-const breakpoints = {
-  "xsm": 0,
-  "sm": 576,
-  "md": 768,
-  "lg": 992,
-  "xl": 1200,
-  "xxl": 1400
-};
-function getCurrentBreakpoint() {
-  let ret = "";
-  Object.keys(breakpoints).forEach((key) => {
-    if (window.innerWidth >= breakpoints[key]) {
-      ret = key;
-    }
-  });
-  return ret;
-}
-class ResponsiveClass {
-  constructor() {
-    this.always = [];
-    this.default = null;
-    this.xsm = null;
-    this.xs = null;
-    this.sm = null;
-    this.md = null;
-    this.lg = null;
-    this.xl = null;
-    this.xxl = null;
-    this.breakpoints = ["xsm", "xs", "sm", "md", "lg", "xl", "xxl"];
-  }
-  getClassesForBreakpoint(breakpoint = null) {
-    if (breakpoint === null) {
-      breakpoint = getCurrentBreakpoint();
-    }
-    let ret = [];
-    ret.push(...this.always);
-    let isDefault = true;
-    for (let bp of this.breakpoints) {
-      if (this[bp] !== null) {
-        ret = this[bp];
-        isDefault = false;
-      }
-      if (bp === breakpoint) {
-        break;
-      }
-    }
-    if (isDefault && this.default !== null) {
-      ret.push(...this.default);
-    }
-    ret = ret.filter((item) => item !== "");
-    return ret;
-  }
-}
-function parseClassStr(input) {
-  let ret = new ResponsiveClass();
-  let pointer = "always";
-  input.split(" ").map((item) => {
-    let matches = item.match(/\:([a-zA-Z]*)\:/);
-    if (matches === null) {
-      ret[pointer].push(item);
-      return;
-    }
-    pointer = matches[1];
-    if (pointer === "") {
-      pointer = "default";
-    }
-    if (ret[pointer] === null) {
-      ret[pointer] = [];
-    }
-  });
-  return ret;
-}
-class Jodaresponsive {
-  constructor(logger) {
-    this.logger = logger;
-  }
-  processNode(node) {
-    var _a;
-    const origAttr = "data-class-orig";
-    if (!node.hasAttribute(origAttr)) {
-      let classes2 = (_a = node.getAttribute("class")) != null ? _a : "";
-      if (classes2.indexOf(":") === -1)
-        return;
-      node.setAttribute(origAttr, classes2);
-    }
-    let classes = node.getAttribute(origAttr);
-    let responsiveClasses = parseClassStr(classes);
-    node.setAttribute("class", "");
-    node.classList.add(...responsiveClasses.always.filter((item) => item !== ""));
-    node.classList.add(...responsiveClasses.getClassesForBreakpoint());
-  }
-  process(node) {
-    Array.from([node, ...Array.from(node.querySelectorAll("*"))]).forEach((child) => {
-      this.processNode(child);
-    });
-  }
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/processor/jodashorts.ts":
-/*!**********************************************************!*\
-  !*** ./workspaces/jodastyle/src/processor/jodashorts.ts ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Jodashorts: () => (/* binding */ Jodashorts)
-/* harmony export */ });
-class Jodashorts {
-  constructor(logger) {
-    this.logger = logger;
-  }
-  process(source) {
-    source = source.replace(/\[([a-z0-9\-)]+)(.*?)]/g, (match, name, attrStr) => {
-      let attrs = {
-        "class": []
-      };
-      attrStr = attrStr.replace(/”/g, '"').replace(/“/g, '"').replace(/‘/g, "'").replace(/’/g, "'");
-      attrStr = attrStr.replace(/([a-z0-9\-\.]+)=(["'])(.*?)\2/mig, (match2, name2, quote, value) => {
-        if (name2 === "class") {
-          attrs["class"].push(...value.split(" "));
-          return "";
-        }
-        attrs[name2] = value;
-        return "";
-      });
-      attrStr.split(" ").forEach((attr) => {
-        attr = attr.trim();
-        if (attr === "")
-          return;
-        if (attr.startsWith(".")) {
-          attrs["class"].push(attr.substr(1));
-          return;
-        }
-        attrs[attr] = "";
-      });
-      let attrstr = "";
-      for (let attr in attrs) {
-        if (attr === "class") {
-          attrstr += ` class="${attrs[attr].join(" ")}"`;
-        } else {
-          attrstr += ` ${attr}="${attrs[attr]}"`;
-        }
-      }
-      let ret = `<${name}${attrstr}></${name}>`;
-      return ret;
-    });
-    return source;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/processor/jodasplit.ts":
-/*!*********************************************************!*\
-  !*** ./workspaces/jodastyle/src/processor/jodasplit.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Jodasplit: () => (/* binding */ Jodasplit)
-/* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-var __accessCheck = (obj, member, msg) => {
-  if (!member.has(obj))
-    throw TypeError("Cannot " + msg);
-};
-var __privateGet = (obj, member, getter) => {
-  __accessCheck(obj, member, "read from private field");
-  return getter ? getter.call(obj) : member.get(obj);
-};
-var __privateAdd = (obj, member, value) => {
-  if (member.has(obj))
-    throw TypeError("Cannot add the same private member more than once");
-  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-};
-var __privateSet = (obj, member, value, setter) => {
-  __accessCheck(obj, member, "write to private field");
-  setter ? setter.call(obj, value) : member.set(obj, value);
-  return value;
-};
-var _target, _parents, _currentParent, _currentContent, _currentChildren;
-
-function copySectionAttributes(source, target) {
-  source.getAttributeNames().forEach((name) => {
-    if (!name.startsWith("data-section-")) {
-      return;
-    }
-    let value = source.getAttribute(name);
-    name = name.substr(13);
-    if (name === "class") {
-      target.classList.add(...value.split(" ").filter((c) => c.length > 0));
-      return;
-    }
-    if (name === "style") {
-      target.setAttribute("style", (target.getAttribute("style") || "") + value);
-      return;
-    }
-    target.setAttribute(name, value);
-  });
-}
-class Jodasplit {
-  constructor(logger) {
-    this.logger = logger;
-    __privateAdd(this, _target, document.createDocumentFragment());
-    __privateAdd(this, _parents, [__privateGet(this, _target)]);
-    __privateAdd(this, _currentParent, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("section", { class: "section-h1pre" }));
-    __privateAdd(this, _currentContent, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("div", { class: "content" }, [], __privateGet(this, _currentParent)));
-    __privateAdd(this, _currentChildren, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("div", { class: "children" }, [], __privateGet(this, _currentParent)));
-  }
-  findParentElement(layer) {
-    while (__privateGet(this, _parents).length > layer) {
-      __privateGet(this, _parents).pop();
-    }
-    while (__privateGet(this, _parents)[__privateGet(this, _parents).length - 1] === void 0) {
-      __privateGet(this, _parents).pop();
-    }
-    return __privateGet(this, _parents)[__privateGet(this, _parents).length - 1];
-  }
-  createNewElement(tagName, layer, tag) {
-    tagName = tagName.toLowerCase();
-    let curParent = this.findParentElement(layer);
-    let curParentChildren = curParent.childNodes[1];
-    __privateSet(this, _currentParent, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)(tag, { class: "section-" + tagName }));
-    while (__privateGet(this, _parents).length < layer) {
-      __privateGet(this, _parents).push(void 0);
-    }
-    __privateGet(this, _parents).push(__privateGet(this, _currentParent));
-    if (curParent === __privateGet(this, _target)) {
-      curParent.appendChild(__privateGet(this, _currentParent));
-    } else {
-      curParentChildren.append(__privateGet(this, _currentParent));
-    }
-    __privateSet(this, _currentContent, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("div", { class: "content" }, [], __privateGet(this, _currentParent)));
-    __privateSet(this, _currentChildren, (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("div", { class: "children" }, [], __privateGet(this, _currentParent)));
-    return __privateGet(this, _currentParent);
-  }
-  process(source) {
-    let lastLayer = 1;
-    __privateGet(this, _target).append(__privateGet(this, _currentParent));
-    Array.from(source.children).forEach((child) => {
-      if (child instanceof HTMLElement && child.matches("footer")) {
-        __privateGet(this, _target).appendChild(child);
-        return;
-      }
-      if (child instanceof HTMLElement && child.matches("h1, h2, h3, h4, h5, h6, h7, h8, h9, hr:not(.hr), .section-h2, .section-h3, .section-h4")) {
-        let layer = 1;
-        let tag = "div";
-        if (child.matches("h1,h2,.section-h2")) {
-          layer = lastLayer = 1;
-          tag = "section";
-        } else if (child.matches("h3, h4, h5, h6, h7, h8, h9, .section-h3, .section-h4")) {
-          if (child.matches(".section-h3")) {
-            layer = lastLayer = 6;
-          } else if (child.matches(".section-h4")) {
-            layer = lastLayer = 8;
-          } else {
-            layer = lastLayer = parseInt(child.tagName.substr(1)) * 2;
-          }
-          tag = "div";
-        } else if (child.matches("hr")) {
-          layer = lastLayer + 1;
-          tag = "div";
-        }
-        let e = this.createNewElement(child.tagName.toLowerCase(), layer, tag);
-        e.setAttribute("layout", child.getAttribute("layout") || "");
-        child.removeAttribute("layout");
-        copySectionAttributes(child, e);
-        if (child.tagName === "HR" && !child.classList.contains("hr")) {
-          e.setAttribute("style", child.getAttribute("style") || "");
-          child.removeAttribute("style");
-          e.classList.add(...child.classList);
-          child.setAttribute("orig-class", child.getAttribute("class") || "");
-          child.setAttribute("class", "");
-        }
-      }
-      if (child.tagName === "HR" && !child.classList.contains("hr")) {
-        child.setAttribute("orig-pre-split-class", child.getAttribute("class"));
-        child.setAttribute("class", "d-none");
-      }
-      __privateGet(this, _currentContent).appendChild(child);
-    });
-    Array.from(__privateGet(this, _target).querySelectorAll(".children")).forEach((child) => {
-      if (child.children.length === 0) {
-        child.remove();
-      }
-    });
-    Array.from(__privateGet(this, _target).querySelectorAll(".content")).forEach((child) => {
-      if (child.children.length === 0) {
-        child.remove();
-      }
-    });
-    return __privateGet(this, _target);
-  }
-}
-_target = new WeakMap();
-_parents = new WeakMap();
-_currentParent = new WeakMap();
-_currentContent = new WeakMap();
-_currentChildren = new WeakMap();
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/processor/jodastyle-commands.ts":
-/*!******************************************************************!*\
-  !*** ./workspaces/jodastyle/src/processor/jodastyle-commands.ts ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   jodaStyleCommands: () => (/* binding */ jodaStyleCommands)
-/* harmony export */ });
-/* harmony import */ var _helper_ka_quick_template__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helper/ka-quick-template */ "./workspaces/jodastyle/src/helper/ka-quick-template.ts");
-/* harmony import */ var _helper_functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/functions */ "./workspaces/jodastyle/src/helper/functions.ts");
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-
-
-let jodaStyleCommands = {};
-jodaStyleCommands["--joda-replace-by"] = (value, target, element, logger) => {
-  let parent = element.parentElement;
-  let ret = (0,_helper_ka_quick_template__WEBPACK_IMPORTED_MODULE_0__.createElementTree)(value);
-  parent.replaceChild(ret.start, element);
-  Array.from(element.children).forEach((child) => {
-    ret.leaf.append(child);
-  });
-  element.remove();
-  return ret.leaf;
-};
-jodaStyleCommands["--joda-wrap"] = (value, target, element, logger) => __async(void 0, null, function* () {
-  let parent = element.parentElement;
-  if (value.startsWith("#")) {
-    console.log("Wrap element", element, "with template", value);
-    let placeholder = document.createElement("div");
-    parent.insertBefore(placeholder, element);
-    placeholder.append(element);
-    let newElement = yield (0,_helper_functions__WEBPACK_IMPORTED_MODULE_1__.getTemplateFilledWithContent)(value, placeholder, element);
-    placeholder.replaceWith(newElement);
-    return element;
-  } else {
-    let ret = (0,_helper_ka_quick_template__WEBPACK_IMPORTED_MODULE_0__.createElementTree)(value);
-    parent.replaceChild(ret.start, element);
-    ret.leaf.append(element);
-    return element;
-  }
-});
-jodaStyleCommands["--joda-container"] = (value, target, element, logger) => {
-  let ret = (0,_helper_ka_quick_template__WEBPACK_IMPORTED_MODULE_0__.createElementTree)(value);
-  Array.from(element.children).forEach((child) => {
-    ret.leaf.append(child);
-  });
-  element.append(ret.start);
-  return element;
-};
-jodaStyleCommands["--joda-unwrap"] = (value, target, element, logger) => {
-  let parent = element.parentElement;
-  let grandParent = parent.parentElement;
-  grandParent.insertBefore(element, parent);
-  if (parent.children.length === 0) {
-    parent.remove();
-  }
-  return element;
-};
-jodaStyleCommands["--joda-group"] = (value, target, element, logger) => {
-  const groupByKey = "jodaIsGroupedBy";
-  if (element[groupByKey] !== void 0) {
-    return element;
-  }
-  let siblings = [];
-  let curSibling = element.nextElementSibling;
-  while (curSibling && (0,_helper_functions__WEBPACK_IMPORTED_MODULE_1__.getCleanVariableValue)(getComputedStyle(curSibling).getPropertyValue("--joda-group")) === value) {
-    siblings.push(curSibling);
-    curSibling[groupByKey] = true;
-    curSibling = curSibling.nextElementSibling;
-  }
-  let parent = element.parentElement;
-  let ret = (0,_helper_ka_quick_template__WEBPACK_IMPORTED_MODULE_0__.createElementTree)(value);
-  element.parentElement.insertBefore(ret.start, element);
-  ret.leaf.append(element);
-  siblings.forEach((sibling) => {
-    ret.leaf.append(sibling);
-  });
-  return element;
-};
-jodaStyleCommands["--joda-class"] = (value, target, element, logger) => {
-  let ret = (0,_helper_ka_quick_template__WEBPACK_IMPORTED_MODULE_0__.createElementTree)(value);
-  element.setAttribute("class", element.getAttribute("class") + " " + value);
-  return element;
-};
-jodaStyleCommands["--joda-use"] = (value, target, element, logger) => __async(void 0, null, function* () {
-  if (value.startsWith("#")) {
-    let placeholder = document.createElement("div");
-    Array.from(element.children).forEach((child) => {
-      placeholder.append(child);
-    });
-    let newElement = yield (0,_helper_functions__WEBPACK_IMPORTED_MODULE_1__.getTemplateFilledWithContent)(value, placeholder, element);
-    let firstElement = newElement.firstElementChild;
-    firstElement["joda-style-processed"] = true;
-    let debugElement = element.outerHTML.split("\n")[0];
-    firstElement.setAttribute("_orig_elem", debugElement);
-    element.getAttributeNames().forEach((attrName) => {
-      if (attrName === "class") {
-        firstElement.setAttribute(attrName, element.getAttribute(attrName) + " " + firstElement.getAttribute(attrName));
-        return;
-      }
-      if (attrName === "style") {
-        firstElement.setAttribute(attrName, element.getAttribute(attrName) + " " + firstElement.getAttribute(attrName));
-        return;
-      }
-      if (attrName.startsWith("layout")) {
-        firstElement.setAttribute("layout-orig", element.getAttribute(attrName));
-        return;
-      }
-      firstElement.setAttribute(attrName, element.getAttribute(attrName));
-    });
-    element.parentElement.insertBefore(newElement, element);
-    element.parentElement.removeChild(element);
-    return firstElement;
-  }
-  let matches = value.match(/([a-z0-9\_-]+)\s*\((.*?)\)/);
-  if (!matches) {
-    console.error("Invalid --joda-use command: ", value, "in element", element, " should be in format: commandName(arg1: value1, arg2: value2, ...)");
-    throw "Invalid --joda-use command: " + value + " should be in format: commandName(arg1: value1, arg2: value2, ...)";
-  }
-  logger.log("Using renderer: ", matches[1], "with args: ", matches[2], "on element", element);
-  let commandName = matches[1];
-  let args = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_2__.ka_eval)("{" + matches[2] + "}", {}, target, {});
-  let command = yield (0,_helper_functions__WEBPACK_IMPORTED_MODULE_1__.await_property)(window, ["jodastyle", "renderer", commandName]);
-  let config = new command.config();
-  let style = getComputedStyle(element);
-  Object.keys(config).forEach((key) => {
-    let val = style.getPropertyValue("--layout-" + key.replace(/\_/g, "-"));
-    if (val !== "") {
-      config[key] = val.replace(/^["']/g, "").replace(/["']$/, "").trim();
-    }
-  });
-  Object.assign(config, args);
-  return yield new command.renderer().render(element, config);
-});
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/processor/jodastyle.ts":
-/*!*********************************************************!*\
-  !*** ./workspaces/jodastyle/src/processor/jodastyle.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Jodastyle: () => (/* binding */ Jodastyle)
-/* harmony export */ });
-/* harmony import */ var _jodastyle_commands__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jodastyle-commands */ "./workspaces/jodastyle/src/processor/jodastyle-commands.ts");
-/* harmony import */ var _helper_functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/functions */ "./workspaces/jodastyle/src/helper/functions.ts");
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _helper_JodaElementException__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helper/JodaElementException */ "./workspaces/jodastyle/src/helper/JodaElementException.ts");
-/* harmony import */ var _helper_JodaErrorElement__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helper/JodaErrorElement */ "./workspaces/jodastyle/src/helper/JodaErrorElement.ts");
-/* harmony import */ var _LayoutProcessor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LayoutProcessor */ "./workspaces/jodastyle/src/processor/LayoutProcessor.ts");
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-
-
-
-
-
-
-class Jodastyle {
-  constructor(logger) {
-    this.logger = logger;
-  }
-  process(node) {
-    return __async(this, null, function* () {
-      for (let child of Array.from(node.getElementsByTagName("joda-split"))) {
-        while (child["ready"] !== true) {
-          yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_2__.ka_sleep)(5);
-        }
-      }
-      let layoutProcessor = new _LayoutProcessor__WEBPACK_IMPORTED_MODULE_5__.LayoutProcessor(this.logger);
-      node.querySelectorAll("[layout]").forEach((node2) => {
-        layoutProcessor.processNode(node2);
-      });
-      for (let child of [node, ...Array.from(node.querySelectorAll("*"))]) {
-        if (child["joda-style-processed"] === true) {
-          continue;
-        }
-        child["joda-style-processed"] = true;
-        let style = getComputedStyle(child);
-        let keys = Object.keys(_jodastyle_commands__WEBPACK_IMPORTED_MODULE_0__.jodaStyleCommands);
-        for (let key of Array.from(keys)) {
-          let styleValue = style.getPropertyValue(key);
-          if (styleValue === "") {
-            continue;
-          }
-          if (styleValue === getComputedStyle(child.parentElement).getPropertyValue(key)) {
-            continue;
-          }
-          styleValue = (0,_helper_functions__WEBPACK_IMPORTED_MODULE_1__.getCleanVariableValue)(styleValue);
-          let command = _jodastyle_commands__WEBPACK_IMPORTED_MODULE_0__.jodaStyleCommands[key];
-          try {
-            child = yield command(styleValue, node, child, this.logger);
-          } catch (e) {
-            if (e instanceof _helper_JodaElementException__WEBPACK_IMPORTED_MODULE_3__.JodaElementException) {
-              e.triggerCommand = key + ": " + styleValue;
-              this.logger.warn(e.message, e.element);
-              child.replaceWith(new _helper_JodaErrorElement__WEBPACK_IMPORTED_MODULE_4__.JodaErrorElement(e.message + " (trigger by: " + e.triggerCommand + ")"));
-            } else {
-              this.logger.warn("Unhandled exception", e, "on element", child, "triggered by", key + ": " + styleValue);
-              throw e;
-            }
-          }
-        }
-        yield this.process(child);
-      }
-    });
-  }
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/processor/jodavisualize.ts":
-/*!*************************************************************!*\
-  !*** ./workspaces/jodastyle/src/processor/jodavisualize.ts ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Jodavisualize: () => (/* binding */ Jodavisualize)
-/* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-
-class Jodavisualize {
-  process(element) {
-    [element, ...Array.from(element.querySelectorAll("*"))].forEach((e) => {
-      e.insertBefore((0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("div", { class: "joda-visualize" }, `<${e.tagName.toLowerCase()}  class="${Array.from(e.classList).join(", ")}">`), e.firstElementChild);
-    });
-  }
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/jodastyle/src/types/DefaultLayout.ts":
-/*!*********************************************************!*\
-  !*** ./workspaces/jodastyle/src/types/DefaultLayout.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DefaultLayout: () => (/* binding */ DefaultLayout)
-/* harmony export */ });
-class DefaultLayout {
-  constructor() {
-    this.container = "container";
-    this.break1 = "xl";
-  }
-}
-
-
-/***/ }),
-
-/***/ "./workspaces/liscom/index.ts":
-/*!************************************!*\
-  !*** ./workspaces/liscom/index.ts ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   LiscomConfig: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.LiscomConfig),
-/* harmony export */   __liscom_config: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.__liscom_config),
-/* harmony export */   liscom_enable: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.liscom_enable)
-/* harmony export */ });
-/* harmony import */ var _src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/index */ "./workspaces/liscom/src/index.ts");
-
-
-
-/***/ }),
-
-/***/ "./workspaces/liscom/src/details-title/details-title.ts":
-/*!**************************************************************!*\
-  !*** ./workspaces/liscom/src/details-title/details-title.ts ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../index */ "./workspaces/liscom/src/index.ts");
-
-
-let observedDataDetailTitle = [];
-setInterval(() => {
-  var _a;
-  if (((_a = _index__WEBPACK_IMPORTED_MODULE_1__.__liscom_config) == null ? void 0 : _a.detailsTitle) !== true) {
-    return;
-  }
-  let elements = document.querySelectorAll("[data-details-title]");
-  for (let e of Array.from(elements)) {
-    if (observedDataDetailTitle.indexOf(e) !== -1)
-      continue;
-    observedDataDetailTitle.push(e);
-    let title = e.getAttribute("data-details-title");
-    let details = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("details", { "data-debug-liscom-element": "details-title" });
-    let summary = (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__.ka_create_element)("summary", {}, [], details);
-    e.parentElement.insertBefore(details, e);
-    summary.append(title);
-    details.append(e);
-  }
-}, 1e3);
-
-
-/***/ }),
-
-/***/ "./workspaces/liscom/src/index.ts":
-/*!****************************************!*\
-  !*** ./workspaces/liscom/src/index.ts ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   LiscomConfig: () => (/* binding */ LiscomConfig),
-/* harmony export */   __liscom_config: () => (/* binding */ __liscom_config),
-/* harmony export */   liscom_enable: () => (/* binding */ liscom_enable)
-/* harmony export */ });
-/* harmony import */ var _slideshow_slideshow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slideshow/slideshow */ "./workspaces/liscom/src/slideshow/slideshow.ts");
-/* harmony import */ var _details_title_details_title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./details-title/details-title */ "./workspaces/liscom/src/details-title/details-title.ts");
-/* harmony import */ var _typewriter_element_typewriter_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./typewriter-element/typewriter-element */ "./workspaces/liscom/src/typewriter-element/typewriter-element.ts");
-/* harmony import */ var _typewriter_element_typewriter_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_typewriter_element_typewriter_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _slider_liscom_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slider/liscom-slider */ "./workspaces/liscom/src/slider/liscom-slider.ts");
-/* harmony import */ var _slider_liscom_slider__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_slider_liscom_slider__WEBPACK_IMPORTED_MODULE_3__);
-var __defProp = Object.defineProperty;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
-var __liscom_config = null;
-class LiscomConfig {
-  constructor() {
-    this.slideshow = true;
-    this.detailsTitle = true;
-  }
-}
-function liscom_enable(liscomConfig = {}) {
-  let config = new LiscomConfig();
-  config = __spreadValues(__spreadValues({}, config), liscomConfig);
-  console.log("[liscom] enabled features: ", config);
-  __liscom_config = config;
-}
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./workspaces/liscom/src/slider/liscom-slider.ts":
-/*!*******************************************************!*\
-  !*** ./workspaces/liscom/src/slider/liscom-slider.ts ***!
-  \*******************************************************/
-/***/ (() => {
-
-class MyComponent extends HTMLElement {
-  constructor() {
-    super();
-    this.currentSection = 0;
-    // Define your dragStart, dragEnd, and dragMove methods here to handle mouse drag
-    this.isDragging = false;
-    this.startY = 0;
-    this.startX = 0;
-    this.scrollStartY = 0;
-    this.scrollStartX = 0;
-  }
-  connectedCallback() {
-    console.log("connected");
-    this.addEventListener("mousedown", this.dragStart);
-    this.addEventListener("mouseup", this.dragEnd);
-    this.addEventListener("mouseleave", this.dragEnd);
-    this.addEventListener("mousemove", this.dragMove);
-  }
-  doScroll(direction) {
-    this.currentSection = Math.max(0, Math.min(this.sections.length - 1, this.currentSection + direction));
-    this.sections[this.currentSection].scrollIntoView({ behavior: "smooth" });
-  }
-  // ... other methods
-  dragStart(e) {
-    console.log("mousedown");
-    e.preventDefault();
-    this.isDragging = true;
-    this.startY = e.clientY;
-    this.startX = e.clientX;
-    this.style.scrollSnapType = "unset";
-    this.scrollStartY = this.scrollTop;
-    this.scrollStartX = this.scrollLeft;
-    this.style.cursor = "grabbing";
-  }
-  dragEnd(e) {
-    if (!this.isDragging)
-      return;
-    this.isDragging = false;
-    this.style.cursor = "";
-    this.style.scrollSnapType = null;
-    setTimeout(() => {
-      this.scrollBy(1, 0);
-      this.scrollBy(0, 1);
-    }, 0);
-  }
-  dragMove(e) {
-    if (!this.isDragging)
-      return;
-    const y = e.clientY;
-    const x = e.clientX;
-    const deltaY = this.startY - y;
-    this.scrollTop = this.scrollStartY + deltaY;
-    const deltaX = this.startX - x;
-    this.scrollLeft = this.scrollStartX + deltaX;
-  }
-}
-customElements.define("liscom-slider", MyComponent);
-
-
-/***/ }),
-
-/***/ "./workspaces/liscom/src/slideshow/slideshow.ts":
-/*!******************************************************!*\
-  !*** ./workspaces/liscom/src/slideshow/slideshow.ts ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index */ "./workspaces/liscom/src/index.ts");
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-var __accessCheck = (obj, member, msg) => {
-  if (!member.has(obj))
-    throw TypeError("Cannot " + msg);
-};
-var __privateGet = (obj, member, getter) => {
-  __accessCheck(obj, member, "read from private field");
-  return getter ? getter.call(obj) : member.get(obj);
-};
-var __privateAdd = (obj, member, value) => {
-  if (member.has(obj))
-    throw TypeError("Cannot add the same private member more than once");
-  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-};
-var __privateSet = (obj, member, value, setter) => {
-  __accessCheck(obj, member, "write to private field");
-  setter ? setter.call(obj, value) : member.set(obj, value);
-  return value;
-};
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-var _curElement;
-
-
-class Slideshow {
-  constructor(element) {
-    this.element = element;
-    __privateAdd(this, _curElement, null);
-    let timeout = parseInt(element.getAttribute("data-delay"));
-    if (isNaN(timeout))
-      timeout = 5e3;
-    element.setAttribute("data-debug-liscom-element", "slideshow");
-    setTimeout(() => this.switch(true), 100);
-    setTimeout(() => this.switch(), 200);
-    setInterval(() => this.switch(), timeout);
-  }
-  switch(first = false) {
-    if (__privateGet(this, _curElement) !== null) {
-      __privateGet(this, _curElement).classList.add("animateOut");
-      __privateGet(this, _curElement).classList.remove("show");
-      __privateGet(this, _curElement).classList.remove("animateIn");
-    }
-    if (__privateGet(this, _curElement) === null) {
-      __privateSet(this, _curElement, this.element.firstElementChild);
-    } else {
-      __privateSet(this, _curElement, __privateGet(this, _curElement).nextElementSibling);
-      if (__privateGet(this, _curElement) === null)
-        __privateSet(this, _curElement, this.element.firstElementChild);
-    }
-    if (!first) {
-      __privateGet(this, _curElement).classList.add("animateIn");
-      __privateGet(this, _curElement).classList.remove("animateOut");
-    }
-    __privateGet(this, _curElement).classList.add("show");
-  }
-}
-_curElement = new WeakMap();
-(() => __async(undefined, null, function* () {
-  var _a;
-  yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.ka_dom_ready)();
-  yield (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.ka_sleep)(1e3);
-  if (((_a = _index__WEBPACK_IMPORTED_MODULE_0__.__liscom_config) == null ? void 0 : _a.slideshow) !== true) {
-    return;
-  }
-  document.querySelectorAll(".slideshow").forEach((e) => new Slideshow(e));
-}))();
-
-
-/***/ }),
-
-/***/ "./workspaces/liscom/src/typewriter-element/typewriter-element.ts":
-/*!************************************************************************!*\
-  !*** ./workspaces/liscom/src/typewriter-element/typewriter-element.ts ***!
-  \************************************************************************/
-/***/ (() => {
-
-class TypewriterElement extends HTMLElement {
-  constructor() {
-    super();
-    this.words = [];
-    this.index = 0;
-    this.charIndex = 0;
-    this.isDeleting = false;
-    // Container für den Cursor
-    // Werte für die Timeouts
-    this.writeSpeed = 100;
-    this.deleteSpeed = 50;
-    this.pauseBeforeDelete = 1500;
-    this.pauseBeforeWrite = 500;
-    this.curTimeout = null;
-    this.container = document.createElement("span");
-    this.cursor = document.createElement("span");
-    this.cursor.textContent = "|";
-    this.append(this.container, this.cursor);
-  }
-  connectedCallback() {
-    if (!this.hasAttribute("data-words")) {
-      this.setAttribute("data-words", this.textContent.trim().replace("|", ""));
-      this.textContent = "";
-    }
-    this.words = this.dataset.words.trim().split(",").filter((word) => word.trim() !== "");
-    this.cursor.className = "cursor";
-    this.index = 0;
-    this.charIndex = 0;
-    this.isDeleting = false;
-    this.writeSpeed = Number(this.dataset.writeSpeed) || this.writeSpeed;
-    this.deleteSpeed = Number(this.dataset.deleteSpeed) || this.deleteSpeed;
-    this.pauseBeforeDelete = Number(this.dataset.pauseBeforeDelete) || this.pauseBeforeDelete;
-    this.pauseBeforeWrite = Number(this.dataset.pauseBeforeWrite) || this.pauseBeforeWrite;
-    this.type();
-  }
-  type() {
-    if (this.words.length === 0)
-      return;
-    const currentWord = this.words[this.index];
-    const typeSpeed = this.isDeleting ? this.deleteSpeed : this.writeSpeed;
-    if (this.curTimeout)
-      clearTimeout(this.curTimeout);
-    if (this.isDeleting) {
-      this.charIndex--;
-    } else {
-      this.charIndex++;
-    }
-    this.container.textContent = currentWord.substring(0, this.charIndex);
-    if (!this.isDeleting && this.charIndex === currentWord.length) {
-      this.isDeleting = true;
-      this.curTimeout = setTimeout(() => this.type(), this.pauseBeforeDelete);
-    } else if (this.isDeleting && this.charIndex === 0) {
-      this.isDeleting = false;
-      this.index = (this.index + 1) % this.words.length;
-      this.curTimeout = setTimeout(() => this.type(), this.pauseBeforeWrite);
-    } else {
-      this.curTimeout = setTimeout(() => this.type(), typeSpeed + Math.random() * typeSpeed);
-    }
-  }
-}
-customElements.define("typewriter-element", TypewriterElement);
 
 
 /***/ }),
@@ -16320,7 +16146,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols-bg",
@@ -16352,7 +16178,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols-bg
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols",
@@ -16381,7 +16207,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols",
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-slider__list-item",
@@ -16437,7 +16263,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-sli
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 
@@ -16513,7 +16339,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("contact",
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 
@@ -16556,7 +16382,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cta1",
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("customer-reviews__carousel--slide",
@@ -16608,7 +16434,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("customer-
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("disturber",
@@ -16634,7 +16460,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("disturber
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 
@@ -16724,7 +16550,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("footer",
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("header1",
@@ -16759,7 +16585,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("header1",
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("icon-catchprases__item",
@@ -16803,7 +16629,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("icon-catc
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("key-figures",
@@ -16852,7 +16678,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("key-figur
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 
@@ -16933,7 +16759,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./workspaces/jodastyle/index.ts");
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-slider__carousel--slide",
@@ -17031,7 +16857,7 @@ module.exports = JSON.parse('{"Aacute":"Á","aacute":"á","Abreve":"Ă","abreve"
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;

@@ -112,6 +112,7 @@ html * {
 }
 
 :root {
+  --t-hero-top-space: 250px;
   --color-placeholder: #808080;
   --color-grey-muted: #a0a0a0;
   --color-grey-dark: #263238;
