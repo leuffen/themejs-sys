@@ -7,7 +7,8 @@ module.exports = {
         'assets/dist/late': './docs/_src/late.scss',
         'assets/dist/dev': './docs/_src/dev.scss',
 
-        'assets/dist/index': './docs/_src/index.ts'
+        'assets/dist/index': './docs/_src/index.ts',
+        'assets/dist/dev-tools': './docs/_src/dev-tools.ts'
 
     },
     cache: true,
@@ -58,6 +59,7 @@ module.exports = {
     },
     devtool: 'source-map',
     mode: "development",
+    //mode: "production",
     devServer: {
         static: {
             directory: path.join(__dirname, 'docs'),
@@ -68,10 +70,10 @@ module.exports = {
     plugins: [
 
         new MiniCssExtractPlugin({
-          // Options similar to the same options in webpackOptions.output
-          // both options are optional
-          filename: "[name].css",
-          chunkFilename: "[id].css",
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "[name].css",
+            chunkFilename: "[id].css",
         }),
 
 
