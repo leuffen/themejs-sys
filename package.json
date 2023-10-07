@@ -24,7 +24,7 @@
     "*.ts"
   ],
   "workspaces": [
-    "workspaces/*"
+    "workspaces--/*"
   ],
   "author": "",
   "dependencies": {
