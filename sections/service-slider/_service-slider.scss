@@ -5,8 +5,6 @@
 .tjs-service-slider {
     @include element-to-element-margin-medium;
 
-
-
     &__content--container {
         background: transparent linear-gradient(293deg, #DCF2DE 0%, #E8F6FF 100%) no-repeat;
         border-radius: 40px;
@@ -44,10 +42,25 @@
                     padding-right: 4vw;
                 }
 
-                blockquote {
-                    color: $primary;
-                    font-size: rem(18px);
-                    text-transform: uppercase;
+                h2 {
+                    font-size: rem(46px);
+                    line-height: rem(60px);
+                    font-weight: 500;
+                }
+
+                &:has(blockquote) {
+                    h2 {
+                        color: $primary;
+                        font-size: rem(18px);
+                        line-height: rem(25px);
+                        text-transform: uppercase;
+                    }
+
+                    blockquote {
+                        font-size: rem(46px);
+                        line-height: rem(60px);
+                        font-weight: 500;
+                    }
                 }
             }
 
@@ -136,7 +149,7 @@
             padding: rem(30px);
             width: rem(350px);
             min-width: rem(350px);
-            height: rem(390px);
+            margin-bottom: rem(2px);
 
             &:not(:last-child) {
                 margin-right: rem(35px);
@@ -191,7 +204,7 @@
                 margin-bottom: 2rem;
 
                 &--slide {
-                    flex: 0 0 100%;
+                    flex: 0 0 85%;
                     min-width: unset;
                 }
             }

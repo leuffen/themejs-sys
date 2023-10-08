@@ -95,7 +95,7 @@ Damit Ihre Website überall gefunden wird: Als Google Partner..
 
 
 ## Praxiswert steigern
-{: layout="use: #2-cols"}
+{: layout="use: #cols-2"}
 
 ![](/images/illustration-01.svg)
 
@@ -104,7 +104,7 @@ Eine gute Positionierung in den Suchmaschinen ist für eine Praxis von großer B
 [Weiterlesen]()
 
 ## Mit Digiatlisierung sparen
-{: layout="use: #2-cols"}
+{: layout="use: #cols-2" data-section-class="reversed-rows"}
 
 ![](/images/illustration-03.svg)
 
@@ -113,11 +113,11 @@ Eine gute Positionierung in den Suchmaschinen ist für eine Praxis von großer B
 [Weiterlesen]()
 
 ## Datenschutz vom Experten
-{: layout="use: #2-cols-bg"}
+{: layout="use: #cols-2-bg"}
 
 ![](/images/illustration-03.webp)
 
-> Rundum Sorglos-Paket
+> <b>Rundum-<br />Sorglos-Paket</b>
 
 
 Eine gute Positionierung in den Suchmaschinen ist für eine Praxis von großer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu präsentieren und Ihre Patienten zu informieren.
