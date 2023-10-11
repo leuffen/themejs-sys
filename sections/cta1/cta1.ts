@@ -13,7 +13,7 @@ Joda.registerTemplate("cta1",
                 </div>
                 <div class="tjs-cols-2-bg__disturber-stars">
 
-                        <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--left" src="/images/stars.webp">
+                    <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--left" src="/images/stars.webp">
                     <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--right" src="/images/stars.webp">
 
                 </div>

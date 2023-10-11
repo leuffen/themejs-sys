@@ -199,8 +199,6 @@ Lorem ipsum,...
 ## Kontakt
 {: layout="use: #contact"}
 
-Nehen Sie
-
 [input type="text"  name="Name" required .mb-3]
 [input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine gültige E-Mail Adresse ein" required .mb-3]
 [input type="tel" name="Telefon" .mb-3]

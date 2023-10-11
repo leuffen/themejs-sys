@@ -5,15 +5,15 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("contact",
     // language=HTML
     `
-        <section class="tjs__contact overlap-next">
-            <div class="tjs__wrapper">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-lg-6 tjs__newsletter__text">
-                            <strong>Kontakt</strong>
-                            <h2>Vereinbaren Sie ein kostenloses Beratungs&shy;gespräch.</h2>
+        <section class="tjs-contact :: mobile :lg:">
+            <div class="tjs__wrapper container-fluid">
+                <div class="tjs-contact__content--container">
+                    <div class="tjs-contact__content--container-inner container">
+                        <div class="tjs-contact__col tjs-contact__newsletter--text">
+                            <h2>Kontakt</h2>
+                            <blockquote>Vereinbaren Sie ein kostenloses Beratungs&shy;gespräch.</blockquote>
 
-                            <div class="tjs__newsletter__list">
+                            <div class="tjs-contact__newsletter--text__list">
                                 <strong>Ihre Vorteile</strong>
                                 <ul>
                                     <li>Keine Einrichtungskosten</li>
@@ -22,11 +22,11 @@ Joda.registerTemplate("contact",
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-6">
+                        <div class="tjs-contact__col tjs-contact__newsletter--form">
                             <form>
                                 <slot></slot>
 
-                                <div class="tjs__newsletter__callback-wrapper">
+                                <div class="tjs-contact__newsletter--callback-wrapper">
                                     <span>Kontaktieren Sie mich per:</span>
                                     <div>
                                         <div class="form-check">
@@ -44,7 +44,7 @@ Joda.registerTemplate("contact",
                                     </div>
                                 </div>
 
-                                <div class="tjs__newsletter__privacy-wrapper">
+                                <div class="tjs-contact__newsletter--privacy-wrapper">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="contact-input-callback-privacy">
                                         <label class="form-check-label" for="contact-input-callback-privacy">

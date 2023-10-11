@@ -2,7 +2,7 @@
  * Komponente: Newsletter
  */
 
-.tjs__newsletter {
+.tjs-newsletter {
     $input-padding-y: .7rem;
     $input-padding-x: 1.5rem;
 
@@ -11,27 +11,61 @@
     color: var(--bs-white);
     overflow-x: hidden;
 
-    .row {
+    &__content--container {
         background-color: var(--color-grey-dark-4);
         border-radius: 2rem;
-        padding: 2rem;
         position: relative;
+        display: flex;
+        padding: 30px;
     }
 
-    .tjs__newsletter__icon {
-        position: absolute;
-        filter: brightness(0.8);
-        width: 55px;
+    &__col {
+        flex: 50%;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
 
-        &:nth-of-type(1) {
-            top: -15px;
-            left: -25px;
+        &:nth-child(odd) {
+            margin-right: rem(90px);
+        }
+    }
+
+    &__stars {
+        &--left {
+            position: absolute;
+            left: -5rem;
+            top: -2rem;
+            max-width: rem(70px);
+            transform: scaleX(-1);
+            opacity: 0.1;
+
+            @include media-breakpoint-down(xxl) {
+                left: rem(-30px);
+            }
+
+            @include media-breakpoint-down(xl) {
+                left: 0;
+            }
         }
 
-        &:nth-of-type(2) {
-            bottom: -7px;
-            right: -19px;
+        &--right {
+            position: absolute;
+            right: -5rem;
+            bottom: -2rem;
+            max-width: rem(70px);
+            opacity: 0.1;
+
+            @include media-breakpoint-down(xxl) {
+                right: rem(-30px);
+            }
+
+            @include media-breakpoint-down(xl) {
+                right: 0;
+            }
         }
+    }
+
+    p {
+        color: $white;
     }
 
     strong {
@@ -55,7 +89,7 @@
         }
     }
 
-    .tjs__newsletter__input-wrapper {
+    &__input-wrapper {
         display: flex;
         align-items: center;
     }
@@ -72,18 +106,47 @@
     }
 
     &.mobile {
-        .row {
-            margin: 0 .1rem;
-            padding: 1.3rem 1rem;
+        .tjs-newsletter {
+            &__input-wrapper {
+                flex-direction: column;
+            }
+
+            &__content--container {
+                flex-direction: column;
+            }
+
+            &__col {
+                flex: 100%;
+
+                &:nth-child(odd) {
+                    margin-right: 0;
+                }
+            }
+
+            &__stars {
+                &--left {
+                    position: absolute;
+                    left: rem(10px);
+                    top: rem(10px);
+                    max-width: rem(50px);
+                }
+
+                &--right {
+                    position: absolute;
+                    right: rem(10px);
+                    bottom: rem(10px);
+                    max-width: rem(50px);
+                    transform: scaleX(-1);
+                }
+            }
         }
-        .tjs__newsletter__input-wrapper {
-            flex-direction: column;
-        }
+
         input {
             padding: $input-padding-y .9rem;
             border-top-right-radius: var(--bs-border-radius) !important;
             border-bottom-right-radius: var(--bs-border-radius) !important;
         }
+
         .input-group-text {
             &.inside {
                 display: none;
