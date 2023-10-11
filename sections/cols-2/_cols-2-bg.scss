@@ -1,8 +1,8 @@
 /**
- * Komponente: 2-cols-bg
+ * Komponente: cols-2-bg
  */
 
-.tjs-2-cols-bg {
+.tjs-cols-2-bg {
     @include element-to-element-margin-large;
 
     .tjs-wrapper {
@@ -149,13 +149,13 @@
         margin-right: rem(10px);
         margin-left: rem(10px);
 
-        .tjs-2-cols-bg {
+        .tjs-cols-2-bg {
             &__row {
                 flex-direction: column;
                 padding: rem(35px) 0 0 0;
 
                 &--special {
-                    .tjs-2-cols-bg__col--text-content {
+                    .tjs-cols-2-bg__col--text-content {
                         text-align: center;
                     }
                 }

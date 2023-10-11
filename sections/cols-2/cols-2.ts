@@ -1,14 +1,14 @@
 import {Joda} from "@leuffen/jodastyle";
 
-Joda.registerTemplate("2-cols",
+Joda.registerTemplate("cols-2",
     // language=HTML
     `
-        <section class="tjs-2-cols :: mobile :md:">
+        <section class="tjs-cols-2 :: mobile :md:">
             <div class="tjs-wrapper container ">
-                <div class="tjs-2-cols__col tjs-2-cols__col--image">
+                <div class="tjs-cols-2__col tjs-cols-2__col--image">
                     <slot data-select="img"></slot>
                 </div>
-                <div class="tjs-2-cols__col tjs-2-cols__col--text-content">
+                <div class="tjs-cols-2__col tjs-cols-2__col--text-content">
                     <slot></slot>
                 </div>
             </div>

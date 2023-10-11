@@ -34,8 +34,6 @@ Joda.registerTemplate("cards-slider",
                 <div class="tjs-cards-slider__col">
                     <ul class="tjs-cards-slider__list">
                         <slot data-select=".children > *" data-child-layout="use: #cards-slider__list-item;"></slot>
-
-
                     </ul>
                 </div>
             </div>

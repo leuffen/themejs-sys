@@ -7,7 +7,7 @@ Joda.registerTemplate("key-figures",
         <div class="tjs-wrapper container-fluid">
             <div class="tjs-key-figures__content--container">
                 <div class="tjs-key-figures__content--bg-image">
-                    <img alt="Background" src="/images/bar-stripes.svg">
+                    <img alt="Background" src="/images/bar-stripes.webp">
                     <slot data-select="img.background"></slot>
                 </div>
                 <div class="tjs-key-figures__content container">

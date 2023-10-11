@@ -1,10 +1,18 @@
 /**
- * Komponente: 2-cols
+ * Komponente: cols-2
  */
 
-@import "2-cols-bg";
-.tjs-2-cols {
+@import "cols-2-bg";
+.tjs-cols-2 {
     @include element-to-element-margin-large;
+
+    &.reversed-rows {
+        .tjs-cols-2__col {
+            &:nth-child(1) {
+                order: 2;
+            }
+        }
+    }
 
     .tjs-wrapper {
         display: flex;
@@ -45,7 +53,7 @@
             flex-direction: column;
         }
 
-        .tjs-2-cols {
+        .tjs-cols-2 {
             &__col {
                 flex-basis: 100%;
 

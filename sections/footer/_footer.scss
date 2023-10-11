@@ -2,7 +2,7 @@
  * Komponente: footer
  */
 
-.tjs__footer {
+.tjs-footer {
     background-color: var(--color-grey-dark);
     color: var(--bs-white);
     font-family: 'Roboto Flex', sans-serif;
@@ -13,7 +13,25 @@
         position: relative;
     }
 
-    .tjs__footer__shape {
+    &__content--container {
+        display: flex;
+    }
+
+    &__col {
+        &--double {
+            flex: 1;
+
+            &-inner {
+                max-width: rem(400px);
+            }
+        }
+
+        &--inner {
+            display: flex;
+        }
+    }
+
+    &__shape {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -34,6 +52,10 @@
         }
     }
 
+    strong, a, p, span {
+        color: $white;
+    }
+
     hr {
         margin-top: 4rem;
         border-color: var(--color-grey-muted);
@@ -47,12 +69,14 @@
         }
     }
 
-    .tjs__footer__logo {
+    &__logo {
         width: 200px;
         margin-bottom: 1rem;
     }
 
-    .tjs__footer_links {
+    &__links {
+        margin-right: rem(64px);
+
         strong {
             display: inline-flex;
             text-transform: uppercase;
@@ -70,6 +94,7 @@
         a {
             display: inline-flex;
             gap: .4rem;
+            color: $white;
 
             img {
                 width: 1rem;
@@ -77,14 +102,18 @@
         }
     }
 
-    .tjs__footer__legal {
+    &__legal {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         color: var(--color-grey-muted);
         font-variation-settings: 'wght' 200;
 
-        .tjs__footer__legal__links {
+        span {
+            color: var(--color-grey-muted);
+        }
+
+        &__links {
             display: flex;
             flex-direction: row;
 
@@ -100,48 +129,65 @@
     }
 
     &.mobile {
-        .tjs__footer_links {
-            strong {
-                margin-top: 1rem;
-                margin-bottom: .5rem;
+        .tjs-footer {
+            &__links {
+                flex: 1;
+
+                strong {
+                    margin-top: 1rem;
+                    margin-bottom: .5rem;
+                }
+
+                &__mobile__images {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 2rem;
+
+                    & > div {
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                        gap: 2rem;
+                    }
+
+                    a {
+                        span {
+                            display: none;
+                        }
+
+                        img {
+                            width: 2rem;
+                        }
+                    }
+                }
             }
 
-            &.tjs__footer_links__mobile__images {
+            &__legal {
+                flex-direction: column;
+                text-align: center;
+
+                &___links {
+                    flex-direction: column;
+                    order: -1;
+                    margin-bottom: 1rem;
+
+                    span {
+                        &::after {
+                            content: none;
+                        }
+                    }
+                }
+            }
+
+            &__content--container {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                margin-top: 2rem;
-
-                & > div {
-                    flex-direction: row;
-                    justify-content: space-evenly;
-                    gap: 2rem;
-                }
-
-                a {
-                    span {
-                        display: none;
-                    }
-
-                    img {
-                        width: 2rem;
-                    }
-                }
             }
-        }
 
-        .tjs__footer__legal {
-            flex-direction: column;
-            text-align: center;
-
-            .tjs__footer__legal__links {
-                flex-direction: column;
-                order: -1;
-                margin-bottom: 1rem;
-
-                span {
-                    &::after {
-                        content: none;
+            &__col {
+                &--double {
+                    &-inner {
+                        max-width: 100%;
                     }
                 }
             }
