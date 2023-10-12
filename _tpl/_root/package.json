@@ -1,0 +1,28 @@
+{
+    "main": "src/index.ts",
+    "directories": {
+        "doc": "docs",
+        "lib": "lib"
+    },
+    "workspaces": [
+        "workspaces/*"
+    ],
+    "author": "",
+    "dependencies": {
+        "@leuffen/themejs1": "^5.0.3",
+        "@micx/lib-js": "^1.0.5"
+    },
+    "devDependencies": {
+        "css-loader": "^6.7.1",
+        "dart-sass": "^1.25.0",
+        "esbuild-loader": "^2.20.0",
+        "mini-css-extract-plugin": "^2.6.1",
+        "raw-loader": "^4.0.2",
+        "sass": "^1.56.1",
+        "sass-loader": "^13.0.2",
+        "style-loader": "^3.3.1",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^5.0.1",
+        "webpack-dev-server": "^4.11.1"
+    }
+}

@@ -1,0 +1,22 @@
+
+{% assign navi2 = site.pages | where: "lang", page.lang | where: "ptags", include.ptag | sort: "order" %}
+{%- for it in navi2 -%}
+{%- if it.has_subnav != true -%}
+<li><a href="{{ it.url }}"><i class="{% if it.nav_icon != null %}{{ it.nav_icon }}{% else %}{{ site.data.style.default_icon_class }}{% endif %}"></i>{% if it.short_title %}{{ it.short_title }}{% else %}{{ it.title }}{% endif %}</a></li>
+{%- else -%}
+    {% assign itRootArr = it.pid | split: "/" %}
+    {% assign itRoot = itRootArr[0] %}
+<li class="dropdown"><a href="{{ it.url }}" class="dropdown-toggle" role="button" data-bs-toggle="dropdown"><i class="{% if it.nav_icon != null %}{{ it.nav_icon }}{% else %}{{ site.data.style.default_icon_class }}{% endif %}"></i>{% if it.short_title %}{{ it.short_title }}{% else %}{{ it.title }}{% endif %}</a>
+    <ul>
+        {% assign subNavi = site.pages | where: "lang", page.lang | where: "ptags", "subnav" | sort: "order" %}
+        {%- for sub in subNavi -%}
+            {% assign curTag = sub.pid | split: "/" %}
+            {% assign curTag = curTag[0] %}
+            {% if curTag == itRoot %}
+                <li><a href="{{ sub.url }}">{% if sub.short_title %}{{ sub.short_title }}{% else %}{{ sub.title }}{% endif %}</a></li>
+            {% endif %}
+        {%- endfor -%}
+    </ul>
+</li>
+{%- endif -%}
+{%- endfor -%}

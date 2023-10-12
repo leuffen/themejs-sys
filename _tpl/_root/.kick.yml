@@ -1,0 +1,40 @@
+# Kickstart container config file - see https://gitub.com/infracamp/kickstart
+# Run ./kickstart.sh to start a development-container for this project
+version: 1
+from: "ghcr.io/nfra-project/kickstart-flavor-jekyll:2.1"
+ports: "80:80;4000:4000;4100:4100"
+
+command:
+  build:
+  #  - "yarn install"
+
+  jekyll: |
+    jekyll serve -s /opt/docs -d /var/www/html --drafts --livereload --port 4000 --livereload-port 4100 --host 0.0.0.0
+
+  dev:
+    - killall jekyll ||  echo "no job"
+    - killall webpack ||  echo "no job"
+    - "D:setsid kick jekyll"
+    - "D:webpack build --watch"
+
+
+  init-workspaces:
+    - "mkdir -p workspaces"
+    - "git -C ./workspaces/ clone  git@github.com:leuffen/liscom.git"
+    - "git -C ./workspaces/ clone  git@github.com:leuffen/themejs1.git"
+    - "git -C ./workspaces/ clone  git@github.com:leuffen/jodastyle.git"
+    - "git -C ./workspaces/ clone  git@github.com:leuffen/isl-base.git"
+    - "git -C ./workspaces/ clone  git@github.com:kasimirjs/kasi-embed.git"
+    - "npm install"
+    - "composer install"
+
+  update:
+    - "npm update"
+    - "composer update"
+    - "webpack build"
+
+  check:
+      - "linkchecker --no-status http://localhost:4000"
+
+  killall:
+    - killall jekyll

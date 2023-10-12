@@ -1,0 +1,35 @@
+
+$font-family-base: garamond,serif;
+//$font-family-base: sans-serif;
+
+
+
+$primary: #de7924;
+$success: #22b573;
+$danger: #bf1c0a;
+$warning: #bf760a;
+$dark: #483c32;
+$background-primary: lighten($primary, 40%);
+$background-accent: rgba(87, 45, 15, 0.20);
+
+$content-offset-top: 100px;
+$content-height-adjustment: 200px;
+
+$font-size-base: 1.2rem;
+$line-height-base: 1.2;
+$paragraph-margin-bottom: 1.5rem;
+
+$minibar-text-color: black;
+$minibar-color: transparent;
+
+$section-border-radius: 25px;
+
+$background: rgba(189, 172, 155, 0.34);
+$text-color: #483c32;
+
+$border-radius: 25px;
+
+$text-dark: #fff;
+$background-dark: $text-color;
+$section-border-color: transparent;
+$header-text-transform: unset;

@@ -1,0 +1,13 @@
+---
+layout: 3_3_main
+---
+
+
+{% capture global_include %}
+{% include global.md %}
+{% endcapture %}
+
+{{ global_include | markdownify }}
+
+
+{{content}}

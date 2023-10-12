@@ -1,0 +1,18 @@
+---
+layout: 3_1_navbar
+---
+
+{{content}}
+
+<!-- Path: docs/_layouts/3_2_footer.html -->
+<footer style="--joda-use: #footer-base;--layout-class: dark;--border-color: transparent;">
+<joda-split>
+
+    {% capture footer_include %}
+    {% include footer.md %}
+    {% endcapture %}
+
+    {{ footer_include | markdownify }}
+
+</joda-split>
+</footer>

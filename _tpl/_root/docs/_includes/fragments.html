@@ -1,0 +1,39 @@
+
+<template id="sprechzeiten">
+    <div class="row gx-5">
+        <div class="col-12 col-lg-6">
+            <slot></slot>
+        </div>
+        <article class="col-12 col-lg-6">
+            <div class="sprechzeiten">
+                <div class="row g-5">
+                    <div class="d-none d-xl-block col-12 col-xl-6 image">
+                        <slot data-select="img.sprechzeiten"></slot>
+                    </div>
+                    <div class="col-12 col-xl-6">
+                        <div class="card">
+                            <div class="row g-5">
+                                <div class="col-12 col-sm-6 col-lg-12">
+                                    <h3>Unsere Sprechzeiten</h3>
+                                    {% include el/openhours.html %}
+                                </div>
+                                <div class="col-12 col-sm-6 col-lg-12">
+                                    <h3 class="">Sie finden uns in der</h3>
+                                    <address>
+                                        {{ site.data.general.street }}<br>
+                                        {{ site.data.general.zip }} {{ site.data.general.city }}
+                                    </address>
+                                    <figure class="phone">
+                                        <a href="tel:{{ site.data.general.phone1 }}" title="Telefon"><i class="bi bi-phone"></i> {{site.data.general.phone1_text}}</a>
+                                    </figure>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</template>

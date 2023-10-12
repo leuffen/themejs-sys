@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "_editor": {
+      "type": "string",
+      "const": "openhours/v1"
+    },
+    "table": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "string",
+            "description": "Day of the week, e.g. 'Mo - Fr'"
+          },
+          "time": {
+            "type": "string",
+            "description": "Time range, e.g. '08:00 - 12:00<br>13:00 - 17:00'"
+          }
+        },
+        "required": ["day", "time"]
+      }
+    },
+    "json": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dayOfWeek": {
+            "type": "integer",
+            "description": "Day of the week represented as a number, e.g. 1"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start of the time slot, e.g. '08:00'"
+          },
+          "till": {
+            "type": "string",
+            "description": "End of the time slot, e.g. '12:00'"
+          },
+          "status": {
+            "type": "string",
+            "description": "Reserved for future use"
+          }
+        },
+        "required": ["dayOfWeek", "from", "till", "status"]
+      }
+    },
+    "vacation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Start date and time of the vacation, e.g. '2022-01-01 00:00:00'"
+          },
+          "till": {
+            "type": "string",
+            "format": "date-time",
+            "description": "End date and time of the vacation, e.g. '2022-01-01 00:00:00'"
+          },
+          "short_text": {
+            "type": "string",
+            "description": "Short text description, e.g. 'New Year's Day'"
+          },
+          "text": {
+            "type": "string",
+            "description": "Long text description, e.g. 'Wir haben geschlossen. Bitte beachten Sie unsere Öffnungszeiten.'"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title, e.g. 'Neujahr'"
+          }
+        },
+        "required": ["from", "till", "short_text", "text", "title"]
+      }
+    }
+  },
+  "required": ["_editor", "table", "json", "vacation"]
+}

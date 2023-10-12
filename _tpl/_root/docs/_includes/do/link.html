@@ -1,0 +1,1 @@
+{% assign _lpage = site.pages | where: "lang", page.lang | where: "pid", include.pid | first %}{% if _lpage.url %}{{ _lpage.url }}{% else %}javascript:alert('translation not available');{% endif %}

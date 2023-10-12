@@ -1,0 +1,7 @@
+{% assign navi2 = site.pages | where: "lang", page.lang | where: "ptags", include.ptag | sort: "order" %}
+{% for it in navi2 %}
+    <a class="{{ include.class }}" href="{{ it.url }}">
+        <i class="{% if it.nav_icon != null %}{{ it.nav_icon }}{% else %}{{ site.data.style.default_icon_class }}{% endif %} pe-2"></i>
+        {% if it.navi_name %}{{ it.navi_name }}{% else %}{{ it.title }}{% endif %}
+    </a>
+{% endfor %}

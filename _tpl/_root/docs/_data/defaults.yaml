@@ -1,0 +1,12 @@
+default_icon_class: bi bi-pen
+
+footer_leuffen_logo_url: https://leuffen.de/assets/leuffen-logo-white.svg
+footer_leuffen_logo_alt: "Webdesign & Websites für Ärzte und Arztpraxen von leuffen.de"
+footer_leuffen_logo_href: https://leuffen.de
+
+footer_leuffen_text: Webdesign für Ärzte
+footer_leuffen_text_href: https://med.leuffen.de
+
+
+logo256: /assets/logo256.jpg
+logo256_type: image/jpeg

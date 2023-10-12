@@ -1,0 +1,9 @@
+{% assign lines = include.text | newline_to_br | split: "<br />" %}{% assign new_content = "" %}
+{% for line in lines %}
+    {% assign cur_line = line | replace: " ", "" %}
+    {{ cur_line }}
+    {% if cur_line != "" %}
+        {% assign new_content = new_content | append: line | append: "BBB\n" %}
+    {% endif %}
+{% endfor %}
+{{ new_content }}

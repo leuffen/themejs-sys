@@ -1,0 +1,55 @@
+_editor: openhours/v1
+table:
+  -
+    day: Mo
+    time: '08:15 - 12:00<br>16:00 - 18:30'
+  -
+    day: Di
+    time: '08:15 - 12:00'
+  -
+    day: Mi
+    time: '08:15 - 12:00'
+  -
+    day: Do
+    time: '16:00 - 19:00'
+  -
+    day: Fr
+    time: '08:15 - 12:00'
+json:
+  -
+    dayOfWeek: 1
+    from: '8:15'
+    till: '12:00'
+    status: ''
+  -
+    dayOfWeek: 1
+    from: '16:00'
+    till: '18:30'
+    status: ''
+  -
+    dayOfWeek: 2
+    from: '8:15'
+    till: '12:00'
+    status: ''
+  -
+    dayOfWeek: 3
+    from: '8:15'
+    till: '12:00'
+    status: ''
+  -
+    dayOfWeek: 4
+    from: '16:00'
+    till: '19:00'
+    status: ''
+  -
+    dayOfWeek: 5
+    from: '8:15'
+    till: '12:00'
+    status: ''
+vacation:
+  -
+    from: '2023-09-18'
+    till: '2023-09-18'
+    short_text: ''
+    text: 'Vertretung übernimmt Dr. xxx'
+    title: 'Urlaub vom 21.09.. - 27.09.'

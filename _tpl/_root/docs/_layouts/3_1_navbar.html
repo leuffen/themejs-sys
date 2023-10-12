@@ -1,0 +1,36 @@
+---
+layout: 2_script
+---
+
+
+<nav layout="use: #navbar-switch1">
+
+    <div class="brand" style="margin-right: 20px;">
+        <a href="/">
+            <img src="/assets/logo.webp" alt="{{ site.data.general.logoalt }}" height="64" class="p-1" style="float:left">
+            <div style="font-size: 1.1em;float:right" class="m-2 text-dark">
+                Hausarztpraxis<br>Dr. Heike Falk
+            </div>
+        </a>
+    </div>
+
+    <ul class="navbar-top">
+        <li>
+            <a href="/kontakt" aria-label="Anschrift"><i class="bi bi-geo-alt-fill text-primary"></i><span class=":: d-none :xl:"> {{ site.data.general.street }}, {{ site.data.general.city }}</span></a>
+        </li>
+        <li>
+            <a href="tel:{{site.data.general.phone1 }}" aria-label="Telefonnummer - jetzt anrufen"><i class="bi bi-phone-fill text-primary"></i><span class=":: d-none :xl:"> {{ site.data.general.phone1_text }}</span></a>
+        </li>
+        <li>
+            <a href="{% if site.data.general.termin_url %}{{site.data.general.termin_url}}{% else %}/kontakt{% endif %}" target="_blank" aria-label="Termin vereinbaren"><i class="bi bi-calendar-check-fill text-primary"></i><span class=":: d-none :xl:"> Termin vereinbaren</span></a>
+        </li>
+    </ul>
+
+    <ul class="navbar-main">
+        {% include el/navbar.html ptag="nav" %}
+    </ul>
+</nav>
+
+
+{{ content }}
+

@@ -1,0 +1,44 @@
+pagebuilder: https://pagebuilder.leuffen.de/e/falk-k43/default
+site_base_url: https://www.praxis-dr-falk.de
+subscription_id: falk-k43
+
+# Titel der Website
+title: Praxis Dr. Heike Falk - hausärztlich internistische Praxis in Freudenstadt-Wittlensweiler
+
+
+# Name der Praxis
+name:  Praxis Dr. Heike Falk
+name2: ~
+
+
+# Kurzbeschreibung
+desc: Fachärztin für Innere Medizin
+
+
+logoalt: Dr. Heike Falk
+street: Ortsstr. 13
+zip: 72250
+city: Freudenstadt-Wittlensweiler
+
+termin_url: ~
+map_url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d286.188825789242!2d8.449496546318292!3d48.47202968557242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479735c1aeacb92d%3A0x9eeaecce18dcfa29!2sOrtsstra%C3%9Fe%2013%2C%2072250%20Freudenstadt!5e0!3m2!1sde!2sde!4v1695118965248!5m2!1sde!2sde"
+map_link: "https://www.google.com/maps/place/Ortsstr.+13+%2C+72250+Freudenstadt-Wittlensweiler/@,"
+
+datenschutzbeauftragter: |
+bildnachweise: |
+    Bilder von Andreas Metz
+    <br>Bilder von <a href="https://stock.adobe.com">Adobe Stock</a>
+# Telefonnummer wie sie angezeigt wird
+phone1_text: "(0 74 41) 81 605"
+# Telefonnummer mit länderprefix für tel: links (ohne space)
+phone1: "+49744181605"
+fax1_text: "(07441) 51 722"
+
+email: mail@praxis-dr-falk.de
+domain:
+
+tools:
+  googlemaps: true
+  jameda: false
+  recaptcha: false
+

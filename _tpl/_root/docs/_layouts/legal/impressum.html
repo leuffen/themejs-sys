@@ -1,0 +1,46 @@
+---
+layout: legal
+---
+
+
+<h2>Angaben gemäß § 5 TMG</h2>
+
+<p>
+    <span class="fw-bold">{{ site.data.general.name}}</span><br>
+    {% if site.data.general.name2 %}
+    {{site.data.general.name2}}<br>
+    {% endif %}
+    {{site.data.general.street}}<br>
+    {{site.data.general.zip}} {{site.data.general.city}}<br><br>
+    <span class="fw-bold">Konakt:</span><br>
+    Telefon: <a href="tel:{{site.data.general.phone1}}">{{site.data.general.phone1_text}}</a><br>
+    {% if site.data.general.fax1_text %}
+    Telefax: {{site.data.general.fax1_text}}<br>
+    {% endif %}
+    <a href="tel:{{site.data.general.email}}">{{site.data.general.email}}</a><br>
+</p>
+
+
+{{ content }}
+
+
+
+<h2>Design & Umsetzung</h2>
+
+<a href="https://leuffen.de/"><img style="width: 150px;margin-left:-10px" src="https://leuffen.de/assets/leuffen-logo-big.svg" alt="leuffen.de logo"></a>
+
+<p class="mt-2">leuffen.de<br>Webprogrammierung & Webservices</p>
+<a href="https://med.leuffen.de" target="_blank" class="link-pointer">Websites für Ärzte</a>
+
+
+
+<h2>Bildnachweise</h2>
+<p class="mt-2">
+    {% if site.data.general.bildnachweise %}
+    {{ site.data.general.bildnachweise}}
+    {% else %}
+    Bilder in Lizenz von <a href="https://stock.adobe.com/" target="_blank">stock.adobe.com</a>.
+    {% endif %}
+</p>
+
+

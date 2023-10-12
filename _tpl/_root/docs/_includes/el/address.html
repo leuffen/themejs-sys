@@ -1,0 +1,11 @@
+{{ site.data.general.name}}<br>
+{%- if site.data.general.name2 != null -%}{{site.data.general.name2}}<br>{%- endif -%}
+{{ site.data.general.street }} <br>
+{{ site.data.general.zip }} {{ site.data.general.city }}<br><br>
+<span>{% include do/trans.html val="Telefon" %}:</span> <b><a href="tel:{{site.data.general.phone1}}" title="Telefon" class="text-decoration-none">{{site.data.general.phone1_text}}</a></b><br>
+{%- if site.data.general.fax1_text != null -%}
+<span>{% include do/trans.html val="Telefax" %}:</span> <b>{{site.data.general.fax1_text}}</b><br>
+{%- endif -%}
+{%- if site.data.general.email != null -%}
+<span>{% include do/trans.html val="E-Mail" %}:</span> <a href="mailto:{{site.data.general.email}}" title="E-Mail" class=" text-decoration-none">{{site.data.general.email}}</a><br>
+{%- endif -%}

@@ -1,0 +1,25 @@
+---
+layout: 3_3_1_content
+---
+
+
+
+<joda-split class="article bg-light">
+
+    <h1 layout="use: #hero-title-small">{{ page.title }}</h1>
+
+
+    {% if page.image %}
+    <img src="{{ page.image }}">
+    {% endif %}
+    {% if page.header %}
+    {{ page.header }}
+    {% endif %}
+    <h2 hidden></h2>
+
+    {{ content }}
+
+
+</joda-split>
+
+
