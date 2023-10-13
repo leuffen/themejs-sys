@@ -22,13 +22,35 @@ Joda.registerTemplate("customer-reviews",
         <section class="tjs-customer-reviews :: mobile :md:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-customer-reviews__content--container">
-                    <div class="tjs-customer-reviews__content container">
+                    <div class="tjs-customer-reviews__content">
                         <div class="tjs-customer-reviews__content--headline">
                             <slot><slot>
                         </div>
                         <div class="tjs-customer-reviews__content--row">
                             <div class="tjs-customer-reviews__content--col tjs-customer-reviews__carousel">
-                                <slot data-select=".children > *" data-child-layout="use: #customer-reviews__carousel--slide;"></slot>
+                                <div class="tjs-customer-reviews__carousel--navigation-prev">
+                                    <picture>
+                                        <source srcset="/images/icons/arrow-left.webp" type="image/webp">
+                                        <source srcset="/images/icons/arrow-left.svg" type="image/svg">
+                                        <img src="/images/icons/arrow-left.svg">
+                                    </picture>
+                                </div>
+                                <div class="tjs-customer-reviews__carousel--navigation-next">
+                                    <picture>
+                                        <source srcset="/images/icons/arrow-right.webp" type="image/webp">
+                                        <source srcset="/images/icons/arrow-right.svg" type="image/svg">
+                                        <img src="/images/icons/arrow-right.svg">
+                                    </picture>
+                                </div>
+                                <div class="tjs-customer-reviews__carousel--nav-points">
+                                    <div class="tjs-customer-reviews__carousel--nav-points__point active" data-id="1"></div>
+                                    <div class="tjs-customer-reviews__carousel--nav-points__point" data-id="2"></div>
+                                    <div class="tjs-customer-reviews__carousel--nav-points__point" data-id="3"></div>
+                                </div>
+
+                                <liscom-slider class="tjs-customer-reviews__carousel--slides">
+                                    <slot data-select=".children > *" data-child-layout="use: #customer-reviews__carousel--slide;"></slot>
+                                </liscom-slider>
 
                             </div>
                         </div>

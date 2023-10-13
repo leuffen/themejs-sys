@@ -8,6 +8,7 @@ import "./cols-2/cols-2-bg";
 import "./key-figures/key-figures";
 import "./cards-slider/cards-slider";
 import "./customer-reviews/customer-reviews";
+import "./image-slider/image-slider";
 import "./cta1/cta1";
 
 import "./footer/footer";

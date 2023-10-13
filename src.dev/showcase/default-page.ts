@@ -169,6 +169,31 @@ Wir ändern alles nach Ihren Wünschen.
 Per Videokonferenz besprechen Sie Ihre Website mit einem Experten.
 Wir ändern alles nach Ihren Wünschen.
 
+## Aktuelle Projekte
+{: layout="use: #image-slider"}
+
+> Lorem ipsum dolor sit amen, consetetur sadipscing elitr.
+
+### ![](/images/icons/icon-webdesign.webp)
+
+[Dental Clinic](http://google.com){: class="btn btn-secondary"}
+[Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
+
+### ![](/images/icons/icon-webdesign.webp)
+
+[Dental Clinic](http://google.com){: class="btn btn-secondary"}
+[Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
+
+### ![](/images/icons/icon-webdesign.webp)
+
+[Dental Clinic](http://google.com){: class="btn btn-secondary"}
+[Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
+
+### ![](/images/icons/icon-webdesign.webp)
+
+[Dental Clinic](http://google.com){: class="btn btn-secondary"}
+[Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
+
 ## Was sagen unsere Kunden?
 {: layout="use: #customer-reviews"}
 
@@ -179,6 +204,16 @@ Lorem ipsum,...
 >  „Ich wollte schon die Polizei holen“
 
 [Zahnarztpraxis Robert]()
+
+### Besser gehts nicht
+
+>  „Ich wollte schon die Polizei holen“
+
+
+### Besser gehts nicht
+
+>  „Ich wollte schon die Polizei holen“
+
 
 ### Besser gehts nicht
 

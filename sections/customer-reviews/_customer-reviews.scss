@@ -25,9 +25,80 @@
     }
 
     &__carousel {
-        display: flex;
-        overflow-x: scroll;
+        overflow: hidden;
         text-align: center;
+        position: relative;
+        padding-bottom: 30px;
+
+        &--navigation {
+            &-prev {
+                position: absolute;
+                top: calc(50% - 21px);
+                position: absolute;
+                z-index: 1;
+                left: 20px;
+            }
+
+            &-next {
+                position: absolute;
+                top: calc(50% - 21px);
+                position: absolute;
+                z-index: 1;
+                right: 20px;
+            }
+
+            &-prev, &-next {
+                img {
+                    width: rem(42px);
+                    height: rem(42px);
+                }
+            }
+        }
+
+        &--nav-points {
+            position: absolute;
+            display: flex;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &__point {
+                width: rem(13px);
+                height: rem(13px);
+                background: $white;
+                border-radius: 50%;
+                border: 1px solid #363636;
+                position: relative;
+
+                &:not(:last-child) {
+                    margin-right: rem(9px);
+                }
+
+                &:after {
+                    content: "";
+                    width: rem(9px);
+                    height: rem(9px);
+                    display: block;
+                    position: absolute;
+                    top: 1px;
+                    left: 1px;
+                    background: $white;
+                    border-radius: 50%;
+                }
+
+                &.active {
+                    &:after {
+                        background: $primary;
+                    }
+                }
+            }
+        }
+
+        &--slides {
+            display: flex;
+            overflow-x: scroll;
+            padding-bottom: 5px;
+        }
 
         &--slide {
             background: $white;
@@ -35,6 +106,22 @@
             border-radius: 20px;
             padding: rem(30px);
             min-width: rem(525px);
+
+            &:first-child {
+                margin-left: 18vw;
+
+                @media (max-width: 1900px) {
+                    margin-left: 10vw;
+                }
+
+                @include media-breakpoint-down(xxl) {
+                    margin-left: 8vw;
+                }
+
+                @include media-breakpoint-down(xl) {
+                    margin-left: 7vw;
+                }
+            }
 
             &:not(:last-child) {
                 margin-right: rem(35px);
