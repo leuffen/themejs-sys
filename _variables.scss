@@ -1,46 +1,4 @@
 
 
 
-/* always add !default to variables */
-
-
-//$font-family-base: Ubuntu-R,sans-serif;
-$font-family-base: sans-serif !default;
-
-$primary:   #a3979b !default;
-$success:   #22b573 !default;
-$danger:    #bf1c0a !default;
-$warning:   #bf760a !default;
-$dark:      #006837 !default;
-
-$background: rgba(217, 217, 217, 0.24) !default;
-$background-primary:        #b7eaf9 !default;
-$background-accent:         #ddd    !default;
-
-$content-offset-top:        100px !default;
-$content-height-adjustment: 200px !default;
-
-$font-size-base:            0.9rem  !default;
-$line-height-base:          1.2     !default;
-$paragraph-margin-bottom:   1.5rem !default;
-
-$minibar-text-color:        black !default;
-$minibar-color:             transparent !default;
-
-$section-border-radius:             0 !default;
-$border-radius:             0 !default;
-
-$section-border-color:      #ddd !default;
-
-$text-color: #707070 !default;
-
-$text-footer: $text-color !default;
-$background-footer: $background !default;
-
-
-$background-dark: #000 !default;
-$text-dark: #fff !default;
-$border-color: #999 !default;
-
-$header-text-transform: uppercase !default;
-
+@import "sections/variables";

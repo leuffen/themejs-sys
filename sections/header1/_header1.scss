@@ -8,14 +8,18 @@
     border-bottom: 1px solid #e5e5e5;
 
     padding-top: var(--t-hero-top-space, 0px);
-
+    min-height: calc(100vh - 110px);
+    display: flex;
+    align-items: center;
     img {
         max-width: 100%;
+        height: auto;
     }
 
 
     &__hero {
         @include element-to-element-margin-medium;
+
 
 
 
