@@ -37,7 +37,7 @@ Vielen Dank für Ihr Interesse. Nutzen Sie das Formular oder schreiben sie uns u
 
 [input type="text"  name="Name" required .mb-3]
 [input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine gültige E-Mail Adresse ein" required .mb-3]
-[input type="tel" name="Telefon" .mb-3]
+[textarea name="Nachricht" .mb-3]
 
 
 ## Systemwebsite.de
