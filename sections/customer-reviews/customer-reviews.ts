@@ -29,18 +29,10 @@ Joda.registerTemplate("customer-reviews",
                         <div class="tjs-customer-reviews__content--row">
                             <div class="tjs-customer-reviews__content--col tjs-customer-reviews__carousel">
                                 <div class="tjs-customer-reviews__carousel--navigation-prev">
-                                    <picture>
-                                        <source srcset="/images/icons/arrow-left.webp" type="image/webp">
-                                        <source srcset="/images/icons/arrow-left.svg" type="image/svg">
-                                        <img src="/images/icons/arrow-left.svg">
-                                    </picture>
+                                    <img src="/images/icons/arrow-left.webp">
                                 </div>
                                 <div class="tjs-customer-reviews__carousel--navigation-next">
-                                    <picture>
-                                        <source srcset="/images/icons/arrow-right.webp" type="image/webp">
-                                        <source srcset="/images/icons/arrow-right.svg" type="image/svg">
-                                        <img src="/images/icons/arrow-right.svg">
-                                    </picture>
+                                    <img src="/images/icons/arrow-right.webp">
                                 </div>
                                 <div class="tjs-customer-reviews__carousel--nav-points">
                                     <div class="tjs-customer-reviews__carousel--nav-points__point active" data-id="1"></div>

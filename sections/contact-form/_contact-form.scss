@@ -1,0 +1,139 @@
+/**
+ * Komponente: contact-form
+ */
+
+.tjs-contact-form {
+    font-family: 'Roboto Flex', sans-serif;
+    position: relative;
+    @include element-to-element-margin-medium;
+
+    &__content--container {
+        background: #fff;
+        border-radius: 40px;
+        padding-top: rem(55px);
+        padding-bottom: rem(55px);
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+        margin-top: rem(-130px);
+
+        &-inner {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__col {
+        flex: 50%;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    input, textarea, select {
+        --joda-use: "input()";
+    }
+
+    .form-check {
+        margin: 0;
+    }
+
+    form {
+        background: var(--bs-white);
+        padding: 2rem;
+        border-radius: 1rem;
+        color: var(--color-placeholder);
+        font-variation-settings: "wght" 350;
+
+        input {
+            &:focus {
+                outline: none;
+                box-shadow: none;
+                border-color: var(--color-placeholder);
+            }
+        }
+
+        .form-control {
+            border-color: var(--color-placeholder);
+        }
+
+        .form-check-input {
+            &:checked {
+                background-color: var(--color-green);
+                border-color: var(--color-green);
+            }
+        }
+
+        a {
+            color: var(--color-green);
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        button {
+            width: 100%;
+            background-color: var(--color-green);
+            color: var(--bs-white);
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 0.5rem;
+        }
+    }
+
+    &__text {
+        text-align: center;
+        border-right: 1px solid rgba(0, 0, 0, 0.5);
+
+        img {
+            width: 50%;
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            li {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                margin-bottom: 1rem;
+
+                i {
+                    border: 1px solid $primary;
+                    border-radius: 50%;
+                    padding: 10px 16px;
+                    color: $primary;
+                    font-size: 25px;
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+
+    &.mobile {
+        .tjs-contact-form {
+            &__content--container {
+                padding-top: rem(20px);
+                padding-bottom: rem(20px);
+
+                &-inner {
+                    flex-direction: column;
+                }
+            }
+
+            &__col {
+                flex: 100%;
+            }
+
+            &__form {
+                margin-bottom: 2rem;
+            }
+
+            &__text {
+                border-right: none;
+                order: 2;
+            }
+        }
+
+        form {
+            padding: 1.2rem;
+        }
+    }
+}

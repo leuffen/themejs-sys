@@ -10,6 +10,8 @@ import "./cards-slider/cards-slider";
 import "./customer-reviews/customer-reviews";
 import "./image-slider/image-slider";
 import "./cta1/cta1";
+import "./text-container/text-container";
+import "./contact-form/contact-form";
 
 import "./footer/footer";
 import "./newsletter/newsletter";

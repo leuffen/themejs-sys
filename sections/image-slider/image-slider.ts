@@ -19,6 +19,8 @@ Joda.registerTemplate("image-slider",
         <section class="tjs-image-slider :: mobile :md:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-image-slider__content--container">
+                    <img loading="lazy" class="tjs-image-slider__stars--left" src="/images/stars.webp">
+                    <img loading="lazy" class="tjs-image-slider__stars--right" src="/images/stars.webp">
                     <div class="tjs-image-slider__content">
                         <div class="tjs-image-slider__content--headline">
                             <slot><slot>
@@ -26,18 +28,10 @@ Joda.registerTemplate("image-slider",
                         <div class="tjs-image-slider__content--row">
                             <div class="tjs-image-slider__content--col tjs-image-slider__carousel">
                                 <div class="tjs-image-slider__carousel--navigation-prev">
-                                    <picture>
-                                        <source srcset="/images/icons/arrow-left.webp" type="image/webp">
-                                        <source srcset="/images/icons/arrow-left.svg" type="image/svg">
-                                        <img src="/images/icons/arrow-left.svg">
-                                    </picture>
+                                    <img src="/images/icons/arrow-left.webp">
                                 </div>
                                 <div class="tjs-image-slider__carousel--navigation-next">
-                                    <picture>
-                                        <source srcset="/images/icons/arrow-right.webp" type="image/webp">
-                                        <source srcset="/images/icons/arrow-right.svg" type="image/svg">
-                                        <img src="/images/icons/arrow-right.svg">
-                                    </picture>
+                                    <img src="/images/icons/arrow-right.webp">
                                 </div>
                                 <div class="tjs-image-slider__carousel--nav-points">
                                     <div class="tjs-image-slider__carousel--nav-points__point active" data-id="1"></div>

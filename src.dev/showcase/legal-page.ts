@@ -20,15 +20,8 @@ let html =`
     </ul>
 </nav>
 
-# Wir entwickeln moderne<br> Webseiten für <typewriter-element>Hausärzte, Zahnärzte, Kardiologen, Augenärzte, Gynäkologen,</typewriter-element>
+# Datenschutz
 {: layout="use: #header1"}
-
-![Webdesign für Ärzte](/images/hero-image.webp)
-
-Sicher. Modular. Auf Ihre Bedürfnisse angepasst.
-
-[Mehr erfahren](#)
-{: .btn .btn-primary}
 
 
 ## Hero Section
@@ -36,7 +29,10 @@ Sicher. Modular. Auf Ihre Bedürfnisse angepasst.
 
 Wir garantieren Ihnen 100% Zufriedenheit mit unserer <b class="text-primary">30 Tage Geld-zurück-Garantie!</b>
 
-Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten
+## Datenschutzerklärung
+{: layout="use: #text-container"}
+
+### Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten
 vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
 
 Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf
@@ -118,9 +114,8 @@ ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit wid
 der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von
 Werbeinformationen, etwa durch Spam-E-Mails, vor.
 
-
-{% if site.data.general.datenschutzbeauftragter_name %}
 ## Datenschutzbeauftragter
+{: layout="use: #text-container"}
 
 ### Gesetzlich vorgeschriebener Datenschutzbeauftragter
 
@@ -133,9 +128,8 @@ Wir haben für unser Unternehmen einen Datenschutzbeauftragten bestellt.
 Telefon: <a href="tel:{{site.data.general.legal.phone1}}">{{site.data.general.phone1_text}}</a><br>
 <a href="tel:{{site.data.general.email}}" >{{site.data.general.email}}</a><br>
 
-{% endif %}
-
 ## Datenerfassung auf unserer Website
+{: layout="use: #text-container"}
 
 ### Cookies
 
@@ -202,6 +196,7 @@ Aufbewahrungsfristen – bleiben unberührt.
 
 
 ## Analyse Tools und Plugins
+{: layout="use: #text-container"}
 
 {% if site.data.general.tools.recaptcha %}
 ### Google reCAPTCHA

@@ -176,22 +176,22 @@ Wir ändern alles nach Ihren Wünschen.
 
 ### ![](/images/icons/icon-webdesign.webp)
 
-[Dental Clinic](http://google.com){: class="btn btn-secondary"}
+[Dental Clinic <i class="bi bi-box-arrow-up-right"></i>](http://google.com){: class="btn btn-secondary"}
 [Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
 
 ### ![](/images/icons/icon-webdesign.webp)
 
-[Dental Clinic](http://google.com){: class="btn btn-secondary"}
+[Dental Clinic <i class="bi bi-box-arrow-up-right"></i>](http://google.com){: class="btn btn-secondary"}
 [Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
 
 ### ![](/images/icons/icon-webdesign.webp)
 
-[Dental Clinic](http://google.com){: class="btn btn-secondary"}
+[Dental Clinic <i class="bi bi-box-arrow-up-right"></i>](http://google.com){: class="btn btn-secondary"}
 [Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
 
 ### ![](/images/icons/icon-webdesign.webp)
 
-[Dental Clinic](http://google.com){: class="btn btn-secondary"}
+[Dental Clinic <i class="bi bi-box-arrow-up-right"></i>](http://google.com){: class="btn btn-secondary"}
 [Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
 
 ## Was sagen unsere Kunden?

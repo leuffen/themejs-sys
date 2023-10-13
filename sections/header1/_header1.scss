@@ -39,6 +39,27 @@
         }
     }
 
+    &.increased-height {
+        padding-bottom: rem(150px);
+    }
+
+    :not(:has(img)) {
+        .tjs-header1 {
+            &__hero {
+                margin-bottom: 2rem;
+                margin-top: -2rem;
+            }
+
+            &__hero--row {
+                display: block;
+            }
+
+            &__hero--col-text {
+                text-align: center;
+            }
+        }
+    }
+
     &.mobile {
         .tjs-header1 {
 
