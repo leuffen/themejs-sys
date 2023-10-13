@@ -19,8 +19,8 @@ Joda.registerTemplate("image-slider",
         <section class="tjs-image-slider :: mobile :md:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-image-slider__content--container">
-                    <img loading="lazy" class="tjs-image-slider__stars--left" src="/images/stars.webp">
-                    <img loading="lazy" class="tjs-image-slider__stars--right" src="/images/stars.webp">
+                    <img loading="lazy" class="tjs-image-slider__stars--left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
+                    <img loading="lazy" class="tjs-image-slider__stars--right" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
                     <div class="tjs-image-slider__content">
                         <div class="tjs-image-slider__content--headline">
                             <slot><slot>
@@ -28,10 +28,10 @@ Joda.registerTemplate("image-slider",
                         <div class="tjs-image-slider__content--row">
                             <div class="tjs-image-slider__content--col tjs-image-slider__carousel">
                                 <div class="tjs-image-slider__carousel--navigation-prev">
-                                    <img src="/images/icons/arrow-left.webp">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements//arrow-left.svg" width="500" height="500">
                                 </div>
                                 <div class="tjs-image-slider__carousel--navigation-next">
-                                    <img src="/images/icons/arrow-right.webp">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-right.svg" width="500" height="500">
                                 </div>
                                 <div class="tjs-image-slider__carousel--nav-points">
                                     <div class="tjs-image-slider__carousel--nav-points__point active" data-id="1"></div>

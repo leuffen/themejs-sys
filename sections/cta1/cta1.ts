@@ -8,13 +8,13 @@ Joda.registerTemplate("cta1",
             <div class="tjs-wrapper tjs-cols-2-bg--special container">
                 <div class="tjs-cols-2-bg__disturber-image">
 
-                    <img loading="lazy" src="/images/man-showing.webp">
+                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/man-showing.svg" width="433" height="500">
 
                 </div>
                 <div class="tjs-cols-2-bg__disturber-stars">
 
-                    <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--left" src="/images/stars.webp">
-                    <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--right" src="/images/stars.webp">
+                    <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg" width="389" height="500">
+                    <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--right" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg" width="389" height="500">
 
                 </div>
                 <div class="tjs-cols-2-bg__row tjs-cols-2-bg__row--special">

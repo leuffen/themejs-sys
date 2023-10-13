@@ -4773,7 +4773,113 @@ exports.DefaultLayout = DefaultLayout;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _showcase_default_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./showcase/default-page */ "./src.dev/showcase/default-page.ts");
+/* harmony import */ var _showcase_legal_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./showcase/legal-page */ "./src.dev/showcase/legal-page.ts");
+/* harmony import */ var _showcase_contact_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./showcase/contact-page */ "./src.dev/showcase/contact-page.ts");
 
+
+
+
+
+/***/ }),
+
+/***/ "./src.dev/showcase/contact-page.ts":
+/*!******************************************!*\
+  !*** ./src.dev/showcase/contact-page.ts ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+let html = `
+
+<nav layout="use: #navbar-switch1" class="floating">
+    <div class="brand"><a href=""><img src="/images/logo-systemwebsite.webp"></a></div>
+    <ul class="navbar-top">
+        <li class=":: d-none :lg: "><a href="">Beratungstelefon</a></li>
+        <li class=":: :lg: d-none"><a href="">Beratung-Tel.: (0201) 12345</a></li>
+        <li><a href="">Angebot anfordern</a></li>
+    </ul>
+    <ul class="navbar-main">
+        <li><a href="#home">Punkt1</a></li>
+        <li><a href="#home">Punkt2</a></li>
+        <li><a href="#home">Hello World</a></li>
+        <li><a href="#home">Hello World</a></li>
+    </ul>
+    <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+    </ul>
+</nav>
+
+# Kontakt
+{: layout="use: #header1" data-section-class="increased-height"}
+
+Vielen Dank f\xFCr Ihr Interesse. Nutzen Sie das Formular oder schreiben sie uns unter [kontakt@leuffen.de](kontakt@leuffen.de).
+
+
+## Kontaktformular
+{: layout="use: #contact-form"}
+
+![Some Image](/images/illustration-a1.webp)
+
+- <i class="bi bi-geo-alt-fill"></i> Mathildenstr. 9-11, 45130 Essen
+- <i class="bi bi-telephone-fill"></i> (0201) 7 58 59 936
+- <i class="bi bi-envelope-fill"></i> kontakt@leuffen.de
+
+[input type="text"  name="Name" required .mb-3]
+[input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine g\xFCltige E-Mail Adresse ein" required .mb-3]
+[textarea name="Nachricht" .mb-3]
+
+
+## Systemwebsite.de
+{: layout="use: #footer"}
+
+> Ihr Partner f\xFCr moderne medizinische Webseiten-Entwicklung
+
+
+
+### Links
+
+- [Konditionen](#)
+- [Leistungen](#)
+- [FAQ](#)
+- [Kontakt](#)
+
+### Links
+
+- [Konditionen](#)
+- [Leistungen](#)
+- [FAQ](#)
+- [Kontakt](#)
+
+### Folgen Sie uns
+
+- [LinkedIn](#)
+- [Xing](#)
+- [Facebook](#)
+- [Instragram](#)
+
+---
+{: .footer-nav}
+
+Copyright (c) 2023 Systemwebsite by leuffen.de
+
+- [AGB](#)
+- [Datenschutz](#)
+- [Impressum](#)
+
+`;
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.addClass(
+  "page",
+  "contact-page",
+  "contact-page",
+  html,
+  [],
+  {
+    bodyClasses: ["themejs-sys"]
+  }
+);
 
 
 /***/ }),
@@ -4883,7 +4989,7 @@ Damit Ihre Website \xFCberall gefunden wird: Als Google Partner..
 
 
 ## Praxiswert steigern
-{: layout="use: #2-cols"}
+{: layout="use: #cols-2"}
 
 ![](/images/illustration-01.svg)
 
@@ -4892,7 +4998,7 @@ Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDF
 [Weiterlesen]()
 
 ## Mit Digiatlisierung sparen
-{: layout="use: #2-cols"}
+{: layout="use: #cols-2" data-section-class="reversed-rows"}
 
 ![](/images/illustration-03.svg)
 
@@ -4901,11 +5007,11 @@ Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDF
 [Weiterlesen]()
 
 ## Datenschutz vom Experten
-{: layout="use: #2-cols-bg"}
+{: layout="use: #cols-2-bg"}
 
 ![](/images/illustration-03.webp)
 
-> Rundum Sorglos-Paket
+> <b>Rundum-<br />Sorglos-Paket</b>
 
 
 Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDFer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu pr\xE4sentieren und Ihre Patienten zu informieren.
@@ -4957,6 +5063,31 @@ Wir \xE4ndern alles nach Ihren W\xFCnschen.
 Per Videokonferenz besprechen Sie Ihre Website mit einem Experten.
 Wir \xE4ndern alles nach Ihren W\xFCnschen.
 
+## Aktuelle Projekte
+{: layout="use: #image-slider"}
+
+> Lorem ipsum dolor sit amen, consetetur sadipscing elitr.
+
+### ![](/images/icons/icon-webdesign.webp)
+
+[Dental Clinic <i class="bi bi-box-arrow-up-right"></i>](http://google.com){: class="btn btn-secondary"}
+[Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
+
+### ![](/images/icons/icon-webdesign.webp)
+
+[Dental Clinic <i class="bi bi-box-arrow-up-right"></i>](http://google.com){: class="btn btn-secondary"}
+[Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
+
+### ![](/images/icons/icon-webdesign.webp)
+
+[Dental Clinic <i class="bi bi-box-arrow-up-right"></i>](http://google.com){: class="btn btn-secondary"}
+[Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
+
+### ![](/images/icons/icon-webdesign.webp)
+
+[Dental Clinic <i class="bi bi-box-arrow-up-right"></i>](http://google.com){: class="btn btn-secondary"}
+[Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
+
 ## Was sagen unsere Kunden?
 {: layout="use: #customer-reviews"}
 
@@ -4978,6 +5109,16 @@ Lorem ipsum,...
 >  \u201EIch wollte schon die Polizei holen\u201C
 
 
+### Besser gehts nicht
+
+>  \u201EIch wollte schon die Polizei holen\u201C
+
+
+### Besser gehts nicht
+
+>  \u201EIch wollte schon die Polizei holen\u201C
+
+
 
 ## Erhalten Sie kostenlos Ihr unverbindliches Angebot mit nur wenigen Klicks!
 {: layout="use: #cta1"}
@@ -4986,8 +5127,6 @@ Lorem ipsum,...
 
 ## Kontakt
 {: layout="use: #contact"}
-
-Nehen Sie
 
 [input type="text"  name="Name" required .mb-3]
 [input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine g\xFCltige E-Mail Adresse ein" required .mb-3]
@@ -5045,6 +5184,342 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.addClass(
   "page",
   "themejs-sys",
   "themejs-sys",
+  html,
+  [],
+  {
+    bodyClasses: ["themejs-sys"]
+  }
+);
+
+
+/***/ }),
+
+/***/ "./src.dev/showcase/legal-page.ts":
+/*!****************************************!*\
+  !*** ./src.dev/showcase/legal-page.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+let html = `
+
+<nav layout="use: #navbar-switch1" class="floating">
+    <div class="brand"><a href=""><img src="/images/logo-systemwebsite.webp"></a></div>
+    <ul class="navbar-top">
+        <li class=":: d-none :lg: "><a href="">Beratungstelefon</a></li>
+        <li class=":: :lg: d-none"><a href="">Beratung-Tel.: (0201) 12345</a></li>
+        <li><a href="">Angebot anfordern</a></li>
+    </ul>
+    <ul class="navbar-main">
+        <li><a href="#home">Punkt1</a></li>
+        <li><a href="#home">Punkt2</a></li>
+        <li><a href="#home">Hello World</a></li>
+        <li><a href="#home">Hello World</a></li>
+    </ul>
+    <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+    </ul>
+</nav>
+
+# Datenschutz
+{: layout="use: #header1"}
+
+
+## Hero Section
+{: layout="use: #disturber"}
+
+Wir garantieren Ihnen 100% Zufriedenheit mit unserer <b class="text-primary">30 Tage Geld-zur\xFCck-Garantie!</b>
+
+## Datenschutzerkl\xE4rung
+{: layout="use: #text-container"}
+
+### Wir nehmen den Schutz Ihrer pers\xF6nlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten
+vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerkl\xE4rung.
+
+Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten m\xF6glich. Soweit auf
+unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden,
+erfolgt dies, soweit m\xF6glich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdr\xFCckliche
+Zustimmung nicht an Dritte weitergegeben.
+
+Wir weisen darauf hin, dass die Daten\xFCbertragung im Internet (z.B. bei der Kommunikation per E-Mail)
+Sicherheitsl\xFCcken aufweisen kann. Ein l\xFCckenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht m\xF6glich.
+
+
+
+### Verantwortliche Stelle
+
+Die verantwortliche Stelle f\xFCr die Datenverarbeitung auf dieser Website ist:
+
+
+
+{{ site.data.general.name}}<br>
+{% if site.data.general.name2 != null %}{{site.data.general.name2}}<br>{% endif %}
+{{site.data.general.street}}<br>
+{{site.data.general.zip}} {{site.data.general.city}}<br><br>
+Telefon: <a href="tel:{{site.data.general.phone1}}">{{site.data.general.phone1_text}}</a><br>
+<a href="mailto:{{site.data.general.email}}" >{{site.data.general.email}}</a><br>
+
+
+
+Verantwortliche Stelle ist die nat\xFCrliche oder juristische Person, die allein oder gemeinsam mit anderen
+\xFCber die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, E-Mail-Adressen o. \xC4.) entscheidet.
+
+
+### Widerruf Ihrer Einwilligung zur Datenverarbeitung
+
+Viele Datenverarbeitungsvorg\xE4nge sind nur mit Ihrer ausdr\xFCcklichen Einwilligung m\xF6glich. Sie k\xF6nnen eine
+bereits erteilte Einwilligung jederzeit widerrufen. Dazu reicht eine formlose Mitteilung per E-Mail an uns.
+Die Rechtm\xE4\xDFigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unber\xFChrt.
+
+
+### Beschwerderecht bei der zust\xE4ndigen Aufsichtsbeh\xF6rde
+
+Im Falle datenschutzrechtlicher Verst\xF6\xDFe steht dem Betroffenen ein Beschwerderecht bei der zust\xE4ndigen
+Aufsichtsbeh\xF6rde zu. Zust\xE4ndige Aufsichtsbeh\xF6rde in datenschutzrechtlichen Fragen ist der
+Landesdatenschutzbeauftragte des Bundeslandes, in dem unser Unternehmen seinen Sitz hat. Eine Liste der
+Datenschutzbeauftragten sowie deren Kontaktdaten k\xF6nnen folgendem Link entnommen werden:
+<a href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html" rel="nofollow">https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html</a>
+
+
+### Recht auf Daten\xFCbertragbarkeit
+
+Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erf\xFCllung eines Vertrags
+automatisiert verarbeiten, an sich oder an einen Dritten in einem g\xE4ngigen, maschinenlesbaren Format aush\xE4ndigen
+zu lassen. Sofern Sie die direkte \xDCbertragung der Daten an einen anderen Verantwortlichen verlangen,
+erfolgt dies nur, soweit es technisch machbar ist.
+
+### SSL- bzw. TLS-Verschl\xFCsselung
+
+Diese Seite nutzt aus Sicherheitsgr\xFCnden und zum Schutz der \xDCbertragung vertraulicher Inhalte, wie zum
+Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL-bzw.
+TLS-Verschl\xFCsselung. Eine verschl\xFCsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers
+von \u201Chttp://\u201D auf \u201Chttps://\u201D wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
+
+Wenn die SSL- bzw. TLS-Verschl\xFCsselung aktiviert ist, k\xF6nnen die Daten, die Sie an uns \xFCbermitteln,
+nicht von Dritten mitgelesen werden.
+
+
+### Auskunft, Sperrung, L\xF6schung
+
+Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft
+\xFCber Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empf\xE4nger und den Zweck der
+Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder L\xF6schung dieser Daten. Hierzu sowie
+zu weiteren Fragen zum Thema personenbezogene Daten k\xF6nnen Sie sich jederzeit unter der im Impressum
+angegebenen Adresse an uns wenden.
+
+
+### Widerspruch gegen Werbe-Mails
+
+Der Nutzung von im Rahmen der Impressumspflicht ver\xF6ffentlichten Kontaktdaten zur \xDCbersendung von nicht
+ausdr\xFCcklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber
+der Seiten behalten sich ausdr\xFCcklich rechtliche Schritte im Falle der unverlangten Zusendung von
+Werbeinformationen, etwa durch Spam-E-Mails, vor.
+
+## Datenschutzbeauftragter
+{: layout="use: #text-container"}
+
+### Gesetzlich vorgeschriebener Datenschutzbeauftragter
+
+
+Wir haben f\xFCr unser Unternehmen einen Datenschutzbeauftragten bestellt.
+
+
+
+{{ site.data.general.datenschutzbeauftragter | newline_to_br}}<br>
+Telefon: <a href="tel:{{site.data.general.legal.phone1}}">{{site.data.general.phone1_text}}</a><br>
+<a href="tel:{{site.data.general.email}}" >{{site.data.general.email}}</a><br>
+
+## Datenerfassung auf unserer Website
+{: layout="use: #text-container"}
+
+### Cookies
+
+Die Internetseiten verwenden teilweise so genannte Cookies. Cookies richten auf Ihrem Rechner keinen
+Schaden an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver
+und sicherer zu machen. Cookies sind kleine Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr
+Browser speichert.
+
+Die meisten der von uns verwendeten Cookies sind so genannte \u201CSession-Cookies\u201D. Sie werden nach Ende Ihres
+Besuchs automatisch gel\xF6scht. Andere Cookies bleiben auf Ihrem Endger\xE4t gespeichert bis Sie diese l\xF6schen.
+Diese Cookies erm\xF6glichen es uns, Ihren Browser beim n\xE4chsten Besuch wiederzuerkennen.
+
+Sie k\xF6nnen Ihren Browser so einstellen, dass Sie \xFCber das Setzen von Cookies informiert werden und Cookies nur
+im Einzelfall erlauben, die Annahme von Cookies f\xFCr bestimmte F\xE4lle oder generell ausschlie\xDFen sowie das automatische
+L\xF6schen der Cookies beim Schlie\xDFen des Browser aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalit\xE4t
+dieser Website eingeschr\xE4nkt sein.
+
+Cookies, die zur Durchf\xFChrung des elektronischen Kommunikationsvorgangs oder zur Bereitstellung bestimmter, von Ihnen
+erw\xFCnschter Funktionen (z.B. Warenkorbfunktion) erforderlich sind, werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO
+gespeichert. Der Websitebetreiber hat ein berechtigtes Interesse an der Speicherung von Cookies zur technisch
+fehlerfreien und optimierten Bereitstellung seiner Dienste. Soweit andere Cookies (z.B. Cookies zur Analyse
+Ihres Surfverhaltens) gespeichert werden, werden diese in dieser Datenschutzerkl\xE4rung gesondert behandelt.
+
+
+### Server-Log-Dateien
+
+Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns \xFCbermittelt. Dies sind:
+
+
+- Browsertyp und Browserversion
+- verwendetes Betriebssystem
+- Referrer URL
+- Hostname des zugreifenden Rechners
+- Uhrzeit der Serveranfrage
+- IP-Adresse
+
+
+
+Eine Zusammenf\xFChrung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.
+
+Grundlage f\xFCr die Datenverarbeitung ist Art. 6 Abs. 1 lit. b DSGVO, der die Verarbeitung von Daten zur Erf\xFCllung eines Vertrags oder vorvertraglicher Ma\xDFnahmen gestattet.
+
+
+### Kontaktformular & E-Mail
+
+Wir weisen darauf hin, dass die Daten\xFCbertragung im Internet (z.B. bei der Kommunikation per E-Mail)
+Sicherheitsl\xFCcken aufweisen kann. Ein l\xFCckenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht
+m\xF6glich. Wir raten daher dringend davon ab, Gesundheitsdaten \xFCber das Kontaktformular bzw. per E-Mail an
+uns zu \xFCbersenden.
+
+Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular
+inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und f\xFCr den Fall
+von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+
+Die Verarbeitung der in das Kontaktformular eingegebenen Daten erfolgt somit ausschlie\xDFlich auf Grundlage
+Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Sie k\xF6nnen diese Einwilligung jederzeit widerrufen.
+Dazu reicht eine formlose Mitteilung per E-Mail an uns. Die Rechtm\xE4\xDFigkeit der bis zum Widerruf erfolgten
+Datenverarbeitungsvorg\xE4nge bleibt vom Widerruf unber\xFChrt.
+
+Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur L\xF6schung auffordern,
+Ihre Einwilligung zur Speicherung widerrufen oder der Zweck f\xFCr die Datenspeicherung entf\xE4llt (z.B. nach
+abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen \u2013 insbesondere
+Aufbewahrungsfristen \u2013 bleiben unber\xFChrt.
+
+
+## Analyse Tools und Plugins
+{: layout="use: #text-container"}
+
+{% if site.data.general.tools.recaptcha %}
+### Google reCAPTCHA
+
+Wir nutzen \u201CGoogle reCAPTCHA\u201D (im Folgenden \u201CreCAPTCHA\u201D) auf unseren Websites. Anbieter ist die Google
+Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA (\u201CGoogle\u201D).
+
+Mit reCAPTCHA soll \xFCberpr\xFCft werden, ob die Dateneingabe auf unseren Websites (z.B. in einem Kontaktformular)
+durch einen Menschen oder durch ein automatisiertes Programm erfolgt. Hierzu analysiert reCAPTCHA das
+Verhalten des Websitebesuchers anhand verschiedener Merkmale. Diese Analyse beginnt automatisch, sobald
+der Websitebesucher die Website betritt. Zur Analyse wertet reCAPTCHA verschiedene Informationen aus
+(z.B. IP-Adresse, Verweildauer des Websitebesuchers auf der Website oder vom Nutzer get\xE4tigte Mausbewegungen).
+Die bei der Analyse erfassten Daten werden an Google weitergeleitet.
+
+Die reCAPTCHA-Analysen laufen vollst\xE4ndig im Hintergrund. Websitebesucher werden nicht darauf hingewiesen, dass eine Analyse stattfindet.
+
+Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse daran, seine Webangebote vor missbr\xE4uchlicher automatisierter Aussp\xE4hung und vor SPAM zu sch\xFCtzen.
+
+Weitere Informationen zu Google reCAPTCHA sowie die Datenschutzerkl\xE4rung von Google entnehmen Sie folgenden Links:
+<a href="https://www.google.com/intl/de/policies/privacy/">https://www.google.com/intl/de/policies/privacy/</a> und
+<a href="https://www.google.com/recaptcha/intro/android.html">https://www.google.com/recaptcha/intro/android.html</a>.
+{% endif %}
+
+
+### Google Maps
+
+Diese Seite nutzt \xFCber eine API den Kartendienst Google Maps. Anbieter ist die Google Inc., 1600 Amphitheatre Parkway,
+Mountain View, CA 94043, USA.
+
+Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP Adresse zu speichern. Diese Informationen werden
+in der Regel an einen Server von Google in den USA \xFCbertragen und dort gespeichert. Der Anbieter
+dieser Seite hat keinen Einfluss auf diese Daten\xFCbertragung.
+
+Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote und an
+einer leichten Auffindbarkeit der von uns auf der Website angegebenen Orte. Dies stellt ein berechtigtes
+Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar.
+
+Mehr Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerkl\xE4rung von
+Google: https://www.google.de/intl/de/policies/privacy/.
+
+### jameda-Plug-In
+
+Unsere Homepage nutzt Plug-Ins der jameda GmbH, St.-Cajetan-Stra\xDFe 41, 81669 M\xFCnchen. Wenn Sie eine unserer mit
+einem Jameda- Plug-Ins ausgestatteten Seiten besuchen, wird eine Verbindung zu den Servern von Jameda hergestellt.
+Dabei wird dem Jameda-Server mitgeteilt, welche unserer Seiten Sie besucht haben. Jameda erhebt Informationen \xFCber
+die Nutzung von HYPERLINK \u201Ehttps://www.arzt-datenschutz.de/www.jameda.de\u201C \\t \u201E_blank\u201C www.jameda.de von einzelnen
+Rechnern aus. Mit dem Sammeln solcher Informationen beabsichtigt Jameda sein Online-Angebot zu individualisieren.
+Wenn Sie mit dem Plug-In interagieren, zum Beispiel den \u201EEmpfehlen\u201C-Button bet\xE4tigen oder einen Kommentar abgeben,
+wird die entsprechende Information von Ihrem Browser direkt an Jameda \xFCbermittelt und dort gespeichert. Den Zweck und
+Umfang der jeweiligen Datenerhebung und Informationen zur weiteren Verarbeitung und Nutzung der Daten durch die Anbieter
+sowie Ihre diesbez\xFCglichen Rechte und Einstellungsm\xF6glichkeiten zum Schutz Ihrer Privatsph\xE4re erfahren Sie auf den
+Seiten von Jameda in der Datenschutzerkl\xE4rung unter: https://www.jameda.de/jameda/datenschutz.php
+
+
+
+## Erhalten Sie kostenlos Ihr unverbindliches Angebot mit nur wenigen Klicks!
+{: layout="use: #cta1"}
+
+[Jetzt Konditionen freischalten](#){: class="btn btn-primary"}
+
+## Kontakt
+{: layout="use: #contact"}
+
+[input type="text"  name="Name" required .mb-3]
+[input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine g\xFCltige E-Mail Adresse ein" required .mb-3]
+[input type="tel" name="Telefon" .mb-3]
+
+## Newsletter
+{: layout="use: #newsletter" data-section-style="padding-top: 160px;" data-section-class="dark"}
+
+Melden Sie sich jetzt f\xFCr unseren Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschl\xE4ge und viele weitere hilfreiche Tipps f\xFCr Ihren Onlineauftritt.
+
+
+
+
+
+
+## Systemwebsite.de
+{: layout="use: #footer"}
+
+> Ihr Partner f\xFCr moderne medizinische Webseiten-Entwicklung
+
+
+
+### Links
+
+- [Konditionen](#)
+- [Leistungen](#)
+- [FAQ](#)
+- [Kontakt](#)
+
+### Links
+
+- [Konditionen](#)
+- [Leistungen](#)
+- [FAQ](#)
+- [Kontakt](#)
+
+### Folgen Sie uns
+
+- [LinkedIn](#)
+- [Xing](#)
+- [Facebook](#)
+- [Instragram](#)
+
+---
+{: .footer-nav}
+
+Copyright (c) 2023 Systemwebsite by leuffen.de
+
+- [AGB](#)
+- [Datenschutz](#)
+- [Impressum](#)
+
+`;
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.addClass(
+  "page",
+  "legal-page",
+  "legal-page",
   html,
   [],
   {

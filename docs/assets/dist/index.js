@@ -5295,67 +5295,6 @@ class LeuOpenHours {
 
 /***/ }),
 
-/***/ "./sections/2-cols/2-cols-bg.ts":
-/*!**************************************!*\
-  !*** ./sections/2-cols/2-cols-bg.ts ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
-
-
-_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols-bg",
-    // language=HTML
-    `
-        <section class="tjs-2-cols-bg :: mobile :md:">
-            <div class="tjs-wrapper container ">
-                <div class="tjs-2-cols-bg__disturber">
-                    <slot data-select="blockquote"></slot>
-                </div>
-                <div class="tjs-2-cols__col tjs-2-cols__col--image">
-                    <slot data-select="img"></slot>
-                </div>
-                <div class="tjs-2-cols__col tjs-2-cols__col--text-content">
-                    <slot></slot>
-                </div>
-            </div>
-        </section>
-    `);
-
-
-/***/ }),
-
-/***/ "./sections/2-cols/2-cols.ts":
-/*!***********************************!*\
-  !*** ./sections/2-cols/2-cols.ts ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
-
-
-_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("2-cols",
-    // language=HTML
-    `
-        <section class="tjs-2-cols :: mobile :md:">
-            <div class="tjs-wrapper container ">
-                <div class="tjs-2-cols__col tjs-2-cols__col--image">
-                    <slot data-select="img"></slot>
-                </div>
-                <div class="tjs-2-cols__col tjs-2-cols__col--text-content">
-                    <slot></slot>
-                </div>
-            </div>
-        </section>
-    `);
-
-
-/***/ }),
-
 /***/ "./sections/cards-slider/cards-slider.ts":
 /*!***********************************************!*\
   !*** ./sections/cards-slider/cards-slider.ts ***!
@@ -5401,9 +5340,119 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-sli
                 <div class="tjs-cards-slider__col">
                     <ul class="tjs-cards-slider__list">
                         <slot data-select=".children > *" data-child-layout="use: #cards-slider__list-item;"></slot>
-
-
                     </ul>
+                </div>
+            </div>
+        </section>
+    `);
+
+
+/***/ }),
+
+/***/ "./sections/cols-2/cols-2-bg.ts":
+/*!**************************************!*\
+  !*** ./sections/cols-2/cols-2-bg.ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cols-2-bg",
+    // language=HTML
+    `
+        <section class="tjs-cols-2-bg :: mobile :md:">
+            <div class="tjs-wrapper tjs-cols-2-bg__border container">
+                <div class="tjs-cols-2-bg__disturber">
+                    <slot data-select="blockquote"></slot>
+                </div>
+                <div class="tjs-cols-2-bg__row">
+                    <div class="tjs-cols-2-bg__col tjs-cols-2-bg__col--image">
+                        <slot data-select="img"></slot>
+                    </div>
+                    <div class="tjs-cols-2-bg__col tjs-cols-2-bg__col--text-content">
+                        <slot></slot>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `);
+
+
+/***/ }),
+
+/***/ "./sections/cols-2/cols-2.ts":
+/*!***********************************!*\
+  !*** ./sections/cols-2/cols-2.ts ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cols-2",
+    // language=HTML
+    `
+        <section class="tjs-cols-2 :: mobile :md:">
+            <div class="tjs-wrapper container ">
+                <div class="tjs-cols-2__col tjs-cols-2__col--image">
+                    <slot data-select="img"></slot>
+                </div>
+                <div class="tjs-cols-2__col tjs-cols-2__col--text-content">
+                    <slot></slot>
+                </div>
+            </div>
+        </section>
+    `);
+
+
+/***/ }),
+
+/***/ "./sections/contact-form/contact-form.ts":
+/*!***********************************************!*\
+  !*** ./sections/contact-form/contact-form.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("contact-form",
+    // language=HTML
+    `
+        <section class="tjs-contact-form :: mobile :lg:">
+            <div class="tjs__wrapper container">
+                <div class="tjs-contact-form__content--container">
+                    <div class="tjs-contact-form__content--container-inner">
+                        <div class="tjs-contact-form__col tjs-contact-form__text">
+                            <slot data-select="img"></slot>
+                            <slot data-select="ul"></slot>
+                        </div>
+                        <div class="tjs-contact-form__col tjs-contact-form__form">
+                            <form>
+                                <slot></slot>
+
+                                <div class="tjs-contact-form__newsletter--privacy-wrapper">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="contact-input-callback-privacy">
+                                        <label class="form-check-label" for="contact-input-callback-privacy">
+                                            Ich akzeptiere die <a href="#">Nutzungsbedingungen</a> und <a href="#">Datenschutzerklärungen</a>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button type="submit">Absenden</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -5428,15 +5477,15 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("contact",
     // language=HTML
     `
-        <section class="tjs__contact overlap-next">
-            <div class="tjs__wrapper">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-lg-6 tjs__newsletter__text">
-                            <strong>Kontakt</strong>
-                            <h2>Vereinbaren Sie ein kostenloses Beratungs&shy;gespräch.</h2>
+        <section class="tjs-contact :: mobile :lg:">
+            <div class="tjs__wrapper container-fluid">
+                <div class="tjs-contact__content--container">
+                    <div class="tjs-contact__content--container-inner container">
+                        <div class="tjs-contact__col tjs-contact__newsletter--text">
+                            <h2>Kontakt</h2>
+                            <blockquote>Vereinbaren Sie ein kostenloses Beratungs&shy;gespräch.</blockquote>
 
-                            <div class="tjs__newsletter__list">
+                            <div class="tjs-contact__newsletter--text__list">
                                 <strong>Ihre Vorteile</strong>
                                 <ul>
                                     <li>Keine Einrichtungskosten</li>
@@ -5445,11 +5494,11 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("contact",
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-6">
+                        <div class="tjs-contact__col tjs-contact__newsletter--form">
                             <form>
                                 <slot></slot>
 
-                                <div class="tjs__newsletter__callback-wrapper">
+                                <div class="tjs-contact__newsletter--callback-wrapper">
                                     <span>Kontaktieren Sie mich per:</span>
                                     <div>
                                         <div class="form-check">
@@ -5467,7 +5516,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("contact",
                                     </div>
                                 </div>
 
-                                <div class="tjs__newsletter__privacy-wrapper">
+                                <div class="tjs-contact__newsletter--privacy-wrapper">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="contact-input-callback-privacy">
                                         <label class="form-check-label" for="contact-input-callback-privacy">
@@ -5503,24 +5552,24 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cta1",
     // language=HTML
     `
-        <section class="tjs-2-cols-bg :: mobile :lg:">
-            <div class="tjs-wrapper tjs-2-cols-bg--special container">
-                <div class="tjs-2-cols-bg__disturber-image">
+        <section class="tjs-cols-2-bg :: mobile :lg:">
+            <div class="tjs-wrapper tjs-cols-2-bg--special container">
+                <div class="tjs-cols-2-bg__disturber-image">
 
-                    <img loading="lazy" src="/images/man-showing.webp">
-
-                </div>
-                <div class="tjs-2-cols-bg__disturber-stars">
-
-                        <img loading="lazy" class="tjs-2-cols-bg__disturber-stars--left" src="/images/stars.webp">
-                    <img loading="lazy" class="tjs-2-cols-bg__disturber-stars--right" src="/images/stars.webp">
+                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/man-showing.svg" width="433" height="500">
 
                 </div>
-                <div class="tjs-2-cols-bg__row tjs-2-cols-bg__row--special">
-                    <div class="tjs-2-cols-bg__col tjs-2-cols-bg__col--text-content">
+                <div class="tjs-cols-2-bg__disturber-stars">
+
+                    <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg" width="389" height="500">
+                    <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--right" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg" width="389" height="500">
+
+                </div>
+                <div class="tjs-cols-2-bg__row tjs-cols-2-bg__row--special">
+                    <div class="tjs-cols-2-bg__col tjs-cols-2-bg__col--text-content">
                         <slot></slot>
                     </div>
-                    <div class="tjs-2-cols-bg__col tjs-2-cols-bg__col--button-content">
+                    <div class="tjs-cols-2-bg__col tjs-cols-2-bg__col--button-content">
                         <slot data-select=".btn"></slot>
                     </div>
                 </div>
@@ -5564,13 +5613,27 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("customer-
         <section class="tjs-customer-reviews :: mobile :md:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-customer-reviews__content--container">
-                    <div class="tjs-customer-reviews__content container">
+                    <div class="tjs-customer-reviews__content">
                         <div class="tjs-customer-reviews__content--headline">
                             <slot><slot>
                         </div>
                         <div class="tjs-customer-reviews__content--row">
                             <div class="tjs-customer-reviews__content--col tjs-customer-reviews__carousel">
-                                <slot data-select=".children > *" data-child-layout="use: #customer-reviews__carousel--slide;"></slot>
+                                <div class="tjs-customer-reviews__carousel--navigation-prev">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-left.svg" width="500" height="500">
+                                </div>
+                                <div class="tjs-customer-reviews__carousel--navigation-next">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-right.svg" width="500" height="500">
+                                </div>
+                                <div class="tjs-customer-reviews__carousel--nav-points">
+                                    <div class="tjs-customer-reviews__carousel--nav-points__point active" data-id="1"></div>
+                                    <div class="tjs-customer-reviews__carousel--nav-points__point" data-id="2"></div>
+                                    <div class="tjs-customer-reviews__carousel--nav-points__point" data-id="3"></div>
+                                </div>
+
+                                <liscom-slider class="tjs-customer-reviews__carousel--slides">
+                                    <slot data-select=".children > *" data-child-layout="use: #customer-reviews__carousel--slide;"></slot>
+                                </liscom-slider>
 
                             </div>
                         </div>
@@ -5625,39 +5688,45 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("footer",
     // language=HTML
     `
-        <footer class="tjs__footer">
-            <div class="tjs__footer__shape"></div>
-            <div class="tjs__footer__shape"></div>
+        <footer class="tjs-footer :: mobile :lg:">
+            <div class="tjs-footer__shape"></div>
+            <div class="tjs-footer__shape"></div>
             <div class="tjs__wrapper">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-lg-3">
-                            <img
-                                src="/static/images/logo-systemwebsite-white.png"
-                                alt="Logo Systemwebseite"
-                                class="tjs__footer__logo"
-                            >
-                            <p>Ihr Partner für moderne medizinische Webseiten-Entwicklung</p>
-                        </div>
-                        <div class="col-6 col-lg-2 offset-lg-3 tjs__footer_links">
-                            <strong>Links</strong>
-                            <div>
-                                <a href="#">Konditionen</a>
-                                <a href="#">Leistungen</a>
-                                <a href="#">FAQ</a>
-                                <a href="#">Kontakt</a>
+                    <div class="tjs-footer__content--container">
+                        <div class="tjs-footer__col tjs-footer__col--double">
+                            <div class="tjs-footer__col--double-inner">
+                                <img
+                                    src="/static/images/logo-systemwebsite-white.png"
+                                    alt="Logo Systemwebseite"
+                                    class="tjs-footer__logo"
+                                >
+                                <p>Ihr Partner für moderne medizinische Webseiten-Entwicklung</p>
                             </div>
                         </div>
-                        <div class="col-6 col-lg-2 tjs__footer_links">
-                            <strong>Links</strong>
-                            <div>
-                                <a href="#">Konditionen</a>
-                                <a href="#">Leistungen</a>
-                                <a href="#">FAQ</a>
-                                <a href="#">Kontakt</a>
+                        <div class="tjs-footer__col">
+                            <div class="tjs-footer__col--inner">
+                                <div class="tjs-footer__links">
+                                    <strong>Links</strong>
+                                    <div>
+                                        <a href="#">Konditionen</a>
+                                        <a href="#">Leistungen</a>
+                                        <a href="#">FAQ</a>
+                                        <a href="#">Kontakt</a>
+                                    </div>
+                                </div>
+                                <div class="tjs-footer__col tjs-footer__links">
+                                    <strong>Links</strong>
+                                    <div>
+                                        <a href="#">Konditionen</a>
+                                        <a href="#">Leistungen</a>
+                                        <a href="#">FAQ</a>
+                                        <a href="#">Kontakt</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-2 tjs__footer_links tjs__footer_links__mobile__images">
+                        <div class="tjs-footer__col tjs-footer__links tjs-footer__links__mobile__images">
                             <strong>Folgen Sie Uns</strong>
                             <div>
                                 <a href="#">
@@ -5681,9 +5750,9 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("footer",
                     </div>
                     <div>
                         <hr>
-                        <div class="tjs__footer__legal">
+                        <div class="tjs-footer__legal">
                             <span>Copyright &copy; 2023 SYSTEMWEBSEITE</span>
-                            <div class="tjs__footer__legal__links">
+                            <div class="tjs-footer__legal__links">
                                 <span><a href="#">AGB</a></span>
                                 <span><a href="#">Datenschutz</a></span>
                                 <span><a href="#">Impressum</a></span>
@@ -5778,6 +5847,71 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("icon-catc
 
 /***/ }),
 
+/***/ "./sections/image-slider/image-slider.ts":
+/*!***********************************************!*\
+  !*** ./sections/image-slider/image-slider.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("image-slider__carousel--slide",
+    // language=HTML
+    `
+        <div class="tjs-image-slider__carousel--slide">
+            <div class="tjs-image-slider__carousel--slide__image">
+                <slot data-select="img"></slot>
+            </div>
+            <div class="tjs-image-slider__carousel--slide__links">
+                <slot data-select="p"></slot>
+            </div>
+        </div>
+    `)
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("image-slider",
+    // language=HTML
+    `
+        <section class="tjs-image-slider :: mobile :md:">
+            <div class="tjs-wrapper container-fluid">
+                <div class="tjs-image-slider__content--container">
+                    <img loading="lazy" class="tjs-image-slider__stars--left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
+                    <img loading="lazy" class="tjs-image-slider__stars--right" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
+                    <div class="tjs-image-slider__content">
+                        <div class="tjs-image-slider__content--headline">
+                            <slot><slot>
+                        </div>
+                        <div class="tjs-image-slider__content--row">
+                            <div class="tjs-image-slider__content--col tjs-image-slider__carousel">
+                                <div class="tjs-image-slider__carousel--navigation-prev">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements//arrow-left.svg" width="500" height="500">
+                                </div>
+                                <div class="tjs-image-slider__carousel--navigation-next">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-right.svg" width="500" height="500">
+                                </div>
+                                <div class="tjs-image-slider__carousel--nav-points">
+                                    <div class="tjs-image-slider__carousel--nav-points__point active" data-id="1"></div>
+                                    <div class="tjs-image-slider__carousel--nav-points__point" data-id="2"></div>
+                                    <div class="tjs-image-slider__carousel--nav-points__point" data-id="3"></div>
+                                </div>
+
+                                <liscom-slider class="tjs-image-slider__carousel--slides">
+                                    <slot data-select=".children > *" data-child-layout="use: #image-slider__carousel--slide;"></slot>
+                                </liscom-slider>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `);
+
+
+/***/ }),
+
 /***/ "./sections/key-figures/key-figures.ts":
 /*!*********************************************!*\
   !*** ./sections/key-figures/key-figures.ts ***!
@@ -5796,7 +5930,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("key-figur
         <div class="tjs-wrapper container-fluid">
             <div class="tjs-key-figures__content--container">
                 <div class="tjs-key-figures__content--bg-image">
-                    <img alt="Background" src="/images/bar-stripes.svg">
+                    <img alt="Background" loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/bar-stripes.svg" width="1900" height="500">
                     <slot data-select="img.background"></slot>
                 </div>
                 <div class="tjs-key-figures__content container">
@@ -5842,23 +5976,23 @@ __webpack_require__.r(__webpack_exports__);
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("newsletter",
     // language=HTML
     `
-        <section class="tjs__newsletter dark">
-            <div class="tjs__wrapper">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-md-6 tjs__newsletter__text">
-                            <strong>Newsletter</strong>
-                            <p>Melden Sie sich zum Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschläge und viele weitere hilfreiche Tipps für Ihren Onlineauftritt.</p>
+        <section class="tjs-newsletter dark :: mobile :lg:">
+            <div class="tjs__wrapper container">
+                <div class="tjs-newsletter__content--container">
+                    <div class="tjs-newsletter__col tjs-newsletter__text">
+                        <strong>Newsletter</strong>
+                        <p>Melden Sie sich zum Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschläge und viele weitere hilfreiche Tipps für Ihren Onlineauftritt.</p>
+                    </div>
+                    <div class="tjs-newsletter__col tjs-newsletter__input-wrapper">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="E-Mail eintragen">
+                            <span class="input-group-text inside">Anmelden</span>
                         </div>
-                        <div class="col-12 col-md-6 tjs__newsletter__input-wrapper">
-                            <div class="input-group">
-                                <input type="email" class="form-control" placeholder="E-Mail eintragen">
-                                <span class="input-group-text inside">Anmelden</span>
-                            </div>
-                            <span class="input-group-text outside">Anmelden</span>
-                        </div>
-                        <img src="/images/icons/stars-left.svg" alt="0" class="tjs__newsletter__icon">
-                        <img src="/images/icons/stars-right.svg" alt="0" class="tjs__newsletter__icon">
+                        <span class="input-group-text outside">Anmelden</span>
+                    </div>
+                    <div class="tjs-newsletter__disturber-stars">
+                        <img loading="lazy" class="tjs-newsletter__stars--left" src="/images/stars.webp">
+                        <img loading="lazy" class="tjs-newsletter__stars--right" src="/images/stars.webp">
                     </div>
                 </div>
             </div>
@@ -5880,15 +6014,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _disturber_disturber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./disturber/disturber */ "./sections/disturber/disturber.ts");
 /* harmony import */ var _icon_catchprases_icon_catchphrases__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon-catchprases/icon-catchphrases */ "./sections/icon-catchprases/icon-catchphrases.ts");
 /* harmony import */ var _service_slider_service_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./service-slider/service-slider */ "./sections/service-slider/service-slider.ts");
-/* harmony import */ var _2_cols_2_cols__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./2-cols/2-cols */ "./sections/2-cols/2-cols.ts");
-/* harmony import */ var _2_cols_2_cols_bg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./2-cols/2-cols-bg */ "./sections/2-cols/2-cols-bg.ts");
+/* harmony import */ var _cols_2_cols_2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cols-2/cols-2 */ "./sections/cols-2/cols-2.ts");
+/* harmony import */ var _cols_2_cols_2_bg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cols-2/cols-2-bg */ "./sections/cols-2/cols-2-bg.ts");
 /* harmony import */ var _key_figures_key_figures__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./key-figures/key-figures */ "./sections/key-figures/key-figures.ts");
 /* harmony import */ var _cards_slider_cards_slider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./cards-slider/cards-slider */ "./sections/cards-slider/cards-slider.ts");
 /* harmony import */ var _customer_reviews_customer_reviews__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./customer-reviews/customer-reviews */ "./sections/customer-reviews/customer-reviews.ts");
-/* harmony import */ var _cta1_cta1__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./cta1/cta1 */ "./sections/cta1/cta1.ts");
-/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./footer/footer */ "./sections/footer/footer.ts");
-/* harmony import */ var _newsletter_newsletter__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./newsletter/newsletter */ "./sections/newsletter/newsletter.ts");
-/* harmony import */ var _contact_contact__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./contact/contact */ "./sections/contact/contact.ts");
+/* harmony import */ var _image_slider_image_slider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./image-slider/image-slider */ "./sections/image-slider/image-slider.ts");
+/* harmony import */ var _cta1_cta1__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./cta1/cta1 */ "./sections/cta1/cta1.ts");
+/* harmony import */ var _text_container_text_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./text-container/text-container */ "./sections/text-container/text-container.ts");
+/* harmony import */ var _contact_form_contact_form__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./contact-form/contact-form */ "./sections/contact-form/contact-form.ts");
+/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./footer/footer */ "./sections/footer/footer.ts");
+/* harmony import */ var _newsletter_newsletter__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./newsletter/newsletter */ "./sections/newsletter/newsletter.ts");
+/* harmony import */ var _contact_contact__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./contact/contact */ "./sections/contact/contact.ts");
+
+
+
 
 
 
@@ -5944,22 +6084,12 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-s
                             <div class="tjs-service-slider__content--col tjs-service-slider__content--col-text">
                                 <slot></slot>
                             </div>
-                            <liscom-slider class="tjs-service-slider__content--col tjs-service-slider__carousel">
-                                <div class="tjs-service-slider__carousel--navigation">
-                                    <div class="tjs-service-slider__carousel--navigation-prev">
-                                        <picture>
-                                            <source srcset="/images/icons/arrow-left.webp" type="image/webp">
-                                            <source srcset="/images/icons/arrow-left.svg" type="image/svg">
-                                            <img src="/images/icons/arrow-left.svg">
-                                        </picture>
-                                    </div>
-                                    <div class="tjs-service-slider__carousel--navigation-next">
-                                        <picture>
-                                            <source srcset="/images/icons/arrow-right.webp" type="image/webp">
-                                            <source srcset="/images/icons/arrow-right.svg" type="image/svg">
-                                            <img src="/images/icons/arrow-right.svg">
-                                        </picture>
-                                    </div>
+                            <div class="tjs-service-slider__content--col tjs-service-slider__carousel">
+                                <div class="tjs-service-slider__carousel--navigation-prev">
+                                    <img src="/images/icons/arrow-left.webp">
+                                </div>
+                                <div class="tjs-service-slider__carousel--navigation-next">
+                                    <img src="/images/icons/arrow-right.webp">
                                 </div>
                                 <div class="tjs-service-slider__carousel--nav-points">
                                     <div class="tjs-service-slider__carousel--nav-points__point active" data-id="1"></div>
@@ -5967,14 +6097,41 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-s
                                     <div class="tjs-service-slider__carousel--nav-points__point" data-id="3"></div>
                                 </div>
 
-                                <slot data-select=".children > *" data-child-layout="use: #service-slider__carousel--slide;"></slot>
-                            </liscom-slider>
+                                <liscom-slider class="tjs-service-slider__carousel--slides">
+                                    <slot data-select=".children > *" data-child-layout="use: #service-slider__carousel--slide;"></slot>
+                                </liscom-slider>
+                            </div>
                             <div class="tjs-service-slider__content--col tjs-service-slider__content--col__mobile-button">
                                 <a href="#" class="btn btn-outline-primary">Alle Leistungen entdecken</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+    `);
+
+
+/***/ }),
+
+/***/ "./sections/text-container/text-container.ts":
+/*!***************************************************!*\
+  !*** ./sections/text-container/text-container.ts ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("text-container",
+    // language=HTML
+    `
+        <section class="tjs-text-container  :: mobile :md:">
+            <div class="tjs-wrapper container">
+                <slot></slot>
             </div>
         </section>
 

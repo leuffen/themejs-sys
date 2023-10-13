@@ -7,7 +7,7 @@ Joda.registerTemplate("key-figures",
         <div class="tjs-wrapper container-fluid">
             <div class="tjs-key-figures__content--container">
                 <div class="tjs-key-figures__content--bg-image">
-                    <img alt="Background" src="/images/bar-stripes.webp">
+                    <img alt="Background" loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/bar-stripes.svg" width="1900" height="500">
                     <slot data-select="img.background"></slot>
                 </div>
                 <div class="tjs-key-figures__content container">
