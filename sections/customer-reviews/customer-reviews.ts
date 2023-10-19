@@ -5,12 +5,17 @@ Joda.registerTemplate("customer-reviews__carousel--slide",
     `
         <div class="tjs-customer-reviews__carousel--slide">
             <div class="tjs-customer-reviews__carousel--slide__stars">
-                Sterne Icon?
+
             </div>
             <div class="tjs-customer-reviews__carousel--slide__text">
                 <slot data-select="blockquote"></slot>
             </div>
             <div class="tjs-customer-reviews__carousel--slide__author">
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i> 5/5 Sterne
                 <slot></slot>
             </div>
         </div>

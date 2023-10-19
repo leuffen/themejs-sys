@@ -38,4 +38,10 @@ Joda.registerTemplate("cards-slider",
                 </div>
             </div>
         </section>
-    `);
+    `,
+    {}, {
+        onAfterAllTemplatesConnectedCallback: (element) => {
+            console.log("onAfterAllTemplatesConnectedCallback", element);
+        }
+    }
+);

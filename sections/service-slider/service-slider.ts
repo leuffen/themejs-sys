@@ -27,10 +27,10 @@ Joda.registerTemplate("service-slider",
                             </div>
                             <div class="tjs-service-slider__content--col tjs-service-slider__carousel">
                                 <div class="tjs-service-slider__carousel--navigation-prev">
-                                    <img src="/images/icons/arrow-left.webp">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-left.svg">
                                 </div>
                                 <div class="tjs-service-slider__carousel--navigation-next">
-                                    <img src="/images/icons/arrow-right.webp">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-right.svg">
                                 </div>
                                 <div class="tjs-service-slider__carousel--nav-points">
                                     <div class="tjs-service-slider__carousel--nav-points__point active" data-id="1"></div>
