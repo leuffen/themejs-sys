@@ -234,6 +234,13 @@ Lorem ipsum,...
 ## Kontakt
 {: layout="use: #contact"}
 
+> Vereinbaren Sie ein kostenloses Beratungsgespräch.
+
+**Ihre Vorteile**
+- Keine Einrichtungskosten
+- Jederzeit kündbar
+- 30-Tage Geld-Zurück-Garantie
+
 [input type="text"  name="Name" required .mb-3]
 [input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine gültige E-Mail Adresse ein" required .mb-3]
 [input type="tel" name="Telefon" .mb-3]
@@ -243,7 +250,7 @@ Lorem ipsum,...
 
 Melden Sie sich jetzt für unseren Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschläge und viele weitere hilfreiche Tipps für Ihren Onlineauftritt.
 
-
+[input type="email" name="E-Mail eintragen" placeholder="E-Mail eintragen"]
 
 
 
@@ -252,7 +259,6 @@ Melden Sie sich jetzt für unseren Newsletter an und erhalten Sie alle paar Woch
 {: layout="use: #footer"}
 
 > Ihr Partner für moderne medizinische Webseiten-Entwicklung
-
 
 
 ### Links

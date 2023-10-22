@@ -10,16 +10,12 @@ Joda.registerTemplate("contact",
                 <div class="tjs-contact__content--container">
                     <div class="tjs-contact__content--container-inner container">
                         <div class="tjs-contact__col tjs-contact__newsletter--text">
-                            <h2>Kontakt</h2>
-                            <blockquote>Vereinbaren Sie ein kostenloses Beratungs&shy;gespräch.</blockquote>
+                            <slot data-select="h2"></slot>
+                            <slot data-select="blockquote"></slot>
 
                             <div class="tjs-contact__newsletter--text__list">
-                                <strong>Ihre Vorteile</strong>
-                                <ul>
-                                    <li>Keine Einrichtungskosten</li>
-                                    <li>Jederzeit kündbar</li>
-                                    <li>30-Tage Geld-Zurück-Garantie</li>
-                                </ul>
+                                <slot data-select="strong"></slot>
+                                <slot data-select="ul"></slot>
                             </div>
                         </div>
                         <div class="tjs-contact__col tjs-contact__newsletter--form">

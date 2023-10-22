@@ -6,22 +6,18 @@
     background: transparent linear-gradient(118deg, #E8F6FF 0%, #ECF2DC 100%) 0% 0% no-repeat padding-box;
     padding: rem(15px) 0;
     border-bottom: 1px solid #e5e5e5;
-
     padding-top: var(--t-hero-top-space, 0px);
     min-height: calc(100vh - 110px);
     display: flex;
     align-items: center;
+
     img {
         max-width: 100%;
         height: auto;
     }
 
-
     &__hero {
         @include element-to-element-margin-medium;
-
-
-
 
         &--row {
             display: flex;
