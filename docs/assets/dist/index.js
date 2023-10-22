@@ -5344,7 +5344,13 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("cards-sli
                 </div>
             </div>
         </section>
-    `);
+    `,
+    {}, {
+        onAfterAllTemplatesConnectedCallback: (element) => {
+            console.log("onAfterAllTemplatesConnectedCallback", element);
+        }
+    }
+);
 
 
 /***/ }),
@@ -5596,12 +5602,17 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("customer-
     `
         <div class="tjs-customer-reviews__carousel--slide">
             <div class="tjs-customer-reviews__carousel--slide__stars">
-                Sterne Icon?
+
             </div>
             <div class="tjs-customer-reviews__carousel--slide__text">
                 <slot data-select="blockquote"></slot>
             </div>
             <div class="tjs-customer-reviews__carousel--slide__author">
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i> 5/5 Sterne
                 <slot></slot>
             </div>
         </div>
@@ -6086,10 +6097,10 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("service-s
                             </div>
                             <div class="tjs-service-slider__content--col tjs-service-slider__carousel">
                                 <div class="tjs-service-slider__carousel--navigation-prev">
-                                    <img src="/images/icons/arrow-left.webp">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-left.svg">
                                 </div>
                                 <div class="tjs-service-slider__carousel--navigation-next">
-                                    <img src="/images/icons/arrow-right.webp">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-right.svg">
                                 </div>
                                 <div class="tjs-service-slider__carousel--nav-points">
                                     <div class="tjs-service-slider__carousel--nav-points__point active" data-id="1"></div>
