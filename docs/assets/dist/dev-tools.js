@@ -3062,6 +3062,7 @@ const jodaresponsive_1 = __webpack_require__(/*! ../processor/jodaresponsive */ 
 const logger_1 = __webpack_require__(/*! ../helper/logger */ "./node_modules/@leuffen/jodastyle/dist/helper/logger.js");
 const jodavisualize_1 = __webpack_require__(/*! ../processor/jodavisualize */ "./node_modules/@leuffen/jodastyle/dist/processor/jodavisualize.js");
 const JodaSiteConfig_1 = __webpack_require__(/*! ../helper/JodaSiteConfig */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaSiteConfig.js");
+const functions_1 = __webpack_require__(/*! ../helper/functions */ "./node_modules/@leuffen/jodastyle/dist/helper/functions.js");
 function getCSSRule(ruleName) {
     ruleName = ruleName.toLowerCase();
     var result = null;
@@ -3146,6 +3147,10 @@ let JodaContentElement = class JodaContentElement extends HTMLElement {
                 logger.log("Breakpoint changed to " + currentBreakpoint);
                 jodaresponsive.process(this);
             });
+            // Run all allTemplateConnectedCallbacks registered
+            for (let callback of functions_1.allTemplatesConnectedCallbacks) {
+                yield callback();
+            }
         });
     }
     setContent(content) {
@@ -3605,11 +3610,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getTemplateFilledWithContent = exports.parseConfigString = exports.getCleanVariableValue = exports.splitChildrenBySelector = exports.jodaRenderer = exports.registerJodaRenderer = exports.wrapElement = exports.await_property = void 0;
+exports.runCallbacksForTemplate = exports.getTemplateFilledWithContent = exports.parseConfigString = exports.getCleanVariableValue = exports.splitChildrenBySelector = exports.jodaRenderer = exports.registerJodaRenderer = exports.wrapElement = exports.await_property = exports.allTemplatesConnectedCallbacks = void 0;
 const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
 const JodaElementException_1 = __webpack_require__(/*! ./JodaElementException */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaElementException.js");
 const QTemplate_1 = __webpack_require__(/*! ./QTemplate */ "./node_modules/@leuffen/jodastyle/dist/helper/QTemplate.js");
 const joda_1 = __webpack_require__(/*! ../joda */ "./node_modules/@leuffen/jodastyle/dist/joda.js");
+exports.allTemplatesConnectedCallbacks = [];
 function await_property(object, property, wait = 10) {
     return __awaiter(this, void 0, void 0, function* () {
         if (typeof property === "string") {
@@ -3722,8 +3728,10 @@ function copyDataChildAttributes(source, target) {
 }
 let slotIndex = 0;
 function getTemplateFilledWithContent(templateSelector, content, origElement) {
+    var _a;
     return __awaiter(this, void 0, void 0, function* () {
-        let templateHtml = joda_1.Joda.getRegisteredTemplate(templateSelector);
+        let templateConfig = joda_1.Joda.getRegisteredTemplate(templateSelector);
+        let templateHtml = (_a = templateConfig === null || templateConfig === void 0 ? void 0 : templateConfig.template) !== null && _a !== void 0 ? _a : null;
         if (templateHtml === null) {
             let template = document.querySelector(templateSelector);
             if (template === null) {
@@ -3732,14 +3740,17 @@ function getTemplateFilledWithContent(templateSelector, content, origElement) {
             templateHtml = template.innerHTML;
         }
         // Load --layout-* variables to template parser
-        let layout = {};
         let props = getComputedStyle(origElement);
         // Attention: Chrome cannot list defined CSS Variables!
         templateHtml = (0, QTemplate_1.template_parse)(templateHtml, {
             layout: new Proxy({}, {
                 get: function (target, name) {
+                    var _a;
                     let val = props.getPropertyValue("--layout-" + name.toString());
-                    //console.log("Get layout property: ", name, val);
+                    if (val === "") {
+                        // Return default from template config
+                        return (_a = templateConfig === null || templateConfig === void 0 ? void 0 : templateConfig.layoutDefaults[name.toString()]) !== null && _a !== void 0 ? _a : "";
+                    }
                     if (val === "true")
                         return true;
                     if (val === "false")
@@ -3787,7 +3798,13 @@ function getTemplateFilledWithContent(templateSelector, content, origElement) {
             let select = slot.getAttribute("data-select");
             let selected;
             if (slot.getAttribute("data-limit") === "1") {
-                selected = Array.from([content.querySelector(select)]);
+                let curElements = content.querySelector(select);
+                if (curElements === null) {
+                    selected = [];
+                }
+                else {
+                    selected = Array.from([content.querySelector(select)]);
+                }
             }
             else {
                 selected = Array.from(content.querySelectorAll(select));
@@ -3832,6 +3849,20 @@ function getTemplateFilledWithContent(templateSelector, content, origElement) {
     });
 }
 exports.getTemplateFilledWithContent = getTemplateFilledWithContent;
+function runCallbacksForTemplate(templateSelector, element) {
+    var _a, _b;
+    return __awaiter(this, void 0, void 0, function* () {
+        let templateConfig = joda_1.Joda.getRegisteredTemplate(templateSelector);
+        if ((_a = templateConfig === null || templateConfig === void 0 ? void 0 : templateConfig.callbacks) === null || _a === void 0 ? void 0 : _a.onAfterConnectedCallback) {
+            yield templateConfig.callbacks.onAfterConnectedCallback(element);
+        }
+        if ((_b = templateConfig === null || templateConfig === void 0 ? void 0 : templateConfig.callbacks) === null || _b === void 0 ? void 0 : _b.onAfterAllTemplatesConnectedCallback) {
+            // Spool up callback (executed by jodastyle)
+            exports.allTemplatesConnectedCallbacks.push(() => __awaiter(this, void 0, void 0, function* () { return templateConfig.callbacks.onAfterAllTemplatesConnectedCallback(element); }));
+        }
+    });
+}
+exports.runCallbacksForTemplate = runCallbacksForTemplate;
 
 
 /***/ }),
@@ -4058,13 +4089,19 @@ exports.Joda = new (class {
      *
      * @param id
      * @param data
+     * @param layoutDefaults
+     * @param callbacks
      */
-    registerTemplate(id, data) {
+    registerTemplate(id, data, layoutDefaults = {}, callbacks = {}) {
         if (!window["jodastyle"])
             window["jodastyle"] = {};
         if (!window["jodastyle"]["templates"])
             window["jodastyle"]["templates"] = {};
-        window["jodastyle"]["templates"][id] = data;
+        window["jodastyle"]["templates"][id] = {
+            template: data,
+            layoutDefaults: layoutDefaults,
+            callbacks: callbacks
+        };
     }
     getRegisteredTemplate(id) {
         var _a, _b, _c;
@@ -4516,6 +4553,7 @@ exports.jodaStyleCommands["--joda-wrap"] = (value, target, element, logger) => _
         placeholder.append(element);
         let newElement = yield (0, functions_1.getTemplateFilledWithContent)(value, placeholder, element);
         placeholder.replaceWith(newElement);
+        yield (0, functions_1.runCallbacksForTemplate)(value, element);
         return element;
     }
     else {
@@ -4607,6 +4645,7 @@ exports.jodaStyleCommands["--joda-use"] = (value, target, element, logger) => __
         });
         element.parentElement.insertBefore(newElement, element);
         element.parentElement.removeChild(element);
+        yield (0, functions_1.runCallbacksForTemplate)(value, firstElement);
         return firstElement;
     }
     let matches = value.match(/([a-z0-9\_-]+)\s*\((.*?)\)/);
@@ -4629,6 +4668,13 @@ exports.jodaStyleCommands["--joda-use"] = (value, target, element, logger) => __
     });
     Object.assign(config, args);
     return yield (new command.renderer).render(element, config);
+});
+exports.jodaStyleCommands["--joda-on-empty-class"] = (value, target, element, logger) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("Check if element is empty", element.textContent.trim(), "and add class", value);
+    if (element.textContent.trim() === "") {
+        element.classList.add(value);
+    }
+    return element;
 });
 
 
@@ -4914,14 +4960,14 @@ let html = `
     </ul>
 </nav>
 
-# Wir entwickeln moderne<br> Webseiten f\xFCr <typewriter-element>Haus\xE4rzte, Zahn\xE4rzte, Kardiologen, Augen\xE4rzte, Gyn\xE4kologen,</typewriter-element>
+# Wir entwickeln moderne und ma\xDFgeschneiderte Websites f\xFCr <typewriter-element>Allgemeinmediziner, Internisten, Gyn\xE4kologen, Orthop\xE4den, Dermatologen, HNO-\xC4rzte, Augen\xE4rzte, Chirurgen, Urologen, Kardiologen, \xC4rzte & Mediziner</typewriter-element>
 {: layout="use: #header1"}
 
-![Webdesign f\xFCr \xC4rzte](/images/hero-image.webp)
+![Webdesign f\xFCr \xC4rzte](https://cdn.leuffen.de//leu-systemwebsite/v2/7/113-73_edcba/hero-image.webp)
 
-Sicher. Modular. Auf Ihre Bed\xFCrfnisse angepasst.
+Einfach und schnell zur eigenen Praxis-Website ohne Mehraufwand.
 
-[Mehr erfahren](#)
+[Jetzt sichern](#)
 {: .btn .btn-primary}
 
 
@@ -4931,199 +4977,277 @@ Sicher. Modular. Auf Ihre Bed\xFCrfnisse angepasst.
 Wir garantieren Ihnen 100% Zufriedenheit mit unserer <b class="text-primary">30 Tage Geld-zur\xFCck-Garantie!</b>
 
 
-## Ihre Website vom Experten f\xFCr Webdesign-Pooling:
+## Website f\xFCr \xC4rzte im Rundum-sorglos-Paket
 {: layout="use: #icon-catchprases"}
 
-Individuell, effizient und schnell einsatzbereit.
+Sie suchen nach einer individuellen Website f\xFCr Ihre Arztpraxis ohne den \xFCblichen Aufwand? Mit unserer blitzschnellen
+Umsetzung im modularen Ansatz ist Ihre Praxis-Website im Handumdrehen online. Ohne endlose Absprachen und Mehraufwand,
+inklusive Bilder und Texte im modernen Design. Alles beginnt mit einem kostenlosen Erstgespr\xE4ch
+\u2013 sichern Sie sich jetzt Ihre ma\xDFgeschneiderte Praxis-Website.
 
-
-
-- ![Some Image](/images/icons/icon-modularer-aufbau.webp) **Modularer<br>Aufbau**
-- ![Some Image](/images/icons/icon-monitor-mobile.webp) *Mobil & SEO <br>optimiert*
-- ![Some Image](/images/icons/icon-shield.webp) *DSGVO konform<br>& sicheres Hosting*
-- ![Some Image](/images/icons/icon-time.webp) *Schnelle<br> Umsetzung*
-- ![Some Image](/images/icons/icon-smiley.webp) *Zufriedenheits-<br>garantie*
+- ![Some Image](https://cdn.leuffen.de//leu-systemwebsite/v2/13/400-489_409.21/icon-time.svg) *Ihre Praxis-Website nach nur zwei Terminen*
+- ![Some Image](https://cdn.leuffen.de//leu-systemwebsite/v2/9/43-35_500/icon-monitor-mobile.svg) *Individuelle Bilder und Texte in Sekundenschnelle*
+- ![Some Image](https://cdn.leuffen.de//leu-systemwebsite/v2/11/190-213_446.74/icon-shield.svg) *Domain, SSL und E-Mail-Postfach (BSI zertifiziert) m\xF6glich*
 
 ## Service
-{: layout="use: #service-slider"}
+{: layout="use: #service-slider" data-scrollspy-name="Service"}
 
-> Nutzen Sie unsere Leistungen f\xFCr Ihren Erfolg
+> W\xE4hlen Sie aus unseren Leistungen
 
-Lorem ipsum
+Stellen Sie Ihre Leistungen individuell zusammen: Sie entscheiden welche Leistungen wir direkt erledigen oder mit welchen
+Partnern von Ihnen wir zusammenarbeiten.
+
+Ihr Projektmanager kontaktiert auf Wunsch Ihre IT Dienstleister und koordiniert die Zusammenarbeit.
 
 <a href="#" class="btn btn-outline-primary desktop-button">Alle Leistungen entdecken</a>
 
 
-### Webdesign & Online-Services
-
-![](/images/icons/icon-webdesign.webp)
-
-Individuell gestaltet nach unserem Design-Pool-Konzept
 
 
-### Praxis-Fotografie
+### Wirkungsvolle Texte
 
-![](/images/icons/icon-webdesign.webp)
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/30/a_500/icon-text-image.svg)
 
-Individuell gestaltet nach unserem Design-Pool-Konzept
+Schnell Starten mit unseren erprobten Text- & Bildvorlagen f\xFCr alle Fachrichtungen.
 
-### Fertige Texte & Bilder
+### Logos mit Stil
 
-![](/images/icons/icon-webdesign.webp)
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/31/a_500/icon-logodesign.svg)
 
-Mit unseren Text- & Bildvorlagen f\xFCr alle Fachrichtungen kann Ihre
-Website schnell online gehen. Fotos und Texte tauschen wir sp\xE4ter kostenlos aus.
+Noch kein Logo? Wir erstellen Ihnen ein individuelles Logo f\xFCr Ihre Praxis.
 
-### Logo-Design & Vorlagen
+### Passende Print-Designs
 
-![](/images/icons/icon-webdesign.webp)
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/32/a_500/icon-business-print.svg)
 
-Wir erstellen Professionelle Logos und Vorlagen f\xFCr Briefk\xF6pfe,
-Praxisschild, Visitenkarten, u.v.m.
+Aus einem Guss: Praxisschild, Visitenkarten, Briefpapier, Rezeptbl\xF6cke und vieles mehr.
 
-### Google & Bing Optimierung
+### Ausdrucksstarke Praxisfotos
 
-![](/images/icons/icon-webdesign.webp)
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/10/a_ba/icon-photography.webp)
 
-Damit Ihre Website \xFCberall gefunden wird: Als Google Partner..
+Kostenlose Abstimmung und Terminfindung mit einem Fotografen in Ihrer N\xE4he.
+
+### Individuelle Designleistungen
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/14/a_ba/icon-webdesign.webp)
+
+Durchg\xE4ngig ein Design: Vereinbaren Sie jederzeit einen Termin mit einem Designer.
 
 
-## Praxiswert steigern
-{: layout="use: #cols-2"}
 
-![](/images/illustration-01.svg)
+## Eine Praxis-Website auf Ihre Bed\xFCrfnisse angepasst
+{: layout="use: #cols-2" data-scrollspy-name="Features"}
 
-Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDFer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu pr\xE4sentieren und Ihre Patienten zu informieren.
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/18/72-65_ba/illustration-04.webp)
+Durchdachte Features f\xFCr Ihre Patienten, immer mit der neusten Technologie und auf dem aktuellen Stand:
 
-[Weiterlesen]()
 
-## Mit Digiatlisierung sparen
+- Kontaktinformationen und Arzt-Profile
+- Informationen \xFCber Behandlungen und Spezialisierungen
+- Online-Rezepte und \xDCberweisungsanfragen
+- Urlaubsschaltung, Vertretung und \xD6ffnungszeiten
+- und vieles mehr
+
+Kompatibel mit allen Praxis- & Online-Terminsystemen.
+
+
+## Schnell und kosteng\xFCnstig: Praxis-Websites durch Webdesign-Pooling
 {: layout="use: #cols-2" data-section-class="reversed-rows"}
 
-![](/images/illustration-03.svg)
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/4/232-211_475.87/illustration-01.svg)
 
-Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDFer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu pr\xE4sentieren und Ihre Patienten zu informieren.
+Ob Neugr\xFCndung oder etablierte Praxis \u2013 unsere modular aufgebauten Websites f\xFCr \xC4rzte sind darauf ausgerichtet, den spezifischen Anforderungen Ihrer Praxis gerecht zu werden. Das Konzept des Webdesign-Pooling birgt dabei zahlreiche Vorteile:
 
-[Weiterlesen]()
+
+- Zeit und Kosten sparen durch statische Webelemente im individuellen Design.
+- Website as a Service: Nur das zahlen, was auch genutzt wird.
+- Update-Garantie: Jederzeit durch zus\xE4tzliche Module erweiterbar.
+- Immer verf\xFCgbar und auf dem neusten Stand der Technik ohne Zusatzkosten.
+- Besten Ladezeiten f\xFCr optimale Google-Suchergebnisse.
+
+
 
 ## Datenschutz vom Experten
-{: layout="use: #cols-2-bg"}
-
-![](/images/illustration-03.webp)
+{: layout="use: #cols-2-bg" }
 
 > <b>Rundum-<br />Sorglos-Paket</b>
 
+DSGVO-konforme Datensparsamkeit und Datensicherheit sind f\xFCr uns selbstverst\xE4ndlich. Standardm\xE4\xDFig sind alle unsere Websites Cookie-frei. Nat\xFCrlich mit sicherem SSL-Zertifikat und BSI zertifiziertem E-Mail-Postfach (optional).
 
-Eine gute Positionierung in den Suchmaschinen ist f\xFCr eine Praxis von gro\xDFer Bedeutung. Wir helfen Ihnen dabei, Ihre Praxis im Internet zu pr\xE4sentieren und Ihre Patienten zu informieren.
-
-[Mehr erfahren](#)
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/5/387-290_391.56/illustration-03.svg)
 
 
+## Selber machen oder machen lassen? Sie entscheiden!
+{: layout="use: #cols-2" data-section-class="reversed-rows"}
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/16/52-51_ba/illustration-02.webp)
+
+\xC4ndern Sie Inhalte und Bilder, Urlaubs- und Vertretungzeiten, \xD6ffnungszeiten und vieles mehr \xFCber unsere intuitive Weboberfl\xE4che
+oder lassen Sie uns die Arbeit machen: zum g\xFCnstigen Pauschalpreis inklusive Bildbearbeitung und Texterstellung.
+
+Serviceauftr\xE4ge werden i.d.R. innerhalb eines Werktages direkt vom Designer erledigt.
 
 ## Key Figures
 {: layout="use: #key-figures"}
 
 
 ## Ablauf
-{: layout="use: #cards-slider"}
+{: layout="use: #cards-slider" data-scrollspy-name="Ablauf"}
 
-> Was passiert, nachdem Sie ein Angebot von uns erhalten Haben?
+> Einfach und schnell zur eigenen Praxis-Website.
 
-Text, Text, Text
+Damit Sie sich auf Ihre Patienten konzentrieren k\xF6nnen, k\xFCmmern wir uns um den Rest.
 
-[Sie haben Fragen?](#)
+Kein Stress mit veralteten Agenturen und schlechtem Service: Wir stellen s\xE4mtliche Bilder und Texte, welche zu jeder Zeit ausgetauscht werden k\xF6nnen. Au\xDFerdem garantieren wir technisch einwandfreie Websites, auch nach Jahren im Gebrauch, bis hin zum kompletten Relaunch nach drei Jahren \u2013 **ohne zus\xE4tzliche Kosten!**
+
+
+[Zum kostenlosen Erstgespr\xE4ch](#)
 {: .btn .btn-primary}
 
 
 
+### Kostenloses Erstgespr\xE4ch
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/23/64-57_ba/illustration-a1.webp)
+
+Kein Vertriebsgespr\xE4ch! Im Zoom-Call besprechen Sie M\xF6glichkeiten und W\xFCnsche direkt mit dem Entwickler.
+
 ### Design-Entwurf
 
-![](/images/icons/icon-webdesign.webp)
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/22/35-37_ba/illustration-a2.webp)
 
-Dies ist ein Text
+Innerhalb 14 Tage nach Vertragsabschluss pr\xE4sentieren wir Ihnen einen individuellen Design-Entwurf inklusive Texte und Bildmaterial.
 
 ### Anpassen
 
-![](/images/icons/icon-webdesign.webp)
-
-Per Videokonferenz besprechen Sie Ihre Website mit einem Experten.
-Wir \xE4ndern alles nach Ihren W\xFCnschen.
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/21/121-78_ba/illustration-a3.webp)
+Unser Entwickler geht alle \xC4nderungen Schritt-f\xFCr-Schritt per Videokonferenz mit Ihnen durch. Inhalte und Features werden im Anschluss nach Ihren W\xFCnschen angepasst.
 
 ### Online gehen
 
-![](/images/icons/icon-webdesign.webp)
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/19/137-134_ba/illustration-a4.webp)
 
-Per Videokonferenz besprechen Sie Ihre Website mit einem Experten.
-Wir \xE4ndern alles nach Ihren W\xFCnschen.
+Bereits nach zwei Terminen sind wir bereit f\xFCr die Liveschaltung Ihrer Praxis-Website. Letzte \xC4nderungen werden besprochen.
 
-### Optimieren
+### Fair Service & Support
 
-![](/images/icons/icon-webdesign.webp)
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/23/64-57_ba/illustration-a1.webp)
 
-Per Videokonferenz besprechen Sie Ihre Website mit einem Experten.
-Wir \xE4ndern alles nach Ihren W\xFCnschen.
+Reichen Sie neue Praxisbilder und Texte auch nach Live-Schaltung ein, wir tauschen diese kostenlos um.
 
-## Aktuelle Projekte
-{: layout="use: #image-slider"}
+### Kostenloser Relaunch alle 3 Jahre
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/20/48-31_ba/illustration-a5.webp)
 
-> Lorem ipsum dolor sit amen, consetetur sadipscing elitr.
 
-### ![](/images/icons/icon-webdesign.webp)
+Damit wir Ihnen den neusten Stand der Technik f\xFCr Ihre Website garantieren k\xF6nnen, erhalten Sie alle drei Jahre einen kostenlosen Relaunch Ihrer Praxis-Website.
 
-[Dental Clinic <i class="bi bi-box-arrow-up-right"></i>](http://google.com){: class="btn btn-secondary"}
-[Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
-
-### ![](/images/icons/icon-webdesign.webp)
-
-[Dental Clinic <i class="bi bi-box-arrow-up-right"></i>](http://google.com){: class="btn btn-secondary"}
-[Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
-
-### ![](/images/icons/icon-webdesign.webp)
-
-[Dental Clinic <i class="bi bi-box-arrow-up-right"></i>](http://google.com){: class="btn btn-secondary"}
-[Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
-
-### ![](/images/icons/icon-webdesign.webp)
-
-[Dental Clinic <i class="bi bi-box-arrow-up-right"></i>](http://google.com){: class="btn btn-secondary"}
-[Weitere Infos](http://google.com){: class="btn btn-outline-secondary"}
-
-## Was sagen unsere Kunden?
+## Das sagen Ihre Kollegen \xFCber uns
 {: layout="use: #customer-reviews"}
 
-Lorem ipsum,...
 
-### Robert XYZ
+### Dr. med. Eleni Deutereou, Berlin
 
->  \u201EIch wollte schon die Polizei holen\u201C
+>  \u201EAlle ge\xE4u\xDFerten W\xFCnsche wurden zeitnah umgesetzt und mit dem Ergebnis sind wir sehr zufrieden. Die Webseite l\xE4sst auch \xFCber unser Personal einfach nach Bedarf ver\xE4ndern. Ich kann Herrn Leuffen uneingeschr\xE4nkt empfehlen! \u201C
 
-[Zahnarztpraxis Robert]()
+[www.hoefner-deutereou.de](https://www.hoefner-deutereou.de){: target="_blank"}
 
-### Besser gehts nicht
+### Robert Sedlmaier, M\xFCnchen
 
->  \u201EIch wollte schon die Polizei holen\u201C
+>  \u201EEine klasse Idee sehr gut und schnell umgesetzt! Wir sind sehr zufrieden mit dem Ergebnis der Homepage, und besonders auch mit der sehr einfach und variabel zu bedienenden Admin-Umgebung. Wir freuen uns auf eine lange Partnerschaft! \u201C
 
+[www.zahnarztpraxis-sedlmaier.de](https://www.zahnarztpraxis-sedlmaier.de){: target="_blank"}
 
-### Besser gehts nicht
+### Tanja Melchior, Freiburg
 
->  \u201EIch wollte schon die Polizei holen\u201C
+>  \u201ESehr gute, unkompliziert freundliche und professionelle Zusammenarbeit bei der Erstellung meiner Website. Kann ich uneingeschr\xE4nkt weiterempfehlen. \u201C
 
+[melchior-psychotherapie.de](https://www.melchior-psychotherapie.de){: target="_blank"}
 
-### Besser gehts nicht
+### Dr. Michal M\xFCller, Hannover
 
->  \u201EIch wollte schon die Polizei holen\u201C
+>  \u201E100% empfehlenswert. Tolle Zusammenarbeit mit erstklassiger super engagierte Betreuung. Besser geht es nicht und mir hat noch keine Websiteerstellung so Spa\xDF gemacht.\u201C
 
+[dr-mcmueller.de](https://www.dr-mcmueller.de){: target="_blank"}
 
-### Besser gehts nicht
+### Dr. G\xFClide Uysal, Herne
 
->  \u201EIch wollte schon die Polizei holen\u201C
+>  \u201E100% Weiterempfehlung! Sehr kompetente und professionelle Zusammenarbeit. Meine W\xFCnsche bez\xFCglich der Website wurden schnell  umgesetzt und Herr Leuffen hatte auch immer Tipps und Ideen zur Optimierung parat. Das Preis-/Leistungsverh\xE4ltnis ist unschlagbar.\u201C
 
+[frauen\xE4rztin-uysal.de](https://www.frauen\xE4rztin-uysal.de){: target="_blank"}
+
+### Heike Peters, Erkner
+
+>  \u201EDie Erstellung der Webseite verlief sehr unkompliziert. Die Webseite ist sehr \xFCbersichtlich und ansprechend gestaltet. Ich bin mit dem Ergebnis sehr zufrieden.\u201C
+
+[hausaezrte-in-erkner.de](https://www.hausaerzte-in-erkner.de){: target="_blank"}
 
 
 ## Erhalten Sie kostenlos Ihr unverbindliches Angebot mit nur wenigen Klicks!
 {: layout="use: #cta1"}
 
 [Jetzt Konditionen freischalten](#){: class="btn btn-primary"}
+
+
+## H\xE4ufig gestellte Fragen
+{: layout="use: #text-container" .text-center }
+
+---
+{: layout="use: accordion()" .mb-5}
+
+### Wie schnell kann meine Praxis-Website erstellt werden?
+
+Bereits 14 Tage nach Vertragsschluss kann Ihre individuelle Praxis-Website live gehen. In zwei Terminen besprechen wir Ihre W\xFCnsche, Anforderungen, Features und bearbeiten alle \xC4nderungen im Nachgang. Im Anschluss steht Ihrem Live-Gang nichts mehr im Weg.
+
+### Welche Art von Texten und Bildern sind im Angebot enthalten?
+
+Unser Angebot umfasst individuell gestaltete Texte und Bilder f\xFCr Ihre Praxis-Website. Diese Inhalte sind flexibel und
+k\xF6nnen jederzeit kostenlos ausgetauscht oder angepasst werden, um sicherzustellen, dass sie genau zu Ihrer Praxis passen.
+
+Neben eigenen Bildern lizenzieren wir gerne Bilder von adobe Stock oder evato Elements kostenlos f\xFCr Sie.
+
+### Was ist im Rundum-sorglos-Paket f\xFCr \xC4rzte enthalten?
+
+Unser Rundum-sorglos-Paket bietet eine umfassende L\xF6sung f\xFCr \xC4rzte, die ihre Praxis-Website ohne den \xFCblichen Aufwand gestalten m\xF6chten. Es umfasst die schnelle Erstellung Ihrer Website, ohne endlose Absprachen und Mehraufwand. Bilder und Texte im modernen Design sind inklusive. Updates, Sicherheit und Funktionalit\xE4t ist in unserem Service garantiert.
+
+### Wie kann ich sicherstellen, dass meine Praxis-Website DSGVO-konform ist?
+
+Keine Sorge, darum k\xFCmmern wir uns! Die DSGVO-Konformit\xE4t Ihrer Website ist von gro\xDFer Bedeutung. Unsere Websites werden gem\xE4\xDF den DSGVO-Richtlinien entwickelt und nutzen SSL-Zertifikate. Dar\xFCber hinaus werden sie auf deutschen Servern gehostet, um die Sicherheit und den Datenschutz Ihrer Patienten zu gew\xE4hrleisten.
+
+### Was sind die Vorteile des Webdesign-Pooling-Konzepts?
+
+Das Webdesign-Pooling-Konzept bietet zahlreiche Vorteile: Es spart Zeit und Kosten, da die Website m\xFChelos an sich
+\xE4ndernde Bed\xFCrfnisse angepasst werden kann. Dank ihrer Skalierbarkeit ist es m\xF6glich, neue Module bei Praxiswachstum
+hinzuzuf\xFCgen.
+
+Die unkomplizierte Wartung reduziert sowohl den Pflegeaufwand als auch die Gesamtkosten. Zus\xE4tzlich st\xE4rkt die
+konsistente Gestaltung das Vertrauen Ihrer Patienten, w\xE4hrend unabh\xE4ngige Modul\xFCberpr\xFCfungen die Sicherheit gew\xE4hrleisten.
+
+### Wie k\xF6nnen Patienten auf meiner Website Termine buchen?
+
+Die Terminbuchung auf Ihrer Website kann \xFCber alle am Markt befindlichen Systeme durchgef\xFChrt werden.
+Ihre Patienten k\xF6nnen einfach und bequem Termine online buchen und mit Ihnen in Kontakt treten. Die Website erm\xF6glicht
+auch eine flexible Terminverwaltung, die es Ihnen erm\xF6glicht, eigenst\xE4ndig Verf\xFCgbarkeiten, Vertretungen und
+Schlie\xDFungen zu organisieren.
+
+**Neu: Wir sind doctolib-Partner!** Sichern Sie sich 3 Monate lang 50% Rabatt auf den Monatspreis von doctolib.
+
+### Kann ich die Praxis-Website auch auf mobilen Ger\xE4ten anzeigen lassen?
+
+Ja, unsere Praxis-Websites sind f\xFCr mobile Ger\xE4te optimiert. Das bedeutet, dass Ihre Patienten Ihre Website problemlos
+auf Smartphones und Tablets anzeigen und nutzen k\xF6nnen, was die Erreichbarkeit und Zug\xE4nglichkeit Ihrer Praxis auf allen Ger\xE4ten sicherstellt.
+
+### Ist die Website f\xFCr meine Arztpraxis suchmaschinenoptimiert?
+
+Ja, unsere Websites sind suchmaschinenoptimiert, um sicherzustellen, dass Ihre Patienten Sie leicht finden k\xF6nnen. Inhalte, Struktur und Darstellung sind so gestaltet, dass sie den besten Platz in den Suchergebnissen von Suchmaschinen wie Google erreichen.
+
+### Wie kann ich personalisiertes Personalmarketing auf meiner Praxis-Website nutzen?
+
+Sie k\xF6nnen personalisiertes Personalmarketing auf Ihrer Website nutzen, um au\xDFergew\xF6hnliche Talente f\xFCr Ihr Praxis-Team zu gewinnen. Durch ein integriertes Karriereportal k\xF6nnen Sie potenzielle Mitarbeiter ansprechen und Ihre offenen Stellen effektiv bewerben.
+
+### Gibt es eine kostenlose Erstberatung, um die M\xF6glichkeiten f\xFCr meine Praxis-Website zu besprechen?
+
+Ja, wir bieten ein kostenloses Erstgespr\xE4ch, bei dem Sie Ihre M\xF6glichkeiten und W\xFCnsche direkt mit unserem Entwickler besprechen k\xF6nnen. In diesem Gespr\xE4ch k\xF6nnen wir Ihre spezifischen Anforderungen und Ziele f\xFCr Ihre Praxis-Website ausf\xFChrlich er\xF6rtern.
 
 ## Kontakt
 {: layout="use: #contact"}
@@ -5136,8 +5260,6 @@ Lorem ipsum,...
 {: layout="use: #newsletter" data-section-style="padding-top: 160px;" data-section-class="dark"}
 
 Melden Sie sich jetzt f\xFCr unseren Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschl\xE4ge und viele weitere hilfreiche Tipps f\xFCr Ihren Onlineauftritt.
-
-
 
 
 
