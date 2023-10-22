@@ -5,7 +5,6 @@
 .tjs-footer-copyright {
     background-color: var(--color-grey-dark);
     color: $grey;
-    font-family: 'Roboto Flex', sans-serif;
     padding: 0 0 1rem 0;
     position: relative;
 
@@ -26,7 +25,7 @@
         }
     }
 
-    &__legal .content {
+    &__legal {
         display: flex;
         align-items: center;
 

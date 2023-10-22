@@ -18,12 +18,8 @@ Joda.registerTemplate("footer",
                     <div class="tjs-footer__content--container">
                         <div class="tjs-footer__col tjs-footer__col--double">
                             <div class="tjs-footer__col--double-inner">
-                                <img
-                                    src="/static/images/logo-systemwebsite-white.png"
-                                    alt="Logo Systemwebseite"
-                                    class="tjs-footer__logo"
-                                >
-                                <slot data-select="blockquote"></slot>
+
+                                <slot></slot>
                             </div>
                         </div>
                         <div class="tjs-footer__col">

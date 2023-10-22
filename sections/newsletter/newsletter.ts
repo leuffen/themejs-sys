@@ -19,8 +19,8 @@ Joda.registerTemplate("newsletter",
                         <span class="input-group-text outside">Anmelden</span>
                     </div>
                     <div class="tjs-newsletter__disturber-stars">
-                        <img loading="lazy" class="tjs-newsletter__stars--left" src="/images/stars.webp">
-                        <img loading="lazy" class="tjs-newsletter__stars--right" src="/images/stars.webp">
+                        <img loading="lazy" class="tjs-newsletter__stars--left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
+                        <img loading="lazy" class="tjs-newsletter__stars--right" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
                     </div>
                 </div>
             </div>
