@@ -359,7 +359,7 @@ Melden Sie sich jetzt für unseren Newsletter an und erhalten Sie alle paar Woch
 - [Instragram](#)
 
 ---
-{: .footer-nav .section-h2}
+{: layout="use: #footer-copyright" .section-h2}
 
 Copyright (c) 2023 Systemwebsite by leuffen.de
 

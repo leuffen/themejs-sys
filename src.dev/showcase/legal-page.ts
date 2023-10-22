@@ -21,7 +21,7 @@ let html =`
 </nav>
 
 # Datenschutz
-{: layout="use: #header1"}
+{: layout="use: #header1" data-section-class="decreased-height"}
 
 
 ## Hero Section

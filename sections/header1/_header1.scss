@@ -39,8 +39,9 @@
         }
     }
 
-    &.increased-height {
-        padding-bottom: rem(150px);
+    &.decreased-height {
+        padding-bottom: rem(50px);
+        min-height: unset;
     }
 
     :not(:has(img)) {

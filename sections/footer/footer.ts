@@ -33,12 +33,6 @@ Joda.registerTemplate("footer",
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <hr>
-                        <div class="tjs-footer__legal">
-                            <slot data-select=".footer-nav"></slot>
-                        </div>
-                    </div>
                 </div>
             </div>
         </footer>

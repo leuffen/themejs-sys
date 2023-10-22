@@ -21,7 +21,7 @@ let html =`
 </nav>
 
 # Kontakt
-{: layout="use: #header1" data-section-class="increased-height"}
+{: layout="use: #header1" data-section-class="decreased-height"}
 
 Vielen Dank für Ihr Interesse. Nutzen Sie das Formular oder schreiben sie uns unter [kontakt@leuffen.de](kontakt@leuffen.de).
 

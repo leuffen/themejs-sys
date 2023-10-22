@@ -14,5 +14,6 @@ import "./text-container/text-container";
 import "./contact-form/contact-form";
 
 import "./footer/footer";
+import "./footer-copyright/footer-copyright";
 import "./newsletter/newsletter";
 import "./contact/contact";

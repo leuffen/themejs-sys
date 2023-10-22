@@ -1,0 +1,76 @@
+/**
+ * Komponente: footer-copyright
+ */
+
+.tjs-footer-copyright {
+    background-color: var(--color-grey-dark);
+    color: $grey;
+    font-family: 'Roboto Flex', sans-serif;
+    padding: 0 0 1rem 0;
+    position: relative;
+
+    strong, a, p, span {
+        color: $grey;
+    }
+
+    hr {
+        margin-top: 0;
+        border-color: var(--color-grey-muted);
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__legal .content {
+        display: flex;
+        align-items: center;
+
+        p, ul {
+            margin: 0;
+        }
+
+        ul {
+            display: flex;
+            margin-left: auto;
+            list-style-type: none;
+
+            li {
+                color: $grey;
+
+                &:not(:nth-child(1)) {
+                    &:before {
+                        content: "|";
+                        margin: 0 20px;
+                    }
+                }
+
+                a {
+                    color: $grey;
+                }
+            }
+        }
+    }
+
+    &.mobile {
+        .tjs-footer-copyright {
+
+            &__legal .content {
+                flex-direction: column;
+
+                p {
+                    order: 2;
+                }
+
+                ul {
+                    margin-left: unset;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
