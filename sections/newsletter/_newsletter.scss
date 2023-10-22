@@ -84,6 +84,7 @@
         font-variation-settings: "wght" 500;
         background-color: var(--color-green);
         color: var(--bs-white);
+        flex: 1;
 
         &.outside {
             display: none;
@@ -93,10 +94,16 @@
     &__input-wrapper {
         display: flex;
         align-items: center;
+
+        .form-floating {
+            flex: 5;
+        }
     }
 
     input {
         --joda-use: input();
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
 
         &:focus {
             outline: none;

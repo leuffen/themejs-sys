@@ -77,18 +77,22 @@
     &__links {
         margin-right: rem(64px);
 
-        strong {
+        h3 {
             display: inline-flex;
             text-transform: uppercase;
             margin-bottom: 1rem;
             font-variation-settings: 'wght' 300;
             font-size: 1.1rem;
+            color: $white;
         }
 
-        & > div {
-            display: flex;
-            flex-direction: column;
-            gap: .5rem;
+        ul {
+            list-style: none;
+            padding-left: 0;
+
+            li:not(:nth-last-child(1)) {
+                margin-bottom: rem(10px);
+            }
         }
 
         a {
@@ -186,6 +190,8 @@
 
             &__col {
                 &--double {
+                    margin-bottom: rem(30px);
+
                     &-inner {
                         max-width: 100%;
                     }
