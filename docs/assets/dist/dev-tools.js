@@ -3062,6 +3062,7 @@ const jodaresponsive_1 = __webpack_require__(/*! ../processor/jodaresponsive */ 
 const logger_1 = __webpack_require__(/*! ../helper/logger */ "./node_modules/@leuffen/jodastyle/dist/helper/logger.js");
 const jodavisualize_1 = __webpack_require__(/*! ../processor/jodavisualize */ "./node_modules/@leuffen/jodastyle/dist/processor/jodavisualize.js");
 const JodaSiteConfig_1 = __webpack_require__(/*! ../helper/JodaSiteConfig */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaSiteConfig.js");
+const functions_1 = __webpack_require__(/*! ../helper/functions */ "./node_modules/@leuffen/jodastyle/dist/helper/functions.js");
 function getCSSRule(ruleName) {
     ruleName = ruleName.toLowerCase();
     var result = null;
@@ -3146,6 +3147,10 @@ let JodaContentElement = class JodaContentElement extends HTMLElement {
                 logger.log("Breakpoint changed to " + currentBreakpoint);
                 jodaresponsive.process(this);
             });
+            // Run all allTemplateConnectedCallbacks registered
+            for (let callback of functions_1.allTemplatesConnectedCallbacks) {
+                yield callback();
+            }
         });
     }
     setContent(content) {
@@ -3605,11 +3610,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getTemplateFilledWithContent = exports.parseConfigString = exports.getCleanVariableValue = exports.splitChildrenBySelector = exports.jodaRenderer = exports.registerJodaRenderer = exports.wrapElement = exports.await_property = void 0;
+exports.runCallbacksForTemplate = exports.getTemplateFilledWithContent = exports.parseConfigString = exports.getCleanVariableValue = exports.splitChildrenBySelector = exports.jodaRenderer = exports.registerJodaRenderer = exports.wrapElement = exports.await_property = exports.allTemplatesConnectedCallbacks = void 0;
 const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
 const JodaElementException_1 = __webpack_require__(/*! ./JodaElementException */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaElementException.js");
 const QTemplate_1 = __webpack_require__(/*! ./QTemplate */ "./node_modules/@leuffen/jodastyle/dist/helper/QTemplate.js");
 const joda_1 = __webpack_require__(/*! ../joda */ "./node_modules/@leuffen/jodastyle/dist/joda.js");
+exports.allTemplatesConnectedCallbacks = [];
 function await_property(object, property, wait = 10) {
     return __awaiter(this, void 0, void 0, function* () {
         if (typeof property === "string") {
@@ -3722,8 +3728,10 @@ function copyDataChildAttributes(source, target) {
 }
 let slotIndex = 0;
 function getTemplateFilledWithContent(templateSelector, content, origElement) {
+    var _a;
     return __awaiter(this, void 0, void 0, function* () {
-        let templateHtml = joda_1.Joda.getRegisteredTemplate(templateSelector);
+        let templateConfig = joda_1.Joda.getRegisteredTemplate(templateSelector);
+        let templateHtml = (_a = templateConfig === null || templateConfig === void 0 ? void 0 : templateConfig.template) !== null && _a !== void 0 ? _a : null;
         if (templateHtml === null) {
             let template = document.querySelector(templateSelector);
             if (template === null) {
@@ -3732,14 +3740,17 @@ function getTemplateFilledWithContent(templateSelector, content, origElement) {
             templateHtml = template.innerHTML;
         }
         // Load --layout-* variables to template parser
-        let layout = {};
         let props = getComputedStyle(origElement);
         // Attention: Chrome cannot list defined CSS Variables!
         templateHtml = (0, QTemplate_1.template_parse)(templateHtml, {
             layout: new Proxy({}, {
                 get: function (target, name) {
+                    var _a;
                     let val = props.getPropertyValue("--layout-" + name.toString());
-                    //console.log("Get layout property: ", name, val);
+                    if (val === "") {
+                        // Return default from template config
+                        return (_a = templateConfig === null || templateConfig === void 0 ? void 0 : templateConfig.layoutDefaults[name.toString()]) !== null && _a !== void 0 ? _a : "";
+                    }
                     if (val === "true")
                         return true;
                     if (val === "false")
@@ -3787,7 +3798,13 @@ function getTemplateFilledWithContent(templateSelector, content, origElement) {
             let select = slot.getAttribute("data-select");
             let selected;
             if (slot.getAttribute("data-limit") === "1") {
-                selected = Array.from([content.querySelector(select)]);
+                let curElements = content.querySelector(select);
+                if (curElements === null) {
+                    selected = [];
+                }
+                else {
+                    selected = Array.from([content.querySelector(select)]);
+                }
             }
             else {
                 selected = Array.from(content.querySelectorAll(select));
@@ -3832,6 +3849,20 @@ function getTemplateFilledWithContent(templateSelector, content, origElement) {
     });
 }
 exports.getTemplateFilledWithContent = getTemplateFilledWithContent;
+function runCallbacksForTemplate(templateSelector, element) {
+    var _a, _b;
+    return __awaiter(this, void 0, void 0, function* () {
+        let templateConfig = joda_1.Joda.getRegisteredTemplate(templateSelector);
+        if ((_a = templateConfig === null || templateConfig === void 0 ? void 0 : templateConfig.callbacks) === null || _a === void 0 ? void 0 : _a.onAfterConnectedCallback) {
+            yield templateConfig.callbacks.onAfterConnectedCallback(element);
+        }
+        if ((_b = templateConfig === null || templateConfig === void 0 ? void 0 : templateConfig.callbacks) === null || _b === void 0 ? void 0 : _b.onAfterAllTemplatesConnectedCallback) {
+            // Spool up callback (executed by jodastyle)
+            exports.allTemplatesConnectedCallbacks.push(() => __awaiter(this, void 0, void 0, function* () { return templateConfig.callbacks.onAfterAllTemplatesConnectedCallback(element); }));
+        }
+    });
+}
+exports.runCallbacksForTemplate = runCallbacksForTemplate;
 
 
 /***/ }),
@@ -4058,13 +4089,19 @@ exports.Joda = new (class {
      *
      * @param id
      * @param data
+     * @param layoutDefaults
+     * @param callbacks
      */
-    registerTemplate(id, data) {
+    registerTemplate(id, data, layoutDefaults = {}, callbacks = {}) {
         if (!window["jodastyle"])
             window["jodastyle"] = {};
         if (!window["jodastyle"]["templates"])
             window["jodastyle"]["templates"] = {};
-        window["jodastyle"]["templates"][id] = data;
+        window["jodastyle"]["templates"][id] = {
+            template: data,
+            layoutDefaults: layoutDefaults,
+            callbacks: callbacks
+        };
     }
     getRegisteredTemplate(id) {
         var _a, _b, _c;
@@ -4516,6 +4553,7 @@ exports.jodaStyleCommands["--joda-wrap"] = (value, target, element, logger) => _
         placeholder.append(element);
         let newElement = yield (0, functions_1.getTemplateFilledWithContent)(value, placeholder, element);
         placeholder.replaceWith(newElement);
+        yield (0, functions_1.runCallbacksForTemplate)(value, element);
         return element;
     }
     else {
@@ -4607,6 +4645,7 @@ exports.jodaStyleCommands["--joda-use"] = (value, target, element, logger) => __
         });
         element.parentElement.insertBefore(newElement, element);
         element.parentElement.removeChild(element);
+        yield (0, functions_1.runCallbacksForTemplate)(value, firstElement);
         return firstElement;
     }
     let matches = value.match(/([a-z0-9\_-]+)\s*\((.*?)\)/);
@@ -4629,6 +4668,13 @@ exports.jodaStyleCommands["--joda-use"] = (value, target, element, logger) => __
     });
     Object.assign(config, args);
     return yield (new command.renderer).render(element, config);
+});
+exports.jodaStyleCommands["--joda-on-empty-class"] = (value, target, element, logger) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("Check if element is empty", element.textContent.trim(), "and add class", value);
+    if (element.textContent.trim() === "") {
+        element.classList.add(value);
+    }
+    return element;
 });
 
 
