@@ -358,14 +358,16 @@ Melden Sie sich jetzt für unseren Newsletter an und erhalten Sie alle paar Woch
 - [Facebook](#)
 - [Instragram](#)
 
----
-{: layout="use: #footer-copyright" .section-h2}
 
-Copyright (c) 2023 Systemwebsite by leuffen.de
 
-- [AGB](#)
-- [Datenschutz](#)
-- [Impressum](#)
+<footer layout="use:#footer-copyright">
+    <p>Copyright (c) 2023 Systemwebsite by leuffen.de</p>
+    <ul>
+        <li><a href="{%- include do/link.html pid=it.pid -%}">AGB</a></li>
+        <li><a href="{%- include do/link.html pid=it.pid -%}">Datenschutz</a></li>
+        <li><a href="{%- include do/link.html pid=it.pid -%}">Impressum</a></li>
+    </ul>
+</footer>
 
 `;
 

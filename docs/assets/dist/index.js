@@ -5660,16 +5660,12 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("contact",
                 <div class="tjs-contact__content--container">
                     <div class="tjs-contact__content--container-inner container">
                         <div class="tjs-contact__col tjs-contact__newsletter--text">
-                            <h2>Kontakt</h2>
-                            <blockquote>Vereinbaren Sie ein kostenloses Beratungs&shy;gespräch.</blockquote>
+                            <slot data-select="h2"></slot>
+                            <slot data-select="blockquote"></slot>
 
                             <div class="tjs-contact__newsletter--text__list">
-                                <strong>Ihre Vorteile</strong>
-                                <ul>
-                                    <li>Keine Einrichtungskosten</li>
-                                    <li>Jederzeit kündbar</li>
-                                    <li>30-Tage Geld-Zurück-Garantie</li>
-                                </ul>
+                                <slot data-select="strong"></slot>
+                                <slot data-select="ul"></slot>
                             </div>
                         </div>
                         <div class="tjs-contact__col tjs-contact__newsletter--form">
@@ -5855,6 +5851,34 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("disturber
 
 /***/ }),
 
+/***/ "./sections/footer-copyright/footer-copyright.ts":
+/*!*******************************************************!*\
+  !*** ./sections/footer-copyright/footer-copyright.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("footer-copyright",
+    // language=HTML
+    `
+        <div class="tjs-footer-copyright :: mobile :lg:">
+            <div class="container">
+                <hr>
+                <div class="tjs-footer-copyright__legal">
+                    <slot></slot>
+                </div>
+            </div>
+        </div>
+
+    `);
+
+
+/***/ }),
+
 /***/ "./sections/footer/footer.ts":
 /*!***********************************!*\
   !*** ./sections/footer/footer.ts ***!
@@ -5866,7 +5890,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 
 
-
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("footer-links",
+    `
+        <div class="tjs-footer__links">
+            <slot></slot>
+        </div>
+    `);
 
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("footer",
     // language=HTML
@@ -5879,66 +5908,14 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("footer",
                     <div class="tjs-footer__content--container">
                         <div class="tjs-footer__col tjs-footer__col--double">
                             <div class="tjs-footer__col--double-inner">
-                                <img
-                                    src="/static/images/logo-systemwebsite-white.png"
-                                    alt="Logo Systemwebseite"
-                                    class="tjs-footer__logo"
-                                >
-                                <p>Ihr Partner für moderne medizinische Webseiten-Entwicklung</p>
+
+                                <slot></slot>
                             </div>
                         </div>
                         <div class="tjs-footer__col">
                             <div class="tjs-footer__col--inner">
-                                <div class="tjs-footer__links">
-                                    <strong>Links</strong>
-                                    <div>
-                                        <a href="#">Konditionen</a>
-                                        <a href="#">Leistungen</a>
-                                        <a href="#">FAQ</a>
-                                        <a href="#">Kontakt</a>
-                                    </div>
-                                </div>
-                                <div class="tjs-footer__col tjs-footer__links">
-                                    <strong>Links</strong>
-                                    <div>
-                                        <a href="#">Konditionen</a>
-                                        <a href="#">Leistungen</a>
-                                        <a href="#">FAQ</a>
-                                        <a href="#">Kontakt</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tjs-footer__col tjs-footer__links tjs-footer__links__mobile__images">
-                            <strong>Folgen Sie Uns</strong>
-                            <div>
-                                <a href="#">
-                                    <img src="/static/icons/linkedin.svg" alt="">
-                                    <span>LinkedIn</span>
-                                </a>
-                                <a href="#">
-                                    <img src="/static/icons/xing.svg" alt="">
-                                    <span>Xing</span>
-                                </a>
-                                <a href="#">
-                                    <img src="/static/icons/facebook.svg" alt="">
-                                    <span>Facebook</span>
-                                </a>
-                                <a href="#">
-                                    <img src="/static/icons/instagram.svg" alt="">
-                                    <span>Instagram</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <hr>
-                        <div class="tjs-footer__legal">
-                            <span>Copyright &copy; 2023 SYSTEMWEBSEITE</span>
-                            <div class="tjs-footer__legal__links">
-                                <span><a href="#">AGB</a></span>
-                                <span><a href="#">Datenschutz</a></span>
-                                <span><a href="#">Impressum</a></span>
+                                <slot data-select=".section-h3" data-child-layout="use: #footer-links">
+                                </slot>
                             </div>
                         </div>
                     </div>
@@ -6163,19 +6140,19 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("newslette
             <div class="tjs__wrapper container">
                 <div class="tjs-newsletter__content--container">
                     <div class="tjs-newsletter__col tjs-newsletter__text">
-                        <strong>Newsletter</strong>
-                        <p>Melden Sie sich zum Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschläge und viele weitere hilfreiche Tipps für Ihren Onlineauftritt.</p>
+                        <slot data-select="h2"></slot>
+                        <slot></slot>
                     </div>
                     <div class="tjs-newsletter__col tjs-newsletter__input-wrapper">
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="E-Mail eintragen">
+                            <slot data-select="input"></slot>
                             <span class="input-group-text inside">Anmelden</span>
                         </div>
                         <span class="input-group-text outside">Anmelden</span>
                     </div>
                     <div class="tjs-newsletter__disturber-stars">
-                        <img loading="lazy" class="tjs-newsletter__stars--left" src="/images/stars.webp">
-                        <img loading="lazy" class="tjs-newsletter__stars--right" src="/images/stars.webp">
+                        <img loading="lazy" class="tjs-newsletter__stars--left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
+                        <img loading="lazy" class="tjs-newsletter__stars--right" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
                     </div>
                 </div>
             </div>
@@ -6207,8 +6184,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _text_container_text_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./text-container/text-container */ "./sections/text-container/text-container.ts");
 /* harmony import */ var _contact_form_contact_form__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./contact-form/contact-form */ "./sections/contact-form/contact-form.ts");
 /* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./footer/footer */ "./sections/footer/footer.ts");
-/* harmony import */ var _newsletter_newsletter__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./newsletter/newsletter */ "./sections/newsletter/newsletter.ts");
-/* harmony import */ var _contact_contact__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./contact/contact */ "./sections/contact/contact.ts");
+/* harmony import */ var _footer_copyright_footer_copyright__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./footer-copyright/footer-copyright */ "./sections/footer-copyright/footer-copyright.ts");
+/* harmony import */ var _newsletter_newsletter__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./newsletter/newsletter */ "./sections/newsletter/newsletter.ts");
+/* harmony import */ var _contact_contact__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./contact/contact */ "./sections/contact/contact.ts");
+
 
 
 
