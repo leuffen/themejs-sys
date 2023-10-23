@@ -25,7 +25,7 @@
         }
     }
 
-    &__legal {
+    &__legal > slot {
         display: flex;
         align-items: center;
 
@@ -58,7 +58,8 @@
     &.mobile {
         .tjs-footer-copyright {
 
-            &__legal .content {
+            &__legal > slot {
+                display: flex;
                 flex-direction: column;
 
                 p {
