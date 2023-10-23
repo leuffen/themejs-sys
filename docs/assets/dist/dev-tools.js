@@ -4859,7 +4859,7 @@ let html = `
 </nav>
 
 # Kontakt
-{: layout="use: #header1" data-section-class="increased-height"}
+{: layout="use: #header1" data-section-class="decreased-height"}
 
 Vielen Dank f\xFCr Ihr Interesse. Nutzen Sie das Formular oder schreiben sie uns unter [kontakt@leuffen.de](kontakt@leuffen.de).
 
@@ -5252,6 +5252,13 @@ Ja, wir bieten ein kostenloses Erstgespr\xE4ch, bei dem Sie Ihre M\xF6glichkeite
 ## Kontakt
 {: layout="use: #contact"}
 
+> Vereinbaren Sie ein kostenloses Beratungsgespr\xE4ch.
+
+**Ihre Vorteile**
+- Keine Einrichtungskosten
+- Jederzeit k\xFCndbar
+- 30-Tage Geld-Zur\xFCck-Garantie
+
 [input type="text"  name="Name" required .mb-3]
 [input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine g\xFCltige E-Mail Adresse ein" required .mb-3]
 [input type="tel" name="Telefon" .mb-3]
@@ -5261,14 +5268,13 @@ Ja, wir bieten ein kostenloses Erstgespr\xE4ch, bei dem Sie Ihre M\xF6glichkeite
 
 Melden Sie sich jetzt f\xFCr unseren Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschl\xE4ge und viele weitere hilfreiche Tipps f\xFCr Ihren Onlineauftritt.
 
-
+[input type="email" name="E-Mail eintragen" placeholder="E-Mail eintragen"]
 
 
 ## Systemwebsite.de
 {: layout="use: #footer"}
 
 > Ihr Partner f\xFCr moderne medizinische Webseiten-Entwicklung
-
 
 
 ### Links
@@ -5292,14 +5298,16 @@ Melden Sie sich jetzt f\xFCr unseren Newsletter an und erhalten Sie alle paar Wo
 - [Facebook](#)
 - [Instragram](#)
 
----
-{: .footer-nav}
 
-Copyright (c) 2023 Systemwebsite by leuffen.de
 
-- [AGB](#)
-- [Datenschutz](#)
-- [Impressum](#)
+<footer layout="use:#footer-copyright">
+    <p>Copyright (c) 2023 Systemwebsite by leuffen.de</p>
+    <ul>
+        <li><a href="{%- include do/link.html pid=it.pid -%}">AGB</a></li>
+        <li><a href="{%- include do/link.html pid=it.pid -%}">Datenschutz</a></li>
+        <li><a href="{%- include do/link.html pid=it.pid -%}">Impressum</a></li>
+    </ul>
+</footer>
 
 `;
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.addClass(
@@ -5347,7 +5355,7 @@ let html = `
 </nav>
 
 # Datenschutz
-{: layout="use: #header1"}
+{: layout="use: #header1" data-section-class="decreased-height"}
 
 
 ## Hero Section
