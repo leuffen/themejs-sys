@@ -12,12 +12,15 @@ Joda.registerTemplate("newsletter",
                         <slot></slot>
                     </div>
                     <div class="tjs-newsletter__col tjs-newsletter__input-wrapper">
-                        <div class="input-group">
-                            <slot data-select="input"></slot>
-                            <span class="input-group-text inside">Anmelden</span>
-                        </div>
-                        <span class="input-group-text outside">Anmelden</span>
+                        <form data-micx-formmail-preset="default" data-micx-formmail-sent-message="E-Mail erfolgreich gesendet!">
+                            <div class="input-group">
+                                <slot data-select="input"></slot>
+                                <span class="input-group-text inside">Anmelden</span>
+                            </div>
+                            <span class="input-group-text outside">Anmelden</span>
+                        </form>
                     </div>
+
                     <div class="tjs-newsletter__disturber-stars">
                         <img loading="lazy" class="tjs-newsletter__stars--left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
                         <img loading="lazy" class="tjs-newsletter__stars--right" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">

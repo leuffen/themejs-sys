@@ -1,0 +1,3 @@
+doc_root: docs
+template_dir: ./node_modules/@leuffen/themejs-sys/_tpl
+

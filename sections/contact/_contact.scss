@@ -74,56 +74,7 @@
                 letter-spacing: 1.8px;
             }
 
-            &__list {
-                strong {
-                    font-variation-settings: "wght" 500;
-                    font-size: 1.4rem;
-                }
 
-                ul {
-                    padding-left: 1.15rem;
-                    margin-top: 1rem;
-                    margin-bottom: 2rem;
-                }
-
-                li {
-                    font-size: 1.2rem;
-                    line-height: 1.9rem;
-                    padding-left: 1rem;
-                    list-style-type: none;
-                    position: relative;
-
-                    &:not(&:nth-last-child(1)) {
-                        margin-bottom: rem(10px);
-                    }
-
-                    &:before {
-                        content: " ";
-                        display: block;
-                        border: solid 12px $primary;
-                        border-radius: 12px;
-                        height: 0;
-                        width: 0;
-                        position: absolute;
-                        left: rem(-20px);
-                        top: 40%;
-                        margin-top: rem(-9px);
-                    }
-                    &:after {
-                        content: " ";
-                        display: block;
-                        width: rem(7px);
-                        height: rem(14px);
-                        border: solid #fff;
-                        border-width: 0 0.2em 0.2em 0;
-                        position: absolute;
-                        left: rem(-12px);
-                        top: 40%;
-                        margin-top: rem(-5px);
-                        transform: rotate(45deg);
-                    }
-                }
-            }
         }
 
         &--privacy-wrapper {

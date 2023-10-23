@@ -1,0 +1,10 @@
+<<version: "3"
+services:
+    # This service will be available as: project_name_some_service
+    schiller:
+        image: ghcr.io/leuffen/schiller:unstable
+        ports:
+            -   "5000:80"
+        volumes:
+            - ./:/data
+
