@@ -1,0 +1,48 @@
+/**
+ * Komponente: google-map
+ */
+
+.tjs-google-map {
+    position: relative;
+
+    iframe {
+        height: 610px;
+    }
+
+    .tjs-wrapper {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    &__address {
+        width: 300px;
+        background: $white;
+        border-radius: 10px;
+        padding: 20px 20px 4px;
+        bottom: 30px;
+        position: absolute;
+
+        h1 {
+            display: none;
+        }
+
+        img {
+            display: block;
+            height: 32px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: rem(16px);
+            line-height: 21px;
+        }
+    }
+
+    &.mobile {
+        .tjs--google-map {
+
+        }
+    }
+}

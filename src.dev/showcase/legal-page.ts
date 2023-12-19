@@ -21,13 +21,7 @@ let html =`
 </nav>
 
 # Datenschutz
-{: layout="use: #header1" data-section-class="decreased-height"}
-
-
-## Hero Section
-{: layout="use: #disturber"}
-
-Wir garantieren Ihnen 100% Zufriedenheit mit unserer <b class="text-primary">30 Tage Geld-zurück-Garantie!</b>
+{: layout="use: #header1" data-section-class="decreased-height bg-into-white"}
 
 ## Datenschutzerklärung
 {: layout="use: #text-container"}

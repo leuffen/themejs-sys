@@ -16,7 +16,6 @@ Joda.registerTemplate("contact",
                         <div class="tjs-contact__col tjs-contact__newsletter--form">
                             <form data-micx-formmail-preset="default" data-micx-formmail-sent-message="E-Mail erfolgreich gesendet!">
                                 <slot data-select=".form, form"></slot>
-
                             </form>
                         </div>
                     </div>

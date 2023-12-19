@@ -107,6 +107,8 @@
             padding: rem(30px);
             min-width: rem(425px);
             max-width: 500px;
+            display: flex;
+            flex-direction: column;
 
             &:first-child {
                 margin-left: 18vw;
@@ -137,7 +139,7 @@
             }
 
             &__text {
-                margin-bottom: rem(50px);
+                margin-bottom: auto;
                 font: italic normal normal 20px/27px Roboto;
             }
 

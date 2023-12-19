@@ -12,6 +12,8 @@ import "./image-slider/image-slider";
 import "./cta1/cta1";
 import "./text-container/text-container";
 import "./contact-form/contact-form";
+import "./google-map/google-map";
+import "./box/box";
 
 import "./footer/footer";
 import "./footer-copyright/footer-copyright";

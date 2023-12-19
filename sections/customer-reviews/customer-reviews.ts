@@ -45,9 +45,9 @@ Joda.registerTemplate("customer-reviews",
                                     <div class="tjs-customer-reviews__carousel--nav-points__point" data-id="3"></div>
                                 </div>
 
-                                <liscom-slider class="tjs-customer-reviews__carousel--slides">
-                                    <slot data-select=".children > *" data-child-layout="use: #customer-reviews__carousel--slide;"></slot>
-                                </liscom-slider>
+                                <swiper-container class="tjs-customer-reviews__carousel--slides">
+                                    <slot data-select=".children > *" data-child-layout="use: #customer-reviews__carousel--slide;" data-replace></slot>
+                                </swiper-container>
 
                             </div>
                         </div>

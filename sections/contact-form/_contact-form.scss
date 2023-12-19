@@ -5,19 +5,13 @@
 .tjs-contact-form {
     font-family: 'Roboto Flex', sans-serif;
     position: relative;
+    margin-top: 65px;
+    text-align: left;
     @include element-to-element-margin-medium;
 
     &__content--container {
-        background: #fff;
-        border-radius: 40px;
-        padding-top: rem(55px);
-        padding-bottom: rem(55px);
-        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
-        margin-top: rem(-50px);
-
         &-inner {
             display: flex;
-            align-items: center;
         }
     }
 
@@ -40,11 +34,8 @@
     }
 
     form {
-        background: var(--bs-white);
-        padding: 2rem;
-        border-radius: 1rem;
         color: var(--color-placeholder);
-        font-variation-settings: "wght" 350;
+        font-variation-settings: "weight" 350;
 
         input {
             &:focus {
@@ -83,15 +74,23 @@
         }
     }
 
+    &__form {
+        background: #fff;
+        border-radius: 20px;
+        padding: rem(30px) rem(30px) rem(15px);
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
     &__text {
-        text-align: center;
-        border-right: 1px solid rgba(0, 0, 0, 0.5);
-
-        img {
-            width: 50%;
-            margin-bottom: 2rem;
+        h3 {
+            font-size: rem(25px);
+            width: 75%;
+            margin-bottom: rem(50px);
         }
-
+        p {
+            font-size: rem(25px);
+            margin: 0 0 rem(30px);
+        }
         ul {
             li {
                 display: flex;
@@ -131,8 +130,7 @@
             }
 
             &__text {
-                border-right: none;
-                order: 2;
+                width: 100%;
             }
         }
 
