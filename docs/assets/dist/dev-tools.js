@@ -2779,8 +2779,13 @@ let ExampleSwitcherElement = class ExampleSwitcherElement extends _kasimirjs_emb
                 daba.replaceWith(newElement);
                 return;
             }
-            document.body.classList.add(...desc.config.bodyClasses);
+            if (desc.config.bodyClasses !== undefined)
+                document.body.classList.add(...desc.config.bodyClasses);
             let content = (_a = desc.example) !== null && _a !== void 0 ? _a : "No example found";
+            if (desc.exampleUri !== undefined) {
+                let response = yield fetch(desc.exampleUri);
+                content = yield response.text();
+            }
             if (desc.config.parseMarkdown) {
                 content = content.replace(/\n{:/gm, "{:");
                 content = md.render(content);
@@ -2844,7 +2849,7 @@ const config = {
 // language=HTML
 const tpl2 = `
 <div>
-    
+
     <h3 class="">JodaStyle Dev</h3>
     <quick-input ka.bind="$scope.siteConfig.disable_split" data-label="Disable Joda Split " data-name="test" data-type="switch"></quick-input>
     <quick-input ka.bind="$scope.siteConfig.disable_templates" data-label="Disable Joda Templates " data-name="test" data-type="switch"></quick-input>
@@ -2899,7 +2904,6 @@ JodaDevSidebarElement = __decorate([
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 /* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../index */ "./node_modules/@leuffen/jodastyle-dev/dist/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2920,10 +2924,11 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 };
 
 
-
 // language=HTML
 const tpl = `
+
     <div class="joda-showcase-element" ka.classlist="classes">
+        <style></style>
         <div class="row " >
             <div class="col col-auto" ka.for="let i of desc ">
                 <div class="card">
@@ -2941,10 +2946,10 @@ const tpl = `
 let JodaShowcaseElement = class JodaShowcaseElement extends _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.KaCustomElement {
     constructor() {
         super();
-        this.shadowRootConfig.mode = "closed";
-        this.shadowRootConfig.stylesheets = [
-            _index__WEBPACK_IMPORTED_MODULE_2__.joda_dev_config.stylesheet
-        ];
+        /*this.shadowRootConfig.mode = "closed";
+         this.shadowRootConfig.stylesheets = [
+             joda_dev_config.stylesheet
+         ]; */
         let scope = this.init({
             desc: _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.data,
             classes: [],
@@ -3320,6 +3325,24 @@ class __JodaDescriptionManager {
             window["jodastyle"]["descriptions"] = [];
         }
         window["jodastyle"]["descriptions"].push({ category, className, description, example, modifiers, config });
+    }
+    addMarkdownPage(uri, name) {
+        if (window["jodastyle"] === undefined) {
+            window["jodastyle"] = {};
+        }
+        if (window["jodastyle"]["descriptions"] === undefined) {
+            window["jodastyle"]["descriptions"] = [];
+        }
+        window["jodastyle"]["descriptions"].push({
+            category: "page",
+            className: name,
+            description: "A page with markdown content",
+            exampleUri: uri,
+            modifiers: [],
+            config: {
+                parseMarkdown: true
+            }
+        });
     }
     get data() {
         var _a;
@@ -4714,7 +4737,7 @@ class Jodastyle {
             // Wait for all joda-split to be ready
             for (let child of Array.from(node.getElementsByTagName("joda-split"))) {
                 while (child["ready"] !== true) {
-                    yield (0, embed_1.ka_sleep)(5);
+                    yield (0, embed_1.ka_sleep)(10);
                 }
             }
             // Run layout-attribute processor (for whole style - already running on joda-split)
@@ -4723,23 +4746,28 @@ class Jodastyle {
                 layoutProcessor.processNode(node);
             });
             // Run jodastyle commands
-            for (let child of [node, ...Array.from(node.querySelectorAll("*"))]) {
+            for (let child of [node, ...Array.from(node.children)]) {
                 if (child["joda-style-processed"] === true) {
                     continue;
                 }
                 child["joda-style-processed"] = true;
                 let style = getComputedStyle(child);
+                let parentStyle = null;
+                if (child.parentElement) {
+                    parentStyle = getComputedStyle(child.parentElement);
+                }
                 let keys = Object.keys(jodastyle_commands_1.jodaStyleCommands);
                 for (let key of Array.from(keys)) {
                     let styleValue = style.getPropertyValue(key);
                     if (styleValue === "") {
                         continue;
                     }
-                    if (styleValue === getComputedStyle(child.parentElement).getPropertyValue(key)) {
+                    if (parentStyle !== null && styleValue === parentStyle.getPropertyValue(key)) {
                         continue; // Inherited from parent
                     }
                     // Replace starting and ending with " or ' with nothing
                     styleValue = (0, functions_1.getCleanVariableValue)(styleValue);
+                    //await ka_sleep(10);
                     let command = jodastyle_commands_1.jodaStyleCommands[key];
                     try {
                         child = (yield command(styleValue, node, child, this.logger));
@@ -4821,6 +4849,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _showcase_default_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./showcase/default-page */ "./src.dev/showcase/default-page.ts");
 /* harmony import */ var _showcase_legal_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./showcase/legal-page */ "./src.dev/showcase/legal-page.ts");
 /* harmony import */ var _showcase_contact_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./showcase/contact-page */ "./src.dev/showcase/contact-page.ts");
+/* harmony import */ var _showcase_content_elements__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./showcase/content-elements */ "./src.dev/showcase/content-elements.ts");
+
 
 
 
@@ -4920,6 +4950,46 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.addClass(
   "page",
   "contact-page",
   "contact-page",
+  html,
+  [],
+  {
+    bodyClasses: ["themejs-sys"]
+  }
+);
+
+
+/***/ }),
+
+/***/ "./src.dev/showcase/content-elements.ts":
+/*!**********************************************!*\
+  !*** ./src.dev/showcase/content-elements.ts ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+let html = `
+
+# Element styles
+
+## List Styles
+
+- Element 1
+- Element 2
+- Element 3
+{: .list-check}
+
+
+
+
+
+`;
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.addClass(
+  "page",
+  "content-elements",
+  "Elmente wie listen buttons etc",
   html,
   [],
   {
@@ -5262,6 +5332,7 @@ Ja, wir bieten ein kostenloses Erstgespr\xE4ch, bei dem Sie Ihre M\xF6glichkeite
 [input type="text"  name="Name" required .mb-3]
 [input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine g\xFCltige E-Mail Adresse ein" required .mb-3]
 [input type="tel" name="Telefon" .mb-3]
+{.form}
 
 ## Newsletter
 {: layout="use: #newsletter" data-section-style="padding-top: 160px;" data-section-class="dark"}
@@ -15300,7 +15371,7 @@ const punycode = {
 	 * @memberOf punycode
 	 * @type String
 	 */
-	'version': '2.1.0',
+	'version': '2.3.1',
 	/**
 	 * An object of methods to convert from JavaScript's internal character
 	 * representation (UCS-2) to Unicode code points, and back.

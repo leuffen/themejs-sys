@@ -48,8 +48,10 @@ Joda.registerTemplate("service-slider",
                 </div>
             </div>
         </section>
-        <script>
-            const swiperEl = document.querySelector('.tjs-service-slider__carousel--slides');
+    `,
+    {}, {
+        onAfterAllTemplatesConnectedCallback: (element) => {
+            const swiperEl = element.querySelector('.tjs-service-slider__carousel--slides');
             const swiperParams = {
                 spaceBetween: 35,
                 loop: true,
@@ -76,6 +78,6 @@ Joda.registerTemplate("service-slider",
                 }
             };
             Object.assign(swiperEl, swiperParams);
-            swiperEl.initialize();
-        </script>
-    `);
+            swiperEl['initialize']();
+        }
+    });
