@@ -1,14 +1,6 @@
 /*!******************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./docs/_src/late.scss ***!
   \******************************************************************************************************************************************/
-@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap);
-/*!**********************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./docs/_src/late.scss (1) ***!
-  \**********************************************************************************************************************************************/
-@import url(https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap);
-/*!**********************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./docs/_src/late.scss (2) ***!
-  \**********************************************************************************************************************************************/
 @charset "UTF-8";
 /* Very imporant for Pagespeed: Load fonts last */
 @font-face {
@@ -8084,6 +8076,94 @@
 /**
  * Fonts (werden am Ende gelöscht und ersetzt?)
  */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Light */
+/* BEGIN Light Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+/* END Light Italic */
+/* BEGIN Regular */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Regular */
+/* BEGIN Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+/* END Italic */
+/* BEGIN Semibold */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Semibold */
+/* BEGIN Semibold Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-SemiboldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+/* END Semibold Italic */
+/* BEGIN Bold */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Bold */
+/* BEGIN Bold Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+/* END Bold Italic */
+/* BEGIN Extrabold */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Extrabold */
+/* BEGIN Extrabold Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
 html * {
   font-family: "Roboto", sans-serif;
   color: #363636;

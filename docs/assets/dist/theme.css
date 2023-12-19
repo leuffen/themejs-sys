@@ -1,22 +1,6 @@
 /*!*******************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./docs/_src/theme.scss ***!
   \*******************************************************************************************************************************************/
-@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap);
-/*!***********************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./docs/_src/theme.scss (1) ***!
-  \***********************************************************************************************************************************************/
-@import url(https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap);
-/*!***********************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./docs/_src/theme.scss (2) ***!
-  \***********************************************************************************************************************************************/
-@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap);
-/*!***********************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./docs/_src/theme.scss (3) ***!
-  \***********************************************************************************************************************************************/
-@import url(https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap);
-/*!***********************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./docs/_src/theme.scss (4) ***!
-  \***********************************************************************************************************************************************/
 @charset "UTF-8";
 @keyframes leu--site-loader {
   3% {
@@ -109,6 +93,94 @@ body.loaded > .loader {
 /**
  * Fonts (werden am Ende gelöscht und ersetzt?)
  */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Light */
+/* BEGIN Light Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+/* END Light Italic */
+/* BEGIN Regular */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Regular */
+/* BEGIN Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+/* END Italic */
+/* BEGIN Semibold */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Semibold */
+/* BEGIN Semibold Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-SemiboldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+/* END Semibold Italic */
+/* BEGIN Bold */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Bold */
+/* BEGIN Bold Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+/* END Bold Italic */
+/* BEGIN Extrabold */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Extrabold */
+/* BEGIN Extrabold Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
 html * {
   font-family: "Roboto", sans-serif;
   color: #363636;
@@ -756,6 +828,94 @@ progress {
 /**
  * Fonts (werden am Ende gelöscht und ersetzt?)
  */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Light */
+/* BEGIN Light Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+/* END Light Italic */
+/* BEGIN Regular */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Regular */
+/* BEGIN Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+/* END Italic */
+/* BEGIN Semibold */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Semibold */
+/* BEGIN Semibold Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-SemiboldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+/* END Semibold Italic */
+/* BEGIN Bold */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Bold */
+/* BEGIN Bold Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+/* END Bold Italic */
+/* BEGIN Extrabold */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+/* END Extrabold */
+/* BEGIN Extrabold Italic */
+@font-face {
+  font-family: "Roboto";
+  src: url("https://cdn.leuffen.de/global/fonts/roboto/Roboto-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
 html * {
   font-family: "Roboto", sans-serif;
   color: #363636;
@@ -2530,35 +2690,36 @@ b {
 .tjs-footer-copyright a:hover {
   text-decoration: underline;
 }
-.tjs-footer-copyright__legal {
+.tjs-footer-copyright__legal > slot {
   display: flex;
   align-items: center;
 }
-.tjs-footer-copyright__legal p, .tjs-footer-copyright__legal ul {
+.tjs-footer-copyright__legal > slot p, .tjs-footer-copyright__legal > slot ul {
   margin: 0;
 }
-.tjs-footer-copyright__legal ul {
+.tjs-footer-copyright__legal > slot ul {
   display: flex;
   margin-left: auto;
   list-style-type: none;
 }
-.tjs-footer-copyright__legal ul li {
+.tjs-footer-copyright__legal > slot ul li {
   color: #A0A0A0;
 }
-.tjs-footer-copyright__legal ul li:not(:nth-child(1)):before {
+.tjs-footer-copyright__legal > slot ul li:not(:nth-child(1)):before {
   content: "|";
   margin: 0 20px;
 }
-.tjs-footer-copyright__legal ul li a {
+.tjs-footer-copyright__legal > slot ul li a {
   color: #A0A0A0;
 }
-.tjs-footer-copyright.mobile .tjs-footer-copyright__legal .content {
+.tjs-footer-copyright.mobile .tjs-footer-copyright__legal > slot {
+  display: flex;
   flex-direction: column;
 }
-.tjs-footer-copyright.mobile .tjs-footer-copyright__legal .content p {
+.tjs-footer-copyright.mobile .tjs-footer-copyright__legal > slot p {
   order: 2;
 }
-.tjs-footer-copyright.mobile .tjs-footer-copyright__legal .content ul {
+.tjs-footer-copyright.mobile .tjs-footer-copyright__legal > slot ul {
   margin-left: unset;
   margin-bottom: 20px;
 }
@@ -2770,50 +2931,6 @@ b {
   color: var(--color-green);
   text-transform: uppercase;
   letter-spacing: 1.8px;
-}
-.tjs-contact__newsletter--text__list strong {
-  font-variation-settings: "wght" 500;
-  font-size: 1.4rem;
-}
-.tjs-contact__newsletter--text__list ul {
-  padding-left: 1.15rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
-.tjs-contact__newsletter--text__list li {
-  font-size: 1.2rem;
-  line-height: 1.9rem;
-  padding-left: 1rem;
-  list-style-type: none;
-  position: relative;
-}
-.tjs-contact__newsletter--text__list li:not(.tjs-contact__newsletter--text__list li:nth-last-child(1)) {
-  margin-bottom: 0.625rem;
-}
-.tjs-contact__newsletter--text__list li:before {
-  content: " ";
-  display: block;
-  border: solid 12px #41C7A8;
-  border-radius: 12px;
-  height: 0;
-  width: 0;
-  position: absolute;
-  left: -1.25rem;
-  top: 40%;
-  margin-top: -0.5625rem;
-}
-.tjs-contact__newsletter--text__list li:after {
-  content: " ";
-  display: block;
-  width: 0.4375rem;
-  height: 0.875rem;
-  border: solid #fff;
-  border-width: 0 0.2em 0.2em 0;
-  position: absolute;
-  left: -0.75rem;
-  top: 40%;
-  margin-top: -0.3125rem;
-  transform: rotate(45deg);
 }
 .tjs-contact__newsletter--privacy-wrapper {
   margin: 2rem 0;
@@ -14760,6 +14877,81 @@ textarea.form-control-lg {
 
 .tjs__e-form input, .tjs__e-form textarea, .tjs__e-form select {
   --joda-use: "input()";
+}
+
+ul {
+  padding-left: 0;
+}
+
+.list-check-circle, ul.list-check-circle {
+  padding-left: 1.25rem;
+}
+.list-check-circle ul, ul.list-check-circle ul {
+  padding-left: 1.26rem;
+}
+.list-check-circle li, ul.list-check-circle li {
+  font-size: inherit;
+  line-height: inherit;
+  padding-left: 1rem;
+  list-style-type: none;
+  position: relative;
+}
+.list-check-circle li:not(.list-check-circle li:nth-last-child(1), ul.list-check-circle li:nth-last-child(1)), ul.list-check-circle li:not(.list-check-circle li:nth-last-child(1), ul.list-check-circle li:nth-last-child(1)) {
+  margin-bottom: 0.625rem;
+}
+.list-check-circle li:before, ul.list-check-circle li:before {
+  content: " ";
+  display: block;
+  border: solid 12px #41C7A8;
+  border-radius: 12px;
+  height: 0;
+  width: 0;
+  position: absolute;
+  left: -1.25rem;
+  top: 40%;
+  margin-top: -0.5625rem;
+}
+.list-check-circle li:after, ul.list-check-circle li:after {
+  content: " ";
+  display: block;
+  width: 0.4375rem;
+  height: 0.875rem;
+  border: solid #fff;
+  border-width: 0 0.2em 0.2em 0;
+  position: absolute;
+  left: -0.75rem;
+  top: 40%;
+  margin-top: -0.3125rem;
+  transform: rotate(45deg);
+}
+
+.list-check, ul.list-check {
+  padding-left: 1.25rem;
+}
+.list-check ul, ul.list-check ul {
+  padding-left: 1.26rem;
+}
+.list-check li, ul.list-check li {
+  font-size: inherit;
+  line-height: inherit;
+  padding-left: 1rem;
+  list-style-type: none;
+  position: relative;
+}
+.list-check li:not(.list-check li:nth-last-child(1), ul.list-check li:nth-last-child(1)), ul.list-check li:not(.list-check li:nth-last-child(1), ul.list-check li:nth-last-child(1)) {
+  margin-bottom: 0.625rem;
+}
+.list-check li:before, ul.list-check li:before {
+  content: "";
+  position: absolute;
+  left: -0.75rem;
+  top: 40%;
+  margin-top: -0.3125rem;
+  width: 0.4375rem;
+  height: 0.875rem;
+  border: solid #41C7A8;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 :root {

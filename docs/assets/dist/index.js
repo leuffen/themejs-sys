@@ -2515,12 +2515,23 @@ let Input = class Input {
                 element.append(opt);
             }
         }
+        let label = (_c = (_b = element["name"]) !== null && _b !== void 0 ? _b : element.id) !== null && _c !== void 0 ? _c : "undefinded";
+        if (element instanceof HTMLInputElement && (element.type === "checkbox" || element.type === "radio")) {
+            label = element.value;
+        }
+        if (element.hasAttribute("label")) {
+            label = element.getAttribute("label");
+        }
+        if (element.hasAttribute("data-label")) {
+            label = element.getAttribute("data-label");
+        }
         main.parse({
             layout,
-            classes: (_b = layout.classes + " " + element.getAttribute("data-class")) !== null && _b !== void 0 ? _b : "",
+            classes: (_d = layout.classes + " " + element.getAttribute("class")) !== null && _d !== void 0 ? _d : "",
             id: element.id,
-            label: (_d = (_c = element.getAttribute("label")) !== null && _c !== void 0 ? _c : element.getAttribute("name")) !== null && _d !== void 0 ? _d : element.id
+            label: label
         });
+        element.setAttribute("class", "");
         if (element instanceof HTMLSelectElement) {
             element.classList.add("form-select");
         }
@@ -3053,6 +3064,24 @@ class __JodaDescriptionManager {
             window["jodastyle"]["descriptions"] = [];
         }
         window["jodastyle"]["descriptions"].push({ category, className, description, example, modifiers, config });
+    }
+    addMarkdownPage(uri, name) {
+        if (window["jodastyle"] === undefined) {
+            window["jodastyle"] = {};
+        }
+        if (window["jodastyle"]["descriptions"] === undefined) {
+            window["jodastyle"]["descriptions"] = [];
+        }
+        window["jodastyle"]["descriptions"].push({
+            category: "page",
+            className: name,
+            description: "A page with markdown content",
+            exampleUri: uri,
+            modifiers: [],
+            config: {
+                parseMarkdown: true
+            }
+        });
     }
     get data() {
         var _a;
@@ -4447,7 +4476,7 @@ class Jodastyle {
             // Wait for all joda-split to be ready
             for (let child of Array.from(node.getElementsByTagName("joda-split"))) {
                 while (child["ready"] !== true) {
-                    yield (0, embed_1.ka_sleep)(5);
+                    yield (0, embed_1.ka_sleep)(10);
                 }
             }
             // Run layout-attribute processor (for whole style - already running on joda-split)
@@ -4456,23 +4485,28 @@ class Jodastyle {
                 layoutProcessor.processNode(node);
             });
             // Run jodastyle commands
-            for (let child of [node, ...Array.from(node.querySelectorAll("*"))]) {
+            for (let child of [node, ...Array.from(node.children)]) {
                 if (child["joda-style-processed"] === true) {
                     continue;
                 }
                 child["joda-style-processed"] = true;
                 let style = getComputedStyle(child);
+                let parentStyle = null;
+                if (child.parentElement) {
+                    parentStyle = getComputedStyle(child.parentElement);
+                }
                 let keys = Object.keys(jodastyle_commands_1.jodaStyleCommands);
                 for (let key of Array.from(keys)) {
                     let styleValue = style.getPropertyValue(key);
                     if (styleValue === "") {
                         continue;
                     }
-                    if (styleValue === getComputedStyle(child.parentElement).getPropertyValue(key)) {
+                    if (parentStyle !== null && styleValue === parentStyle.getPropertyValue(key)) {
                         continue; // Inherited from parent
                     }
                     // Replace starting and ending with " or ' with nothing
                     styleValue = (0, functions_1.getCleanVariableValue)(styleValue);
+                    //await ka_sleep(10);
                     let command = jodastyle_commands_1.jodaStyleCommands[key];
                     try {
                         child = (yield command(styleValue, node, child, this.logger));
@@ -5611,23 +5645,11 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("contact-f
                 <div class="tjs-contact-form__content--container">
                     <div class="tjs-contact-form__content--container-inner">
                         <div class="tjs-contact-form__col tjs-contact-form__text">
-                            <slot data-select="img"></slot>
-                            <slot data-select="ul"></slot>
+                            <slot></slot>
                         </div>
                         <div class="tjs-contact-form__col tjs-contact-form__form">
-                            <form>
-                                <slot></slot>
-
-                                <div class="tjs-contact-form__newsletter--privacy-wrapper">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="contact-input-callback-privacy">
-                                        <label class="form-check-label" for="contact-input-callback-privacy">
-                                            Ich akzeptiere die <a href="#">Nutzungsbedingungen</a> und <a href="#">Datenschutzerklärungen</a>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <button type="submit">Absenden</button>
+                            <form data-micx-formmail-preset="default" data-micx-formmail-sent-message="E-Mail erfolgreich gesendet!">
+                                <slot data-select=".form, form"></slot>
                             </form>
                         </div>
                     </div>
@@ -5660,46 +5682,13 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("contact",
                 <div class="tjs-contact__content--container">
                     <div class="tjs-contact__content--container-inner container">
                         <div class="tjs-contact__col tjs-contact__newsletter--text">
-                            <slot data-select="h2"></slot>
-                            <slot data-select="blockquote"></slot>
+                            <slot></slot>
 
-                            <div class="tjs-contact__newsletter--text__list">
-                                <slot data-select="strong"></slot>
-                                <slot data-select="ul"></slot>
-                            </div>
                         </div>
                         <div class="tjs-contact__col tjs-contact__newsletter--form">
-                            <form>
-                                <slot></slot>
+                            <form data-micx-formmail-preset="default" data-micx-formmail-sent-message="E-Mail erfolgreich gesendet!">
+                                <slot data-select=".form, form"></slot>
 
-                                <div class="tjs-contact__newsletter--callback-wrapper">
-                                    <span>Kontaktieren Sie mich per:</span>
-                                    <div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="contact-input-callback-type" id="contact-input-callback-type-phone">
-                                            <label class="form-check-label" for="contact-input-callback-type-phone">
-                                                Telefon
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="contact-input-callback-type" id="contact-input-callback-type-email" checked>
-                                            <label class="form-check-label" for="contact-input-callback-type-email">
-                                                E-Mail
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tjs-contact__newsletter--privacy-wrapper">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="contact-input-callback-privacy">
-                                        <label class="form-check-label" for="contact-input-callback-privacy">
-                                            Ich akzeptiere die <a href="#">Nutzungsbedingungen</a> und <a href="#">Datenschutzerklärungen</a>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <button type="submit">Absenden</button>
                             </form>
                         </div>
                     </div>
@@ -6144,12 +6133,15 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("newslette
                         <slot></slot>
                     </div>
                     <div class="tjs-newsletter__col tjs-newsletter__input-wrapper">
-                        <div class="input-group">
-                            <slot data-select="input"></slot>
-                            <span class="input-group-text inside">Anmelden</span>
-                        </div>
-                        <span class="input-group-text outside">Anmelden</span>
+                        <form data-micx-formmail-preset="default" data-micx-formmail-sent-message="E-Mail erfolgreich gesendet!">
+                            <div class="input-group">
+                                <slot data-select="input"></slot>
+                                <span class="input-group-text inside">Anmelden</span>
+                            </div>
+                            <span class="input-group-text outside">Anmelden</span>
+                        </form>
                     </div>
+
                     <div class="tjs-newsletter__disturber-stars">
                         <img loading="lazy" class="tjs-newsletter__stars--left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
                         <img loading="lazy" class="tjs-newsletter__stars--right" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">

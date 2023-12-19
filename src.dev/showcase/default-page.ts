@@ -322,6 +322,7 @@ Ja, wir bieten ein kostenloses Erstgespräch, bei dem Sie Ihre Möglichkeiten un
 [input type="text"  name="Name" required .mb-3]
 [input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine gültige E-Mail Adresse ein" required .mb-3]
 [input type="tel" name="Telefon" .mb-3]
+{.form}
 
 ## Newsletter
 {: layout="use: #newsletter" data-section-style="padding-top: 160px;" data-section-class="dark"}
