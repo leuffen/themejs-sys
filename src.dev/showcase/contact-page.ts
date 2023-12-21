@@ -21,7 +21,7 @@ let html =`
 </nav>
 
 # Wir sind für Sie da! Sprechen Sie uns an.
-{: layout="use: #header1" data-section-class="decreased-height"}
+{: layout="use: #header1" data-section-class="decreased-height overlap-elements"}
 
 Vereinbaren Sie einen 30-minütigen Anruf oder Video-Call mit einem unserer Experten und erfahren Sie, wie SYSTEMWEBSITE Ihnen helfen kann, Ihre Praxis perfekt zu präsentieren.
 
@@ -42,12 +42,22 @@ Ihre Vorteile auf einen Blick
 [textarea name="Nachricht" .mb-3]
 </div>
 
-<!--Header und Subheader aus Markdown, andere Elemente auch als HTML mit Klasse // <span class="price-top"></span>-->
+## Sie möchten direkt mit uns sprechen?
+{: layout="use: #box-white"}
+<b>Kein Problem! Sie erreichen uns von Montag bis Samstag von 10:00 bis 18:00 Uhr.</b>
+<br></br>
+Schildern Sie uns kurz Ihr geplantes Projekt und in der Regel erhalten Sie direkt eine Einschätzung von uns. Anschließend erhalten Sie ein Angebot per E-Mail.
+<br></br>
+[Zum kostenlosen Erstgespräch](#)
+{: .btn .btn-secondary}
+
 ## Web-Packet <span>M</span>
-{: layout="use: #box"}
+{: layout="use: #box-price"}
 > <b>Bestseller</b>
-1. € 849,-
-2. 999,-
+<div class="prices">
+    <div class="regular-price">999,-</div>
+    <div class="end-price"><span class="currency">€</span> 849,-</div>
+</div>
 
 Mit individuellen Themenschwer-punkten besser gefunden werden.
 <ul class="list-check-circle">

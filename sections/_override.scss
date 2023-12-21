@@ -8,6 +8,17 @@
     color: $white!important;
 }
 
+.btn-secondary {
+    color: $primary!important;
+    background: transparent!important;
+    border: 1px solid $primary!important;
+
+    &:hover {
+        background: $primary!important;
+        color: $white!important;
+    }
+}
+
 .btn-outline-primary {
     &:hover {
         color: $white!important;

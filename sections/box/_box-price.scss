@@ -1,0 +1,111 @@
+/**
+ * Komponente: box-price
+ */
+
+.tjs-box-price {
+    @include element-to-element-margin-large;
+
+    h2, p, ul, li {
+        color: $white;
+    }
+
+    h2 span {
+        color: $primary;
+    }
+
+    .tjs-wrapper {
+        background-color: $col-background;
+        border-radius: 20px;
+        position: relative;
+        padding: rem(40px);
+    }
+
+    &__border {
+        &:after {
+            content: "";
+            border: 1px solid $primary;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            position: absolute;
+            top: rem(10px);
+            left: rem(10px);
+            border-radius: 20px;
+        }
+    }
+
+    &__disturber {
+        position: absolute;
+        right: rem(10px);
+        top: rem(10px);
+        background: linear-gradient(to top right, transparent 0%, transparent 50%, $primary 50%, $primary 100%);
+        border-radius: 0 20px 0 0;
+        width: rem(170px);
+        height: rem(100px);
+
+        b {
+            text-align: center;
+            color: $white;
+            transform: rotate(32deg);
+            position: absolute;
+            right: 4px;
+            top: 24px;
+            text-transform: uppercase;
+        }
+    }
+
+    &__content {
+        &--header {
+            text-align: center;
+            border-bottom: 1px solid $primary;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+
+            &-prices {
+                .prices {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                .end-price {
+                    color: $white;
+                    font-size: rem(46px);
+
+                    .currency {
+                        color: $primary;
+                    }
+                }
+
+                .regular-price {
+                    color: $white;
+                    font-size: rem(22px);
+                    position: relative;
+
+                    &:after {
+                        content: "";
+                        width: 46px;
+                        height: 2px;
+                        background: $primary;
+                        position: absolute;
+                        left: calc(50% - 27px);
+                        bottom: 15px;
+                        transform: rotate(-22deg);
+                    }
+                }
+            }
+        }
+    }
+
+    &.mobile {
+        margin-right: rem(10px);
+        margin-left: rem(10px);
+
+        .tjs-box-price {
+            &--special {
+                margin-top: 8rem!important;
+                margin-bottom: 5rem!important;
+            }
+        }
+    }
+}

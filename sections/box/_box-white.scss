@@ -1,0 +1,34 @@
+/**
+ * Komponente: box-white
+ */
+
+.tjs-box-white {
+    @include element-to-element-margin-large;
+
+    .tjs-wrapper {
+        background-color: $white;
+        border: 1px solid $element-border-color;
+        border-radius: 20px;
+        position: relative;
+        padding: rem(40px);
+    }
+
+    &__content {
+        h2 {
+            font-size: rem(24px);
+            margin-bottom: rem(17px);
+        }
+
+        b {
+            font-weight: 600!important;
+        }
+    }
+
+    &.mobile {
+        margin-right: rem(10px);
+        margin-left: rem(10px);
+
+        .tjs-box-white {
+        }
+    }
+}

@@ -13,7 +13,8 @@ import "./cta1/cta1";
 import "./text-container/text-container";
 import "./contact-form/contact-form";
 import "./google-map/google-map";
-import "./box/box";
+import "./box/box-price";
+import "./box/box-white";
 
 import "./footer/footer";
 import "./footer-copyright/footer-copyright";

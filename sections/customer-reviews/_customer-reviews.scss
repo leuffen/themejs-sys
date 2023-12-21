@@ -35,7 +35,7 @@
                 position: absolute;
                 top: calc(50% - 21px);
                 position: absolute;
-                z-index: 1;
+                z-index: 15;
                 left: 20px;
             }
 
@@ -43,7 +43,7 @@
                 position: absolute;
                 top: calc(50% - 21px);
                 position: absolute;
-                z-index: 1;
+                z-index: 15;
                 right: 20px;
             }
 
@@ -86,7 +86,7 @@
                     border-radius: 50%;
                 }
 
-                &.active {
+                &.swiper-pagination-bullet-active {
                     &:after {
                         background: $primary;
                     }
