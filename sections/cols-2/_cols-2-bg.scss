@@ -63,32 +63,34 @@
         &-stars {
             &--left {
                 position: absolute;
-                left: rem(-50px);
-                top: rem(-80px);
+                left: rem(-100px);
+                bottom: rem(20px);
                 max-width: rem(110px);
 
-                @include media-breakpoint-down(xxl) {
-                    left: rem(-30px);
+                @media (max-width: 1600px) {
+                    left: rem(-50px);
+                    bottom: rem(-80px);
                 }
 
-                @include media-breakpoint-down(xl) {
-                    left: 0;
+                @media (max-width: 1400px) {
+                    bottom: rem(20px);
                 }
             }
 
             &--right {
                 position: absolute;
-                right: rem(-50px);
-                bottom: rem(-80px);
+                right: rem(-100px);
+                top: rem(20px);
                 max-width: rem(110px);
                 transform: scaleX(-1);
 
-                @include media-breakpoint-down(xxl) {
-                    right: rem(-30px);
+                @media (max-width: 1600px) {
+                    right: rem(-50px);
+                    top: rem(-80px);
                 }
 
-                @include media-breakpoint-down(xl) {
-                    right: 0;
+                @media (max-width: 1400px) {
+                    top: rem(20px);
                 }
             }
         }
@@ -200,14 +202,14 @@
                     &--left {
                         position: absolute;
                         left: rem(10px);
-                        top: rem(10px);
+                        bottom: rem(10px);
                         max-width: rem(50px);
                     }
 
                     &--right {
                         position: absolute;
                         right: rem(10px);
-                        bottom: rem(10px);
+                        top: rem(10px);
                         max-width: rem(50px);
                         transform: scaleX(-1);
                     }
