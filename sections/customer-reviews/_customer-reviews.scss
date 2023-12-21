@@ -109,6 +109,7 @@
             max-width: 500px;
             display: flex;
             flex-direction: column;
+            height: auto;
 
             &:first-child {
                 margin-left: 18vw;
@@ -150,6 +151,10 @@
                 }
                 a {
                     color: $primary;
+                }
+
+                .bi-star-fill {
+                    color: $primary!important;
                 }
             }
         }

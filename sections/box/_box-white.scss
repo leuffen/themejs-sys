@@ -2,6 +2,17 @@
  * Komponente: box-white
  */
 
+.tjs-box-white-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: rem(60px);
+
+    @include media-breakpoint-down(md) {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+    }
+}
+
 .tjs-box-white {
     @include element-to-element-margin-large;
 
@@ -29,6 +40,7 @@
         margin-left: rem(10px);
 
         .tjs-box-white {
+            margin-bottom: rem(36px);
         }
     }
 }

@@ -2,14 +2,47 @@
  * Komponente: box-price
  */
 
+.tjs-box-prices {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: rem(36px);
+
+    @include media-breakpoint-down(lg) {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+    }
+
+    :nth-child(2) {
+        &.tjs-box-price__disturber {
+            position: absolute;
+            right: rem(10px);
+            top: rem(10px);
+            background: linear-gradient(to top right, transparent 0%, transparent 50%, $primary 50%, $primary 100%);
+            border-radius: 0 20px 0 0;
+            width: rem(170px);
+            height: rem(100px);
+
+            b {
+                text-align: center;
+                color: $white;
+                transform: rotate(32deg);
+                position: absolute;
+                right: 4px;
+                top: 24px;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
 .tjs-box-price {
     @include element-to-element-margin-large;
 
-    h2, p, ul, li {
+    h3, p, ul, li {
         color: $white;
     }
 
-    h2 span {
+    h3 span {
         color: $primary;
     }
 
@@ -18,19 +51,6 @@
         border-radius: 20px;
         position: relative;
         padding: rem(40px);
-    }
-
-    &__border {
-        &:after {
-            content: "";
-            border: 1px solid $primary;
-            width: calc(100% - 20px);
-            height: calc(100% - 20px);
-            position: absolute;
-            top: rem(10px);
-            left: rem(10px);
-            border-radius: 20px;
-        }
     }
 
     &__disturber {
@@ -50,6 +70,23 @@
             right: 4px;
             top: 24px;
             text-transform: uppercase;
+        }
+    }
+
+    &.column-3 {
+        width: 30%;
+    }
+
+    &__border {
+        &:after {
+            content: "";
+            border: 1px solid $primary;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            position: absolute;
+            top: rem(10px);
+            left: rem(10px);
+            border-radius: 20px;
         }
     }
 
@@ -92,6 +129,12 @@
                         bottom: 15px;
                         transform: rotate(-22deg);
                     }
+
+                    &.no-price {
+                        &:after {
+                            display: none;
+                        }
+                    }
                 }
             }
         }
@@ -102,10 +145,6 @@
         margin-left: rem(10px);
 
         .tjs-box-price {
-            &--special {
-                margin-top: 8rem!important;
-                margin-bottom: 5rem!important;
-            }
         }
     }
 }

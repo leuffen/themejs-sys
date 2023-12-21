@@ -67,14 +67,11 @@ Joda.registerTemplate("customer-reviews",
                     bulletClass: 'tjs-customer-reviews__carousel--nav-points__point',
                 },
                 breakpoints: {
-                    640: {
-                        slidesPerView: 1.4,
-                    },
                     1024: {
-                        slidesPerView: 1.5,
+                        slidesPerView: 2,
                     },
                     1680: {
-                        slidesPerView: 3.5,
+                        slidesPerView: 3,
                     },
                 },
                 navigation: {
