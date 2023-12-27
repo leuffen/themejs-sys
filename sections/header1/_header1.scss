@@ -10,6 +10,7 @@
     min-height: calc(100vh - 110px);
     display: flex;
     align-items: center;
+    margin-bottom: rem(50px);
 
     &.bg-into-white {
         background: linear-gradient(360deg, #FFFFFF 0%, #FFFFFF00 100%) 0% 0% no-repeat padding-box, linear-gradient(103deg, #E8F6FF 0%, #EBF3E1 54%, #ECF2DC 100%) 0% 0% no-repeat padding-box;
@@ -27,6 +28,10 @@
 
     &.overlap-elements {
         margin-bottom: -70px;
+    }
+
+    &.no-bottom-margin {
+        margin-bottom: 0;
     }
 
     img {

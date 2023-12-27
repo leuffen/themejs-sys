@@ -15,6 +15,7 @@ import "./contact-form/contact-form";
 import "./google-map/google-map";
 import "./box/box-price";
 import "./box/box-white";
+import "./filter-images/filter-images";
 
 import "./footer/footer";
 import "./footer-copyright/footer-copyright";

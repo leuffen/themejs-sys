@@ -21,7 +21,7 @@ let html =`
 </nav>
 
 # Wir entwickeln moderne und maßgeschneiderte Websites für <typewriter-element>Allgemeinmediziner, Internisten, Gynäkologen, Orthopäden, Dermatologen, HNO-Ärzte, Augenärzte, Chirurgen, Urologen, Kardiologen, Ärzte & Mediziner</typewriter-element>
-{: layout="use: #header1"}
+{: layout="use: #header1" data-section-class="no-bottom-margin"}
 
 ![Webdesign für Ärzte](https://cdn.leuffen.de//leu-systemwebsite/v2/7/113-73_edcba/hero-image.webp)
 
