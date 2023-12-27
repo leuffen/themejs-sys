@@ -120,6 +120,65 @@ Mit individuellen Themenschwer-punkten besser gefunden werden.
 
 DSGVO-konforme Datensparsamkeit und Datensicherheit sind für uns selbstverständlich. Standardmäßig sind alle unsere Websites Cookie-frei. Natürlich mit sicherem SSL-Zertifikat und BSI zertifiziertem E-Mail-Postfach (optional).
 
+## Web-Pakete <span>M</span>
+{: layout="use: #box-prices" data-section-class="white-boxes"}
+### Web-Paket <span>M</span>
+<div class="prices">
+    <div class="regular-price no-price"></div>
+    <div class="end-price"><span class="currency">€</span> 849,-</div>
+</div>
+
+Mit individuellen Themenschwer-punkten besser gefunden werden.
+<ul class="list-check-circle">
+    <li>Exklusives Webdesign</li>
+    <li>Responsive Design</li>
+    <li>Alle Online-Funktionen verfügbar</li>
+    <li>Mehrsprachige Website</li>
+    <li>Hosting & Service</li>
+    <li>30 Tage Geld-zurück-Garantie</li>
+</ul>
+
+DSGVO-konforme Datensparsamkeit und Datensicherheit sind für uns selbstverständlich. Standardmäßig sind alle unsere Websites Cookie-frei. Natürlich mit sicherem SSL-Zertifikat und BSI zertifiziertem E-Mail-Postfach (optional).
+
+
+### Web-Paket <span>M</span>
+<div class="tjs-box-price__disturber"><b>Bestseller</b></div>
+<div class="prices">
+    <div class="regular-price">999,-</div>
+    <div class="end-price"><span class="currency">€</span> 849,-</div>
+</div>
+
+Mit individuellen Themenschwer-punkten besser gefunden werden.
+<ul class="list-check-circle">
+    <li>Exklusives Webdesign</li>
+    <li>Responsive Design</li>
+    <li>Alle Online-Funktionen verfügbar</li>
+    <li>Mehrsprachige Website</li>
+    <li>Hosting & Service</li>
+    <li>30 Tage Geld-zurück-Garantie</li>
+</ul>
+
+DSGVO-konforme Datensparsamkeit und Datensicherheit sind für uns selbstverständlich. Standardmäßig sind alle unsere Websites Cookie-frei. Natürlich mit sicherem SSL-Zertifikat und BSI zertifiziertem E-Mail-Postfach (optional).
+
+
+### Web-Paket <span>M</span>
+<div class="prices">
+    <div class="regular-price no-price"></div>
+    <div class="end-price"><span class="currency">€</span> 849,-</div>
+</div>
+
+Mit individuellen Themenschwer-punkten besser gefunden werden.
+<ul class="list-check-circle">
+    <li>Exklusives Webdesign</li>
+    <li>Responsive Design</li>
+    <li>Alle Online-Funktionen verfügbar</li>
+    <li>Mehrsprachige Website</li>
+    <li>Hosting & Service</li>
+    <li>30 Tage Geld-zurück-Garantie</li>
+</ul>
+
+DSGVO-konforme Datensparsamkeit und Datensicherheit sind für uns selbstverständlich. Standardmäßig sind alle unsere Websites Cookie-frei. Natürlich mit sicherem SSL-Zertifikat und BSI zertifiziertem E-Mail-Postfach (optional).
+
 
 
 ## Key Figures
