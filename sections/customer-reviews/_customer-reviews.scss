@@ -3,13 +3,7 @@
  */
 
 .tjs-customer-reviews {
-    @include element-to-element-margin-special;
-
-    &__content--container {
-        background: $element-border-color;
-        border-radius: 40px;
-        padding: rem(82px) 0;
-    }
+    @include element-to-element-margin-medium;
 
     &__content {
         &--headline {
@@ -18,180 +12,53 @@
         }
 
         &--row {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 60px;
             align-items: center;
         }
     }
 
-    &__carousel {
+    &__review {
         overflow: hidden;
         text-align: center;
         position: relative;
-        padding-bottom: 30px;
+        background: $white;
+        border: 1px solid $element-border-color;
+        border-radius: 20px;
+        padding: rem(30px);
+        height: 100%;
 
-        &--navigation {
-            &-prev {
-                position: absolute;
-                top: calc(50% - 21px);
-                position: absolute;
-                z-index: 15;
-                left: 20px;
-            }
-
-            &-next {
-                position: absolute;
-                top: calc(50% - 21px);
-                position: absolute;
-                z-index: 15;
-                right: 20px;
-            }
-
-            &-prev, &-next {
-                img {
-                    width: rem(42px);
-                    height: rem(42px);
-                }
-            }
+        &--stars {
+            margin-bottom: rem(30px);
         }
 
-        &--nav-points {
-            position: absolute;
-            display: flex;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-
-            &__point {
-                width: rem(13px);
-                height: rem(13px);
-                background: $white;
-                border-radius: 50%;
-                border: 1px solid #363636;
-                position: relative;
-
-                &:not(:last-child) {
-                    margin-right: rem(9px);
-                }
-
-                &:after {
-                    content: "";
-                    width: rem(9px);
-                    height: rem(9px);
-                    display: block;
-                    position: absolute;
-                    top: 1px;
-                    left: 1px;
-                    background: $white;
-                    border-radius: 50%;
-                }
-
-                &.swiper-pagination-bullet-active {
-                    &:after {
-                        background: $primary;
-                    }
-                }
-            }
+        &--text {
+            margin-bottom: auto;
+            font: italic normal normal 20px/27px Roboto;
         }
 
-        &--slides {
-            display: flex;
-            overflow-x: scroll;
-            padding-bottom: 5px;
-        }
-
-        &--slide {
-            background: $white;
-            box-shadow: 0px 1px 2px #00000029;
-            border-radius: 20px;
-            padding: rem(30px);
-            min-width: rem(425px);
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-            height: auto;
-
-            &:first-child {
-                margin-left: 18vw;
-                scroll-margin-left: 18vw;
-
-                @media (max-width: 1900px) {
-                    margin-left: 10vw;
-                    scroll-margin-left:10vw;
-                }
-
-                @include media-breakpoint-down(xxl) {
-                    margin-left: 8vw;
-                    scroll-margin-left: 8vw;
-                }
-
-                @include media-breakpoint-down(xl) {
-                    margin-left: 7vw;
-                    scroll-margin-left: 7vw;
-                }
+        &--author {
+            h3 {
+                margin-top: 5px;
+                font-size: rem(20px);
+            }
+            a {
+                color: $primary;
             }
 
-            &:not(:last-child) {
-                margin-right: rem(35px);
-            }
-
-            &__stars {
-                margin-bottom: rem(30px);
-            }
-
-            &__text {
-                margin-bottom: auto;
-                font: italic normal normal 20px/27px Roboto;
-            }
-
-            &__author {
-                h3 {
-                    margin-top: 5px;
-                    font-size: rem(20px);
-                }
-                a {
-                    color: $primary;
-                }
-
-                .bi-star-fill {
-                    color: $primary!important;
-                }
+            .bi-star-fill {
+                color: $primary!important;
             }
         }
     }
 
     &.mobile {
-        .tjs-wrapper {
-            margin: 0 auto;
-        }
-
         .tjs-customer-reviews {
-            &__content--container {
-                padding: 2.5rem 0 0;
-            }
-
-            &__col {
-                flex-basis: 100%;
-            }
-
             &__content {
-                &--col {
-                    flex-basis: 100%;
-                    @include col-side-paddings;
-                }
-            }
-
-            &__carousel {
-                margin-bottom: 2rem;
-
-                &--slide {
-                    flex: 0 0 100%;
-                    min-width: auto;
-
-                    &:first-child {
-                        margin-left: 0;
-                        scroll-margin-left: 0;
-                    }
+                &--row {
+                    grid-template-columns: 1fr;
+                    grid-gap: 20px;
                 }
             }
         }

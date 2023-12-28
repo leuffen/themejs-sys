@@ -2,17 +2,17 @@ import {Joda} from "@leuffen/jodastyle";
 import { register } from 'swiper/element/bundle';
 register();
 
-Joda.registerTemplate("customer-reviews__carousel--slide",
+Joda.registerTemplate("customer-reviews__review",
     // language=HTML
     `
-        <swiper-slide class="tjs-customer-reviews__carousel--slide">
-            <div class="tjs-customer-reviews__carousel--slide__stars">
+        <div class="tjs-customer-reviews__review">
+            <div class="tjs-customer-reviews__review--stars">
 
             </div>
-            <div class="tjs-customer-reviews__carousel--slide__text">
+            <div class="tjs-customer-reviews__review--text">
                 <slot data-select="blockquote"></slot>
             </div>
-            <div class="tjs-customer-reviews__carousel--slide__author">
+            <div class="tjs-customer-reviews__review--author">
                 <i class="bi bi-star-fill text-warning"></i>
                 <i class="bi bi-star-fill text-warning"></i>
                 <i class="bi bi-star-fill text-warning"></i>
@@ -20,66 +20,22 @@ Joda.registerTemplate("customer-reviews__carousel--slide",
                 <i class="bi bi-star-fill text-warning"></i> 5/5 Sterne
                 <slot></slot>
             </div>
-        </swiper-slide>
+        </div>
     `)
 
 Joda.registerTemplate("customer-reviews",
     // language=HTML
     `
         <section class="tjs-customer-reviews :: mobile :md:">
-            <div class="tjs-wrapper container-fluid">
-                <div class="tjs-customer-reviews__content--container">
-                    <div class="tjs-customer-reviews__content">
-                        <div class="tjs-customer-reviews__content--headline">
-                            <slot><slot>
-                        </div>
-                        <div class="tjs-customer-reviews__content--row">
-                            <div class="tjs-customer-reviews__content--col tjs-customer-reviews__carousel">
-                                <div class="tjs-customer-reviews__carousel--navigation-prev">
-                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-left.svg" width="500" height="500">
-                                </div>
-                                <div class="tjs-customer-reviews__carousel--navigation-next">
-                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-right.svg" width="500" height="500">
-                                </div>
-                                <div class="tjs-customer-reviews__carousel--nav-points"></div>
-
-                                <swiper-container init="false" class="tjs-customer-reviews__carousel--slides">
-                                    <slot data-select=".children > *" data-child-layout="use: #customer-reviews__carousel--slide;" data-replace></slot>
-                                </swiper-container>
-
-                            </div>
-                        </div>
+            <div class="tjs-wrapper container">
+                <div class="tjs-customer-reviews__content">
+                    <div class="tjs-customer-reviews__content--headline">
+                        <slot><slot>
+                    </div>
+                    <div class="tjs-customer-reviews__content--row">
+                        <slot data-select=".children > *" data-child-layout="use: #customer-reviews__review;" data-replace></slot>
                     </div>
                 </div>
             </div>
         </section>
-    `,
-    {}, {
-        onAfterAllTemplatesConnectedCallback: (element) => {
-            const swiperEl = element.querySelector('.tjs-customer-reviews__carousel--slides');
-            const swiperParams = {
-                spaceBetween: 35,
-                slidesPerView: 1,
-                loop: true,
-                pagination: {
-                    el: '.tjs-customer-reviews__carousel--nav-points',
-                    clickable: true,
-                    bulletClass: 'tjs-customer-reviews__carousel--nav-points__point',
-                },
-                breakpoints: {
-                    1024: {
-                        slidesPerView: 2,
-                    },
-                    1680: {
-                        slidesPerView: 3,
-                    },
-                },
-                navigation: {
-                    nextEl: ".tjs-customer-reviews__carousel--navigation-next",
-                    prevEl: ".tjs-customer-reviews__carousel--navigation-prev"
-                }
-            };
-            Object.assign(swiperEl, swiperParams);
-            swiperEl['initialize']();
-        }
-    });
+    `);

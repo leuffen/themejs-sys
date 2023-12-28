@@ -203,8 +203,7 @@ Reichen Sie neue Praxisbilder und Texte auch nach Live-Schaltung ein, wir tausch
 Damit wir Ihnen den neusten Stand der Technik für Ihre Website garantieren können, erhalten Sie alle drei Jahre einen kostenlosen Relaunch Ihrer Praxis-Website.
 
 ## Das sagen Ihre Kollegen über uns
-{: layout="use: #customer-reviews"}
-
+{: layout="use: #customer-reviews-slider"}
 
 ### Dr. med. Eleni Deutereou, Berlin
 

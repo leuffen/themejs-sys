@@ -26,6 +26,32 @@ let html =`
 [Referenzen ansehen](#tjs-filter-images)
 {: .btn .btn-primary}
 
+## Eine Praxis-Website auf Ihre Bedürfnisse angepasst
+{: layout="use: #cols-2" data-section-class="hide-headline images-full-width"}
+
+![](/images/reference-example-image.png)
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«.
+<ul class="list-check">
+    <li>Exklusives Webdesign</li>
+    <li>Responsive Design</li>
+    <li>Alle Online-Funktionen verfügbar</li>
+    <li>Mehrsprachige Website</li>
+    <li>Hosting & Service</li>
+    <li>30 Tage Geld-zurück-Garantie</li>
+</ul>
+
+
+## Individuelle Services nach Ihren Wünschen
+{: layout="use: #cols-2-bg" data-section-class="no-disturber reversed-rows"}
+
+Wir bieten umfangreiche Leistungen für eine stimmige On- & Offline-Kommunikation Ihrer Praxis und gehen dabei auch auf individuelle Bedürfnisse ein.
+<br><a href="#">Sie haben Fragen? Wir beraten Sie gerne persönlich.</a>
+<br><br><br>
+[Beratungsgespräch vereinbaren](#)
+{: .btn .btn-primary}
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/5/387-290_391.56/illustration-03.svg)
+
+
 ## Schauen Sie sich weitere Projekte an
 {: layout="use: #filter-images"}
 
@@ -58,6 +84,21 @@ Hallo Test
 {: data-section-data-tags="Website" }
 Hallo Test
 ![](/images/filter-1.png)
+
+## Das sagen unsere Kunden
+{: layout="use: #customer-reviews"}
+
+### Dr. med. Eleni Deutereou, Berlin
+
+>  „Alle geäußerten Wünsche wurden zeitnah umgesetzt und mit dem Ergebnis sind wir sehr zufrieden. Die Webseite lässt auch über unser Personal einfach nach Bedarf verändern. Ich kann Herrn Leuffen uneingeschränkt empfehlen! “
+
+[www.hoefner-deutereou.de](https://www.hoefner-deutereou.de){: target="_blank"}
+
+### Robert Sedlmaier, München
+
+>  „Eine klasse Idee sehr gut und schnell umgesetzt! Wir sind sehr zufrieden mit dem Ergebnis der Homepage, und besonders auch mit der sehr einfach und variabel zu bedienenden Admin-Umgebung. Wir freuen uns auf eine lange Partnerschaft! “
+
+[www.zahnarztpraxis-sedlmaier.de](https://www.zahnarztpraxis-sedlmaier.de){: target="_blank"}
 
 
 ## Kontakt

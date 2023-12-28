@@ -3,7 +3,21 @@
  */
 
 .tjs-cols-2-bg {
-    @include element-to-element-margin-large;
+    @include element-to-element-margin-medium;
+
+    &.reversed-rows {
+        .tjs-cols-2-bg__col {
+            &:nth-child(1) {
+                order: 2;
+            }
+        }
+    }
+
+    &.no-disturber {
+        .tjs-cols-2-bg__disturber {
+            display: none!important;
+        }
+    }
 
     .tjs-wrapper {
         background-color: $col-background;
@@ -35,10 +49,11 @@
         position: absolute;
         right: rem(10px);
         top: rem(10px);
-        background: linear-gradient(to top right, $col-background 0%, $col-background 50%, $primary 50%, $primary 100%);
+        background: linear-gradient(to top right, transparent 0%, transparent 50%, $primary 50%, $primary 100%);
         border-radius: 0 20px 0 0;
         width: rem(170px);
         height: rem(100px);
+        z-index: 10;
 
         b {
             text-align: center;
@@ -97,9 +112,11 @@
     }
 
     &__row {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 60px;
         align-items: center;
-        padding: rem(35px) 0;
+        padding: rem(10px) 0;
         position: inherit;
         z-index: 2;
 
@@ -109,10 +126,6 @@
     }
 
     &__col {
-        flex-basis: 50%;
-        @include col-side-paddings;
-        @include col-mobile-bottom-paddings;
-
         h3 {
             @include h3;
             color: $primary;
@@ -160,8 +173,8 @@
             }
 
             &__row {
-                flex-direction: column;
-                padding: rem(35px) 0 0 0;
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
 
                 &--special {
                     .tjs-cols-2-bg__col--text-content {
@@ -171,8 +184,6 @@
             }
 
             &__col {
-                flex-basis: 100%;
-
                 &--image {
                     order: 1;
                 }

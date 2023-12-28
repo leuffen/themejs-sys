@@ -4,7 +4,7 @@
 
 @import "cols-2-bg";
 .tjs-cols-2 {
-    @include element-to-element-margin-large;
+    @include element-to-element-margin-medium;
 
     &.reversed-rows {
         .tjs-cols-2__col {
@@ -14,17 +14,28 @@
         }
     }
 
+    &.hide-headline {
+        h2 {
+            display: none;
+        }
+    }
+
+    &.images-full-width {
+        img {
+            max-width: unset!important;
+        }
+    }
+
     .tjs-wrapper {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 60px;
         align-items: center;
     }
 
 
 
     &__col {
-        flex-basis: 50%;
-        @include col-side-paddings;
-
         h3 {
             @include h3;
         }
@@ -51,17 +62,14 @@
 
     &.mobile {
         .tjs-wrapper {
-            flex-direction: column;
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
         }
 
         .tjs-cols-2 {
             &__col {
-                flex-basis: 100%;
-
                 &--image {
                     order: 1;
-
-                    @include col-mobile-bottom-paddings;
                 }
 
                 &--text-content {
