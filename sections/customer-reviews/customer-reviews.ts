@@ -1,6 +1,4 @@
 import {Joda} from "@leuffen/jodastyle";
-import { register } from 'swiper/element/bundle';
-register();
 
 Joda.registerTemplate("customer-reviews__review",
     // language=HTML

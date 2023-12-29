@@ -1,0 +1,57 @@
+/**
+ * Komponente: headline
+ */
+
+.tjs-headline {
+    @include element-to-element-margin-medium;
+    text-align: center;
+
+    .tjs-wrapper {
+        position: relative;
+    }
+
+    &.star-top-left {
+        margin-top: 100px;
+
+        .tjs-headline--star-top-left {
+            position: absolute;
+            left: 0;
+            top: -45px;
+            max-width: 78px;
+            height: auto;
+        }
+    }
+
+    &:not(.star-top-left) {
+        .tjs-headline--star-top-left {
+            display: none;
+        }
+    }
+
+    h2 {
+        font-size: rem(25px);
+    }
+
+    blockquote {
+        margin-bottom: 0;
+        p {
+            font-size: rem(18px);
+            color: $primary;
+            margin-bottom: 0;
+        }
+    }
+
+    &.mobile {
+        &.star-top-left {
+            margin-top: 70px;
+
+            .tjs-headline--star-top-left {
+                position: absolute;
+                left: 0;
+                top: -45px;
+                max-width: rem(50px);
+                height: auto;
+            }
+        }
+    }
+}

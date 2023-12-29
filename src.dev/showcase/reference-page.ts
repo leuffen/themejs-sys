@@ -26,7 +26,11 @@ let html =`
 [Referenzen ansehen](#tjs-filter-images)
 {: .btn .btn-primary}
 
-## Eine Praxis-Website auf Ihre Bedürfnisse angepasst
+## Nach vier Wochen 60 % mehr Patienten
+{: layout="use: #headline" data-section-class="star-top-left"}
+>Praxis für Zahnmedizin
+
+## Nach vier Wochen 60 % mehr Patienten
 {: layout="use: #cols-2" data-section-class="hide-headline images-full-width"}
 
 ![](/images/reference-example-image.png)
@@ -39,6 +43,12 @@ Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind un
     <li>Hosting & Service</li>
     <li>30 Tage Geld-zurück-Garantie</li>
 </ul>
+
+
+## „Sehr gut und schnell umgesetzt! Wir sind sehr zufrieden mit dem Ergebnis der Homepage und besonders mit der sehr einfach und variabel zu bedienenden Admin-Umgebung. Wir freuen uns auf eine lange Partnerschaft!“
+{: layout="use: #customer-reviews-quote"}
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/5/387-290_391.56/illustration-03.svg)
+>Dr. Michal-Constanze Müller
 
 
 ## Individuelle Services nach Ihren Wünschen

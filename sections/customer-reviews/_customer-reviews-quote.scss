@@ -1,0 +1,75 @@
+/**
+ * Komponente: customer-reviews-quote
+ */
+
+.tjs-customer-reviews-quote {
+    @include element-to-element-margin-medium;
+
+    .tjs-wrapper {
+        position: relative;
+    }
+
+    h2 {
+        font-size: rem(25px);
+        padding-left: 40px;
+        color: $slider-button-color;
+        margin-bottom: 20px;
+    }
+
+    &__quote-icon {
+        position: absolute;
+        left: 0;
+        top: -60px;
+        transform: scale(-1);
+        font-size: 90px;
+        color: $element-border-color;
+        z-index: -1;
+    }
+
+    &__stars {
+        position: absolute;
+        width: 65px;
+        right: 0;
+        bottom: 0;
+        height: auto;
+        transform: scaleX(-1);
+        z-index: -1;
+    }
+
+    &__author {
+        .content {
+            display: flex;
+            align-items: center;
+
+            p {
+                margin: 0;
+            }
+
+            img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                border: 1px solid $box-border-color;
+            }
+
+            blockquote {
+                margin: 0 0 0 10px;
+            }
+        }
+    }
+
+    &.mobile {
+        h2 {
+            font-size: rem(20px);
+            padding-left: 20px;
+        }
+
+        .tjs-customer-reviews-quote {
+            &__stars {
+                width: 40px;
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+    }
+}
