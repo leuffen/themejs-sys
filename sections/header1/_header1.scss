@@ -50,6 +50,12 @@
         margin: 0 auto;
     }
 
+    &.text-left {
+        p {
+            margin: unset;
+        }
+    }
+
     &__hero {
         @include element-to-element-margin-medium;
 
