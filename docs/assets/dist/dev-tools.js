@@ -340,6 +340,8 @@ function ka_apply(selector, scope, recursive = false) {
                 selector.use(r, scope);
                 continue;
             case "become":
+                // ka.become="variable" => Replace the current element with the value of the variable (must be HTMLElement)
+                // e.g. to connect a Component defined in a variable to the DOM
                 if (!(r instanceof HTMLElement)) {
                     console.error("ka.become is only available on HTMLElements: Used on ", r, "found in ", selector);
                     throw "ka.become called on non HTMLElement.";
@@ -348,15 +350,23 @@ function ka_apply(selector, scope, recursive = false) {
                 selector.replaceWith(r);
                 continue;
             case "content":
+                // ka.content="variable" => Add the element to the current element
                 selector.setAttribute("ka.stop", "");
                 if (typeof r === "string") {
                     selector.innerHTML = r;
+                    continue;
+                }
+                if (r === null || r === false) {
+                    selector.innerHTML = "";
                     continue;
                 }
                 if (!(r instanceof HTMLElement)) {
                     console.error("ka.content is only available on HTMLElements: Used on ", r, "found in ", selector);
                     throw "ka.content called on non HTMLElement.";
                 }
+                if (selector.firstElementChild === r)
+                    continue;
+                selector.innerHTML = "";
                 selector.append(r);
                 continue;
             case "scope":
@@ -1093,23 +1103,17 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 
 
 
-class ShadowRootConfig {
-    constructor() {
-        this.mode = null; // Default null: No shadowRoot
-        this.stylesheets = [];
-    }
-}
 class KaCustomElement extends HTMLElement {
     constructor() {
         super(...arguments);
         this.__ka_stop_render = true; // Stop rendering if this element is reached
-        this.shadowRootConfig = new ShadowRootConfig(); // Activate shadowRoot
+        this.shadowRootConfig = {}; // Activate shadowRoot
         this.html = "Undefined Template";
         this.scope = (0,_types__WEBPACK_IMPORTED_MODULE_0__.createScopeObject)();
         this.tplPrototype = null;
         this.wrapper = null;
     }
-    init(scope) {
+    init(scope, autorender = true) {
         this.scope.init(scope);
         return this.scope;
     }
@@ -1119,7 +1123,9 @@ class KaCustomElement extends HTMLElement {
     setParentScope(scope) {
         this.scope.$parent = scope;
     }
+    // @ts-nocheck
     connectedCallback() {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
             if (!this.scope.isInitialized())
                 this.init({});
@@ -1127,6 +1133,9 @@ class KaCustomElement extends HTMLElement {
             // Cannot be done in constructor because of async behavior
             if ((0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.constructor["html"])) {
                 this.html = this.constructor["html"];
+            }
+            if ((0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.constructor["shadowRootConfig"])) {
+                this.shadowRootConfig = this.constructor["shadowRootConfig"];
             }
             if (this.tplPrototype === null) {
                 this.tplPrototype = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_2__.ka_templatify)((0,_ce_html__WEBPACK_IMPORTED_MODULE_3__.ka_html)(this.html));
@@ -1137,7 +1146,7 @@ class KaCustomElement extends HTMLElement {
             let domRoot = this;
             if (this.shadowRootConfig.mode !== null) {
                 domRoot = this.attachShadow({ mode: this.shadowRootConfig.mode });
-                this.shadowRootConfig.stylesheets.forEach((stylesheet) => {
+                (_a = this.shadowRootConfig.stylesheets) === null || _a === void 0 ? void 0 : _a.forEach((stylesheet) => {
                     (0,_core_create_element__WEBPACK_IMPORTED_MODULE_5__.ka_create_element)("link", { rel: "stylesheet", href: stylesheet }, null, domRoot);
                 });
             }
@@ -1695,7 +1704,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   isset: () => (/* binding */ isset),
 /* harmony export */   ka_await_element: () => (/* binding */ ka_await_element),
 /* harmony export */   random_string: () => (/* binding */ random_string),
-/* harmony export */   template: () => (/* binding */ template)
+/* harmony export */   template: () => (/* binding */ template),
+/* harmony export */   timeAgo: () => (/* binding */ timeAgo),
+/* harmony export */   timeTo: () => (/* binding */ timeTo)
 /* harmony export */ });
 /* harmony import */ var _core_sleep__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core/sleep */ "./node_modules/@kasimirjs/embed/dist/core/sleep.js");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -1726,6 +1737,7 @@ function isUndefined(input) {
  *
  * @param tagName
  */
+// @ts-nocheck
 function customElement(tagName = null, template = null) {
     return function (classOrDescriptor) {
         if (template !== null) {
@@ -1748,6 +1760,7 @@ function customElement(tagName = null, template = null) {
         return classOrDescriptor;
     };
 }
+// @ts-nocheck
 function ka_await_element(selector, parent = document, maxWait = 2000) {
     return __awaiter(this, void 0, void 0, function* () {
         let elem = parent.querySelector(selector);
@@ -1761,9 +1774,10 @@ function ka_await_element(selector, parent = document, maxWait = 2000) {
         return elem;
     });
 }
-function template(template) {
+function template(template, shadowRootConfig = { mode: null }) {
     return function (classOrDescriptor) {
         classOrDescriptor["html"] = template;
+        classOrDescriptor["shadowRootConfig"] = shadowRootConfig;
         return classOrDescriptor;
     };
 }
@@ -1775,6 +1789,55 @@ function random_string(len = 12) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
+}
+function timeTo(date) {
+    const now = new Date();
+    let seconds = Math.floor((date.getTime() - now.getTime()) / 1000);
+    if (seconds < 0) {
+        return 'today';
+    }
+    let interval = seconds / 31536000;
+    if (interval > 1) {
+        return 'In ' + Math.floor(interval) + " years";
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+        return 'In ' + Math.floor(interval) + " months";
+    }
+    interval = seconds / 604800;
+    if (interval > 1) {
+        return 'In ' + Math.floor(interval) + " weeks";
+    }
+    interval = seconds / 86400;
+    if (interval >= 1) {
+        return 'In ' + Math.floor(interval) + " days";
+    }
+    return 'today';
+}
+function timeAgo(date) {
+    const now = new Date();
+    const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+    let interval = seconds / 31536000;
+    if (interval > 1) {
+        return Math.floor(interval) + " years ago";
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+        return Math.floor(interval) + " months ago";
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+        return Math.floor(interval) + " days ago";
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+        return Math.floor(interval) + " hours ago";
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+        return Math.floor(interval) + " minutes ago";
+    }
+    return Math.floor(seconds) + " seconds ago";
 }
 
 
@@ -1813,7 +1876,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ka_sleep: () => (/* reexport safe */ _core_sleep__WEBPACK_IMPORTED_MODULE_2__.ka_sleep),
 /* harmony export */   ka_templatify: () => (/* reexport safe */ _tpl_templatify__WEBPACK_IMPORTED_MODULE_17__.ka_templatify),
 /* harmony export */   random_string: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.random_string),
-/* harmony export */   template: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.template)
+/* harmony export */   template: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.template),
+/* harmony export */   timeAgo: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.timeAgo),
+/* harmony export */   timeTo: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.timeTo)
 /* harmony export */ });
 /* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ "./node_modules/@kasimirjs/embed/dist/functions.js");
 /* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types */ "./node_modules/@kasimirjs/embed/dist/types.js");
@@ -2179,26 +2244,28 @@ class KaDefaultScope {
 function createScopeObject(init = null) {
     let scopeDef = new KaDefaultScope();
     scopeDef["$__scope_orig"] = scopeDef;
-    let proxy = new Proxy(scopeDef, {
-        get(target, prop, receiver) {
-            if (prop.startsWith("$"))
-                return target[prop];
-            return target[prop];
-        },
-        set(target, p, value, receiver) {
-            if (target[p] === value)
-                return true; // Nothing changed
-            target[p] = value;
-            let debouncer = new _core_debouncer__WEBPACK_IMPORTED_MODULE_1__.Debouncer(50, 50);
-            if (p.startsWith("$") || p.startsWith("__"))
-                return true;
-            if ((0,_functions__WEBPACK_IMPORTED_MODULE_0__.isset)(scopeDef.$tpl))
-                scopeDef.$tpl.render();
-            (() => __awaiter(this, void 0, void 0, function* () {
-                yield debouncer.debounce();
-            }))();
+    let setAction = (target, p, value, receiver) => {
+        if (target[p] === value)
+            return true; // Nothing changed
+        target[p] = value;
+        let debouncer = new _core_debouncer__WEBPACK_IMPORTED_MODULE_1__.Debouncer(50, 50);
+        if (p.startsWith("$") || p.startsWith("__"))
             return true;
-        }
+        if ((0,_functions__WEBPACK_IMPORTED_MODULE_0__.isset)(scopeDef.$tpl))
+            scopeDef.$tpl.render();
+        (() => __awaiter(this, void 0, void 0, function* () {
+            yield debouncer.debounce();
+        }))();
+        return true;
+    };
+    let getAction = (target, prop, receiver) => {
+        if (prop.startsWith("$"))
+            return target[prop];
+        return target[prop];
+    };
+    let proxy = new Proxy(scopeDef, {
+        get: getAction,
+        set: setAction,
     });
     if (init !== null)
         scopeDef.init(init);
@@ -4850,6 +4917,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _showcase_legal_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./showcase/legal-page */ "./src.dev/showcase/legal-page.ts");
 /* harmony import */ var _showcase_contact_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./showcase/contact-page */ "./src.dev/showcase/contact-page.ts");
 /* harmony import */ var _showcase_content_elements__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./showcase/content-elements */ "./src.dev/showcase/content-elements.ts");
+/* harmony import */ var _showcase_reference_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./showcase/reference-page */ "./src.dev/showcase/reference-page.ts");
+
 
 
 
@@ -4888,32 +4957,194 @@ let html = `
     </ul>
 </nav>
 
-# Kontakt
-{: layout="use: #header1" data-section-class="decreased-height"}
+# Wir sind f\xFCr Sie da! Sprechen Sie uns an.
+{: layout="use: #header1" data-section-class="decreased-height overlap-elements"}
 
-Vielen Dank f\xFCr Ihr Interesse. Nutzen Sie das Formular oder schreiben sie uns unter [kontakt@leuffen.de](kontakt@leuffen.de).
+Vereinbaren Sie einen 30-min\xFCtigen Anruf oder Video-Call mit einem unserer Experten und erfahren Sie, wie SYSTEMWEBSITE Ihnen helfen kann, Ihre Praxis perfekt zu pr\xE4sentieren.
 
 
-## Kontaktformular
-{: layout="use: #contact-form"}
+### F\xFCllen Sie das Formular aus und wir melden uns schnellstens bei Ihnen zur\xFCck.
+{: layout="use: #contact-form}
 
-![Some Image](/images/illustration-a1.webp)
+Ihre Vorteile auf einen Blick
+<ul class="list-check-circle">
+    <li>Direkter Ansprechpartner f\xFCr Ihre W\xFCnsche</li>
+    <li>Faire Preise & keine verstecken Kosten</li>
+    <li>30 Tage Geld-zur\xFCck-Zufriedenheitsgarantie</li>
+</ul>
 
-- <i class="bi bi-geo-alt-fill"></i> Mathildenstr. 9-11, 45130 Essen
-- <i class="bi bi-telephone-fill"></i> (0201) 7 58 59 936
-- <i class="bi bi-envelope-fill"></i> kontakt@leuffen.de
-
+<div class="form">
 [input type="text"  name="Name" required .mb-3]
 [input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine g\xFCltige E-Mail Adresse ein" required .mb-3]
 [textarea name="Nachricht" .mb-3]
+</div>
 
+## Sie m\xF6chten direkt mit uns sprechen?
+{: layout="use: #box-white-container"}
+### Sie m\xF6chten direkt mit uns sprechen?
+<b>Kein Problem! Sie erreichen uns von Montag bis Samstag von 10:00 bis 18:00 Uhr.</b>
+<br></br>
+Schildern Sie uns kurz Ihr geplantes Projekt und in der Regel erhalten Sie direkt eine Einsch\xE4tzung von uns. Anschlie\xDFend erhalten Sie ein Angebot per E-Mail.
+<br></br>
+[Zum kostenlosen Erstgespr\xE4ch](#)
+{: .btn .btn-secondary}
+
+### Sie m\xF6chten direkt mit uns sprechen?
+<b>Kein Problem! Sie erreichen uns von Montag bis Samstag von 10:00 bis 18:00 Uhr.</b>
+<br></br>
+Schildern Sie uns kurz Ihr geplantes Projekt und in der Regel erhalten Sie direkt eine Einsch\xE4tzung von uns. Anschlie\xDFend erhalten Sie ein Angebot per E-Mail.
+<br></br>
+[Zum kostenlosen Erstgespr\xE4ch](#)
+{: .btn .btn-secondary}
+
+
+## Web-Pakete <span>M</span>
+{: layout="use: #box-prices"}
+### Web-Paket <span>M</span>
+<div class="prices">
+    <div class="regular-price no-price"></div>
+    <div class="end-price"><span class="currency">\u20AC</span> 849,-</div>
+</div>
+
+Mit individuellen Themenschwer-punkten besser gefunden werden.
+<ul class="list-check-circle">
+    <li>Exklusives Webdesign</li>
+    <li>Responsive Design</li>
+    <li>Alle Online-Funktionen verf\xFCgbar</li>
+    <li>Mehrsprachige Website</li>
+    <li>Hosting & Service</li>
+    <li>30 Tage Geld-zur\xFCck-Garantie</li>
+</ul>
+
+DSGVO-konforme Datensparsamkeit und Datensicherheit sind f\xFCr uns selbstverst\xE4ndlich. Standardm\xE4\xDFig sind alle unsere Websites Cookie-frei. Nat\xFCrlich mit sicherem SSL-Zertifikat und BSI zertifiziertem E-Mail-Postfach (optional).
+
+
+### Web-Paket <span>M</span>
+<div class="tjs-box-price__disturber"><b>Bestseller</b></div>
+<div class="prices">
+    <div class="regular-price">999,-</div>
+    <div class="end-price"><span class="currency">\u20AC</span> 849,-</div>
+</div>
+
+Mit individuellen Themenschwer-punkten besser gefunden werden.
+<ul class="list-check-circle">
+    <li>Exklusives Webdesign</li>
+    <li>Responsive Design</li>
+    <li>Alle Online-Funktionen verf\xFCgbar</li>
+    <li>Mehrsprachige Website</li>
+    <li>Hosting & Service</li>
+    <li>30 Tage Geld-zur\xFCck-Garantie</li>
+</ul>
+
+DSGVO-konforme Datensparsamkeit und Datensicherheit sind f\xFCr uns selbstverst\xE4ndlich. Standardm\xE4\xDFig sind alle unsere Websites Cookie-frei. Nat\xFCrlich mit sicherem SSL-Zertifikat und BSI zertifiziertem E-Mail-Postfach (optional).
+
+
+### Web-Paket <span>M</span>
+<div class="prices">
+    <div class="regular-price no-price"></div>
+    <div class="end-price"><span class="currency">\u20AC</span> 849,-</div>
+</div>
+
+Mit individuellen Themenschwer-punkten besser gefunden werden.
+<ul class="list-check-circle">
+    <li>Exklusives Webdesign</li>
+    <li>Responsive Design</li>
+    <li>Alle Online-Funktionen verf\xFCgbar</li>
+    <li>Mehrsprachige Website</li>
+    <li>Hosting & Service</li>
+    <li>30 Tage Geld-zur\xFCck-Garantie</li>
+</ul>
+
+DSGVO-konforme Datensparsamkeit und Datensicherheit sind f\xFCr uns selbstverst\xE4ndlich. Standardm\xE4\xDFig sind alle unsere Websites Cookie-frei. Nat\xFCrlich mit sicherem SSL-Zertifikat und BSI zertifiziertem E-Mail-Postfach (optional).
+
+## Web-Pakete <span>M</span>
+{: layout="use: #box-prices" data-section-class="white-boxes"}
+### Web-Paket <span>M</span>
+<div class="prices">
+    <div class="regular-price no-price"></div>
+    <div class="end-price"><span class="currency">\u20AC</span> 849,-</div>
+</div>
+
+Mit individuellen Themenschwer-punkten besser gefunden werden.
+<ul class="list-check-circle">
+    <li>Exklusives Webdesign</li>
+    <li>Responsive Design</li>
+    <li>Alle Online-Funktionen verf\xFCgbar</li>
+    <li>Mehrsprachige Website</li>
+    <li>Hosting & Service</li>
+    <li>30 Tage Geld-zur\xFCck-Garantie</li>
+</ul>
+
+DSGVO-konforme Datensparsamkeit und Datensicherheit sind f\xFCr uns selbstverst\xE4ndlich. Standardm\xE4\xDFig sind alle unsere Websites Cookie-frei. Nat\xFCrlich mit sicherem SSL-Zertifikat und BSI zertifiziertem E-Mail-Postfach (optional).
+
+
+### Web-Paket <span>M</span>
+<div class="tjs-box-price__disturber"><b>Bestseller</b></div>
+<div class="prices">
+    <div class="regular-price">999,-</div>
+    <div class="end-price"><span class="currency">\u20AC</span> 849,-</div>
+</div>
+
+Mit individuellen Themenschwer-punkten besser gefunden werden.
+<ul class="list-check-circle">
+    <li>Exklusives Webdesign</li>
+    <li>Responsive Design</li>
+    <li>Alle Online-Funktionen verf\xFCgbar</li>
+    <li>Mehrsprachige Website</li>
+    <li>Hosting & Service</li>
+    <li>30 Tage Geld-zur\xFCck-Garantie</li>
+</ul>
+
+DSGVO-konforme Datensparsamkeit und Datensicherheit sind f\xFCr uns selbstverst\xE4ndlich. Standardm\xE4\xDFig sind alle unsere Websites Cookie-frei. Nat\xFCrlich mit sicherem SSL-Zertifikat und BSI zertifiziertem E-Mail-Postfach (optional).
+
+
+### Web-Paket <span>M</span>
+<div class="prices">
+    <div class="regular-price no-price"></div>
+    <div class="end-price"><span class="currency">\u20AC</span> 849,-</div>
+</div>
+
+Mit individuellen Themenschwer-punkten besser gefunden werden.
+<ul class="list-check-circle">
+    <li>Exklusives Webdesign</li>
+    <li>Responsive Design</li>
+    <li>Alle Online-Funktionen verf\xFCgbar</li>
+    <li>Mehrsprachige Website</li>
+    <li>Hosting & Service</li>
+    <li>30 Tage Geld-zur\xFCck-Garantie</li>
+</ul>
+
+DSGVO-konforme Datensparsamkeit und Datensicherheit sind f\xFCr uns selbstverst\xE4ndlich. Standardm\xE4\xDFig sind alle unsere Websites Cookie-frei. Nat\xFCrlich mit sicherem SSL-Zertifikat und BSI zertifiziertem E-Mail-Postfach (optional).
+
+
+
+## Key Figures
+{: layout="use: #key-figures"}
+
+
+## SYSTEMWEBSITE \u2013 Ihr Partner f\xFCr medizinische Webseiten
+{: layout="use: #cols-2" data-section-class="reversed-rows"}
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/4/232-211_475.87/illustration-01.svg)
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+# Maps
+{: layout="use: #google-map"}
+![](/images/logo-systemwebsite.webp)
+Leuffen & Zimmermann GbR\\
+Mathildenstra\xDFe 9\u201311\\
+45130 Essen\\
+Deutschland
+
+
+## Newsletter
+{: layout="use: #newsletter" data-section-style="padding-top: 80px;" data-section-class="dark"}
 
 ## Systemwebsite.de
 {: layout="use: #footer"}
 
 > Ihr Partner f\xFCr moderne medizinische Webseiten-Entwicklung
-
-
 
 ### Links
 
@@ -5031,7 +5262,7 @@ let html = `
 </nav>
 
 # Wir entwickeln moderne und ma\xDFgeschneiderte Websites f\xFCr <typewriter-element>Allgemeinmediziner, Internisten, Gyn\xE4kologen, Orthop\xE4den, Dermatologen, HNO-\xC4rzte, Augen\xE4rzte, Chirurgen, Urologen, Kardiologen, \xC4rzte & Mediziner</typewriter-element>
-{: layout="use: #header1"}
+{: layout="use: #header1" data-section-class="no-bottom-margin"}
 
 ![Webdesign f\xFCr \xC4rzte](https://cdn.leuffen.de//leu-systemwebsite/v2/7/113-73_edcba/hero-image.webp)
 
@@ -5213,8 +5444,7 @@ Reichen Sie neue Praxisbilder und Texte auch nach Live-Schaltung ein, wir tausch
 Damit wir Ihnen den neusten Stand der Technik f\xFCr Ihre Website garantieren k\xF6nnen, erhalten Sie alle drei Jahre einen kostenlosen Relaunch Ihrer Praxis-Website.
 
 ## Das sagen Ihre Kollegen \xFCber uns
-{: layout="use: #customer-reviews"}
-
+{: layout="use: #customer-reviews-slider"}
 
 ### Dr. med. Eleni Deutereou, Berlin
 
@@ -5426,13 +5656,7 @@ let html = `
 </nav>
 
 # Datenschutz
-{: layout="use: #header1" data-section-class="decreased-height"}
-
-
-## Hero Section
-{: layout="use: #disturber"}
-
-Wir garantieren Ihnen 100% Zufriedenheit mit unserer <b class="text-primary">30 Tage Geld-zur\xFCck-Garantie!</b>
+{: layout="use: #header1" data-section-class="decreased-height bg-into-white"}
 
 ## Datenschutzerkl\xE4rung
 {: layout="use: #text-container"}
@@ -5721,6 +5945,202 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.addClass(
   "page",
   "legal-page",
   "legal-page",
+  html,
+  [],
+  {
+    bodyClasses: ["themejs-sys"]
+  }
+);
+
+
+/***/ }),
+
+/***/ "./src.dev/showcase/reference-page.ts":
+/*!********************************************!*\
+  !*** ./src.dev/showcase/reference-page.ts ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+let html = `
+
+<nav layout="use: #navbar-switch1" class="floating">
+    <div class="brand"><a href=""><img src="/images/logo-systemwebsite.webp"></a></div>
+    <ul class="navbar-top">
+        <li class=":: d-none :lg: "><a href="">Beratungstelefon</a></li>
+        <li class=":: :lg: d-none"><a href="">Beratung-Tel.: (0201) 12345</a></li>
+        <li><a href="">Angebot anfordern</a></li>
+    </ul>
+    <ul class="navbar-main">
+        <li><a href="#home">Punkt1</a></li>
+        <li><a href="#home">Punkt2</a></li>
+        <li><a href="#home">Hello World</a></li>
+        <li><a href="#home">Hello World</a></li>
+    </ul>
+    <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+    </ul>
+</nav>
+
+# \u201ENutzen auch Sie unser Know-how und unsere Erfahrungen im Erstellen von medizinischen Webseiten f\xFCr Ihre optimale Internetpr\xE4senz.\u201C
+{: layout="use: #header1"}
+
+[Referenzen ansehen](#tjs-filter-images)
+{: .btn .btn-primary}
+
+## Nach vier Wochen 60 % mehr Patienten
+{: layout="use: #headline" data-section-class="star-top-left"}
+>Praxis f\xFCr Zahnmedizin
+
+## Nach vier Wochen 60 % mehr Patienten
+{: layout="use: #cols-2" data-section-class="hide-headline images-full-width"}
+
+![](/images/reference-example-image.png)
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal S\xE4tze, die alle Buchstaben des Alphabets enthalten - man nennt diese S\xE4tze \xBBPangrams\xAB.
+<ul class="list-check">
+    <li>Exklusives Webdesign</li>
+    <li>Responsive Design</li>
+    <li>Alle Online-Funktionen verf\xFCgbar</li>
+    <li>Mehrsprachige Website</li>
+    <li>Hosting & Service</li>
+    <li>30 Tage Geld-zur\xFCck-Garantie</li>
+</ul>
+
+
+## \u201ESehr gut und schnell umgesetzt! Wir sind sehr zufrieden mit dem Ergebnis der Homepage und besonders mit der sehr einfach und variabel zu bedienenden Admin-Umgebung. Wir freuen uns auf eine lange Partnerschaft!\u201C
+{: layout="use: #customer-reviews-quote"}
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/5/387-290_391.56/illustration-03.svg)
+>Dr. Michal-Constanze M\xFCller
+
+
+## Individuelle Services nach Ihren W\xFCnschen
+{: layout="use: #cols-2-bg" data-section-class="no-disturber reversed-rows"}
+
+Wir bieten umfangreiche Leistungen f\xFCr eine stimmige On- & Offline-Kommunikation Ihrer Praxis und gehen dabei auch auf individuelle Bed\xFCrfnisse ein.
+<br><a href="#">Sie haben Fragen? Wir beraten Sie gerne pers\xF6nlich.</a>
+<br><br><br>
+[Beratungsgespr\xE4ch vereinbaren](#)
+{: .btn .btn-primary}
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/5/387-290_391.56/illustration-03.svg)
+
+
+## Schauen Sie sich weitere Projekte an
+{: layout="use: #filter-images"}
+
+### Referenz 1
+{: data-section-data-tags="Website, Print" }
+Hallo Test
+![](/images/filter-1.png)
+
+### Referenz 2
+{: data-section-data-tags="Website" }
+Hallo Test
+![](/images/filter-1.png)
+
+### Referenz 3
+{: data-section-data-tags="Print" }
+Hallo Test
+![](/images/filter-1.png)
+
+### Referenz 4
+{: data-section-data-tags="Fotografie, Print" }
+Hallo Test
+![](/images/filter-1.png)
+
+### Referenz 5
+{: data-section-data-tags="Fotografie" }
+Hallo Test
+![](/images/filter-1.png)
+
+### Referenz 6
+{: data-section-data-tags="Website" }
+Hallo Test
+![](/images/filter-1.png)
+
+## Das sagen unsere Kunden
+{: layout="use: #customer-reviews"}
+
+### Dr. med. Eleni Deutereou, Berlin
+
+>  \u201EAlle ge\xE4u\xDFerten W\xFCnsche wurden zeitnah umgesetzt und mit dem Ergebnis sind wir sehr zufrieden. Die Webseite l\xE4sst auch \xFCber unser Personal einfach nach Bedarf ver\xE4ndern. Ich kann Herrn Leuffen uneingeschr\xE4nkt empfehlen! \u201C
+
+[www.hoefner-deutereou.de](https://www.hoefner-deutereou.de){: target="_blank"}
+
+### Robert Sedlmaier, M\xFCnchen
+
+>  \u201EEine klasse Idee sehr gut und schnell umgesetzt! Wir sind sehr zufrieden mit dem Ergebnis der Homepage, und besonders auch mit der sehr einfach und variabel zu bedienenden Admin-Umgebung. Wir freuen uns auf eine lange Partnerschaft! \u201C
+
+[www.zahnarztpraxis-sedlmaier.de](https://www.zahnarztpraxis-sedlmaier.de){: target="_blank"}
+
+
+## Kontakt
+{: layout="use: #contact"}
+
+> Vereinbaren Sie ein kostenloses Beratungsgespr\xE4ch.
+
+**Ihre Vorteile**
+- Keine Einrichtungskosten
+- Jederzeit k\xFCndbar
+- 30-Tage Geld-Zur\xFCck-Garantie
+
+[input type="text"  name="Name" required .mb-3]
+[input type="email" name="E-Mail" data-invalid-msg="Bitte geben Sie eine g\xFCltige E-Mail Adresse ein" required .mb-3]
+[input type="tel" name="Telefon" .mb-3]
+{.form}
+
+## Newsletter
+{: layout="use: #newsletter" data-section-style="padding-top: 160px;" data-section-class="dark"}
+
+Melden Sie sich jetzt f\xFCr unseren Newsletter an und erhalten Sie alle paar Wochen aktuelle News, Design- und Funktionsvorschl\xE4ge und viele weitere hilfreiche Tipps f\xFCr Ihren Onlineauftritt.
+
+[input type="email" name="E-Mail eintragen" placeholder="E-Mail eintragen"]
+
+
+## Systemwebsite.de
+{: layout="use: #footer"}
+
+> Ihr Partner f\xFCr moderne medizinische Webseiten-Entwicklung
+
+
+### Links
+
+- [Konditionen](#)
+- [Leistungen](#)
+- [FAQ](#)
+- [Kontakt](#)
+
+### Links
+
+- [Konditionen](#)
+- [Leistungen](#)
+- [FAQ](#)
+- [Kontakt](#)
+
+### Folgen Sie uns
+
+- [LinkedIn](#)
+- [Xing](#)
+- [Facebook](#)
+- [Instragram](#)
+
+
+
+<footer layout="use:#footer-copyright">
+    <p>Copyright (c) 2023 Systemwebsite by leuffen.de</p>
+    <ul>
+        <li><a href="{%- include do/link.html pid=it.pid -%}">AGB</a></li>
+        <li><a href="{%- include do/link.html pid=it.pid -%}">Datenschutz</a></li>
+        <li><a href="{%- include do/link.html pid=it.pid -%}">Impressum</a></li>
+    </ul>
+</footer>
+`;
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.addClass(
+  "page",
+  "reference-page",
+  "reference-page",
   html,
   [],
   {
