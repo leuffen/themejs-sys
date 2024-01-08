@@ -3803,6 +3803,7 @@ JodaDevSidebarElement = __decorateClass([
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 /* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../index */ "./workspaces/jodastyle-dev/src/index.ts");
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getProtoOf = Object.getPrototypeOf;
@@ -3839,12 +3840,13 @@ var __async = (__this, __arguments, generator) => {
 };
 
 
+
 const tpl = `
 
     <div class="joda-showcase-element" ka.classlist="classes">
         <style></style>
-        <div class="row " >
-            <div class="col col-auto" ka.for="let i of desc ">
+        <div class="row " style="display: flex">
+            <div style="width: 350px;margin: 10px" ka.for="let i of desc ">
                 <div class="card">
                     <div class="card-body p-1 m-1">
                         <div class="preview">
@@ -3884,7 +3886,7 @@ let JodaShowcaseElement = class extends _kasimirjs_embed__WEBPACK_IMPORTED_MODUL
   }
 };
 JodaShowcaseElement = __decorateClass([
-  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.template)(tpl),
+  (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.template)(tpl, { mode: "open", stylesheets: [_index__WEBPACK_IMPORTED_MODULE_2__.joda_dev_config.stylesheet] }),
   (0,_kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__.customElement)("joda-showcase-element")
 ], JodaShowcaseElement);
 
