@@ -23,13 +23,13 @@
     "*.ts"
   ],
   "workspaces": [
-    "workspaces--/*"
+    "workspaces/*"
   ],
   "author": "",
   "dependencies": {
     "@leuffen/isl-base": "^3.0.1",
-    "@leuffen/jodastyle": "^3.0.6",
-    "@leuffen/jodastyle-dev": "^3.0.4",
+    "@leuffen/jodastyle": "^3.0.8",
+    "@leuffen/jodastyle-dev": "^3.0.7",
     "@leuffen/liscom": "^2.0.10",
     "@leuffen/liscom-loader": "^1.0.6",
     "@leuffen/liweco-base": "^2.0.2",

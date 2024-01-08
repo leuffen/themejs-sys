@@ -105,2264 +105,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@kasimirjs/embed/dist/ce/custom-element.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/ce/custom-element.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   KaCustomElement: () => (/* binding */ KaCustomElement)
-/* harmony export */ });
-/* harmony import */ var _tpl_templatify_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../tpl/templatify.js */ "./node_modules/@kasimirjs/embed/dist/tpl/templatify.js");
-/* harmony import */ var _tpl_template_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../tpl/template.js */ "./node_modules/@kasimirjs/embed/dist/tpl/template.js");
-/* harmony import */ var _core_query_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/query-select */ "./node_modules/@kasimirjs/embed/dist/core/query-select.js");
-/* harmony import */ var _htmlFile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./htmlFile */ "./node_modules/@kasimirjs/embed/dist/ce/htmlFile.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-
-
-class KaCustomElement extends HTMLElement {
-    constructor(props) {
-        super(props);
-        /**
-         *
-         * @protected
-         * @var {KaTemplate}
-         */
-        this.__tpl = null;
-        this.__isConnected = false;
-    }
-    /**
-     * The Template associated with this Element
-     *
-     * @return {KaTemplate}
-     */
-    get $tpl() {
-        return this.__tpl;
-    }
-    isConnected() {
-        return this.isConnected;
-    }
-    /**
-     * @abstract
-     * @return {Promise<void>}
-     */
-    connected($tpl, $this) {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.warn("connected() method not overridden in", this);
-        });
-    }
-    connectedCallback() {
-        return __awaiter(this, void 0, void 0, function* () {
-            let callback = this.constructor.__callback;
-            if (callback === null) {
-            }
-            else {
-                callback.bind(this);
-            }
-            if (this.constructor.__tpl !== null) {
-                let origTpl = this.constructor.__tpl;
-                if (origTpl instanceof _htmlFile__WEBPACK_IMPORTED_MODULE_3__.RemoteTemplate)
-                    origTpl = yield origTpl.load();
-                let tpl = (0,_tpl_templatify_js__WEBPACK_IMPORTED_MODULE_0__.ka_templatify)(origTpl);
-                if (this.constructor.__options.shadowDom === true) {
-                    let shadowDom = this.attachShadow(this.constructor.__options.shadowDomOptions);
-                    shadowDom.appendChild(tpl);
-                }
-                else {
-                    this.appendChild(tpl);
-                }
-                this.__tpl = new _tpl_template_js__WEBPACK_IMPORTED_MODULE_1__.KaTemplate(tpl);
-            }
-            if (this.constructor.__options.waitEvent !== null) {
-                let wd = this.constructor.__options.waitEvent.split("@");
-                let eventName = wd[0];
-                let target = document;
-                if (wd.length === 2) {
-                    target = (0,_core_query_select__WEBPACK_IMPORTED_MODULE_2__.ka_query_selector)(wd[1]);
-                }
-                target.addEventListener(eventName, (event) => __awaiter(this, void 0, void 0, function* () {
-                    callback(this.$tpl, this);
-                    this.__isConnected = true;
-                }));
-                return;
-            }
-            if (callback === null) {
-                // Class: Call connected() Method
-                yield this.connected(this.$tpl, this);
-                this.__isConnected = true;
-                return;
-            }
-            // Function
-            callback(this.$tpl, this);
-            this.__isConnected = true;
-        });
-    }
-}
-;
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/ce/html.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/ce/html.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_html: () => (/* binding */ ka_html)
-/* harmony export */ });
-function ka_html(htmlContent) {
-    if (htmlContent instanceof HTMLTemplateElement) {
-        return htmlContent;
-    }
-    let e = document.createElement("template");
-    e.innerHTML = htmlContent;
-    return e;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/ce/htmlFile.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/ce/htmlFile.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RemoteTemplate: () => (/* binding */ RemoteTemplate)
-/* harmony export */ });
-/* harmony import */ var _loadHtml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loadHtml */ "./node_modules/@kasimirjs/embed/dist/ce/loadHtml.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-class RemoteTemplate {
-    constructor(url) {
-        this.url = url;
-        this.tpl = null;
-    }
-    /**
-     *
-     * @return {Promise<HTMLTemplateElement>}
-     */
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (this.tpl === null)
-                this.tpl = yield (0,_loadHtml__WEBPACK_IMPORTED_MODULE_0__.ka_load_html)(this.url);
-            return this.tpl;
-        });
-    }
-}
-/**
- * Load the Template on usage from remote location
- *
- *
- * @param url {string}
- * @return {RemoteTemplate}
- */
-function htmlUrl(url) {
-    return new RemoteTemplate(url);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/ce/loadHtml.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/ce/loadHtml.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_load_html: () => (/* binding */ ka_load_html)
-/* harmony export */ });
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-/**
- *
- * @param url {string}
- * @return {Promise<HTMLTemplateElement>}
- */
-function ka_load_html(url) {
-    return __awaiter(this, void 0, void 0, function* () {
-        let e = document.createElement("template");
-        let result = yield fetch(url);
-        if (!result.ok) {
-            console.error(`[loadHtml] failed to load '${url}'`);
-            throw `[loadHtml] failed to load '${url}'`;
-        }
-        let body = yield result.text();
-        e.innerHTML = body;
-        return e;
-    });
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/core/apply.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/core/apply.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_apply: () => (/* binding */ ka_apply)
-/* harmony export */ });
-/* harmony import */ var _eval_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./eval.js */ "./node_modules/@kasimirjs/embed/dist/core/eval.js");
-/* harmony import */ var _str_to_camelcase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./str-to-camelcase.js */ "./node_modules/@kasimirjs/embed/dist/core/str-to-camelcase.js");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../functions */ "./node_modules/@kasimirjs/embed/dist/functions.js");
-/* harmony import */ var _element_KaCustomFragment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../element/KaCustomFragment */ "./node_modules/@kasimirjs/embed/dist/element/KaCustomFragment.js");
-/* harmony import */ var _element_ka_use__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../element/ka-use */ "./node_modules/@kasimirjs/embed/dist/element/ka-use.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-
-
-
-function ka_apply(selector, scope, recursive = false) {
-    var _a;
-    if (typeof selector === "string")
-        selector = KaToolsV1.querySelector(selector);
-    let attMap = {
-        "textcontent": "textContent",
-        "htmlcontent": "innerHTML",
-        "innerhtml": "innerHTML",
-    };
-    for (let attName of selector.getAttributeNames()) {
-        //console.log(attName);
-        if (!attName.startsWith("ka.")) {
-            continue;
-        }
-        let attVal = selector.getAttribute(attName);
-        let attType = attName.split(".")[1];
-        let attSelector = attName.split(".")[2];
-        if (typeof attSelector === "undefined")
-            attSelector = null;
-        let registerEventHandler = function (element, action, callbackOrCode, scope) {
-            if (typeof element._ka_on === "undefined")
-                element._ka_on = {};
-            if (typeof element._ka_on[action] === "undefined")
-                element.addEventListener(action, (e) => element._ka_on[action](e));
-            element._ka_on[action] = (e) => __awaiter(this, void 0, void 0, function* () {
-                scope["$event"] = e;
-                if (typeof callbackOrCode === "function") {
-                    return callbackOrCode(e, element, scope);
-                }
-                else {
-                    return (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(callbackOrCode, scope, element);
-                }
-            });
-        };
-        if (attType === "on") {
-            let attScope = Object.assign({ $scope: scope }, scope);
-            if (attSelector !== null) {
-                registerEventHandler(selector, attSelector, attVal, attScope);
-            }
-            else {
-                let callBackMap = KaToolsV1.eval(attVal, attScope, selector);
-                for (let curAction in callBackMap) {
-                    registerEventHandler(selector, curAction, callBackMap[curAction], attScope);
-                }
-            }
-            continue;
-        }
-        let r = null;
-        if (typeof attVal !== "undefined" && typeof attVal !== null && attVal !== "")
-            r = (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(attVal, scope, selector);
-        switch (attType) {
-            case "use":
-                if (!(selector instanceof _element_ka_use__WEBPACK_IMPORTED_MODULE_4__.KaUse)) {
-                    let elem = new _element_ka_use__WEBPACK_IMPORTED_MODULE_4__.KaUse();
-                    // Copy all attributes from selector to elem
-                    for (let attName of selector.getAttributeNames()) {
-                        elem.setAttribute(attName, selector.getAttribute(attName));
-                    }
-                    selector.replaceWith(elem);
-                    selector = elem;
-                }
-                selector.use(r, scope);
-                continue;
-            case "become":
-                // ka.become="variable" => Replace the current element with the value of the variable (must be HTMLElement)
-                // e.g. to connect a Component defined in a variable to the DOM
-                if (!(r instanceof HTMLElement)) {
-                    console.error("ka.become is only available on HTMLElements: Used on ", r, "found in ", selector);
-                    throw "ka.become called on non HTMLElement.";
-                }
-                let attributes = selector.attributes;
-                selector.replaceWith(r);
-                continue;
-            case "content":
-                // ka.content="variable" => Add the element to the current element
-                selector.setAttribute("ka.stop", "");
-                if (typeof r === "string") {
-                    selector.innerHTML = r;
-                    continue;
-                }
-                if (r === null || r === false) {
-                    selector.innerHTML = "";
-                    continue;
-                }
-                if (!(r instanceof HTMLElement)) {
-                    console.error("ka.content is only available on HTMLElements: Used on ", r, "found in ", selector);
-                    throw "ka.content called on non HTMLElement.";
-                }
-                if (selector.firstElementChild === r)
-                    continue;
-                selector.innerHTML = "";
-                selector.append(r);
-                continue;
-            case "scope":
-                if (!(r instanceof Object)) {
-                    console.error("ka.scope must be object type <ka-use/> Elements: Value is ", r, "found in ", selector);
-                    throw "ka.scope insuffient value";
-                }
-                selector.setScope(r);
-                continue;
-            case "stop":
-                continue;
-            case "debug":
-                console.log("ka.debug on element", selector, "value:", r, "scope:", scope);
-                continue;
-            case "ref":
-                if ((0,_functions__WEBPACK_IMPORTED_MODULE_2__.isUndefined)(scope.$ref))
-                    scope.$ref = {};
-                // Allow ref without parameter to use $ref.$last
-                if (r !== null)
-                    scope.$ref[r] = selector;
-                scope.$ref.$last = selector;
-                break;
-            case "classlist":
-                if (attSelector !== null) {
-                    if (r === true) {
-                        selector.classList.add(attSelector);
-                    }
-                    else {
-                        selector.classList.remove(attSelector);
-                    }
-                    break;
-                }
-                if (typeof r === "string") {
-                    // Split and add all classes
-                    r = r.split(" ").filter((e) => e.trim() !== "");
-                }
-                if (Array.isArray(r)) {
-                    for (let cname of r) {
-                        if (cname.trim() === "")
-                            continue;
-                        selector.classList.add(cname);
-                    }
-                    break;
-                }
-                for (let cname in r) {
-                    if (r[cname] === true) {
-                        selector.classList.add(cname);
-                    }
-                    else {
-                        selector.classList.remove(cname);
-                    }
-                }
-                break;
-            case "style":
-                if (attSelector !== null && attSelector.startsWith("--")) {
-                    selector.style.setProperty(attSelector, r);
-                    break;
-                }
-                if (attSelector !== null) {
-                    let val = r;
-                    if (typeof val === "number" && ["left", "top", "height", "width", "bottom", "right", "line-height", "font-size"].indexOf(attSelector) !== -1)
-                        val = val + "px";
-                    selector.style[(0,_str_to_camelcase_js__WEBPACK_IMPORTED_MODULE_1__.ka_str_to_camel_case)(attSelector)] = val;
-                    break;
-                }
-                for (let cname in r) {
-                    let val = r[cname];
-                    if (typeof val === "number" && ["left", "top", "height", "width", "bottom", "right", "line-height", "font-size"].indexOf(cname) !== -1)
-                        val = val + "px";
-                    selector.style[(0,_str_to_camelcase_js__WEBPACK_IMPORTED_MODULE_1__.ka_str_to_camel_case)(cname)] = val;
-                }
-                break;
-            case "bindarray":
-                if (attSelector === "default")
-                    continue;
-                if ((0,_functions__WEBPACK_IMPORTED_MODULE_2__.isUndefined)(r)) {
-                    // Bind default values
-                    if (selector.hasAttribute("ka.bind.default")) {
-                        scope = Object.assign({ $scope: scope }, scope);
-                        scope = Object.assign(Object.assign({ $scope: scope }, scope), { __curVal: (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(selector.getAttribute("ka.bind.default"), scope, selector) });
-                        (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(`${attVal} = __curVal`, scope, selector);
-                        r = scope.__curVal;
-                    }
-                }
-                if (!Array.isArray(r)) {
-                    console.error("kap:bindarr: Not an array!", r, selector);
-                    return;
-                }
-                if (r.indexOf(selector.value) === -1)
-                    selector.checked = false;
-                else
-                    selector.checked = true;
-                if (typeof selector._kap_bind === "undefined") {
-                    selector.addEventListener("change", (event) => {
-                        let arr = (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(attVal, scope, selector);
-                        if (arr.indexOf(selector.value) === -1 && selector.checked)
-                            arr.push(selector.value);
-                        if (arr.indexOf(selector.value) !== -1 && !selector.checked)
-                            arr = arr.filter((e) => e !== selector.value);
-                        scope = Object.assign(Object.assign({ $scope: scope }, scope), { __curVal: arr });
-                        (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(`${attVal} = __curVal`, scope, selector);
-                        if (scope.$on && scope.$on.change)
-                            scope.$on.change(event);
-                    });
-                    selector._kap_bind = true;
-                }
-                break;
-            case "bind":
-                if (attSelector === "default")
-                    continue;
-                if ((0,_functions__WEBPACK_IMPORTED_MODULE_2__.isUndefined)(r)) {
-                    // Bind default values
-                    if ((0,_functions__WEBPACK_IMPORTED_MODULE_2__.isset)(selector.value)) {
-                        scope = Object.assign(Object.assign({ $scope: scope }, scope), { __curVal: selector.value });
-                        (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(`${attVal} = __curVal`, scope, selector);
-                        r = scope.__curVal;
-                    }
-                    if (selector.hasAttribute("ka.bind.default")) {
-                        scope = Object.assign({ $scope: scope }, scope);
-                        scope = Object.assign(Object.assign({ $scope: scope }, scope), { __curVal: (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(selector.getAttribute("ka.bind.default"), scope, selector) });
-                        (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(`${attVal} = __curVal`, scope, selector);
-                        r = scope.__curVal;
-                    }
-                }
-                if (selector.type === "checkbox" || selector.type === "radio") {
-                    if (selector.hasAttribute("value")) {
-                        if (r === selector.getAttribute("value"))
-                            selector.checked = true;
-                        else
-                            selector.checked = false;
-                    }
-                    else {
-                        if (r === true)
-                            selector.checked = true;
-                        else
-                            selector.checked = false;
-                    }
-                }
-                else {
-                    selector.value = typeof r !== "undefined" ? r : "";
-                }
-                if (typeof selector._kap_bind === "undefined") {
-                    selector.addEventListener("change", (event) => {
-                        let value = null;
-                        if (selector.type === "checkbox" || selector.type === "radio") {
-                            if (selector.hasAttribute("value")) {
-                                if (selector.checked === false)
-                                    return;
-                                value = selector.getAttribute("value");
-                            }
-                            else {
-                                value = selector.checked;
-                            }
-                        }
-                        else {
-                            value = selector.value;
-                        }
-                        scope = Object.assign(Object.assign({ $scope: scope }, scope), { __curVal: value });
-                        (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(`${attVal} = __curVal`, scope, selector);
-                        if (scope.$on && scope.$on.change)
-                            scope.$on.change(event);
-                    });
-                    selector.addEventListener("keyup", (event) => {
-                        scope = Object.assign(Object.assign({ $scope: scope }, scope), { __curVal: selector.value });
-                        (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(`${attVal} = __curVal`, scope, selector);
-                        if (scope.$on && scope.$on.change)
-                            scope.$on.change(event);
-                    });
-                    selector._kap_bind = true;
-                }
-                break;
-            case "options":
-                let value = selector.value;
-                selector.innerHTML = "";
-                for (let option in r) {
-                    if (!Array.isArray(r)) {
-                        // Object key => value value => text
-                        selector.appendChild(new Option(r[option], option));
-                    }
-                    else {
-                        // Array
-                        if (((_a = r[option]) === null || _a === void 0 ? void 0 : _a.text) !== undefined) {
-                            selector.appendChild(new Option(r[option].text, r[option].value));
-                        }
-                        else {
-                            // Array value and text will be array value
-                            selector.appendChild(new Option(r[option], r[option]));
-                        }
-                    }
-                }
-                if (value !== null)
-                    selector.value = value;
-                break;
-            case "attr":
-                if (attSelector !== null) {
-                    if (r === null || r === false) {
-                        selector.removeAttribute(attSelector);
-                    }
-                    else {
-                        selector.setAttribute(attSelector, r);
-                    }
-                    break;
-                }
-                for (let cname in r) {
-                    if (r[cname] === null || r[cname] === false) {
-                        selector.removeAttribute(cname);
-                    }
-                    else {
-                        selector.setAttribute(cname, r[cname]);
-                    }
-                }
-                break;
-            case "prop":
-                if (attSelector !== null) {
-                    // Set Property directly
-                    selector[(0,_str_to_camelcase_js__WEBPACK_IMPORTED_MODULE_1__.ka_str_to_camel_case)(attSelector)] = r;
-                    break;
-                }
-                for (let cname in r) {
-                    selector[(0,_str_to_camelcase_js__WEBPACK_IMPORTED_MODULE_1__.ka_str_to_camel_case)(cname)] = r[cname];
-                }
-                break;
-            default:
-                if (typeof attMap[attType] !== "undefined")
-                    attType = attMap[attType];
-                if (typeof selector[attType] === "undefined") {
-                    console.warn("apply(): trying to set undefined property ", attType, "on element", selector);
-                }
-                selector[attType] = r;
-                break;
-        }
-    }
-    if (recursive) {
-        for (let e of selector.children) {
-            ka_apply(e, scope, recursive);
-        }
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/core/create-element.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/core/create-element.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_create_element: () => (/* binding */ ka_create_element)
-/* harmony export */ });
-/**
- * Create a new Element
- *
- * @param tagName {string}      The Tag Name
- * @param attributes {string<string>}   Attributes to set initially
- * @param appendToElement {HTMLElement}
- * @param children {HTMLElement[]}
- * @return HTMLElement
- */
-function ka_create_element(tagName, attributes = null, children = null, appendToElement = null) {
-    let e = document.createElement(tagName);
-    if (attributes === null)
-        attributes = {};
-    for (let attName in attributes) {
-        e.setAttribute(attName, attributes[attName]);
-    }
-    if (children instanceof NodeList) {
-        children = Array.from(children);
-    }
-    if (Array.isArray(children)) {
-        for (let ce of children) {
-            e.appendChild(ce);
-        }
-    }
-    if (typeof children === "string") {
-        e.innerText = children;
-    }
-    if (appendToElement !== null) {
-        appendToElement.appendChild(e);
-    }
-    return e;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/core/debounce.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/core/debounce.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_debounce: () => (/* binding */ ka_debounce)
-/* harmony export */ });
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-const _debounceInterval = { i: null, time: null };
-/**
- * Debounce a event
- *
- *
- *
- * @param min   Minimum Time to wait
- * @param max   Trigger event automatically after this time
- * @return {Promise<unknown>}
- */
-function ka_debounce(min, max = null) {
-    return __awaiter(this, void 0, void 0, function* () {
-        if (max === null)
-            max = min;
-        let dbi = _debounceInterval;
-        return new Promise((resolve) => {
-            if (dbi.time < (+new Date()) - max && dbi.i !== null) {
-                return resolve();
-            }
-            if (dbi.i !== null) {
-                return;
-            }
-            dbi.time = (+new Date());
-            dbi.i = window.setTimeout(() => {
-                dbi.i = null;
-                return resolve();
-            }, min);
-        });
-    });
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/core/debouncer.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/core/debouncer.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Debouncer: () => (/* binding */ Debouncer)
-/* harmony export */ });
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __classPrivateFieldGet = (undefined && undefined.__classPrivateFieldGet) || function (receiver, state, kind, f) {
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
-};
-var __classPrivateFieldSet = (undefined && undefined.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
-    if (kind === "m") throw new TypeError("Private method is not writable");
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
-};
-var _Debouncer_resolve, _Debouncer_interval, _Debouncer_time;
-class Debouncer {
-    constructor(min = 100, max = null) {
-        this.min = min;
-        this.max = max;
-        _Debouncer_resolve.set(this, []);
-        _Debouncer_interval.set(this, null);
-        _Debouncer_time.set(this, null);
-    }
-    debounce(min = this.min, max = this.max) {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (max === null)
-                max = min;
-            if (__classPrivateFieldGet(this, _Debouncer_interval, "f") !== null) {
-                window.clearInterval(__classPrivateFieldGet(this, _Debouncer_interval, "f"));
-            }
-            __classPrivateFieldSet(this, _Debouncer_interval, window.setInterval(() => {
-                __classPrivateFieldGet(this, _Debouncer_resolve, "f").forEach(r => r());
-                __classPrivateFieldSet(this, _Debouncer_resolve, [], "f");
-                window.clearInterval(__classPrivateFieldGet(this, _Debouncer_interval, "f"));
-            }, min), "f");
-            return new Promise((resolve) => {
-                __classPrivateFieldGet(this, _Debouncer_resolve, "f").push(resolve);
-            });
-        });
-    }
-}
-_Debouncer_resolve = new WeakMap(), _Debouncer_interval = new WeakMap(), _Debouncer_time = new WeakMap();
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/core/dom-ready.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/core/dom-ready.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_dom_ready: () => (/* binding */ ka_dom_ready)
-/* harmony export */ });
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-/**
- * Wait for DomContentLoaded or resolve immediate
- *
- * <example>
- * await MicxToolsVx.domReady();
- * </example>
- *
- * @return {Promise<string>}
- */
-function ka_dom_ready() {
-    return __awaiter(this, void 0, void 0, function* () {
-        return new Promise((resolve) => {
-            if (document.readyState === "complete" || document.readyState === "interactive")
-                return resolve("loaded");
-            document.addEventListener("DOMContentLoaded", () => resolve('DOMContentLoaded'));
-        });
-    });
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/core/elwalk.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/core/elwalk.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_elwalk: () => (/* binding */ ka_elwalk)
-/* harmony export */ });
-/**
- *
- * @param {HTMLElement} elem
- * @param fn
- * @param recursive
- */
-function ka_elwalk(elem, fn, recursive = false, includeFirst = false) {
-    if (Array.isArray(elem))
-        elem.children = elem;
-    if (typeof elem.children === "undefined")
-        return;
-    if (includeFirst && elem instanceof HTMLElement) {
-        let ret = fn(elem);
-        if (ret === false)
-            return false;
-    }
-    for (let child of elem.children) {
-        let ret = fn(child);
-        if (ret === false)
-            continue; // No recursiion
-        if (recursive && typeof child.children !== "undefined")
-            ka_elwalk(child, fn, recursive);
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/core/eval.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/core/eval.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_eval: () => (/* binding */ ka_eval)
-/* harmony export */ });
-function ka_eval(stmt, __scope, e, __refs) {
-    if (stmt.endsWith(";"))
-        stmt = stmt.slice(0, -1);
-    const reserved = ["var", "null", "let", "const", "function", "class", "in", "of", "for", "true", "false", "await", "$this"];
-    let r = "var $this = e;";
-    for (let __name in __scope) {
-        if (reserved.indexOf(__name) !== -1)
-            continue;
-        if (__name.indexOf("-") !== -1) {
-            console.error(`Invalid scope key '${__name}': Cannot contain - in scope:`, __scope);
-            throw `eval() failed: Invalid scope key: '${__name}': Cannot contain minus char '-'`;
-        }
-        r += `var ${__name} = __scope['${__name}'];`;
-    }
-    // If the scope was cloned, the original will be in $scope. This is important when
-    // Using events [on.click], e.g.
-    if (typeof __scope.$scope === "undefined") {
-        r += "var $scope = __scope;";
-    }
-    try {
-        // console.log(r + '(' + stmt + ')');
-        const func = new Function('e', '__scope', r + '; return ' + stmt);
-        return func(e, __scope);
-    }
-    catch (ex) {
-        console.error("cannot eval() stmt: '" + stmt + "': " + ex, " on element ", e, ex, "(context:", __scope, ")");
-        throw "eval('" + stmt + "') failed: " + ex;
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/core/ka-set-options.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/core/ka-set-options.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_set_options: () => (/* binding */ ka_set_options)
-/* harmony export */ });
-function ka_set_options(element, options, value = null) {
-    element.innerHTML = "";
-    for (let option in options) {
-        if (isNaN(option)) {
-            element.appendChild(new Option(options[option], option));
-        }
-        else {
-            if (typeof options[option].text !== "undefined") {
-                element.appendChild(new Option(options[option].text, options[option].value));
-            }
-            else {
-                element.appendChild(new Option(options[option], options[option]));
-            }
-        }
-    }
-    if (value !== null)
-        element.value = value;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/core/query-select.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/core/query-select.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_query_selector: () => (/* binding */ ka_query_selector)
-/* harmony export */ });
-/**
- * Query a Element or trigger an Exception
- *
- * @param query
- * @param parent
- * @param exception
- * @return {HTMLElement}
- */
-function ka_query_selector(query, parent = null, exception = null) {
-    if (typeof exception === "undefined" || exception === null)
-        exception = `querySelector '${query}' not found`;
-    if (typeof parent === "undefined" || parent === null)
-        parent = document;
-    let e = parent.querySelectorAll(query);
-    if (e.length === 0) {
-        console.warn(exception, "on parent: ", parent);
-        throw exception;
-    }
-    return e[0];
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/core/sleep.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/core/sleep.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_sleep: () => (/* binding */ ka_sleep)
-/* harmony export */ });
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-function ka_sleep(sleepms) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return new Promise((resolve) => {
-            window.setTimeout(() => {
-                return resolve();
-            }, sleepms);
-        });
-    });
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/core/storage.js":
-/*!************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/core/storage.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_session_storage: () => (/* binding */ ka_session_storage)
-/* harmony export */ });
-/**
- * Return a Proxy handling saving / deleting / updating the object in the localStorage
- * @param object
- * @param scopeName
- */
-function ka_session_storage(object = {}, scopeName = null) {
-    if (scopeName == null) {
-        scopeName = "ka_session_storage";
-    }
-    if (object === null) {
-        sessionStorage.removeItem(scopeName);
-        return;
-    }
-    if (sessionStorage.getItem(scopeName) == null) {
-        sessionStorage.setItem(scopeName, JSON.stringify(object));
-    }
-    let savedObject = JSON.parse(sessionStorage.getItem(scopeName));
-    for (let key in object) {
-        if (typeof savedObject[key] === "undefined") {
-            savedObject[key] = object[key];
-        }
-    }
-    let proxy = new Proxy(savedObject, {
-        set: function (target, property, value, receiver) {
-            target[property] = value;
-            sessionStorage.setItem(scopeName, JSON.stringify(target));
-            return true;
-        }
-    });
-    return proxy;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/core/str-to-camelcase.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/core/str-to-camelcase.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_str_to_camel_case: () => (/* binding */ ka_str_to_camel_case)
-/* harmony export */ });
-/**
- * Transform any input to CamelCase
- *
- * Example: some-class => someClass
- *
- * @param str {string}
- * @return {string}
- */
-function ka_str_to_camel_case(str) {
-    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (ltr, idx) => idx === 0 ? ltr.toLowerCase() : ltr.toUpperCase()).replace(/[^a-zA-Z0-9]+/g, '');
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/element/KaCustomElement.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/element/KaCustomElement.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   KaCustomElement: () => (/* binding */ KaCustomElement)
-/* harmony export */ });
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../types */ "./node_modules/@kasimirjs/embed/dist/types.js");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions */ "./node_modules/@kasimirjs/embed/dist/functions.js");
-/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tpl/templatify */ "./node_modules/@kasimirjs/embed/dist/tpl/templatify.js");
-/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ce/html */ "./node_modules/@kasimirjs/embed/dist/ce/html.js");
-/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../tpl/template */ "./node_modules/@kasimirjs/embed/dist/tpl/template.js");
-/* harmony import */ var _core_create_element__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../core/create-element */ "./node_modules/@kasimirjs/embed/dist/core/create-element.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-
-
-
-
-class KaCustomElement extends HTMLElement {
-    constructor() {
-        super(...arguments);
-        this.__ka_stop_render = true; // Stop rendering if this element is reached
-        this.shadowRootConfig = {}; // Activate shadowRoot
-        this.html = "Undefined Template";
-        this.scope = (0,_types__WEBPACK_IMPORTED_MODULE_0__.createScopeObject)();
-        this.tplPrototype = null;
-        this.wrapper = null;
-    }
-    init(scope, autorender = true) {
-        this.scope.init(scope);
-        return this.scope;
-    }
-    wrap(fragment) {
-        this.wrapper = fragment;
-    }
-    setParentScope(scope) {
-        this.scope.$parent = scope;
-    }
-    // @ts-nocheck
-    connectedCallback() {
-        var _a;
-        return __awaiter(this, void 0, void 0, function* () {
-            if (!this.scope.isInitialized())
-                this.init({});
-            // Check template set by customElement annotation
-            // Cannot be done in constructor because of async behavior
-            if ((0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.constructor["html"])) {
-                this.html = this.constructor["html"];
-            }
-            if ((0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.constructor["shadowRootConfig"])) {
-                this.shadowRootConfig = this.constructor["shadowRootConfig"];
-            }
-            if (this.tplPrototype === null) {
-                this.tplPrototype = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_2__.ka_templatify)((0,_ce_html__WEBPACK_IMPORTED_MODULE_3__.ka_html)(this.html));
-            }
-            this.tpl = this.tplPrototype.cloneNode(true);
-            this.scope.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_4__.KaTemplate(this.tpl);
-            // Adding Shadow Root
-            let domRoot = this;
-            if (this.shadowRootConfig.mode !== null) {
-                domRoot = this.attachShadow({ mode: this.shadowRootConfig.mode });
-                (_a = this.shadowRootConfig.stylesheets) === null || _a === void 0 ? void 0 : _a.forEach((stylesheet) => {
-                    (0,_core_create_element__WEBPACK_IMPORTED_MODULE_5__.ka_create_element)("link", { rel: "stylesheet", href: stylesheet }, null, domRoot);
-                });
-            }
-            if (this.wrapper !== null) {
-                yield this.wrapper.fragmentConnectedCallback();
-                domRoot.append(this.wrapper.wrapTemplate(this.tpl));
-                this.wrapper.wrapFinish();
-            }
-            else {
-                domRoot.append(this.tpl);
-            }
-            this.scope.render();
-        });
-    }
-    disconnectedCallback() {
-        if (this.scope.$tpl !== undefined)
-            this.scope.$tpl.dispose();
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/element/KaCustomFragment.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/element/KaCustomFragment.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   KaCustomFragment: () => (/* binding */ KaCustomFragment)
-/* harmony export */ });
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../types */ "./node_modules/@kasimirjs/embed/dist/types.js");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions */ "./node_modules/@kasimirjs/embed/dist/functions.js");
-/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tpl/templatify */ "./node_modules/@kasimirjs/embed/dist/tpl/templatify.js");
-/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ce/html */ "./node_modules/@kasimirjs/embed/dist/ce/html.js");
-/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../tpl/template */ "./node_modules/@kasimirjs/embed/dist/tpl/template.js");
-/* harmony import */ var _core_sleep__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../core/sleep */ "./node_modules/@kasimirjs/embed/dist/core/sleep.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-
-
-
-
-class KaCustomFragment {
-    constructor() {
-        this.scope = (0,_types__WEBPACK_IMPORTED_MODULE_0__.createScopeObject)();
-        this.html = null;
-    }
-    init(scope) {
-        // Check template set by customElement annotation
-        if ((0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.constructor["html"]) && this.html === null)
-            this.html = this.constructor["html"];
-        if (!(0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.tplPrototype))
-            this.tplPrototype = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_2__.ka_templatify)((0,_ce_html__WEBPACK_IMPORTED_MODULE_3__.ka_html)(this.html));
-        this.scope.init(scope);
-        return this.scope;
-    }
-    setParentScope(scope) {
-        this.scope.$parent = scope;
-    }
-    setScope(scope) {
-        this.scope.importFrom(scope);
-    }
-    fragmentConnectedCallback(parentElement) {
-        return __awaiter(this, void 0, void 0, function* () {
-            parentElement.setAttribute("ka.stop", "true");
-            if (!this.scope.isInitialized()) {
-                this.init({});
-            }
-            this.tpl = this.tplPrototype.cloneNode(true);
-            this.scope.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_4__.KaTemplate(this.tpl);
-            parentElement.append(this.tpl);
-            yield (0,_core_sleep__WEBPACK_IMPORTED_MODULE_5__.ka_sleep)(1);
-            this.scope.render();
-        });
-    }
-    fragmentDisconnectedCallback() {
-        this.scope.$tpl.dispose();
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/element/KaCustomModal.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/element/KaCustomModal.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   KaCustomModal: () => (/* binding */ KaCustomModal)
-/* harmony export */ });
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../types */ "./node_modules/@kasimirjs/embed/dist/types.js");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions */ "./node_modules/@kasimirjs/embed/dist/functions.js");
-/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tpl/templatify */ "./node_modules/@kasimirjs/embed/dist/tpl/templatify.js");
-/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ce/html */ "./node_modules/@kasimirjs/embed/dist/ce/html.js");
-/* harmony import */ var _core_create_element__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../core/create-element */ "./node_modules/@kasimirjs/embed/dist/core/create-element.js");
-/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../tpl/template */ "./node_modules/@kasimirjs/embed/dist/tpl/template.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __classPrivateFieldGet = (undefined && undefined.__classPrivateFieldGet) || function (receiver, state, kind, f) {
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
-};
-var __classPrivateFieldSet = (undefined && undefined.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
-    if (kind === "m") throw new TypeError("Private method is not writable");
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
-};
-var _KaCustomModal_main, _KaCustomModal_configDefaults, _KaCustomModal_promise;
-
-
-
-
-
-
-class KaCustomModal {
-    adjustWidth(modalConfig) {
-        let w = window.innerWidth;
-        if (w > modalConfig.maxWidth)
-            w = modalConfig.maxWidth;
-        __classPrivateFieldGet(this, _KaCustomModal_main, "f").style.width = w + "px";
-    }
-    constructor(tagName = "ka-modal", shadowRootInit = null, modalConfig = {}) {
-        this.scope = (0,_types__WEBPACK_IMPORTED_MODULE_0__.createScopeObject)();
-        this.__html = "<div>No Template defined</div>";
-        _KaCustomModal_main.set(this, void 0);
-        _KaCustomModal_configDefaults.set(this, {
-            parentElement: document.body,
-            zIndex: 9999,
-            styleBase: "position:fixed; top:0; bottom:0; left:0; right:0;",
-            styleBackdrop: "background-color: #999;opacity:0.5;",
-            maxWidth: 800,
-        });
-        _KaCustomModal_promise.set(this, {
-            promise: null,
-            reject: null,
-            resolve: null,
-        });
-        let config = __classPrivateFieldGet(this, _KaCustomModal_configDefaults, "f");
-        config = Object.assign(Object.assign({}, config), modalConfig);
-        this.element = (0,_core_create_element__WEBPACK_IMPORTED_MODULE_4__.ka_create_element)(tagName, { hidden: "hidden" }, null, config.parentElement);
-        this.backdrop = (0,_core_create_element__WEBPACK_IMPORTED_MODULE_4__.ka_create_element)("div", { style: `${config.styleBase};${config.styleBackdrop};z-index:${config.zIndex};` }, null, this.element);
-        let master = (0,_core_create_element__WEBPACK_IMPORTED_MODULE_4__.ka_create_element)("div", { style: `position:fixed;left:0;right:0;top:0;bottom:0;display:flex;justify-content:center;z-index:${config.zIndex + 1};` }, null, this.element);
-        __classPrivateFieldSet(this, _KaCustomModal_main, (0,_core_create_element__WEBPACK_IMPORTED_MODULE_4__.ka_create_element)("div", { style: `;max-height:100%;max-width:100%;` }, null, master), "f");
-        this.adjustWidth(config);
-        __classPrivateFieldGet(this, _KaCustomModal_promise, "f").promise = new Promise((resolve, reject) => { __classPrivateFieldGet(this, _KaCustomModal_promise, "f").resolve = resolve; __classPrivateFieldGet(this, _KaCustomModal_promise, "f").reject = reject; });
-    }
-    init(scope) {
-        // Check template set by customElement annotation
-        if ((0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.constructor["html"]))
-            this.__html = this.constructor["html"];
-        if (!(0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.tplPrototype))
-            this.tplPrototype = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_2__.ka_templatify)((0,_ce_html__WEBPACK_IMPORTED_MODULE_3__.ka_html)(this.__html));
-        this.scope.init(scope);
-        return this.scope;
-    }
-    setParentScope(scope) {
-        this.scope.$parent = scope;
-    }
-    setScope(scope) {
-        this.scope.importFrom(scope);
-    }
-    resolve(value) {
-        this.element.remove();
-        __classPrivateFieldGet(this, _KaCustomModal_promise, "f").resolve(value);
-    }
-    show(...params) {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (!this.scope.isInitialized()) {
-                this.init({});
-            }
-            this.tpl = this.tplPrototype.cloneNode(true);
-            this.scope.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_5__.KaTemplate(this.tpl);
-            __classPrivateFieldGet(this, _KaCustomModal_main, "f").append(this.tpl);
-            this.element.removeAttribute("hidden");
-            this.scope.render();
-            return __classPrivateFieldGet(this, _KaCustomModal_promise, "f").promise;
-        });
-    }
-    fragmentDisconnectedCallback() {
-        this.scope.$tpl.dispose();
-    }
-}
-_KaCustomModal_main = new WeakMap(), _KaCustomModal_configDefaults = new WeakMap(), _KaCustomModal_promise = new WeakMap();
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/element/KaCustomWrapper.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/element/KaCustomWrapper.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   KaCustomWrapper: () => (/* binding */ KaCustomWrapper)
-/* harmony export */ });
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../types */ "./node_modules/@kasimirjs/embed/dist/types.js");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions */ "./node_modules/@kasimirjs/embed/dist/functions.js");
-/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tpl/templatify */ "./node_modules/@kasimirjs/embed/dist/tpl/templatify.js");
-/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ce/html */ "./node_modules/@kasimirjs/embed/dist/ce/html.js");
-/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../tpl/template */ "./node_modules/@kasimirjs/embed/dist/tpl/template.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-
-
-
-class KaCustomWrapper {
-    constructor() {
-        this.scope = (0,_types__WEBPACK_IMPORTED_MODULE_0__.createScopeObject)();
-        this.html = null;
-    }
-    init(scope) {
-        // Check template set by customElement annotation
-        if ((0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.constructor["html"]) && this.html === null)
-            this.html = this.constructor["html"];
-        if (!(0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.tplPrototype))
-            this.tplPrototype = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_2__.ka_templatify)((0,_ce_html__WEBPACK_IMPORTED_MODULE_3__.ka_html)(this.html));
-        this.scope.init(scope);
-        return this.scope;
-    }
-    wrapTemplate(tpl) {
-        this.scope.$content = tpl;
-        return this.tpl;
-    }
-    fragmentConnectedCallback() {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (!this.scope.isInitialized()) {
-                this.init({});
-            }
-            this.returnedTpl = this.tplPrototype;
-            this.tpl = this.tplPrototype.cloneNode(true);
-            this.scope.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_4__.KaTemplate(this.tpl);
-        });
-    }
-    wrapFinish() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.scope.render();
-        });
-    }
-    fragmentDisconnectedCallback() {
-        this.scope.$tpl.dispose();
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/element/KaHtmlElement.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/element/KaHtmlElement.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   KaHtmlElement: () => (/* binding */ KaHtmlElement)
-/* harmony export */ });
-/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../tpl/template */ "./node_modules/@kasimirjs/embed/dist/tpl/template.js");
-/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../tpl/templatify */ "./node_modules/@kasimirjs/embed/dist/tpl/templatify.js");
-/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ce/html */ "./node_modules/@kasimirjs/embed/dist/ce/html.js");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../functions */ "./node_modules/@kasimirjs/embed/dist/functions.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-
-
-/**
- * @deprecated
- */
-class KaHtmlElement extends HTMLElement {
-    constructor(shadowRootInit = null) {
-        super();
-        this.shadowRootInit = shadowRootInit;
-        this.addEventListener("load", (e) => console.log(e));
-    }
-    connectedCallback() {
-        return __awaiter(this, void 0, void 0, function* () {
-            let htmlTpl = null;
-            if (typeof this.html === "function") {
-                let fn = this.html;
-                htmlTpl = yield fn(this);
-            }
-            else {
-                htmlTpl = this.html;
-            }
-            if (typeof htmlTpl === "string")
-                htmlTpl = (0,_ce_html__WEBPACK_IMPORTED_MODULE_2__.ka_html)(htmlTpl);
-            let attachTo = this;
-            if (this.shadowRootInit !== null) {
-                attachTo = this.attachShadow(this.shadowRootInit);
-            }
-            if ((0,_functions__WEBPACK_IMPORTED_MODULE_3__.isset)(htmlTpl)) {
-                let tpl;
-                try {
-                    tpl = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_1__.ka_templatify)(htmlTpl);
-                }
-                catch (e) {
-                    console.error("Templatify failed on element", this, "for template", htmlTpl);
-                    throw e;
-                }
-                this.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_0__.KaTemplate(tpl);
-                attachTo.appendChild(tpl);
-            }
-            this.connected();
-        });
-    }
-    disconnectedCallback() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.$tpl.dispose();
-            this.disconnected();
-        });
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/element/KaModal.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/element/KaModal.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   KaModal: () => (/* binding */ KaModal)
-/* harmony export */ });
-/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../tpl/template */ "./node_modules/@kasimirjs/embed/dist/tpl/template.js");
-/* harmony import */ var _core_create_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/create-element */ "./node_modules/@kasimirjs/embed/dist/core/create-element.js");
-/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ce/html */ "./node_modules/@kasimirjs/embed/dist/ce/html.js");
-/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../tpl/templatify */ "./node_modules/@kasimirjs/embed/dist/tpl/templatify.js");
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../types */ "./node_modules/@kasimirjs/embed/dist/types.js");
-var __classPrivateFieldGet = (undefined && undefined.__classPrivateFieldGet) || function (receiver, state, kind, f) {
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
-};
-var __classPrivateFieldSet = (undefined && undefined.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
-    if (kind === "m") throw new TypeError("Private method is not writable");
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
-};
-var _KaModal_main, _KaModal_configDefaults, _KaModal_promise;
-
-
-
-
-
-class KaModal {
-    adjustWidth(modalConfig) {
-        let w = window.innerWidth;
-        if (w > modalConfig.maxWidth)
-            w = modalConfig.maxWidth;
-        __classPrivateFieldGet(this, _KaModal_main, "f").style.width = w + "px";
-    }
-    constructor(tagName = "ka-modal", shadowRootInit = null, modalConfig = {}) {
-        this.scope = (0,_types__WEBPACK_IMPORTED_MODULE_4__.createScopeObject)();
-        _KaModal_main.set(this, void 0);
-        this.$tpl = null;
-        _KaModal_configDefaults.set(this, {
-            parentElement: document.body,
-            zIndex: 9999,
-            styleBase: "position:fixed; top:0; bottom:0; left:0; right:0;",
-            styleBackdrop: "background-color: #999;opacity:0.5;",
-            maxWidth: 800,
-        });
-        _KaModal_promise.set(this, {
-            promise: null,
-            reject: null,
-            resolve: null,
-        });
-        let config = __classPrivateFieldGet(this, _KaModal_configDefaults, "f");
-        config = Object.assign(Object.assign({}, config), modalConfig);
-        this.element = (0,_core_create_element__WEBPACK_IMPORTED_MODULE_1__.ka_create_element)(tagName, { hidden: "hidden" }, null, config.parentElement);
-        this.backdrop = (0,_core_create_element__WEBPACK_IMPORTED_MODULE_1__.ka_create_element)("div", { style: `${config.styleBase};${config.styleBackdrop};z-index:${config.zIndex};` }, null, this.element);
-        let master = (0,_core_create_element__WEBPACK_IMPORTED_MODULE_1__.ka_create_element)("div", { style: `position:fixed;left:0;right:0;top:0;bottom:0;display:flex;justify-content:center;z-index:${config.zIndex + 1};` }, null, this.element);
-        __classPrivateFieldSet(this, _KaModal_main, (0,_core_create_element__WEBPACK_IMPORTED_MODULE_1__.ka_create_element)("div", { style: `;max-height:100%;max-width:100%;` }, null, master), "f");
-        this.adjustWidth(config);
-        __classPrivateFieldGet(this, _KaModal_promise, "f").promise = new Promise((resolve, reject) => { __classPrivateFieldGet(this, _KaModal_promise, "f").resolve = resolve; __classPrivateFieldGet(this, _KaModal_promise, "f").reject = reject; });
-    }
-    render(scope = null) {
-        if (this.$tpl === null) {
-            let html = this.html;
-            if (typeof html === "string") {
-                html = (0,_ce_html__WEBPACK_IMPORTED_MODULE_2__.ka_html)(html);
-            }
-            if (!(html instanceof HTMLTemplateElement)) {
-                console.error("html is not HtmlTemplateElement", html, "on", this);
-                throw "html is not HtmlTemplateElement";
-            }
-            console.log("html", html);
-            let elem;
-            try {
-                elem = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_3__.ka_templatify)(html);
-            }
-            catch (e) {
-                console.log("error templatify for element", this, ":", e);
-                throw e;
-            }
-            __classPrivateFieldGet(this, _KaModal_main, "f").appendChild(elem);
-            this.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_0__.KaTemplate(elem);
-        }
-        this.$tpl.render(scope);
-    }
-    resolve(value) {
-        this.element.remove();
-        __classPrivateFieldGet(this, _KaModal_promise, "f").resolve(value);
-    }
-    show(...params) {
-        this.element.removeAttribute("hidden");
-        return __classPrivateFieldGet(this, _KaModal_promise, "f").promise;
-    }
-}
-_KaModal_main = new WeakMap(), _KaModal_configDefaults = new WeakMap(), _KaModal_promise = new WeakMap();
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/element/ka-use.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/element/ka-use.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   KaUse: () => (/* binding */ KaUse)
-/* harmony export */ });
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions */ "./node_modules/@kasimirjs/embed/dist/functions.js");
-/* harmony import */ var _KaCustomFragment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KaCustomFragment */ "./node_modules/@kasimirjs/embed/dist/element/KaCustomFragment.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-let KaUse = class KaUse extends HTMLElement {
-    get component() {
-        return this.myComponent;
-    }
-    set component(val) {
-        this.myComponent = val;
-        this.innerHTML = "";
-        this.append(val);
-    }
-    /**
-     * called from ka.use="" by apply()
-     *
-     * @param val
-     */
-    use(val, parentScope) {
-        if ((0,_functions__WEBPACK_IMPORTED_MODULE_0__.isset)(val["setParentScope"]))
-            val["setParentScope"](parentScope);
-        this.myComponent = val;
-        this.innerHTML = "";
-        // If not specified scope is the parent scope.
-        if (!this.hasAttribute("ka.scope"))
-            val["setScope"](parentScope);
-        if (val instanceof _KaCustomFragment__WEBPACK_IMPORTED_MODULE_1__.KaCustomFragment) {
-            val.fragmentConnectedCallback(this);
-            return;
-        }
-        this.append(val);
-    }
-    /**
-     * set dedicated scope using ka.scope
-     *
-     * @param scope
-     */
-    setScope(scope) {
-        if (this.myComponent instanceof _KaCustomFragment__WEBPACK_IMPORTED_MODULE_1__.KaCustomFragment) {
-            this.myComponent.setScope(scope);
-        }
-    }
-    disconnectedCallback() {
-    }
-    connectedCallback() {
-        this.style.display = "contents";
-        this.setAttribute("ka.stop", "true");
-        if (this.myComponent instanceof _KaCustomFragment__WEBPACK_IMPORTED_MODULE_1__.KaCustomFragment) {
-            this.myComponent.fragmentConnectedCallback(this);
-        }
-    }
-};
-KaUse = __decorate([
-    (0,_functions__WEBPACK_IMPORTED_MODULE_0__.customElement)("ka-use-" + (0,_functions__WEBPACK_IMPORTED_MODULE_0__.random_string)().toLowerCase())
-], KaUse);
-
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/functions.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/functions.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   customElement: () => (/* binding */ customElement),
-/* harmony export */   isUndefined: () => (/* binding */ isUndefined),
-/* harmony export */   isset: () => (/* binding */ isset),
-/* harmony export */   ka_await_element: () => (/* binding */ ka_await_element),
-/* harmony export */   random_string: () => (/* binding */ random_string),
-/* harmony export */   template: () => (/* binding */ template),
-/* harmony export */   timeAgo: () => (/* binding */ timeAgo),
-/* harmony export */   timeTo: () => (/* binding */ timeTo)
-/* harmony export */ });
-/* harmony import */ var _core_sleep__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core/sleep */ "./node_modules/@kasimirjs/embed/dist/core/sleep.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-/**
- * Check if parameter is undefined or null
- *
- * @param input
- */
-function isset(input) {
-    return (typeof input !== "undefined" && input !== null);
-}
-function isUndefined(input) {
-    return (typeof input === "undefined");
-}
-/**
- * Defines a customElement
- *
- * Usage as class decorator @customElement("some-tag")
- *
- * @param tagName
- */
-// @ts-nocheck
-function customElement(tagName = null, template = null) {
-    return function (classOrDescriptor) {
-        if (template !== null) {
-            classOrDescriptor["html"] = template;
-        }
-        if (window["_kasi_defined_custom_elements"] === undefined) {
-            window["_kasi_defined_custom_elements"] = [];
-        }
-        if (tagName === null) {
-            if (window["_kasi_anon_element_id"] === undefined) {
-                window["_kasi_anon_element_id"] = 0;
-            }
-            tagName = "kasimirjs-anon-element-" + window["_kasi_anon_element_id"]++;
-        }
-        //console.debug("registering custom element", classOrDescriptor, tagName);
-        if (!window["_kasi_defined_custom_elements"].includes(tagName)) {
-            customElements.define(tagName, classOrDescriptor);
-            window["_kasi_defined_custom_elements"].push(tagName);
-        }
-        return classOrDescriptor;
-    };
-}
-// @ts-nocheck
-function ka_await_element(selector, parent = document, maxWait = 2000) {
-    return __awaiter(this, void 0, void 0, function* () {
-        let elem = parent.querySelector(selector);
-        let rounds = 1;
-        while (elem === null && maxWait > 0) {
-            let delay = 20 * rounds++;
-            yield (0,_core_sleep__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(delay);
-            elem = parent.querySelector(selector);
-            maxWait -= delay;
-        }
-        return elem;
-    });
-}
-function template(template, shadowRootConfig = { mode: null }) {
-    return function (classOrDescriptor) {
-        classOrDescriptor["html"] = template;
-        classOrDescriptor["shadowRootConfig"] = shadowRootConfig;
-        return classOrDescriptor;
-    };
-}
-function random_string(len = 12) {
-    let result = '';
-    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let charactersLength = characters.length;
-    for (let i = 0; i < len; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-}
-function timeTo(date) {
-    const now = new Date();
-    let seconds = Math.floor((date.getTime() - now.getTime()) / 1000);
-    if (seconds < 0) {
-        return 'today';
-    }
-    let interval = seconds / 31536000;
-    if (interval > 1) {
-        return 'In ' + Math.floor(interval) + " years";
-    }
-    interval = seconds / 2592000;
-    if (interval > 1) {
-        return 'In ' + Math.floor(interval) + " months";
-    }
-    interval = seconds / 604800;
-    if (interval > 1) {
-        return 'In ' + Math.floor(interval) + " weeks";
-    }
-    interval = seconds / 86400;
-    if (interval >= 1) {
-        return 'In ' + Math.floor(interval) + " days";
-    }
-    return 'today';
-}
-function timeAgo(date) {
-    const now = new Date();
-    const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
-    let interval = seconds / 31536000;
-    if (interval > 1) {
-        return Math.floor(interval) + " years ago";
-    }
-    interval = seconds / 2592000;
-    if (interval > 1) {
-        return Math.floor(interval) + " months ago";
-    }
-    interval = seconds / 86400;
-    if (interval > 1) {
-        return Math.floor(interval) + " days ago";
-    }
-    interval = seconds / 3600;
-    if (interval > 1) {
-        return Math.floor(interval) + " hours ago";
-    }
-    interval = seconds / 60;
-    if (interval > 1) {
-        return Math.floor(interval) + " minutes ago";
-    }
-    return Math.floor(seconds) + " seconds ago";
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/index.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/index.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Debouncer: () => (/* reexport safe */ _core_debouncer__WEBPACK_IMPORTED_MODULE_18__.Debouncer),
-/* harmony export */   KaCustomElement: () => (/* reexport safe */ _element_KaCustomElement__WEBPACK_IMPORTED_MODULE_8__.KaCustomElement),
-/* harmony export */   KaCustomFragment: () => (/* reexport safe */ _element_KaCustomFragment__WEBPACK_IMPORTED_MODULE_9__.KaCustomFragment),
-/* harmony export */   KaCustomModal: () => (/* reexport safe */ _element_KaCustomModal__WEBPACK_IMPORTED_MODULE_11__.KaCustomModal),
-/* harmony export */   KaCustomWrapper: () => (/* reexport safe */ _element_KaCustomWrapper__WEBPACK_IMPORTED_MODULE_10__.KaCustomWrapper),
-/* harmony export */   KaHtmlElement: () => (/* reexport safe */ _element_KaHtmlElement__WEBPACK_IMPORTED_MODULE_7__.KaHtmlElement),
-/* harmony export */   KaModal: () => (/* reexport safe */ _element_KaModal__WEBPACK_IMPORTED_MODULE_13__.KaModal),
-/* harmony export */   KaTemplate: () => (/* reexport safe */ _tpl_template__WEBPACK_IMPORTED_MODULE_12__.KaTemplate),
-/* harmony export */   createScopeObject: () => (/* reexport safe */ _types__WEBPACK_IMPORTED_MODULE_1__.createScopeObject),
-/* harmony export */   customElement: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.customElement),
-/* harmony export */   isUndefined: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.isUndefined),
-/* harmony export */   isset: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.isset),
-/* harmony export */   ka_await_element: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.ka_await_element),
-/* harmony export */   ka_create_element: () => (/* reexport safe */ _core_create_element__WEBPACK_IMPORTED_MODULE_4__.ka_create_element),
-/* harmony export */   ka_debounce: () => (/* reexport safe */ _core_debounce__WEBPACK_IMPORTED_MODULE_3__.ka_debounce),
-/* harmony export */   ka_dom_ready: () => (/* reexport safe */ _core_dom_ready__WEBPACK_IMPORTED_MODULE_6__.ka_dom_ready),
-/* harmony export */   ka_eval: () => (/* reexport safe */ _core_eval__WEBPACK_IMPORTED_MODULE_15__.ka_eval),
-/* harmony export */   ka_html: () => (/* reexport safe */ _ce_html__WEBPACK_IMPORTED_MODULE_16__.ka_html),
-/* harmony export */   ka_query_selector: () => (/* reexport safe */ _core_query_select__WEBPACK_IMPORTED_MODULE_14__.ka_query_selector),
-/* harmony export */   ka_session_storage: () => (/* reexport safe */ _core_storage__WEBPACK_IMPORTED_MODULE_19__.ka_session_storage),
-/* harmony export */   ka_set_options: () => (/* reexport safe */ _core_ka_set_options__WEBPACK_IMPORTED_MODULE_5__.ka_set_options),
-/* harmony export */   ka_sleep: () => (/* reexport safe */ _core_sleep__WEBPACK_IMPORTED_MODULE_2__.ka_sleep),
-/* harmony export */   ka_templatify: () => (/* reexport safe */ _tpl_templatify__WEBPACK_IMPORTED_MODULE_17__.ka_templatify),
-/* harmony export */   random_string: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.random_string),
-/* harmony export */   template: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.template),
-/* harmony export */   timeAgo: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.timeAgo),
-/* harmony export */   timeTo: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.timeTo)
-/* harmony export */ });
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ "./node_modules/@kasimirjs/embed/dist/functions.js");
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types */ "./node_modules/@kasimirjs/embed/dist/types.js");
-/* harmony import */ var _core_sleep__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./core/sleep */ "./node_modules/@kasimirjs/embed/dist/core/sleep.js");
-/* harmony import */ var _core_debounce__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./core/debounce */ "./node_modules/@kasimirjs/embed/dist/core/debounce.js");
-/* harmony import */ var _core_create_element__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./core/create-element */ "./node_modules/@kasimirjs/embed/dist/core/create-element.js");
-/* harmony import */ var _core_ka_set_options__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core/ka-set-options */ "./node_modules/@kasimirjs/embed/dist/core/ka-set-options.js");
-/* harmony import */ var _core_dom_ready__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./core/dom-ready */ "./node_modules/@kasimirjs/embed/dist/core/dom-ready.js");
-/* harmony import */ var _element_KaHtmlElement__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./element/KaHtmlElement */ "./node_modules/@kasimirjs/embed/dist/element/KaHtmlElement.js");
-/* harmony import */ var _element_KaCustomElement__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./element/KaCustomElement */ "./node_modules/@kasimirjs/embed/dist/element/KaCustomElement.js");
-/* harmony import */ var _element_KaCustomFragment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./element/KaCustomFragment */ "./node_modules/@kasimirjs/embed/dist/element/KaCustomFragment.js");
-/* harmony import */ var _element_KaCustomWrapper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./element/KaCustomWrapper */ "./node_modules/@kasimirjs/embed/dist/element/KaCustomWrapper.js");
-/* harmony import */ var _element_KaCustomModal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./element/KaCustomModal */ "./node_modules/@kasimirjs/embed/dist/element/KaCustomModal.js");
-/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./tpl/template */ "./node_modules/@kasimirjs/embed/dist/tpl/template.js");
-/* harmony import */ var _element_KaModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./element/KaModal */ "./node_modules/@kasimirjs/embed/dist/element/KaModal.js");
-/* harmony import */ var _core_query_select__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./core/query-select */ "./node_modules/@kasimirjs/embed/dist/core/query-select.js");
-/* harmony import */ var _core_eval__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./core/eval */ "./node_modules/@kasimirjs/embed/dist/core/eval.js");
-/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ce/html */ "./node_modules/@kasimirjs/embed/dist/ce/html.js");
-/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./tpl/templatify */ "./node_modules/@kasimirjs/embed/dist/tpl/templatify.js");
-/* harmony import */ var _core_debouncer__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./core/debouncer */ "./node_modules/@kasimirjs/embed/dist/core/debouncer.js");
-/* harmony import */ var _core_storage__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./core/storage */ "./node_modules/@kasimirjs/embed/dist/core/storage.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/tpl/template.js":
-/*!************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/tpl/template.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   KaTemplate: () => (/* binding */ KaTemplate)
-/* harmony export */ });
-/* harmony import */ var _core_eval_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/eval.js */ "./node_modules/@kasimirjs/embed/dist/core/eval.js");
-/* harmony import */ var _core_elwalk_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/elwalk.js */ "./node_modules/@kasimirjs/embed/dist/core/elwalk.js");
-/* harmony import */ var _core_apply_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/apply.js */ "./node_modules/@kasimirjs/embed/dist/core/apply.js");
-/* harmony import */ var _ce_custom_element_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ce/custom-element.js */ "./node_modules/@kasimirjs/embed/dist/ce/custom-element.js");
-
-
-
-
-class KaTemplate {
-    constructor(template) {
-        this.template = template;
-        if (typeof this.template.__kachilds === "undefined")
-            this.template.__kachilds = [];
-        if (typeof this.template.__kasibling === "undefined")
-            this.template.__kasibling = this.template.nextElementSibling;
-        this.__renderCount = 0;
-        this.$scope = {};
-    }
-    _error(msg) {
-        console.error(`[ka-template] ${msg} on element`, this.template);
-        throw `[ka-template] ${msg} on element` + this.template;
-    }
-    _appendTemplate() {
-        let elements = this.template.content;
-        let elList = [];
-        for (let curE of elements.children) {
-            curE = curE.cloneNode(true);
-            curE._ka_maintained_by = this.template.getAttribute("_kaidx");
-            elList.push(curE);
-            this.template.parentNode.insertBefore(curE, this.template.__kasibling);
-        }
-        this.template.__kachilds.push(elList);
-    }
-    _removeLastChild() {
-        if (this.template.__kachilds.length === 0)
-            return;
-        let childs = this.template.__kachilds[this.template.__kachilds.length - 1];
-        for (let curE of childs) {
-            this.template.parentElement.removeChild(curE);
-        }
-        this.template.__kachilds.length = this.template.__kachilds.length - 1;
-    }
-    _renderFor($scope, stmt) {
-        //console.log("kachilds", this.template.__kachilds);
-        let matches = stmt.match(/^(let)?\s*(?<target>.+)\s+(?<type>of|in|repeat)\s+(?<select>.+)$/);
-        if (matches === null) {
-            this._error(`Can't parse ka.for='${stmt}'`);
-        }
-        let selectVal = (0,_core_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(matches.groups.select, $scope, this.template);
-        if (matches.groups.type === "repeat") {
-            if (typeof selectVal !== "number")
-                this._error(`Error ka.for='${stmt}': Selected val must be number in repeat loop`);
-            selectVal = new Array(selectVal).fill(null);
-        }
-        let eIndex = 0;
-        for (let index in selectVal) {
-            let curScope = Object.assign({ $scope: $scope }, $scope);
-            curScope[matches.groups.target] = index;
-            if (matches.groups.type === "of")
-                curScope[matches.groups.target] = selectVal[index];
-            if (this.template.__kachilds.length < eIndex + 1) {
-                //console.log("append", eIndex, this.template.__kachilds.length);
-                this._appendTemplate();
-            }
-            this._maintain(curScope, this.template.__kachilds[eIndex], eIndex);
-            eIndex++;
-        }
-        for (let remIdx = eIndex; remIdx < this.template.__kachilds.length;) {
-            this._removeLastChild();
-        }
-    }
-    _maintain($scope, childs, forIndex = 0) {
-        for (let child of childs) {
-            child._ka_for_index = forIndex;
-            (0,_core_elwalk_js__WEBPACK_IMPORTED_MODULE_1__.ka_elwalk)(child, (el) => {
-                //console.log("walk", el);
-                if (el instanceof HTMLTemplateElement) {
-                    //console.log("maintain", el);
-                    let r = new this.constructor(el);
-                    r.render($scope);
-                    return false;
-                }
-                if (typeof el._ka_maintained_by !== "undefined" && el._ka_maintained_by !== this.template.getAttribute("_kaidx")) {
-                    return false;
-                }
-                (0,_core_apply_js__WEBPACK_IMPORTED_MODULE_2__.ka_apply)(el, $scope);
-                if ((el instanceof HTMLElement && el.hasAttribute("ka.stop")) || el["__ka_stop_render"]) {
-                    return false; // Skip Element rendering
-                }
-            }, true, true);
-        }
-    }
-    _renderIf($scope, stmt) {
-        let selectVal = (0,_core_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(stmt, $scope, this.template);
-        if (selectVal === true) {
-            if (this.template.__kachilds.length === 0)
-                this._appendTemplate();
-            this._maintain($scope, this.template.__kachilds[0]);
-        }
-        else {
-            this._removeLastChild();
-        }
-    }
-    /**
-     * Remove all rendered element
-     */
-    dispose() {
-        for (; this.template.__kachilds.length > 0;)
-            this._removeLastChild();
-    }
-    setScope($scope) {
-        this.$scope = $scope;
-    }
-    /**
-     * Render / Update the Template
-     *
-     * Once the scope in parameter 1 was set, it will render
-     * without any parameters. Scope is available via property $scope
-     *
-     * @param $scope
-     */
-    render($scope = null) {
-        if ($scope === null)
-            $scope = this.$scope;
-        this.$scope = $scope;
-        this.__renderCount++;
-        if (this.template.hasAttribute("ka.for")) {
-            this._renderFor($scope, this.template.getAttribute("ka.for"));
-        }
-        else if (this.template.hasAttribute("ka.if")) {
-            this._renderIf($scope, this.template.getAttribute("ka.if"));
-        }
-        else {
-            if (typeof this.template._ka_active === "undefined") {
-                this._appendTemplate();
-                this.template._ka_active = true;
-            }
-            this._maintain($scope, this.template.__kachilds);
-        }
-    }
-    /**
-     * Return true if this template was renderd the first time
-     *
-     * @returns {boolean}
-     */
-    isFirstRender() {
-        return this.__renderCount === 1;
-    }
-}
-;
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/tpl/templatify.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/tpl/templatify.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ka_templatify: () => (/* binding */ ka_templatify)
-/* harmony export */ });
-/* harmony import */ var _core_query_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/query-select */ "./node_modules/@kasimirjs/embed/dist/core/query-select.js");
-/* harmony import */ var _core_elwalk_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/elwalk.js */ "./node_modules/@kasimirjs/embed/dist/core/elwalk.js");
-
-
-function quoteattr(s, preserveCR) {
-    preserveCR = preserveCR ? '&#13;' : '\n';
-    return ('' + s) /* Forces the conversion to string. */
-        .replace(/&/g, '&amp;') /* This MUST be the 1st replacement. */
-        .replace(/'/g, '&apos;') /* The 4 other predefined entities, required. */
-        .replace(/"/g, '&quot;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        /*
-        You may add other replacements here for HTML only
-        (but it's not necessary).
-        Or for XML, only if the named entities are defined in its DTD.
-        */
-        .replace(/\r\n/g, preserveCR) /* Must be before the next replacement. */
-        .replace(/[\r\n]/g, preserveCR);
-    ;
-}
-window._ka_el_idx = 0;
-/**
- * Generate a renderable Template from <template> Element
- *
- * @param {HTMLElement|string} elem
- * @return {HTMLTemplateElement}
- */
-function ka_templatify(elem, returnMode = true) {
-    if (typeof elem === "string")
-        elem = (0,_core_query_select__WEBPACK_IMPORTED_MODULE_0__.ka_query_selector)(elem);
-    if (!(elem instanceof Node)) {
-        console.error("[ka-templatify] Parameter 1 is not a html element: ", elem);
-        throw `[ka-templify] Parameter 1 is not a html element: ${elem}`;
-    }
-    const elIdxName = "_ka_el_idx";
-    if (window[elIdxName] === null)
-        window[elIdxName] = 5;
-    window[elIdxName]++;
-    if (returnMode) {
-        let returnTpl = document.createElement("template");
-        returnTpl.setAttribute("_kaidx", (window[elIdxName]).toString());
-        /* @var {HTMLTemplateElement} returnTpl */
-        returnTpl.innerHTML = elem.innerHTML
-            .replace(/\[\[(.*?)\]\]/g, (matches, m1) => `<span ka.textContent="${quoteattr(m1)}"></span>`);
-        ka_templatify(returnTpl.content, false);
-        return returnTpl;
-    }
-    if (elem instanceof HTMLTemplateElement)
-        elem = elem.content;
-    let wrapElem = (el, attName, attVal) => {
-        let tpl = document.createElement("template");
-        tpl.setAttribute("_kaidx", (window[elIdxName]).toString());
-        let clonedEl = el.cloneNode(true);
-        clonedEl.removeAttribute(attName);
-        tpl.content.append(clonedEl);
-        tpl.setAttribute(attName, attVal);
-        el.replaceWith(tpl);
-        return tpl;
-    };
-    (0,_core_elwalk_js__WEBPACK_IMPORTED_MODULE_1__.ka_elwalk)(elem, (el) => {
-        //console.log(el);
-        if (!(el instanceof HTMLElement))
-            return;
-        let tpl = null;
-        for (let attrName of el.getAttributeNames()) {
-            if (attrName === "ka.for") {
-                tpl = wrapElem(el, "ka.for", el.getAttribute("ka.for"));
-                ka_templatify(tpl, false);
-                break;
-            }
-            if (attrName === "ka.if") {
-                tpl = wrapElem(el, "ka.if", el.getAttribute("ka.if"));
-                ka_templatify(tpl, false);
-                break;
-            }
-        }
-    }, true, false);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kasimirjs/embed/dist/types.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/@kasimirjs/embed/dist/types.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   createScopeObject: () => (/* binding */ createScopeObject)
-/* harmony export */ });
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ "./node_modules/@kasimirjs/embed/dist/functions.js");
-/* harmony import */ var _core_debouncer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core/debouncer */ "./node_modules/@kasimirjs/embed/dist/core/debouncer.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-class KaDefaultScope {
-    constructor() {
-        this.__isInitialized = false;
-    }
-    isInitialized() {
-        return this.__isInitialized;
-    }
-    render() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.$tpl.render(this);
-        });
-    }
-    raw() {
-        return this.$__scope_orig;
-    }
-    importFrom(scope) {
-        for (let key of Object.keys(scope)) {
-            if (key.startsWith("$") || key.startsWith("__"))
-                continue;
-            this["$__scope_orig"][key] = scope[key];
-        }
-    }
-    dump() {
-        return Object.assign({}, this);
-    }
-    init(scopeDef) {
-        if (this.isInitialized())
-            throw "Scope is already initalized";
-        this.__isInitialized = true;
-        for (let key of Object.keys(scopeDef)) {
-            this[key] = scopeDef[key];
-        }
-    }
-}
-function createScopeObject(init = null) {
-    let scopeDef = new KaDefaultScope();
-    scopeDef["$__scope_orig"] = scopeDef;
-    let setAction = (target, p, value, receiver) => {
-        if (target[p] === value)
-            return true; // Nothing changed
-        target[p] = value;
-        let debouncer = new _core_debouncer__WEBPACK_IMPORTED_MODULE_1__.Debouncer(50, 50);
-        if (p.startsWith("$") || p.startsWith("__"))
-            return true;
-        if ((0,_functions__WEBPACK_IMPORTED_MODULE_0__.isset)(scopeDef.$tpl))
-            scopeDef.$tpl.render();
-        (() => __awaiter(this, void 0, void 0, function* () {
-            yield debouncer.debounce();
-        }))();
-        return true;
-    };
-    let getAction = (target, prop, receiver) => {
-        if (prop.startsWith("$"))
-            return target[prop];
-        return target[prop];
-    };
-    let proxy = new Proxy(scopeDef, {
-        get: getAction,
-        set: setAction,
-    });
-    if (init !== null)
-        scopeDef.init(init);
-    return proxy;
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/@leuffen/isl-base/dist/elements/accordion/accordion.js":
 /*!*****************************************************************************!*\
   !*** ./node_modules/@leuffen/isl-base/dist/elements/accordion/accordion.js ***!
@@ -2388,7 +130,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AccordionLayout = void 0;
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 const jodastyle_1 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 // language=HTML
 const tpl = `
@@ -2460,7 +202,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.HamburgerLayout = void 0;
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 const jodastyle_1 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 const jodastyle_2 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 // language=HTML
@@ -2508,7 +250,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.InputLayout = void 0;
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 const jodastyle_1 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 const jodastyle_2 = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
 const tplDefault = `
@@ -2867,7 +609,7 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
 var _JodaContentElement_origContentTemplate, _JodaContentElement_outputDiv;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.JodaContentElement = void 0;
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 const jodastyle_1 = __webpack_require__(/*! ../processor/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/processor/jodastyle.js");
 const jodaresponsive_1 = __webpack_require__(/*! ../processor/jodaresponsive */ "./node_modules/@leuffen/jodastyle/dist/processor/jodaresponsive.js");
 const logger_1 = __webpack_require__(/*! ../helper/logger */ "./node_modules/@leuffen/jodastyle/dist/helper/logger.js");
@@ -3003,7 +745,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 const jodastyle_1 = __webpack_require__(/*! ../processor/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/processor/jodastyle.js");
 const logger_1 = __webpack_require__(/*! ../helper/logger */ "./node_modules/@leuffen/jodastyle/dist/helper/logger.js");
 let JodaFetch = class JodaFetch extends HTMLElement {
@@ -3064,7 +806,7 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
 };
 var _JodaSplit_ready;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 const jodasplit_1 = __webpack_require__(/*! ../processor/jodasplit */ "./node_modules/@leuffen/jodastyle/dist/processor/jodasplit.js");
 const logger_1 = __webpack_require__(/*! ../helper/logger */ "./node_modules/@leuffen/jodastyle/dist/helper/logger.js");
 const jodashorts_1 = __webpack_require__(/*! ../processor/jodashorts */ "./node_modules/@leuffen/jodastyle/dist/processor/jodashorts.js");
@@ -3221,7 +963,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.JodaErrorElement = void 0;
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 let tpl = `
 <style>
 .joda-error {
@@ -3289,7 +1031,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.jodaSiteConfig = void 0;
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 class JodaSiteConfig {
     constructor() {
         this.disable_split = false;
@@ -3314,8 +1056,8 @@ exports.jodaSiteConfig = (0, embed_1.ka_session_storage)(new JodaSiteConfig(), "
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.QTemplate = exports.template_parse = void 0;
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
-const embed_2 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
+const embed_2 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 /**
  * Searches for occurence of ${javascript expression} and replaces them with the result of the expression
  */
@@ -3440,7 +1182,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.runCallbacksForTemplate = exports.getTemplateFilledWithContent = exports.parseConfigString = exports.getCleanVariableValue = exports.splitChildrenBySelector = exports.jodaRenderer = exports.registerJodaRenderer = exports.wrapElement = exports.await_property = exports.allTemplatesConnectedCallbacks = void 0;
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 const JodaElementException_1 = __webpack_require__(/*! ./JodaElementException */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaElementException.js");
 const QTemplate_1 = __webpack_require__(/*! ./QTemplate */ "./node_modules/@leuffen/jodastyle/dist/helper/QTemplate.js");
 const joda_1 = __webpack_require__(/*! ../joda */ "./node_modules/@leuffen/jodastyle/dist/joda.js");
@@ -3706,7 +1448,7 @@ exports.runCallbacksForTemplate = runCallbacksForTemplate;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createElementTree = exports.createElement = exports.parseAttributeStr = exports.parseVariableStr = exports.parseVariableAndStyleStr = void 0;
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 function parseVariableAndStyleStr(varString) {
     let attrs = { "$": {}, "@": {} };
     let regex = new RegExp(`([@$])[^@^$]+`, "gi");
@@ -4175,7 +1917,7 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
 var _Jodasplit_target, _Jodasplit_parents, _Jodasplit_currentParent, _Jodasplit_currentContent, _Jodasplit_currentChildren;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Jodasplit = void 0;
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 /**
  * Copy attributes data-section-* from source to target
  *
@@ -4344,7 +2086,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.jodaStyleCommands = void 0;
 const ka_quick_template_1 = __webpack_require__(/*! ../helper/ka-quick-template */ "./node_modules/@leuffen/jodastyle/dist/helper/ka-quick-template.js");
 const functions_1 = __webpack_require__(/*! ../helper/functions */ "./node_modules/@leuffen/jodastyle/dist/helper/functions.js");
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 exports.jodaStyleCommands = {};
 /**
  * Replace the element with the given @class > @id=elementId template
@@ -4530,7 +2272,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Jodastyle = void 0;
 const jodastyle_commands_1 = __webpack_require__(/*! ./jodastyle-commands */ "./node_modules/@leuffen/jodastyle/dist/processor/jodastyle-commands.js");
 const functions_1 = __webpack_require__(/*! ../helper/functions */ "./node_modules/@leuffen/jodastyle/dist/helper/functions.js");
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 const JodaElementException_1 = __webpack_require__(/*! ../helper/JodaElementException */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaElementException.js");
 const JodaErrorElement_1 = __webpack_require__(/*! ../helper/JodaErrorElement */ "./node_modules/@leuffen/jodastyle/dist/helper/JodaErrorElement.js");
 const LayoutProcessor_1 = __webpack_require__(/*! ./LayoutProcessor */ "./node_modules/@leuffen/jodastyle/dist/processor/LayoutProcessor.js");
@@ -4610,7 +2352,7 @@ exports.Jodastyle = Jodastyle;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Jodavisualize = void 0;
-const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+const embed_1 = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 class Jodavisualize {
     process(element) {
         [element, ...Array.from(element.querySelectorAll("*"))].forEach((e) => {
@@ -4652,7 +2394,7 @@ exports.DefaultLayout = DefaultLayout;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../index */ "./node_modules/@leuffen/liscom/dist/index.js");
 
 
@@ -4736,7 +2478,7 @@ function liscom_enable(liscomConfig = {}) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4783,7 +2525,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   LiscomScrollspy: () => (/* binding */ LiscomScrollspy)
 /* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4936,7 +2678,7 @@ customElements.define('liscom-slider', MyComponent);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index */ "./node_modules/@leuffen/liscom/dist/index.js");
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -5224,7 +2966,7 @@ class OfficeHours {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5298,7 +3040,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   LiwecoVacationModal: () => (/* binding */ LiwecoVacationModal)
 /* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 /* harmony import */ var _business_office_hours__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../business/office-hours */ "./node_modules/@leuffen/liweco-base/dist/business/office-hours.js");
 /* harmony import */ var _helper_functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/functions */ "./node_modules/@leuffen/liweco-base/dist/helper/functions.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -5377,7 +3119,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   LiwecoVacationModal: () => (/* binding */ LiwecoVacationModal)
 /* harmony export */ });
-/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./node_modules/@kasimirjs/embed/dist/index.js");
+/* harmony import */ var _kasimirjs_embed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @kasimirjs/embed */ "./workspaces/kasi-embed/index.ts");
 /* harmony import */ var _business_office_hours__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../business/office-hours */ "./node_modules/@leuffen/liweco-base/dist/business/office-hours.js");
 /* harmony import */ var _helper_functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/functions */ "./node_modules/@leuffen/liweco-base/dist/helper/functions.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -5563,6 +3305,1612 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   LeuOpenHours: () => (/* binding */ LeuOpenHours)
 /* harmony export */ });
 class LeuOpenHours {
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/index.ts":
+/*!****************************************!*\
+  !*** ./workspaces/kasi-embed/index.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Debouncer: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.Debouncer),
+/* harmony export */   KaCustomElement: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.KaCustomElement),
+/* harmony export */   KaCustomFragment: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.KaCustomFragment),
+/* harmony export */   KaCustomModal: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.KaCustomModal),
+/* harmony export */   KaCustomWrapper: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.KaCustomWrapper),
+/* harmony export */   KaHtmlElement: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.KaHtmlElement),
+/* harmony export */   KaModal: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.KaModal),
+/* harmony export */   KaTemplate: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.KaTemplate),
+/* harmony export */   createScopeObject: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.createScopeObject),
+/* harmony export */   customElement: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.customElement),
+/* harmony export */   isUndefined: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.isUndefined),
+/* harmony export */   isset: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.isset),
+/* harmony export */   ka_await_element: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.ka_await_element),
+/* harmony export */   ka_create_element: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.ka_create_element),
+/* harmony export */   ka_debounce: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.ka_debounce),
+/* harmony export */   ka_dom_ready: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.ka_dom_ready),
+/* harmony export */   ka_eval: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.ka_eval),
+/* harmony export */   ka_html: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.ka_html),
+/* harmony export */   ka_query_selector: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.ka_query_selector),
+/* harmony export */   ka_session_storage: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.ka_session_storage),
+/* harmony export */   ka_set_options: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.ka_set_options),
+/* harmony export */   ka_sleep: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.ka_sleep),
+/* harmony export */   ka_templatify: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.ka_templatify),
+/* harmony export */   random_string: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.random_string),
+/* harmony export */   template: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.template),
+/* harmony export */   timeAgo: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.timeAgo),
+/* harmony export */   timeTo: () => (/* reexport safe */ _src_index__WEBPACK_IMPORTED_MODULE_0__.timeTo)
+/* harmony export */ });
+/* harmony import */ var _src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/index */ "./workspaces/kasi-embed/src/index.ts");
+
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/ce/html.ts":
+/*!**********************************************!*\
+  !*** ./workspaces/kasi-embed/src/ce/html.ts ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_html: () => (/* binding */ ka_html)
+/* harmony export */ });
+function ka_html(htmlContent) {
+  if (htmlContent instanceof HTMLTemplateElement) {
+    return htmlContent;
+  }
+  let e = document.createElement("template");
+  e.innerHTML = htmlContent;
+  return e;
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/ce/htmlFile.ts":
+/*!**************************************************!*\
+  !*** ./workspaces/kasi-embed/src/ce/htmlFile.ts ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   RemoteTemplate: () => (/* binding */ RemoteTemplate)
+/* harmony export */ });
+/* harmony import */ var _loadHtml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loadHtml */ "./workspaces/kasi-embed/src/ce/loadHtml.ts");
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+
+class RemoteTemplate {
+  constructor(url) {
+    this.url = url;
+    this.tpl = null;
+  }
+  /**
+   *
+   * @return {Promise<HTMLTemplateElement>}
+   */
+  load() {
+    return __async(this, null, function* () {
+      if (this.tpl === null)
+        this.tpl = yield (0,_loadHtml__WEBPACK_IMPORTED_MODULE_0__.ka_load_html)(this.url);
+      return this.tpl;
+    });
+  }
+}
+function htmlUrl(url) {
+  return new RemoteTemplate(url);
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/ce/loadHtml.ts":
+/*!**************************************************!*\
+  !*** ./workspaces/kasi-embed/src/ce/loadHtml.ts ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_load_html: () => (/* binding */ ka_load_html)
+/* harmony export */ });
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+function ka_load_html(url) {
+  return __async(this, null, function* () {
+    let e = document.createElement("template");
+    let result = yield fetch(url);
+    if (!result.ok) {
+      console.error(`[loadHtml] failed to load '${url}'`);
+      throw `[loadHtml] failed to load '${url}'`;
+    }
+    let body = yield result.text();
+    e.innerHTML = body;
+    return e;
+  });
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/core/create-element.ts":
+/*!**********************************************************!*\
+  !*** ./workspaces/kasi-embed/src/core/create-element.ts ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_create_element: () => (/* binding */ ka_create_element)
+/* harmony export */ });
+function ka_create_element(tagName, attributes = null, children = null, appendToElement = null) {
+  let e = document.createElement(tagName);
+  if (attributes === null)
+    attributes = {};
+  for (let attName in attributes) {
+    e.setAttribute(attName, attributes[attName]);
+  }
+  if (children instanceof NodeList) {
+    children = Array.from(children);
+  }
+  if (Array.isArray(children)) {
+    for (let ce of children) {
+      e.appendChild(ce);
+    }
+  }
+  if (typeof children === "string") {
+    e.innerText = children;
+  }
+  if (appendToElement !== null) {
+    appendToElement.appendChild(e);
+  }
+  return e;
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/core/debounce.ts":
+/*!****************************************************!*\
+  !*** ./workspaces/kasi-embed/src/core/debounce.ts ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_debounce: () => (/* binding */ ka_debounce)
+/* harmony export */ });
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+const _debounceInterval = { i: null, time: null };
+function ka_debounce(min, max = null) {
+  return __async(this, null, function* () {
+    if (max === null)
+      max = min;
+    let dbi = _debounceInterval;
+    return new Promise((resolve) => {
+      if (dbi.time < +new Date() - max && dbi.i !== null) {
+        return resolve();
+      }
+      if (dbi.i !== null) {
+        return;
+      }
+      dbi.time = +new Date();
+      dbi.i = window.setTimeout(() => {
+        dbi.i = null;
+        return resolve();
+      }, min);
+    });
+  });
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/core/debouncer.ts":
+/*!*****************************************************!*\
+  !*** ./workspaces/kasi-embed/src/core/debouncer.ts ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Debouncer: () => (/* binding */ Debouncer)
+/* harmony export */ });
+var __accessCheck = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet = (obj, member, getter) => {
+  __accessCheck(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet = (obj, member, value, setter) => {
+  __accessCheck(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+var _resolve, _interval, _time;
+class Debouncer {
+  constructor(min = 100, max = null) {
+    this.min = min;
+    this.max = max;
+    __privateAdd(this, _resolve, []);
+    __privateAdd(this, _interval, null);
+    __privateAdd(this, _time, null);
+  }
+  debounce() {
+    return __async(this, arguments, function* (min = this.min, max = this.max) {
+      if (max === null)
+        max = min;
+      if (__privateGet(this, _interval) !== null) {
+        window.clearInterval(__privateGet(this, _interval));
+      }
+      __privateSet(this, _interval, window.setInterval(() => {
+        __privateGet(this, _resolve).forEach((r) => r());
+        __privateSet(this, _resolve, []);
+        window.clearInterval(__privateGet(this, _interval));
+      }, min));
+      return new Promise((resolve) => {
+        __privateGet(this, _resolve).push(resolve);
+      });
+    });
+  }
+}
+_resolve = new WeakMap();
+_interval = new WeakMap();
+_time = new WeakMap();
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/core/dom-ready.ts":
+/*!*****************************************************!*\
+  !*** ./workspaces/kasi-embed/src/core/dom-ready.ts ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_dom_ready: () => (/* binding */ ka_dom_ready)
+/* harmony export */ });
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+function ka_dom_ready() {
+  return __async(this, null, function* () {
+    return new Promise((resolve) => {
+      if (document.readyState === "complete" || document.readyState === "interactive")
+        return resolve("loaded");
+      document.addEventListener("DOMContentLoaded", () => resolve("DOMContentLoaded"));
+    });
+  });
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/core/ka-set-options.ts":
+/*!**********************************************************!*\
+  !*** ./workspaces/kasi-embed/src/core/ka-set-options.ts ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_set_options: () => (/* binding */ ka_set_options)
+/* harmony export */ });
+function ka_set_options(element, options, value = null) {
+  element.innerHTML = "";
+  for (let option in options) {
+    if (isNaN(option)) {
+      element.appendChild(new Option(options[option], option));
+    } else {
+      if (typeof options[option].text !== "undefined") {
+        element.appendChild(new Option(options[option].text, options[option].value));
+      } else {
+        element.appendChild(new Option(options[option], options[option]));
+      }
+    }
+  }
+  if (value !== null)
+    element.value = value;
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/core/query-select.ts":
+/*!********************************************************!*\
+  !*** ./workspaces/kasi-embed/src/core/query-select.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_query_selector: () => (/* binding */ ka_query_selector)
+/* harmony export */ });
+function ka_query_selector(query, parent = null, exception = null) {
+  if (typeof exception === "undefined" || exception === null)
+    exception = `querySelector '${query}' not found`;
+  if (typeof parent === "undefined" || parent === null)
+    parent = document;
+  let e = parent.querySelectorAll(query);
+  if (e.length === 0) {
+    console.warn(exception, "on parent: ", parent);
+    throw exception;
+  }
+  return e[0];
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/core/sleep.ts":
+/*!*************************************************!*\
+  !*** ./workspaces/kasi-embed/src/core/sleep.ts ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_sleep: () => (/* binding */ ka_sleep)
+/* harmony export */ });
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+function ka_sleep(sleepms) {
+  return __async(this, null, function* () {
+    return new Promise((resolve) => {
+      window.setTimeout(() => {
+        return resolve();
+      }, sleepms);
+    });
+  });
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/core/storage.ts":
+/*!***************************************************!*\
+  !*** ./workspaces/kasi-embed/src/core/storage.ts ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_session_storage: () => (/* binding */ ka_session_storage)
+/* harmony export */ });
+function ka_session_storage(object = {}, scopeName = null) {
+  if (scopeName == null) {
+    scopeName = "ka_session_storage";
+  }
+  if (object === null) {
+    sessionStorage.removeItem(scopeName);
+    return;
+  }
+  if (sessionStorage.getItem(scopeName) == null) {
+    sessionStorage.setItem(scopeName, JSON.stringify(object));
+  }
+  let savedObject = JSON.parse(sessionStorage.getItem(scopeName));
+  for (let key in object) {
+    if (typeof savedObject[key] === "undefined") {
+      savedObject[key] = object[key];
+    }
+  }
+  let proxy = new Proxy(savedObject, {
+    set: function(target, property, value, receiver) {
+      target[property] = value;
+      sessionStorage.setItem(scopeName, JSON.stringify(target));
+      return true;
+    }
+  });
+  return proxy;
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/element/KaCustomElement.ts":
+/*!**************************************************************!*\
+  !*** ./workspaces/kasi-embed/src/element/KaCustomElement.ts ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   KaCustomElement: () => (/* binding */ KaCustomElement)
+/* harmony export */ });
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../types */ "./workspaces/kasi-embed/src/types.ts");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions */ "./workspaces/kasi-embed/src/functions.ts");
+/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tpl/templatify */ "./workspaces/kasi-embed/src/tpl/templatify.js");
+/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ce/html */ "./workspaces/kasi-embed/src/ce/html.ts");
+/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../tpl/template */ "./workspaces/kasi-embed/src/tpl/template.js");
+/* harmony import */ var _core_create_element__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../core/create-element */ "./workspaces/kasi-embed/src/core/create-element.ts");
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+
+
+
+
+
+
+class KaCustomElement extends HTMLElement {
+  constructor() {
+    super(...arguments);
+    this.__ka_stop_render = true;
+    // Stop rendering if this element is reached
+    this.shadowRootConfig = {};
+    // Activate shadowRoot
+    this.html = "Undefined Template";
+    this.scope = (0,_types__WEBPACK_IMPORTED_MODULE_0__.createScopeObject)();
+    this.tplPrototype = null;
+    this.wrapper = null;
+  }
+  init(scope, autorender = true) {
+    this.scope.init(scope);
+    return this.scope;
+  }
+  wrap(fragment) {
+    this.wrapper = fragment;
+  }
+  setParentScope(scope) {
+    this.scope.$parent = scope;
+  }
+  // @ts-nocheck
+  connectedCallback() {
+    return __async(this, null, function* () {
+      var _a;
+      if (!this.scope.isInitialized())
+        this.init({});
+      if ((0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.constructor["html"])) {
+        this.html = this.constructor["html"];
+      }
+      if ((0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.constructor["shadowRootConfig"])) {
+        this.shadowRootConfig = this.constructor["shadowRootConfig"];
+      }
+      if (this.tplPrototype === null) {
+        this.tplPrototype = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_2__.ka_templatify)((0,_ce_html__WEBPACK_IMPORTED_MODULE_3__.ka_html)(this.html));
+      }
+      this.tpl = this.tplPrototype.cloneNode(true);
+      this.scope.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_4__.KaTemplate(this.tpl);
+      let domRoot = this;
+      if (this.shadowRootConfig.mode !== null && this.shadowRootConfig.mode !== void 0) {
+        domRoot = this.attachShadow({ mode: this.shadowRootConfig.mode });
+        (_a = this.shadowRootConfig.stylesheets) == null ? void 0 : _a.forEach((stylesheet) => {
+          (0,_core_create_element__WEBPACK_IMPORTED_MODULE_5__.ka_create_element)("link", { rel: "stylesheet", href: stylesheet }, null, domRoot);
+        });
+      }
+      if (this.wrapper !== null) {
+        yield this.wrapper.fragmentConnectedCallback();
+        domRoot.append(this.wrapper.wrapTemplate(this.tpl));
+        this.wrapper.wrapFinish();
+      } else {
+        domRoot.append(this.tpl);
+      }
+      this.scope.render();
+    });
+  }
+  disconnectedCallback() {
+    if (this.scope.$tpl !== void 0)
+      this.scope.$tpl.dispose();
+  }
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/element/KaCustomFragment.ts":
+/*!***************************************************************!*\
+  !*** ./workspaces/kasi-embed/src/element/KaCustomFragment.ts ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   KaCustomFragment: () => (/* binding */ KaCustomFragment)
+/* harmony export */ });
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../types */ "./workspaces/kasi-embed/src/types.ts");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions */ "./workspaces/kasi-embed/src/functions.ts");
+/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tpl/templatify */ "./workspaces/kasi-embed/src/tpl/templatify.js");
+/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ce/html */ "./workspaces/kasi-embed/src/ce/html.ts");
+/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../tpl/template */ "./workspaces/kasi-embed/src/tpl/template.js");
+/* harmony import */ var _core_sleep__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../core/sleep */ "./workspaces/kasi-embed/src/core/sleep.ts");
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+
+
+
+
+
+
+class KaCustomFragment {
+  constructor() {
+    this.scope = (0,_types__WEBPACK_IMPORTED_MODULE_0__.createScopeObject)();
+    this.html = null;
+  }
+  init(scope) {
+    if ((0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.constructor["html"]) && this.html === null)
+      this.html = this.constructor["html"];
+    if (!(0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.tplPrototype))
+      this.tplPrototype = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_2__.ka_templatify)((0,_ce_html__WEBPACK_IMPORTED_MODULE_3__.ka_html)(this.html));
+    this.scope.init(scope);
+    return this.scope;
+  }
+  setParentScope(scope) {
+    this.scope.$parent = scope;
+  }
+  setScope(scope) {
+    this.scope.importFrom(scope);
+  }
+  fragmentConnectedCallback(parentElement) {
+    return __async(this, null, function* () {
+      parentElement.setAttribute("ka.stop", "true");
+      if (!this.scope.isInitialized()) {
+        this.init({});
+      }
+      this.tpl = this.tplPrototype.cloneNode(true);
+      this.scope.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_4__.KaTemplate(this.tpl);
+      parentElement.append(this.tpl);
+      yield (0,_core_sleep__WEBPACK_IMPORTED_MODULE_5__.ka_sleep)(1);
+      this.scope.render();
+    });
+  }
+  fragmentDisconnectedCallback() {
+    this.scope.$tpl.dispose();
+  }
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/element/KaCustomModal.ts":
+/*!************************************************************!*\
+  !*** ./workspaces/kasi-embed/src/element/KaCustomModal.ts ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   KaCustomModal: () => (/* binding */ KaCustomModal)
+/* harmony export */ });
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../types */ "./workspaces/kasi-embed/src/types.ts");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions */ "./workspaces/kasi-embed/src/functions.ts");
+/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tpl/templatify */ "./workspaces/kasi-embed/src/tpl/templatify.js");
+/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ce/html */ "./workspaces/kasi-embed/src/ce/html.ts");
+/* harmony import */ var _core_create_element__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../core/create-element */ "./workspaces/kasi-embed/src/core/create-element.ts");
+/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../tpl/template */ "./workspaces/kasi-embed/src/tpl/template.js");
+var __defProp = Object.defineProperty;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __accessCheck = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet = (obj, member, getter) => {
+  __accessCheck(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet = (obj, member, value, setter) => {
+  __accessCheck(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+var _main, _configDefaults, _promise;
+
+
+
+
+
+
+class KaCustomModal {
+  constructor(tagName = "ka-modal", shadowRootInit = null, modalConfig = {}) {
+    this.scope = (0,_types__WEBPACK_IMPORTED_MODULE_0__.createScopeObject)();
+    this.__html = "<div>No Template defined</div>";
+    __privateAdd(this, _main, void 0);
+    __privateAdd(this, _configDefaults, {
+      parentElement: document.body,
+      zIndex: 9999,
+      styleBase: "position:fixed; top:0; bottom:0; left:0; right:0;",
+      styleBackdrop: "background-color: #999;opacity:0.5;",
+      maxWidth: 800
+    });
+    __privateAdd(this, _promise, {
+      promise: null,
+      reject: null,
+      resolve: null
+    });
+    let config = __privateGet(this, _configDefaults);
+    config = __spreadValues(__spreadValues({}, config), modalConfig);
+    this.element = (0,_core_create_element__WEBPACK_IMPORTED_MODULE_4__.ka_create_element)(tagName, { hidden: "hidden" }, null, config.parentElement);
+    this.backdrop = (0,_core_create_element__WEBPACK_IMPORTED_MODULE_4__.ka_create_element)("div", { style: `${config.styleBase};${config.styleBackdrop};z-index:${config.zIndex};` }, null, this.element);
+    let master = (0,_core_create_element__WEBPACK_IMPORTED_MODULE_4__.ka_create_element)("div", { style: `position:fixed;left:0;right:0;top:0;bottom:0;display:flex;justify-content:center;z-index:${config.zIndex + 1};` }, null, this.element);
+    __privateSet(this, _main, (0,_core_create_element__WEBPACK_IMPORTED_MODULE_4__.ka_create_element)("div", { style: `;max-height:100%;max-width:100%;` }, null, master));
+    this.adjustWidth(config);
+    __privateGet(this, _promise).promise = new Promise((resolve, reject) => {
+      __privateGet(this, _promise).resolve = resolve;
+      __privateGet(this, _promise).reject = reject;
+    });
+  }
+  adjustWidth(modalConfig) {
+    let w = window.innerWidth;
+    if (w > modalConfig.maxWidth)
+      w = modalConfig.maxWidth;
+    __privateGet(this, _main).style.width = w + "px";
+  }
+  init(scope) {
+    if ((0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.constructor["html"]))
+      this.__html = this.constructor["html"];
+    if (!(0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.tplPrototype))
+      this.tplPrototype = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_2__.ka_templatify)((0,_ce_html__WEBPACK_IMPORTED_MODULE_3__.ka_html)(this.__html));
+    this.scope.init(scope);
+    return this.scope;
+  }
+  setParentScope(scope) {
+    this.scope.$parent = scope;
+  }
+  setScope(scope) {
+    this.scope.importFrom(scope);
+  }
+  resolve(value) {
+    this.element.remove();
+    __privateGet(this, _promise).resolve(value);
+  }
+  show(...params) {
+    return __async(this, null, function* () {
+      if (!this.scope.isInitialized()) {
+        this.init({});
+      }
+      this.tpl = this.tplPrototype.cloneNode(true);
+      this.scope.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_5__.KaTemplate(this.tpl);
+      __privateGet(this, _main).append(this.tpl);
+      this.element.removeAttribute("hidden");
+      this.scope.render();
+      return __privateGet(this, _promise).promise;
+    });
+  }
+  fragmentDisconnectedCallback() {
+    this.scope.$tpl.dispose();
+  }
+}
+_main = new WeakMap();
+_configDefaults = new WeakMap();
+_promise = new WeakMap();
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/element/KaCustomWrapper.ts":
+/*!**************************************************************!*\
+  !*** ./workspaces/kasi-embed/src/element/KaCustomWrapper.ts ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   KaCustomWrapper: () => (/* binding */ KaCustomWrapper)
+/* harmony export */ });
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../types */ "./workspaces/kasi-embed/src/types.ts");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions */ "./workspaces/kasi-embed/src/functions.ts");
+/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tpl/templatify */ "./workspaces/kasi-embed/src/tpl/templatify.js");
+/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ce/html */ "./workspaces/kasi-embed/src/ce/html.ts");
+/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../tpl/template */ "./workspaces/kasi-embed/src/tpl/template.js");
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+
+
+
+
+
+class KaCustomWrapper {
+  constructor() {
+    this.scope = (0,_types__WEBPACK_IMPORTED_MODULE_0__.createScopeObject)();
+    this.html = null;
+  }
+  init(scope) {
+    if ((0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.constructor["html"]) && this.html === null)
+      this.html = this.constructor["html"];
+    if (!(0,_functions__WEBPACK_IMPORTED_MODULE_1__.isset)(this.tplPrototype))
+      this.tplPrototype = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_2__.ka_templatify)((0,_ce_html__WEBPACK_IMPORTED_MODULE_3__.ka_html)(this.html));
+    this.scope.init(scope);
+    return this.scope;
+  }
+  wrapTemplate(tpl) {
+    this.scope.$content = tpl;
+    return this.tpl;
+  }
+  fragmentConnectedCallback() {
+    return __async(this, null, function* () {
+      if (!this.scope.isInitialized()) {
+        this.init({});
+      }
+      this.returnedTpl = this.tplPrototype;
+      this.tpl = this.tplPrototype.cloneNode(true);
+      this.scope.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_4__.KaTemplate(this.tpl);
+    });
+  }
+  wrapFinish() {
+    return __async(this, null, function* () {
+      this.scope.render();
+    });
+  }
+  fragmentDisconnectedCallback() {
+    this.scope.$tpl.dispose();
+  }
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/element/KaHtmlElement.ts":
+/*!************************************************************!*\
+  !*** ./workspaces/kasi-embed/src/element/KaHtmlElement.ts ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   KaHtmlElement: () => (/* binding */ KaHtmlElement)
+/* harmony export */ });
+/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../tpl/template */ "./workspaces/kasi-embed/src/tpl/template.js");
+/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../tpl/templatify */ "./workspaces/kasi-embed/src/tpl/templatify.js");
+/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ce/html */ "./workspaces/kasi-embed/src/ce/html.ts");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../functions */ "./workspaces/kasi-embed/src/functions.ts");
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+
+
+
+
+class KaHtmlElement extends HTMLElement {
+  constructor(shadowRootInit = null) {
+    super();
+    this.shadowRootInit = shadowRootInit;
+    this.addEventListener("load", (e) => console.log(e));
+  }
+  connectedCallback() {
+    return __async(this, null, function* () {
+      let htmlTpl = null;
+      if (typeof this.html === "function") {
+        let fn = this.html;
+        htmlTpl = yield fn(this);
+      } else {
+        htmlTpl = this.html;
+      }
+      if (typeof htmlTpl === "string")
+        htmlTpl = (0,_ce_html__WEBPACK_IMPORTED_MODULE_2__.ka_html)(htmlTpl);
+      let attachTo = this;
+      if (this.shadowRootInit !== null) {
+        attachTo = this.attachShadow(this.shadowRootInit);
+      }
+      if ((0,_functions__WEBPACK_IMPORTED_MODULE_3__.isset)(htmlTpl)) {
+        let tpl;
+        try {
+          tpl = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_1__.ka_templatify)(htmlTpl);
+        } catch (e) {
+          console.error("Templatify failed on element", this, "for template", htmlTpl);
+          throw e;
+        }
+        this.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_0__.KaTemplate(tpl);
+        attachTo.appendChild(tpl);
+      }
+      this.connected();
+    });
+  }
+  disconnectedCallback() {
+    return __async(this, null, function* () {
+      this.$tpl.dispose();
+      this.disconnected();
+    });
+  }
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/element/KaModal.ts":
+/*!******************************************************!*\
+  !*** ./workspaces/kasi-embed/src/element/KaModal.ts ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   KaModal: () => (/* binding */ KaModal)
+/* harmony export */ });
+/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../tpl/template */ "./workspaces/kasi-embed/src/tpl/template.js");
+/* harmony import */ var _core_create_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/create-element */ "./workspaces/kasi-embed/src/core/create-element.ts");
+/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ce/html */ "./workspaces/kasi-embed/src/ce/html.ts");
+/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../tpl/templatify */ "./workspaces/kasi-embed/src/tpl/templatify.js");
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../types */ "./workspaces/kasi-embed/src/types.ts");
+var __defProp = Object.defineProperty;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __accessCheck = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet = (obj, member, getter) => {
+  __accessCheck(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet = (obj, member, value, setter) => {
+  __accessCheck(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _main, _configDefaults, _promise;
+
+
+
+
+
+class KaModal {
+  constructor(tagName = "ka-modal", shadowRootInit = null, modalConfig = {}) {
+    this.scope = (0,_types__WEBPACK_IMPORTED_MODULE_4__.createScopeObject)();
+    __privateAdd(this, _main, void 0);
+    this.$tpl = null;
+    __privateAdd(this, _configDefaults, {
+      parentElement: document.body,
+      zIndex: 9999,
+      styleBase: "position:fixed; top:0; bottom:0; left:0; right:0;",
+      styleBackdrop: "background-color: #999;opacity:0.5;",
+      maxWidth: 800
+    });
+    __privateAdd(this, _promise, {
+      promise: null,
+      reject: null,
+      resolve: null
+    });
+    let config = __privateGet(this, _configDefaults);
+    config = __spreadValues(__spreadValues({}, config), modalConfig);
+    this.element = (0,_core_create_element__WEBPACK_IMPORTED_MODULE_1__.ka_create_element)(tagName, { hidden: "hidden" }, null, config.parentElement);
+    this.backdrop = (0,_core_create_element__WEBPACK_IMPORTED_MODULE_1__.ka_create_element)("div", { style: `${config.styleBase};${config.styleBackdrop};z-index:${config.zIndex};` }, null, this.element);
+    let master = (0,_core_create_element__WEBPACK_IMPORTED_MODULE_1__.ka_create_element)("div", { style: `position:fixed;left:0;right:0;top:0;bottom:0;display:flex;justify-content:center;z-index:${config.zIndex + 1};` }, null, this.element);
+    __privateSet(this, _main, (0,_core_create_element__WEBPACK_IMPORTED_MODULE_1__.ka_create_element)("div", { style: `;max-height:100%;max-width:100%;` }, null, master));
+    this.adjustWidth(config);
+    __privateGet(this, _promise).promise = new Promise((resolve, reject) => {
+      __privateGet(this, _promise).resolve = resolve;
+      __privateGet(this, _promise).reject = reject;
+    });
+  }
+  adjustWidth(modalConfig) {
+    let w = window.innerWidth;
+    if (w > modalConfig.maxWidth)
+      w = modalConfig.maxWidth;
+    __privateGet(this, _main).style.width = w + "px";
+  }
+  render(scope = null) {
+    if (this.$tpl === null) {
+      let html = this.html;
+      if (typeof html === "string") {
+        html = (0,_ce_html__WEBPACK_IMPORTED_MODULE_2__.ka_html)(html);
+      }
+      if (!(html instanceof HTMLTemplateElement)) {
+        console.error("html is not HtmlTemplateElement", html, "on", this);
+        throw "html is not HtmlTemplateElement";
+      }
+      console.log("html", html);
+      let elem;
+      try {
+        elem = (0,_tpl_templatify__WEBPACK_IMPORTED_MODULE_3__.ka_templatify)(html);
+      } catch (e) {
+        console.log("error templatify for element", this, ":", e);
+        throw e;
+      }
+      __privateGet(this, _main).appendChild(elem);
+      this.$tpl = new _tpl_template__WEBPACK_IMPORTED_MODULE_0__.KaTemplate(elem);
+    }
+    this.$tpl.render(scope);
+  }
+  resolve(value) {
+    this.element.remove();
+    __privateGet(this, _promise).resolve(value);
+  }
+  show(...params) {
+    this.element.removeAttribute("hidden");
+    return __privateGet(this, _promise).promise;
+  }
+}
+_main = new WeakMap();
+_configDefaults = new WeakMap();
+_promise = new WeakMap();
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/element/ka-use.ts":
+/*!*****************************************************!*\
+  !*** ./workspaces/kasi-embed/src/element/ka-use.ts ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   KaUse: () => (/* binding */ KaUse)
+/* harmony export */ });
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions */ "./workspaces/kasi-embed/src/functions.ts");
+/* harmony import */ var _KaCustomFragment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KaCustomFragment */ "./workspaces/kasi-embed/src/element/KaCustomFragment.ts");
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __decorateClass = (decorators, target, key, kind) => {
+  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
+  for (var i = decorators.length - 1, decorator; i >= 0; i--)
+    if (decorator = decorators[i])
+      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
+  if (kind && result)
+    __defProp(target, key, result);
+  return result;
+};
+
+
+let KaUse = class extends HTMLElement {
+  get component() {
+    return this.myComponent;
+  }
+  set component(val) {
+    this.myComponent = val;
+    this.innerHTML = "";
+    this.append(val);
+  }
+  /**
+   * called from ka.use="" by apply()
+   *
+   * @param val
+   */
+  use(val, parentScope) {
+    if ((0,_functions__WEBPACK_IMPORTED_MODULE_0__.isset)(val["setParentScope"]))
+      val["setParentScope"](parentScope);
+    this.myComponent = val;
+    this.innerHTML = "";
+    if (!this.hasAttribute("ka.scope"))
+      val["setScope"](parentScope);
+    if (val instanceof _KaCustomFragment__WEBPACK_IMPORTED_MODULE_1__.KaCustomFragment) {
+      val.fragmentConnectedCallback(this);
+      return;
+    }
+    this.append(val);
+  }
+  /**
+   * set dedicated scope using ka.scope
+   *
+   * @param scope
+   */
+  setScope(scope) {
+    if (this.myComponent instanceof _KaCustomFragment__WEBPACK_IMPORTED_MODULE_1__.KaCustomFragment) {
+      this.myComponent.setScope(scope);
+    }
+  }
+  disconnectedCallback() {
+  }
+  connectedCallback() {
+    this.style.display = "contents";
+    this.setAttribute("ka.stop", "true");
+    if (this.myComponent instanceof _KaCustomFragment__WEBPACK_IMPORTED_MODULE_1__.KaCustomFragment) {
+      this.myComponent.fragmentConnectedCallback(this);
+    }
+  }
+};
+KaUse = __decorateClass([
+  (0,_functions__WEBPACK_IMPORTED_MODULE_0__.customElement)("ka-use-" + (0,_functions__WEBPACK_IMPORTED_MODULE_0__.random_string)().toLowerCase())
+], KaUse);
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/functions.ts":
+/*!************************************************!*\
+  !*** ./workspaces/kasi-embed/src/functions.ts ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   customElement: () => (/* binding */ customElement),
+/* harmony export */   isUndefined: () => (/* binding */ isUndefined),
+/* harmony export */   isset: () => (/* binding */ isset),
+/* harmony export */   ka_await_element: () => (/* binding */ ka_await_element),
+/* harmony export */   random_string: () => (/* binding */ random_string),
+/* harmony export */   template: () => (/* binding */ template),
+/* harmony export */   timeAgo: () => (/* binding */ timeAgo),
+/* harmony export */   timeTo: () => (/* binding */ timeTo)
+/* harmony export */ });
+/* harmony import */ var _core_sleep__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core/sleep */ "./workspaces/kasi-embed/src/core/sleep.ts");
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+
+function isset(input) {
+  return typeof input !== "undefined" && input !== null;
+}
+function isUndefined(input) {
+  return typeof input === "undefined";
+}
+function customElement(tagName = null, template2 = null) {
+  return function(classOrDescriptor) {
+    if (template2 !== null) {
+      classOrDescriptor["html"] = template2;
+    }
+    if (window["_kasi_defined_custom_elements"] === void 0) {
+      window["_kasi_defined_custom_elements"] = [];
+    }
+    if (tagName === null) {
+      if (window["_kasi_anon_element_id"] === void 0) {
+        window["_kasi_anon_element_id"] = 0;
+      }
+      tagName = "kasimirjs-anon-element-" + window["_kasi_anon_element_id"]++;
+    }
+    if (!window["_kasi_defined_custom_elements"].includes(tagName)) {
+      customElements.define(tagName, classOrDescriptor);
+      window["_kasi_defined_custom_elements"].push(tagName);
+    }
+    return classOrDescriptor;
+  };
+}
+function ka_await_element(_0) {
+  return __async(this, arguments, function* (selector, parent = document, maxWait = 2e3) {
+    let elem = parent.querySelector(selector);
+    let rounds = 1;
+    while (elem === null && maxWait > 0) {
+      let delay = 20 * rounds++;
+      yield (0,_core_sleep__WEBPACK_IMPORTED_MODULE_0__.ka_sleep)(delay);
+      elem = parent.querySelector(selector);
+      maxWait -= delay;
+    }
+    return elem;
+  });
+}
+function template(template2, shadowRootConfig = { mode: null, stylesheets: [] }) {
+  return function(classOrDescriptor) {
+    classOrDescriptor["html"] = template2;
+    classOrDescriptor["shadowRootConfig"] = shadowRootConfig;
+    return classOrDescriptor;
+  };
+}
+function random_string(len = 12) {
+  let result = "";
+  let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let charactersLength = characters.length;
+  for (let i = 0; i < len; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+function timeTo(date) {
+  const now = new Date();
+  let seconds = Math.floor((date.getTime() - now.getTime()) / 1e3);
+  if (seconds < 0) {
+    return "today";
+  }
+  let interval = seconds / 31536e3;
+  if (interval > 1) {
+    return "In " + Math.floor(interval) + " years";
+  }
+  interval = seconds / 2592e3;
+  if (interval > 1) {
+    return "In " + Math.floor(interval) + " months";
+  }
+  interval = seconds / 604800;
+  if (interval > 1) {
+    return "In " + Math.floor(interval) + " weeks";
+  }
+  interval = seconds / 86400;
+  if (interval >= 1) {
+    return "In " + Math.floor(interval) + " days";
+  }
+  return "today";
+}
+function timeAgo(date) {
+  const now = new Date();
+  const seconds = Math.floor((now.getTime() - date.getTime()) / 1e3);
+  let interval = seconds / 31536e3;
+  if (interval > 1) {
+    return Math.floor(interval) + " years ago";
+  }
+  interval = seconds / 2592e3;
+  if (interval > 1) {
+    return Math.floor(interval) + " months ago";
+  }
+  interval = seconds / 86400;
+  if (interval > 1) {
+    return Math.floor(interval) + " days ago";
+  }
+  interval = seconds / 3600;
+  if (interval > 1) {
+    return Math.floor(interval) + " hours ago";
+  }
+  interval = seconds / 60;
+  if (interval > 1) {
+    return Math.floor(interval) + " minutes ago";
+  }
+  return Math.floor(seconds) + " seconds ago";
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/index.ts":
+/*!********************************************!*\
+  !*** ./workspaces/kasi-embed/src/index.ts ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Debouncer: () => (/* reexport safe */ _core_debouncer__WEBPACK_IMPORTED_MODULE_18__.Debouncer),
+/* harmony export */   KaCustomElement: () => (/* reexport safe */ _element_KaCustomElement__WEBPACK_IMPORTED_MODULE_8__.KaCustomElement),
+/* harmony export */   KaCustomFragment: () => (/* reexport safe */ _element_KaCustomFragment__WEBPACK_IMPORTED_MODULE_9__.KaCustomFragment),
+/* harmony export */   KaCustomModal: () => (/* reexport safe */ _element_KaCustomModal__WEBPACK_IMPORTED_MODULE_11__.KaCustomModal),
+/* harmony export */   KaCustomWrapper: () => (/* reexport safe */ _element_KaCustomWrapper__WEBPACK_IMPORTED_MODULE_10__.KaCustomWrapper),
+/* harmony export */   KaHtmlElement: () => (/* reexport safe */ _element_KaHtmlElement__WEBPACK_IMPORTED_MODULE_7__.KaHtmlElement),
+/* harmony export */   KaModal: () => (/* reexport safe */ _element_KaModal__WEBPACK_IMPORTED_MODULE_13__.KaModal),
+/* harmony export */   KaTemplate: () => (/* reexport safe */ _tpl_template__WEBPACK_IMPORTED_MODULE_12__.KaTemplate),
+/* harmony export */   createScopeObject: () => (/* reexport safe */ _types__WEBPACK_IMPORTED_MODULE_1__.createScopeObject),
+/* harmony export */   customElement: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.customElement),
+/* harmony export */   isUndefined: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.isUndefined),
+/* harmony export */   isset: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.isset),
+/* harmony export */   ka_await_element: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.ka_await_element),
+/* harmony export */   ka_create_element: () => (/* reexport safe */ _core_create_element__WEBPACK_IMPORTED_MODULE_4__.ka_create_element),
+/* harmony export */   ka_debounce: () => (/* reexport safe */ _core_debounce__WEBPACK_IMPORTED_MODULE_3__.ka_debounce),
+/* harmony export */   ka_dom_ready: () => (/* reexport safe */ _core_dom_ready__WEBPACK_IMPORTED_MODULE_6__.ka_dom_ready),
+/* harmony export */   ka_eval: () => (/* reexport safe */ _core_eval__WEBPACK_IMPORTED_MODULE_15__.ka_eval),
+/* harmony export */   ka_html: () => (/* reexport safe */ _ce_html__WEBPACK_IMPORTED_MODULE_16__.ka_html),
+/* harmony export */   ka_query_selector: () => (/* reexport safe */ _core_query_select__WEBPACK_IMPORTED_MODULE_14__.ka_query_selector),
+/* harmony export */   ka_session_storage: () => (/* reexport safe */ _core_storage__WEBPACK_IMPORTED_MODULE_19__.ka_session_storage),
+/* harmony export */   ka_set_options: () => (/* reexport safe */ _core_ka_set_options__WEBPACK_IMPORTED_MODULE_5__.ka_set_options),
+/* harmony export */   ka_sleep: () => (/* reexport safe */ _core_sleep__WEBPACK_IMPORTED_MODULE_2__.ka_sleep),
+/* harmony export */   ka_templatify: () => (/* reexport safe */ _tpl_templatify__WEBPACK_IMPORTED_MODULE_17__.ka_templatify),
+/* harmony export */   random_string: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.random_string),
+/* harmony export */   template: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.template),
+/* harmony export */   timeAgo: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.timeAgo),
+/* harmony export */   timeTo: () => (/* reexport safe */ _functions__WEBPACK_IMPORTED_MODULE_0__.timeTo)
+/* harmony export */ });
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ "./workspaces/kasi-embed/src/functions.ts");
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types */ "./workspaces/kasi-embed/src/types.ts");
+/* harmony import */ var _core_sleep__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./core/sleep */ "./workspaces/kasi-embed/src/core/sleep.ts");
+/* harmony import */ var _core_debounce__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./core/debounce */ "./workspaces/kasi-embed/src/core/debounce.ts");
+/* harmony import */ var _core_create_element__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./core/create-element */ "./workspaces/kasi-embed/src/core/create-element.ts");
+/* harmony import */ var _core_ka_set_options__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core/ka-set-options */ "./workspaces/kasi-embed/src/core/ka-set-options.ts");
+/* harmony import */ var _core_dom_ready__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./core/dom-ready */ "./workspaces/kasi-embed/src/core/dom-ready.ts");
+/* harmony import */ var _element_KaHtmlElement__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./element/KaHtmlElement */ "./workspaces/kasi-embed/src/element/KaHtmlElement.ts");
+/* harmony import */ var _element_KaCustomElement__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./element/KaCustomElement */ "./workspaces/kasi-embed/src/element/KaCustomElement.ts");
+/* harmony import */ var _element_KaCustomFragment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./element/KaCustomFragment */ "./workspaces/kasi-embed/src/element/KaCustomFragment.ts");
+/* harmony import */ var _element_KaCustomWrapper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./element/KaCustomWrapper */ "./workspaces/kasi-embed/src/element/KaCustomWrapper.ts");
+/* harmony import */ var _element_KaCustomModal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./element/KaCustomModal */ "./workspaces/kasi-embed/src/element/KaCustomModal.ts");
+/* harmony import */ var _tpl_template__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./tpl/template */ "./workspaces/kasi-embed/src/tpl/template.js");
+/* harmony import */ var _element_KaModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./element/KaModal */ "./workspaces/kasi-embed/src/element/KaModal.ts");
+/* harmony import */ var _core_query_select__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./core/query-select */ "./workspaces/kasi-embed/src/core/query-select.ts");
+/* harmony import */ var _core_eval__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./core/eval */ "./workspaces/kasi-embed/src/core/eval.js");
+/* harmony import */ var _ce_html__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ce/html */ "./workspaces/kasi-embed/src/ce/html.ts");
+/* harmony import */ var _tpl_templatify__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./tpl/templatify */ "./workspaces/kasi-embed/src/tpl/templatify.js");
+/* harmony import */ var _core_debouncer__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./core/debouncer */ "./workspaces/kasi-embed/src/core/debouncer.ts");
+/* harmony import */ var _core_storage__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./core/storage */ "./workspaces/kasi-embed/src/core/storage.ts");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/types.ts":
+/*!********************************************!*\
+  !*** ./workspaces/kasi-embed/src/types.ts ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createScopeObject: () => (/* binding */ createScopeObject)
+/* harmony export */ });
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ "./workspaces/kasi-embed/src/functions.ts");
+/* harmony import */ var _core_debouncer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core/debouncer */ "./workspaces/kasi-embed/src/core/debouncer.ts");
+var __defProp = Object.defineProperty;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+
+
+class KaDefaultScope {
+  constructor() {
+    this.__isInitialized = false;
+  }
+  isInitialized() {
+    return this.__isInitialized;
+  }
+  render() {
+    return __async(this, null, function* () {
+      this.$tpl.render(this);
+    });
+  }
+  raw() {
+    return this.$__scope_orig;
+  }
+  importFrom(scope) {
+    for (let key of Object.keys(scope)) {
+      if (key.startsWith("$") || key.startsWith("__"))
+        continue;
+      this["$__scope_orig"][key] = scope[key];
+    }
+  }
+  dump() {
+    return __spreadValues({}, this);
+  }
+  init(scopeDef) {
+    if (this.isInitialized())
+      throw "Scope is already initalized";
+    this.__isInitialized = true;
+    for (let key of Object.keys(scopeDef)) {
+      this[key] = scopeDef[key];
+    }
+  }
+}
+function createScopeObject(init = null) {
+  let scopeDef = new KaDefaultScope();
+  scopeDef["$__scope_orig"] = scopeDef;
+  let setAction = (target, p, value, receiver) => {
+    if (target[p] === value)
+      return true;
+    target[p] = value;
+    let debouncer = new _core_debouncer__WEBPACK_IMPORTED_MODULE_1__.Debouncer(50, 50);
+    if (p.startsWith("$") || p.startsWith("__"))
+      return true;
+    if ((0,_functions__WEBPACK_IMPORTED_MODULE_0__.isset)(scopeDef.$tpl))
+      scopeDef.$tpl.render();
+    (() => __async(this, null, function* () {
+      yield debouncer.debounce();
+    }))();
+    return true;
+  };
+  let getAction = (target, prop, receiver) => {
+    if (prop.startsWith("$"))
+      return target[prop];
+    return target[prop];
+  };
+  let proxy = new Proxy(scopeDef, {
+    get: getAction,
+    set: setAction
+  });
+  if (init !== null)
+    scopeDef.init(init);
+  return proxy;
 }
 
 
@@ -6750,6 +6098,918 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate("text-cont
         </section>
 
     `);
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/ce/custom-element.js":
+/*!********************************************************!*\
+  !*** ./workspaces/kasi-embed/src/ce/custom-element.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   KaCustomElement: () => (/* binding */ KaCustomElement)
+/* harmony export */ });
+/* harmony import */ var _tpl_templatify_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../tpl/templatify.js */ "./workspaces/kasi-embed/src/tpl/templatify.js");
+/* harmony import */ var _tpl_template_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../tpl/template.js */ "./workspaces/kasi-embed/src/tpl/template.js");
+/* harmony import */ var _core_query_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/query-select */ "./workspaces/kasi-embed/src/core/query-select.ts");
+/* harmony import */ var _htmlFile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./htmlFile */ "./workspaces/kasi-embed/src/ce/htmlFile.ts");
+
+
+
+
+
+class KaCustomElement extends HTMLElement {
+
+    constructor(props) {
+        super(props);
+
+        /**
+         *
+         * @protected
+         * @var {KaTemplate}
+         */
+        this.__tpl = null;
+
+        this.__isConnected = false;
+    }
+
+    /**
+     * The Template associated with this Element
+     *
+     * @return {KaTemplate}
+     */
+    get $tpl () {
+        return this.__tpl
+    }
+
+    isConnected() {
+        return this.isConnected;
+    }
+
+    /**
+     * @abstract
+     * @return {Promise<void>}
+     */
+    async connected($tpl, $this) {
+        console.warn("connected() method not overridden in", this);
+    }
+
+    async connectedCallback() {
+        let callback = this.constructor.__callback;
+        if (callback === null) {
+        } else {
+            callback.bind(this);
+        }
+
+        if (this.constructor.__tpl !== null) {
+            let origTpl = this.constructor.__tpl;
+            if (origTpl instanceof _htmlFile__WEBPACK_IMPORTED_MODULE_3__.RemoteTemplate)
+                origTpl = await origTpl.load();
+
+            let tpl = (0,_tpl_templatify_js__WEBPACK_IMPORTED_MODULE_0__.ka_templatify)(origTpl);
+
+            if (this.constructor.__options.shadowDom === true) {
+                let shadowDom = this.attachShadow(this.constructor.__options.shadowDomOptions);
+                shadowDom.appendChild(tpl);
+            } else {
+                this.appendChild(tpl);
+            }
+
+            this.__tpl = new _tpl_template_js__WEBPACK_IMPORTED_MODULE_1__.KaTemplate(tpl);
+        }
+
+        if (this.constructor.__options.waitEvent !== null) {
+            let wd = this.constructor.__options.waitEvent.split("@");
+            let eventName = wd[0];
+            let target = document;
+            if (wd.length === 2) {
+                target = (0,_core_query_select__WEBPACK_IMPORTED_MODULE_2__.ka_query_selector)(wd[1]);
+            }
+            target.addEventListener(eventName, async (event) => {
+                callback(this.$tpl, this);
+                this.__isConnected = true;
+            })
+            return;
+        }
+
+        if (callback === null) {
+            // Class: Call connected() Method
+            await this.connected(this.$tpl, this);
+            this.__isConnected = true;
+            return
+        }
+
+        // Function
+        callback(this.$tpl, this);
+        this.__isConnected = true;
+    }
+
+};
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/core/apply.js":
+/*!*************************************************!*\
+  !*** ./workspaces/kasi-embed/src/core/apply.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_apply: () => (/* binding */ ka_apply)
+/* harmony export */ });
+/* harmony import */ var _eval_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./eval.js */ "./workspaces/kasi-embed/src/core/eval.js");
+/* harmony import */ var _str_to_camelcase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./str-to-camelcase.js */ "./workspaces/kasi-embed/src/core/str-to-camelcase.js");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../functions */ "./workspaces/kasi-embed/src/functions.ts");
+/* harmony import */ var _element_KaCustomFragment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../element/KaCustomFragment */ "./workspaces/kasi-embed/src/element/KaCustomFragment.ts");
+/* harmony import */ var _element_ka_use__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../element/ka-use */ "./workspaces/kasi-embed/src/element/ka-use.ts");
+
+
+
+
+
+
+
+function ka_apply (selector, scope, recursive=false) {
+    if (typeof selector === "string")
+        selector = KaToolsV1.querySelector(selector);
+
+    let attMap = {
+        "textcontent": "textContent",
+        "htmlcontent": "innerHTML",
+        "innerhtml": "innerHTML",
+    }
+
+    for(let attName of selector.getAttributeNames()) {
+        //console.log(attName);
+        if ( ! attName.startsWith("ka.")) {
+            continue;
+        }
+
+        let attVal = selector.getAttribute(attName);
+
+        let attType = attName.split(".")[1];
+        let attSelector = attName.split(".")[2];
+        if (typeof attSelector === "undefined")
+            attSelector = null;
+
+
+        let registerEventHandler = function(element, action, callbackOrCode, scope) {
+            if (typeof element._ka_on === "undefined")
+                element._ka_on = {};
+
+            if (typeof element._ka_on[action] === "undefined")
+                element.addEventListener(action, (e) => element._ka_on[action](e));
+
+            element._ka_on[action] = async(e) => {
+                scope["$event"] = e;
+                if (typeof callbackOrCode === "function") {
+                    return callbackOrCode(e, element, scope);
+                } else {
+                    return (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(callbackOrCode, scope, element);
+                }
+            };
+        }
+
+        if (attType === "on") {
+            let attScope = {$scope: scope, ...scope}
+            if (attSelector !== null) {
+                registerEventHandler(selector, attSelector, attVal, attScope);
+            } else {
+                let callBackMap = KaToolsV1.eval(attVal, attScope, selector);
+                for(let curAction in callBackMap) {
+                    registerEventHandler(selector, curAction, callBackMap[curAction], attScope);
+                }
+
+            }
+            continue;
+        }
+
+        let r = null;
+        if (typeof attVal !== "undefined" && typeof attVal !== null && attVal !== "")
+            r = (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(attVal, scope, selector);
+
+        switch (attType) {
+            case "use":
+                if ( ! (selector instanceof _element_ka_use__WEBPACK_IMPORTED_MODULE_4__.KaUse)) {
+                    let elem = new _element_ka_use__WEBPACK_IMPORTED_MODULE_4__.KaUse();
+
+                    // Copy all attributes from selector to elem
+                    for(let attName of selector.getAttributeNames()) {
+                        elem.setAttribute(attName, selector.getAttribute(attName));
+                    }
+                    selector.replaceWith(elem);
+                    selector = elem;
+                }
+
+                selector.use(r, scope)
+                continue;
+
+
+            case "become":
+                // ka.become="variable" => Replace the current element with the value of the variable (must be HTMLElement)
+                // e.g. to connect a Component defined in a variable to the DOM
+                if ( ! (r instanceof HTMLElement)) {
+                    console.error("ka.become is only available on HTMLElements: Used on ", r, "found in ", selector);
+                    throw "ka.become called on non HTMLElement."
+                }
+                let attributes = selector.attributes;
+
+                selector.replaceWith(r);
+
+                continue;
+
+
+            case "content":
+                // ka.content="variable" => Add the element to the current element
+                selector.setAttribute("ka.stop", "");
+                if (typeof r === "string") {
+                    selector.innerHTML = r;
+                    continue;
+                }
+                if (r === null || r === false) {
+                    selector.innerHTML = "";
+                    continue;
+                }
+
+                if ( ! (r instanceof HTMLElement)) {
+                    console.error("ka.content is only available on HTMLElements: Used on ", r, "found in ", selector);
+                    throw "ka.content called on non HTMLElement."
+                }
+                if (selector.firstElementChild === r)
+                    continue;
+                selector.innerHTML = "";
+                selector.append(r);
+                continue;
+
+            case "scope":
+                if ( ! (r instanceof Object)) {
+                    console.error("ka.scope must be object type <ka-use/> Elements: Value is ", r, "found in ", selector);
+                    throw "ka.scope insuffient value";
+                }
+
+                selector.setScope(r);
+                continue;
+
+            case "stop":
+                continue;
+
+            case "debug":
+                console.log("ka.debug on element", selector, "value:", r, "scope:", scope);
+                continue;
+
+            case "ref":
+                if ((0,_functions__WEBPACK_IMPORTED_MODULE_2__.isUndefined)(scope.$ref))
+                    scope.$ref = {};
+                // Allow ref without parameter to use $ref.$last
+                if (r !== null)
+                    scope.$ref[r] = selector;
+                scope.$ref.$last = selector;
+                break;
+
+            case "classlist":
+                if (attSelector  !== null) {
+                    if (r === true) {
+                        selector.classList.add(attSelector)
+                    } else {
+                        selector.classList.remove(attSelector)
+                    }
+                    break;
+                }
+                if (typeof r === "string") {
+                    // Split and add all classes
+                    r = r.split(" ").filter((e) => e.trim() !== "");
+                }
+                if (Array.isArray(r)) {
+                    for (let cname of r) {
+                        if (cname.trim() === "")
+                            continue;
+                        selector.classList.add(cname);
+                    }
+                    break;
+                }
+                for (let cname in r) {
+                    if (r[cname] === true) {
+                        selector.classList.add(cname);
+                    } else {
+                        selector.classList.remove(cname);
+                    }
+                }
+                break;
+
+            case "style":
+
+                if (attSelector !== null && attSelector.startsWith("--")) {
+                    selector.style.setProperty(attSelector, r);
+                    break;
+                }
+                if (attSelector  !== null) {
+                    let val = r;
+                    if (typeof val === "number" && ["left", "top", "height", "width", "bottom", "right", "line-height", "font-size"].indexOf(attSelector) !== -1)
+                        val = val + "px";
+                    selector.style[(0,_str_to_camelcase_js__WEBPACK_IMPORTED_MODULE_1__.ka_str_to_camel_case)(attSelector)] = val;
+                    break;
+                }
+                for (let cname in r) {
+                    let val = r[cname];
+                    if (typeof val === "number" && ["left", "top", "height", "width", "bottom", "right", "line-height", "font-size"].indexOf(cname) !== -1)
+                        val = val + "px";
+                    selector.style[(0,_str_to_camelcase_js__WEBPACK_IMPORTED_MODULE_1__.ka_str_to_camel_case)(cname)] = val;
+                }
+                break;
+
+            case "bindarray":
+                if (attSelector === "default")
+                    continue;
+                if ((0,_functions__WEBPACK_IMPORTED_MODULE_2__.isUndefined)(r)) {
+                    // Bind default values
+                    if (selector.hasAttribute("ka.bind.default")) {
+                        scope = {$scope: scope, ...scope};
+                        scope = {$scope: scope, ...scope, __curVal: (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(selector.getAttribute("ka.bind.default"), scope, selector)}
+                        ;(0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(`${attVal} = __curVal`, scope, selector);
+                        r = scope.__curVal;
+                    }
+                }
+                if ( ! Array.isArray(r)) {
+                    console.error("kap:bindarr: Not an array!", r, selector);
+                    return;
+                }
+                if (r.indexOf(selector.value) === -1)
+                    selector.checked = false;
+                else
+                    selector.checked = true;
+
+                if (typeof selector._kap_bind === "undefined") {
+                    selector.addEventListener("change", (event) => {
+
+                        let arr = (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(attVal, scope, selector);
+
+                        if (arr.indexOf(selector.value) === -1 && selector.checked)
+                            arr.push(selector.value);
+                        if (arr.indexOf(selector.value) !== -1 && ! selector.checked)
+                            arr = arr.filter((e) => e !== selector.value);
+                        scope = {$scope: scope, ...scope, __curVal: arr};
+                        (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(`${attVal} = __curVal`, scope, selector);
+                        if (scope.$on && scope.$on.change)
+                            scope.$on.change(event);
+                    })
+                    selector._kap_bind = true;
+                }
+                break;
+
+            case "bind":
+                if (attSelector === "default")
+                    continue;
+                if ((0,_functions__WEBPACK_IMPORTED_MODULE_2__.isUndefined)(r)) {
+                    // Bind default values
+                    if ((0,_functions__WEBPACK_IMPORTED_MODULE_2__.isset) (selector.value)) {
+                        scope = {$scope: scope,...scope, __curVal: selector.value}
+                        ;(0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(`${attVal} = __curVal`, scope, selector);
+                        r = scope.__curVal;
+                    }
+                    if (selector.hasAttribute("ka.bind.default")) {
+                        scope = {$scope: scope, ...scope};
+                        scope = {$scope: scope, ...scope, __curVal: (0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(selector.getAttribute("ka.bind.default"), scope, selector)}
+                        ;(0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(`${attVal} = __curVal`, scope, selector);
+                        r = scope.__curVal;
+                    }
+                }
+                if (selector.type === "checkbox" || selector.type === "radio") {
+                    if (selector.hasAttribute("value")) {
+                        if (r === selector.getAttribute("value"))
+                            selector.checked = true;
+                        else
+                            selector.checked = false;
+                    } else {
+                        if (r === true)
+                            selector.checked = true;
+                        else
+                            selector.checked = false;
+                    }
+                } else {
+                    selector.value = typeof r !== "undefined" ? r : "";
+                }
+
+                if (typeof selector._kap_bind === "undefined") {
+                    selector.addEventListener("change", (event) => {
+
+                        let value = null;
+                        if (selector.type === "checkbox" || selector.type === "radio") {
+                            if (selector.hasAttribute("value")) {
+                                if (selector.checked === false)
+                                    return;
+                                value = selector.getAttribute("value");
+                            } else {
+                                value = selector.checked
+                            }
+                        } else {
+                            value = selector.value
+                        }
+                        scope = {$scope: scope, ...scope, __curVal: value}
+                        ;(0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(`${attVal} = __curVal`, scope, selector);
+                        if (scope.$on && scope.$on.change)
+                            scope.$on.change(event);
+                    })
+                    selector.addEventListener("keyup", (event) => {
+                        scope = {$scope: scope,...scope, __curVal: selector.value}
+                        ;(0,_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(`${attVal} = __curVal`, scope, selector);
+                        if (scope.$on && scope.$on.change)
+                            scope.$on.change(event);
+
+                    })
+                    selector._kap_bind = true;
+                }
+                break;
+
+            case "options":
+                let value = selector.value;
+                selector.innerHTML = "";
+                for (let option in r) {
+                    if (! Array.isArray(r)) {
+                        // Object key => value value => text
+                        selector.appendChild(new Option(r[option], option));
+                    } else {
+                        // Array
+                        if (r[option]?.text !== undefined) {
+                            selector.appendChild(new Option(r[option].text, r[option].value));
+                        } else {
+                            // Array value and text will be array value
+                            selector.appendChild(new Option(r[option], r[option]));
+                        }
+                    }
+                }
+                if (value !== null)
+                    selector.value = value;
+                break;
+
+            case "attr":
+                if (attSelector  !== null) {
+                    if (r === null || r === false) {
+                        selector.removeAttribute(attSelector)
+                    } else {
+                        selector.setAttribute(attSelector, r);
+                    }
+                    break;
+                }
+                for (let cname in r) {
+                    if (r[cname] ===null || r[cname] === false) {
+                        selector.removeAttribute(cname);
+                    } else {
+                        selector.setAttribute(cname, r[cname]);
+                    }
+                }
+                break;
+
+            case "prop":
+                if (attSelector  !== null) {
+                    // Set Property directly
+                    selector[(0,_str_to_camelcase_js__WEBPACK_IMPORTED_MODULE_1__.ka_str_to_camel_case)(attSelector)] = r;
+                    break;
+                }
+                for (let cname in r) {
+                    selector[(0,_str_to_camelcase_js__WEBPACK_IMPORTED_MODULE_1__.ka_str_to_camel_case)(cname)] = r[cname];
+                }
+                break;
+
+            default:
+                if (typeof attMap[attType] !== "undefined")
+                    attType = attMap[attType];
+                if (typeof selector[attType] === "undefined") {
+                    console.warn("apply(): trying to set undefined property ", attType, "on element", selector);
+                }
+                selector[attType] = r;
+                break;
+        }
+
+
+
+    }
+    if (recursive) {
+        for (let e of selector.children) {
+            ka_apply(e, scope, recursive);
+        }
+    }
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/core/elwalk.js":
+/*!**************************************************!*\
+  !*** ./workspaces/kasi-embed/src/core/elwalk.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_elwalk: () => (/* binding */ ka_elwalk)
+/* harmony export */ });
+
+
+/**
+ *
+ * @param {HTMLElement} elem
+ * @param fn
+ * @param recursive
+ */
+function ka_elwalk (elem, fn, recursive=false, includeFirst=false) {
+    if (Array.isArray(elem))
+        elem.children = elem;
+    if (typeof elem.children === "undefined")
+        return;
+    if (includeFirst && elem instanceof HTMLElement) {
+        let ret = fn(elem);
+        if (ret === false)
+            return false;
+    }
+    for(let child of elem.children) {
+        let ret = fn(child);
+        if (ret === false)
+            continue; // No recursiion
+
+        if (recursive && typeof child.children !== "undefined")
+            ka_elwalk(child, fn, recursive);
+
+    }
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/core/eval.js":
+/*!************************************************!*\
+  !*** ./workspaces/kasi-embed/src/core/eval.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_eval: () => (/* binding */ ka_eval)
+/* harmony export */ });
+
+function ka_eval (stmt, __scope, e, __refs) {
+    if (stmt.endsWith(";"))
+        stmt = stmt.slice(0, -1);
+
+    const reserved = ["var", "null", "let", "const", "function", "class", "in", "of", "for", "true", "false", "await", "$this"];
+    let r = "var $this = e;";
+    for (let __name in __scope) {
+        if (reserved.indexOf(__name) !== -1)
+            continue;
+        if (__name.indexOf("-") !== -1) {
+            console.error(`Invalid scope key '${__name}': Cannot contain - in scope:`, __scope);
+            throw `eval() failed: Invalid scope key: '${__name}': Cannot contain minus char '-'`;
+        }
+        r += `var ${__name} = __scope['${__name}'];`
+    }
+    // If the scope was cloned, the original will be in $scope. This is important when
+    // Using events [on.click], e.g.
+    if (typeof __scope.$scope === "undefined") {
+        r += "var $scope = __scope;";
+    }
+    try {
+        // console.log(r + '(' + stmt + ')');
+        const func = new Function('e', '__scope', r + '; return ' + stmt);
+        return func(e, __scope);
+    } catch (ex) {
+        console.error("cannot eval() stmt: '" + stmt + "': " + ex, " on element ", e, ex, "(context:", __scope, ")");
+        throw "eval('" + stmt + "') failed: " + ex;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/core/str-to-camelcase.js":
+/*!************************************************************!*\
+  !*** ./workspaces/kasi-embed/src/core/str-to-camelcase.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_str_to_camel_case: () => (/* binding */ ka_str_to_camel_case)
+/* harmony export */ });
+
+
+/**
+ * Transform any input to CamelCase
+ *
+ * Example: some-class => someClass
+ *
+ * @param str {string}
+ * @return {string}
+ */
+function ka_str_to_camel_case (str) {
+    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (ltr, idx) => idx === 0 ? ltr.toLowerCase() : ltr.toUpperCase()).replace(/[^a-zA-Z0-9]+/g, '');
+}
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/tpl/template.js":
+/*!***************************************************!*\
+  !*** ./workspaces/kasi-embed/src/tpl/template.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   KaTemplate: () => (/* binding */ KaTemplate)
+/* harmony export */ });
+/* harmony import */ var _core_eval_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/eval.js */ "./workspaces/kasi-embed/src/core/eval.js");
+/* harmony import */ var _core_elwalk_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/elwalk.js */ "./workspaces/kasi-embed/src/core/elwalk.js");
+/* harmony import */ var _core_apply_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/apply.js */ "./workspaces/kasi-embed/src/core/apply.js");
+/* harmony import */ var _ce_custom_element_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ce/custom-element.js */ "./workspaces/kasi-embed/src/ce/custom-element.js");
+
+
+
+
+
+
+class KaTemplate {
+
+    constructor(template) {
+        this.template = template;
+        if (typeof this.template.__kachilds === "undefined")
+            this.template.__kachilds = [];
+        if (typeof this.template.__kasibling === "undefined")
+            this.template.__kasibling = this.template.nextElementSibling;
+
+        this.__renderCount = 0;
+        this.$scope = {};
+    }
+
+    _error(msg) {
+        console.error(`[ka-template] ${msg} on element`, this.template);
+        throw `[ka-template] ${msg} on element` + this.template;
+    }
+
+    _appendTemplate() {
+        let elements = this.template.content;
+
+        let elList = [];
+        for (let curE of elements.children) {
+            curE = curE.cloneNode(true);
+            curE._ka_maintained_by = this.template.getAttribute("_kaidx");
+            elList.push(curE);
+            this.template.parentNode.insertBefore(curE, this.template.__kasibling);
+        }
+        this.template.__kachilds.push(elList);
+    }
+
+    _removeLastChild() {
+        if (this.template.__kachilds.length === 0)
+            return;
+        let childs = this.template.__kachilds[this.template.__kachilds.length - 1];
+        for (let curE of childs) {
+            this.template.parentElement.removeChild(curE);
+        }
+        this.template.__kachilds.length = this.template.__kachilds.length - 1;
+
+    }
+
+    _renderFor($scope, stmt) {
+        //console.log("kachilds", this.template.__kachilds);
+        let matches = stmt.match(/^(let)?\s*(?<target>.+)\s+(?<type>of|in|repeat)\s+(?<select>.+)$/);
+        if (matches === null) {
+            this._error(`Can't parse ka.for='${stmt}'`);
+        }
+        let selectVal = (0,_core_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(matches.groups.select, $scope, this.template);
+
+        if (matches.groups.type === "repeat") {
+            if (typeof selectVal !== "number")
+                this._error(`Error ka.for='${stmt}': Selected val must be number in repeat loop`);
+            selectVal = new Array(selectVal).fill(null);
+        }
+
+        let eIndex = 0;
+        for (let index in selectVal) {
+            let curScope = {$scope: $scope, ...$scope};
+            curScope[matches.groups.target] = index;
+
+            if (matches.groups.type === "of")
+                curScope[matches.groups.target] = selectVal[index];
+
+            if (this.template.__kachilds.length < eIndex + 1) {
+                //console.log("append", eIndex, this.template.__kachilds.length);
+                this._appendTemplate();
+            }
+            this._maintain(curScope, this.template.__kachilds[eIndex], eIndex);
+            eIndex++;
+        }
+        for(let remIdx = eIndex; remIdx < this.template.__kachilds.length; ) {
+            this._removeLastChild();
+        }
+
+    }
+
+    _maintain($scope, childs, forIndex=0) {
+        for (let child of childs) {
+            child._ka_for_index = forIndex;
+            (0,_core_elwalk_js__WEBPACK_IMPORTED_MODULE_1__.ka_elwalk)(child, (el) => {
+                //console.log("walk", el);
+
+                if (el instanceof HTMLTemplateElement) {
+                    //console.log("maintain", el);
+                    let r = new this.constructor(el);
+                    r.render($scope);
+                    return false;
+                }
+
+                if (typeof el._ka_maintained_by !== "undefined" && el._ka_maintained_by !== this.template.getAttribute("_kaidx")) {
+                    return false;
+                }
+
+                (0,_core_apply_js__WEBPACK_IMPORTED_MODULE_2__.ka_apply)(el, $scope);
+                if ((el instanceof HTMLElement && el.hasAttribute("ka.stop" )) || el["__ka_stop_render"]) {
+                    return false; // Skip Element rendering
+                }
+
+            }, true, true);
+        }
+    }
+
+
+    _renderIf($scope, stmt) {
+         let selectVal = (0,_core_eval_js__WEBPACK_IMPORTED_MODULE_0__.ka_eval)(stmt, $scope, this.template);
+        if (selectVal === true) {
+            if (this.template.__kachilds.length === 0)
+                this._appendTemplate();
+
+            this._maintain($scope, this.template.__kachilds[0]);
+        } else {
+            this._removeLastChild();
+        }
+    }
+
+    /**
+     * Remove all rendered element
+     */
+    dispose() {
+        for(;this.template.__kachilds.length > 0;)
+            this._removeLastChild();
+    }
+
+
+    setScope($scope) {
+        this.$scope = $scope;
+    }
+
+    /**
+     * Render / Update the Template
+     *
+     * Once the scope in parameter 1 was set, it will render
+     * without any parameters. Scope is available via property $scope
+     *
+     * @param $scope
+     */
+    render($scope = null) {
+        if ($scope === null)
+            $scope = this.$scope;
+        this.$scope = $scope;
+        this.__renderCount++;
+
+        if (this.template.hasAttribute("ka.for")) {
+            this._renderFor($scope, this.template.getAttribute("ka.for"));
+        } else if (this.template.hasAttribute("ka.if")) {
+            this._renderIf($scope, this.template.getAttribute("ka.if"));
+        } else {
+            if (typeof this.template._ka_active === "undefined") {
+                this._appendTemplate();
+                this.template._ka_active = true;
+            }
+            this._maintain($scope, this.template.__kachilds);
+        }
+    }
+
+    /**
+     * Return true if this template was renderd the first time
+     *
+     * @returns {boolean}
+     */
+    isFirstRender() {
+        return this.__renderCount === 1;
+    }
+
+};
+
+
+/***/ }),
+
+/***/ "./workspaces/kasi-embed/src/tpl/templatify.js":
+/*!*****************************************************!*\
+  !*** ./workspaces/kasi-embed/src/tpl/templatify.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ka_templatify: () => (/* binding */ ka_templatify)
+/* harmony export */ });
+/* harmony import */ var _core_query_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/query-select */ "./workspaces/kasi-embed/src/core/query-select.ts");
+/* harmony import */ var _core_elwalk_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/elwalk.js */ "./workspaces/kasi-embed/src/core/elwalk.js");
+
+
+
+function quoteattr(s, preserveCR) {
+    preserveCR = preserveCR ? '&#13;' : '\n';
+    return ('' + s) /* Forces the conversion to string. */
+        .replace(/&/g, '&amp;') /* This MUST be the 1st replacement. */
+        .replace(/'/g, '&apos;') /* The 4 other predefined entities, required. */
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        /*
+        You may add other replacements here for HTML only
+        (but it's not necessary).
+        Or for XML, only if the named entities are defined in its DTD.
+        */
+        .replace(/\r\n/g, preserveCR) /* Must be before the next replacement. */
+        .replace(/[\r\n]/g, preserveCR);
+    ;
+}
+
+window._ka_el_idx = 0;
+/**
+ * Generate a renderable Template from <template> Element
+ *
+ * @param {HTMLElement|string} elem
+ * @return {HTMLTemplateElement}
+ */
+function ka_templatify (elem, returnMode=true) {
+    if (typeof elem === "string")
+        elem = (0,_core_query_select__WEBPACK_IMPORTED_MODULE_0__.ka_query_selector)(elem);
+
+    if ( ! (elem instanceof Node)) {
+        console.error("[ka-templatify] Parameter 1 is not a html element: ", elem)
+        throw `[ka-templify] Parameter 1 is not a html element: ${elem}`;
+    }
+
+    const elIdxName = "_ka_el_idx";
+    if (window[elIdxName] === null)
+        window[elIdxName] = 5;
+    window[elIdxName]++;
+
+
+    if (returnMode) {
+        let returnTpl = document.createElement("template");
+        returnTpl.setAttribute("_kaidx", (window[elIdxName]).toString())
+        /* @var {HTMLTemplateElement} returnTpl */
+        returnTpl.innerHTML = elem.innerHTML
+            .replace(/\[\[(.*?)\]\]/g, (matches, m1) => `<span ka.textContent="${quoteattr(m1)}"></span>`);
+
+        ka_templatify(returnTpl.content, false);
+        return returnTpl;
+    }
+
+    if (elem instanceof HTMLTemplateElement)
+        elem = elem.content;
+
+
+
+
+    let wrapElem = (el, attName, attVal) => {
+        let tpl = document.createElement("template");
+        tpl.setAttribute("_kaidx", (window[elIdxName]).toString())
+        let clonedEl = el.cloneNode(true);
+        clonedEl.removeAttribute(attName);
+        tpl.content.append(clonedEl);
+        tpl.setAttribute(attName, attVal);
+        el.replaceWith(tpl);
+        return tpl;
+    }
+
+    ;(0,_core_elwalk_js__WEBPACK_IMPORTED_MODULE_1__.ka_elwalk)(elem, (el) => {
+        //console.log(el);
+        if ( ! (el instanceof HTMLElement))
+            return;
+        let tpl = null;
+        for (let attrName of el.getAttributeNames()) {
+            if (attrName === "ka.for") {
+                tpl = wrapElem(el, "ka.for", el.getAttribute("ka.for"));
+                ka_templatify(tpl, false);
+                break;
+            }
+            if (attrName === "ka.if") {
+                tpl = wrapElem(el, "ka.if", el.getAttribute("ka.if"));
+                ka_templatify(tpl, false);
+                break;
+            }
+        }
+    }, true, false);
+}
 
 
 /***/ }),
