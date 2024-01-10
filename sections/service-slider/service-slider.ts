@@ -1,7 +1,6 @@
 import {Joda} from "@leuffen/jodastyle";
 import Swiper from "swiper";
 import { Navigation, Pagination } from 'swiper/modules';
-import {ka_sleep} from "@kasimirjs/embed";
 import {SwiperOptions} from "swiper/types";
 
 
@@ -53,7 +52,6 @@ Joda.registerTemplate("service-slider",
     `,
     {}, {
         onAfterAllTemplatesConnectedCallback: async (element) => {
-            await ka_sleep(1000);
             const swiperEl = element.querySelector('.swiper') as HTMLElement;
             if (!swiperEl) {
                 throw new Error("swiperEl not found");
@@ -90,8 +88,6 @@ Joda.registerTemplate("service-slider",
 
                 }
             } as SwiperOptions;
-            console.log("Swiper", swiperEl);
             const swiper = new Swiper(swiperEl, swiperParams);
-            //swiper.init();
         }
     });

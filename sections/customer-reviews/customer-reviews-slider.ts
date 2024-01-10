@@ -1,5 +1,7 @@
 import {Joda} from "@leuffen/jodastyle";
-import { register } from 'swiper/element/bundle';
+import {SwiperOptions} from "swiper/types";
+import Swiper from "swiper";
+import { Navigation, Pagination } from 'swiper/modules';
 
 Joda.registerTemplate("customer-reviews__carousel--slide",
     // language=HTML
@@ -33,7 +35,7 @@ Joda.registerTemplate("customer-reviews-slider",
                             <slot><slot>
                         </div>
                         <div class="tjs-customer-reviews-slider__content--row">
-                            <div class="tjs-customer-reviews-slider__content--col tjs-customer-reviews-slider__carousel">
+                            <div class="tjs-customer-reviews-slider__content--col tjs-customer-reviews-slider__carousel swiper">
                                 <div class="tjs-customer-reviews-slider__carousel--navigation-prev">
                                     <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-left.svg" width="500" height="500">
                                 </div>
@@ -42,9 +44,7 @@ Joda.registerTemplate("customer-reviews-slider",
                                 </div>
                                 <div class="tjs-customer-reviews-slider__carousel--nav-points"></div>
 
-                                <swiper-container init="false" class="tjs-customer-reviews-slider__carousel--slides">
-                                    <slot data-select=".children > *" data-child-layout="use: #customer-reviews__carousel--slide;" data-replace></slot>
-                                </swiper-container>
+                                <slot class="swiper-wrapper" data-select=".children > *" data-child-layout="use: #customer-reviews__carousel--slide;"></slot>
 
                             </div>
                         </div>
@@ -55,9 +55,13 @@ Joda.registerTemplate("customer-reviews-slider",
     `,
     {}, {
         onAfterAllTemplatesConnectedCallback: (element) => {
-            /*
-            const swiperEl = element.querySelector('.tjs-customer-reviews-slider__carousel--slides');
+            const swiperEl = element.querySelector('.swiper') as HTMLElement;
+            if (!swiperEl) {
+                throw new Error("swiperEl not found");
+            }
+
             const swiperParams = {
+                modules: [Navigation, Pagination],
                 spaceBetween: 35,
                 slidesPerView: 1,
                 loop: true,
@@ -78,10 +82,7 @@ Joda.registerTemplate("customer-reviews-slider",
                     nextEl: ".tjs-customer-reviews-slider__carousel--navigation-next",
                     prevEl: ".tjs-customer-reviews-slider__carousel--navigation-prev"
                 }
-            };
-            Object.assign(swiperEl, swiperParams);
-            swiperEl['initialize']();
-
-             */
+            } as SwiperOptions;
+            const swiper = new Swiper(swiperEl, swiperParams);
         }
     });
