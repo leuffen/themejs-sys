@@ -28,7 +28,8 @@ module.exports = {
                 include: [
                     path.resolve(__dirname, "src"),
                     path.resolve(__dirname, "workspaces"),
-                    path.resolve(__dirname, "theme")
+                    path.resolve(__dirname, "theme"),
+                    path.resolve(__dirname, "sections")
                 ]
             },
             {

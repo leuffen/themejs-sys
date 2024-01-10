@@ -1,11 +1,12 @@
 import {Joda} from "@leuffen/jodastyle";
-import { register } from 'swiper/element/bundle';
-register();
+import Swiper from "swiper";
+import {ka_sleep} from "@kasimirjs/embed";
+
 
 Joda.registerTemplate("service-slider__carousel--slide",
     // language=HTML
     `
-        <swiper-slide class="tjs-service-slider__carousel--slide">
+        <swiper-slide class="tjs-service-slider__carousel--slide swiper-slide">
             <div class="tjs-service-slider__carousel--slide__image">
                 <slot data-select="img"></slot>
             </div>
@@ -27,7 +28,7 @@ Joda.registerTemplate("service-slider",
                             <div class="tjs-service-slider__content--col tjs-service-slider__content--col-text">
                                 <slot></slot>
                             </div>
-                            <div class="tjs-service-slider__content--col tjs-service-slider__carousel">
+                            <div class="tjs-service-slider__content--col tjs-service-slider__carousel swiper">
                                 <div class="tjs-service-slider__carousel--navigation-prev">
                                     <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-left.svg">
                                 </div>
@@ -36,9 +37,9 @@ Joda.registerTemplate("service-slider",
                                 </div>
                                 <div class="tjs-service-slider__carousel--nav-points"></div>
 
-                                <swiper-container init="false" class="tjs-service-slider__carousel--slides">
-                                    <slot data-select=".children > *" data-child-layout="use: #service-slider__carousel--slide;" data-replace></slot>
-                                </swiper-container>
+
+                                <slot class="swiper-wrapper" data-select=".children > *" data-child-layout="use: #service-slider__carousel--slide;" style="display:block;"></slot>
+
                             </div>
                             <div class="tjs-service-slider__content--col tjs-service-slider__content--col__mobile-button">
                                 <a href="#" class="btn btn-outline-primary">Alle Leistungen entdecken</a>
@@ -50,16 +51,25 @@ Joda.registerTemplate("service-slider",
         </section>
     `,
     {}, {
-        onAfterAllTemplatesConnectedCallback: (element) => {
-            const swiperEl = element.querySelector('.tjs-service-slider__carousel--slides');
+        onAfterAllTemplatesConnectedCallback: async (element) => {
+            await ka_sleep(1000);
+            const swiperEl = element.querySelector('.swiper') as HTMLElement;
+            if (!swiperEl) {
+                throw new Error("swiperEl not found");
+            }
+
+
             const swiperParams = {
                 spaceBetween: 35,
                 loop: true,
                 slidesPerView: 1.2,
                 pagination: {
+
                     el: '.tjs-service-slider__carousel--nav-points',
                     clickable: true,
                     bulletClass: 'tjs-service-slider__carousel--nav-points__point',
+
+
                 },
                 breakpoints: {
                     640: {
@@ -75,9 +85,11 @@ Joda.registerTemplate("service-slider",
                 navigation: {
                     nextEl: ".tjs-service-slider__carousel--navigation-next",
                     prevEl: ".tjs-service-slider__carousel--navigation-prev"
+
                 }
             };
-            Object.assign(swiperEl, swiperParams);
-            swiperEl['initialize']();
+            console.log("Swiper", swiperEl);
+            const swiper = new Swiper(swiperEl, swiperParams);
+            //swiper.init();
         }
     });

@@ -1004,6 +1004,9 @@ b {
   width: 80%;
   margin: 0 auto;
 }
+.tjs-header1.text-left p {
+  margin: unset;
+}
 .tjs-header1__hero {
   margin-bottom: 2.5rem;
 }

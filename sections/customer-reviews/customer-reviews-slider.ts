@@ -1,6 +1,5 @@
 import {Joda} from "@leuffen/jodastyle";
 import { register } from 'swiper/element/bundle';
-register();
 
 Joda.registerTemplate("customer-reviews__carousel--slide",
     // language=HTML
@@ -56,6 +55,7 @@ Joda.registerTemplate("customer-reviews-slider",
     `,
     {}, {
         onAfterAllTemplatesConnectedCallback: (element) => {
+            /*
             const swiperEl = element.querySelector('.tjs-customer-reviews-slider__carousel--slides');
             const swiperParams = {
                 spaceBetween: 35,
@@ -81,5 +81,7 @@ Joda.registerTemplate("customer-reviews-slider",
             };
             Object.assign(swiperEl, swiperParams);
             swiperEl['initialize']();
+
+             */
         }
     });

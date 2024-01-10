@@ -5260,7 +5260,7 @@ let html = `
 </nav>
 
 # Wir entwickeln moderne und ma\xDFgeschneiderte Websites f\xFCr <typewriter-element>Allgemeinmediziner, Internisten, Gyn\xE4kologen, Orthop\xE4den, Dermatologen, HNO-\xC4rzte, Augen\xE4rzte, Chirurgen, Urologen, Kardiologen, \xC4rzte & Mediziner</typewriter-element>
-{: layout="use: #header1" data-section-class="no-bottom-margin"}
+{: layout="use: #header1" data-section-class="no-bottom-margin text-left"}
 
 ![Webdesign f\xFCr \xC4rzte](https://cdn.leuffen.de//leu-systemwebsite/v2/7/113-73_edcba/hero-image.webp)
 
