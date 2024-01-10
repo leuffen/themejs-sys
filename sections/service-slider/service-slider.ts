@@ -1,6 +1,8 @@
 import {Joda} from "@leuffen/jodastyle";
 import Swiper from "swiper";
+import { Navigation, Pagination } from 'swiper/modules';
 import {ka_sleep} from "@kasimirjs/embed";
+import {SwiperOptions} from "swiper/types";
 
 
 Joda.registerTemplate("service-slider__carousel--slide",
@@ -37,8 +39,7 @@ Joda.registerTemplate("service-slider",
                                 </div>
                                 <div class="tjs-service-slider__carousel--nav-points"></div>
 
-
-                                <slot class="swiper-wrapper" data-select=".children > *" data-child-layout="use: #service-slider__carousel--slide;" style="display:block;"></slot>
+                                <slot class="swiper-wrapper" data-select=".children > *" data-child-layout="use: #service-slider__carousel--slide;"></slot>
 
                             </div>
                             <div class="tjs-service-slider__content--col tjs-service-slider__content--col__mobile-button">
@@ -60,6 +61,7 @@ Joda.registerTemplate("service-slider",
 
 
             const swiperParams = {
+                modules: [Navigation, Pagination],
                 spaceBetween: 35,
                 loop: true,
                 slidesPerView: 1.2,
@@ -87,7 +89,7 @@ Joda.registerTemplate("service-slider",
                     prevEl: ".tjs-service-slider__carousel--navigation-prev"
 
                 }
-            };
+            } as SwiperOptions;
             console.log("Swiper", swiperEl);
             const swiper = new Swiper(swiperEl, swiperParams);
             //swiper.init();

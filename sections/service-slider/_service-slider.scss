@@ -104,6 +104,10 @@
                     width: rem(42px);
                     height: rem(42px);
                 }
+
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
 
