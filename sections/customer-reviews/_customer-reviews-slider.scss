@@ -116,27 +116,7 @@
             height: auto;
 
             &:first-child {
-                margin-left: 18vw;
-                scroll-margin-left: 18vw;
-
-                @media (max-width: 1900px) {
-                    margin-left: 10vw;
-                    scroll-margin-left:10vw;
-                }
-
-                @include media-breakpoint-down(xxl) {
-                    margin-left: 8vw;
-                    scroll-margin-left: 8vw;
-                }
-
-                @include media-breakpoint-down(xl) {
-                    margin-left: 7vw;
-                    scroll-margin-left: 7vw;
-                }
-            }
-
-            &:not(:last-child) {
-                margin-right: rem(35px);
+                margin-left: 35px;
             }
 
             &__stars {

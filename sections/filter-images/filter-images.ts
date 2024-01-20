@@ -20,7 +20,6 @@ Joda.registerTemplate("filter-images",
             <div class="tjs-wrapper container">
                 <slot></slot>
                 <div class="tjs-filter-images__filters">
-                    <span class="tjs-filter-images__filters--filter selected" data-filter="all">Alle Projekte</span>
                 </div>
                 <div class="tjs-filter-images__list">
                     <slot data-select=".children > *" data-child-layout="use: #filter-image;" data-replace></slot>
@@ -61,20 +60,48 @@ Joda.registerTemplate("filter-images",
                         let allItems = document.querySelectorAll('.tjs-filter-images__item');
 
                         allItems.forEach(item => {
+                            item.classList.remove('is-animated');
                             let itemFilters = item.querySelector('h3').getAttribute('data-section-data-tags');
-                            if (itemFilters) {
-                                let filtersArray = itemFilters.split(',').map(f => f.trim());
-                                if (selectedFilter === 'all' || filtersArray.includes(selectedFilter)) {
-                                    item.classList.remove('hide');
-                                    item.classList.add('show');
-                                } else {
-                                    item.classList.add('hide');
-                                    item.classList.remove('show');
+                            fadeOut(item, function() {
+                                if (itemFilters) {
+                                    let filtersArray = itemFilters.split(',').map(f => f.trim());
+
+                                    if (filtersArray.includes(selectedFilter)) {
+                                        item.classList.add('is-animated');
+
+                                        fadeIn(item);
+                                    }
                                 }
-                            }
+                            });
                         });
                     });
                 });
+            }
+
+            function fadeOut(el, callback) {
+                el.style.opacity = 1;
+
+                (function fade() {
+                    if ((el.style.opacity -= 0.1) < 0) {
+                        el.style.display = 'none';
+                        callback();
+                    } else {
+                        setTimeout(fade, 50);
+                    }
+                })();
+            }
+
+            function fadeIn(el) {
+                el.style.opacity = 0;
+                el.style.display = '';
+
+                (function fade() {
+                    let val = parseFloat(el.style.opacity);
+                    if (!((val += 1) > 1)) {
+                        el.style.opacity = val;
+                        setTimeout(fade, 50);
+                    }
+                })();
             }
         }
     });
