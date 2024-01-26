@@ -3,12 +3,14 @@
  */
 
 .tjs-customer-reviews {
-    @include element-to-element-margin-medium;
+    --element-margin-bottom: 70px;
+    --element-margin-bottom-mobile: 40px;
 
     &__content {
         &--headline {
             text-align: center;
-            @include element-to-element-margin-small;
+            --element-margin-bottom: 50px;
+            --element-margin-bottom-mobile: 30px;
         }
 
         &--row {

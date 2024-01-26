@@ -16,13 +16,13 @@ Joda.registerTemplate("image-slider__carousel--slide",
 Joda.registerTemplate("image-slider",
     // language=HTML
     `
-        <section class="tjs-image-slider :: mobile :md:">
+        <section class="tjs-image-slider element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-image-slider__content--container">
                     <img loading="lazy" class="tjs-image-slider__stars--left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
                     <img loading="lazy" class="tjs-image-slider__stars--right" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
                     <div class="tjs-image-slider__content">
-                        <div class="tjs-image-slider__content--headline">
+                        <div class="tjs-image-slider__content--headline element-margin-bottom">
                             <slot><slot>
                         </div>
                         <div class="tjs-image-slider__content--row">

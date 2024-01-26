@@ -3,7 +3,8 @@
  */
 
 .tjs-image-slider {
-    @include element-to-element-margin-medium;
+    --element-margin-bottom: 70px;
+    --element-margin-bottom-mobile: 40px;
 
     &__content--container {
         background: transparent linear-gradient(0deg, #EDEDED 0%, #FFFFFF 15%, #FFFFFF 85%, #EDEDED 100%) 0% 0% no-repeat padding-box;
@@ -14,8 +15,10 @@
 
     &__content {
         &--headline {
+            --element-margin-bottom: 50px;
+            --element-margin-bottom-mobile: 30px;
+
             text-align: center;
-            @include element-to-element-margin-small;
             padding-left: 1rem;
             padding-right: 1rem;
         }

@@ -3,7 +3,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("cols-2",
     // language=HTML
     `
-        <section class="tjs-cols-2 :: mobile :md:">
+        <section class="tjs-cols-2 element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper container ">
                 <div class="tjs-cols-2__col tjs-cols-2__col--image">
                     <slot data-select="img"></slot>

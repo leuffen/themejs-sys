@@ -16,7 +16,7 @@ Joda.registerTemplate("filter-image",
 Joda.registerTemplate("filter-images",
     // language=HTML
     `
-        <section id="tjs-filter-images" class="tjs-filter-images :: mobile :md:">
+        <section id="tjs-filter-images" class="tjs-filter-images element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper container">
                 <slot></slot>
                 <div class="tjs-filter-images__filters">

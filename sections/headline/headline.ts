@@ -3,7 +3,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("headline",
     // language=HTML
     `
-        <section class="tjs-headline :: mobile :md:">
+        <section class="tjs-headline element-margin-bottom :: mobile :md:">
             <div class="container">
                 <div class="tjs-wrapper">
                     <img loading="lazy" class="tjs-headline--star-top-left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg" width="389" height="500">

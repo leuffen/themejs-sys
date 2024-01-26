@@ -8,7 +8,7 @@ Joda.registerTemplate("service-slider__carousel--slide",
     // language=HTML
     `
         <swiper-slide class="tjs-service-slider__carousel--slide swiper-slide">
-            <div class="tjs-service-slider__carousel--slide__image">
+            <div class="tjs-service-slider__carousel--slide__image element-margin-bottom">
                 <slot data-select="img"></slot>
             </div>
             <div class="tjs-service-slider__carousel--slide__text">
@@ -21,7 +21,7 @@ Joda.registerTemplate("service-slider__carousel--slide",
 Joda.registerTemplate("service-slider",
     // language=HTML
     `
-        <section class="tjs-service-slider  :: mobile :md:">
+        <section class="tjs-service-slider element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-service-slider__content--container">
                     <div class="tjs-service-slider__content">

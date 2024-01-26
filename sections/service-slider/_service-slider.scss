@@ -3,7 +3,8 @@
  */
 
 .tjs-service-slider {
-    @include element-to-element-margin-medium;
+    --element-margin-bottom: 70px;
+    --element-margin-bottom-mobile: 40px;
 
     &__content--container {
         background: transparent linear-gradient(293deg, #DCF2DE 0%, #E8F6FF 100%) no-repeat;
@@ -159,7 +160,6 @@
             margin-bottom: 5px;
 
             &__image {
-                @include element-to-element-margin-medium;
                 img {
                     width: 150px;
                     height: 150px;

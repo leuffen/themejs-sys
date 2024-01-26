@@ -3,7 +3,8 @@
  */
 
 .tjs-cols-2-bg {
-    @include element-to-element-margin-medium;
+    --element-margin-bottom: 70px;
+    --element-margin-bottom-mobile: 40px;
 
     &.reversed-rows {
         .tjs-cols-2-bg__col {

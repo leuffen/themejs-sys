@@ -17,7 +17,7 @@ Joda.registerTemplate("icon-catchprases__item",
 Joda.registerTemplate("icon-catchprases",
     // language=HTML
     `
-        <section class="tjs-icon-catchphrases :: mobile :lg:">
+        <section class="tjs-icon-catchphrases element-margin-bottom :: mobile :lg:">
             <div class="tjs-wrapper container">
                 <div class="tjs-icon-catchphrases__text">
                     <slot></slot>

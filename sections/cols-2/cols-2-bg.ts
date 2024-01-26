@@ -3,7 +3,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("cols-2-bg",
     // language=HTML
     `
-        <section class="tjs-cols-2-bg :: mobile :md:">
+        <section class="tjs-cols-2-bg element-margin-bottom :: mobile :md:">
             <div class="container">
                 <div class="tjs-wrapper tjs-cols-2-bg__border">
                     <div class="tjs-cols-2-bg__disturber">

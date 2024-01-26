@@ -3,7 +3,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("customer-reviews-quote",
     // language=HTML
     `
-        <section class="tjs-customer-reviews-quote :: mobile :md:">
+        <section class="tjs-customer-reviews-quote element-margin-bottom :: mobile :md:">
             <div class="container">
                 <div class="tjs-wrapper">
                     <i class="bi bi-quote tjs-customer-reviews-quote__quote-icon"></i>

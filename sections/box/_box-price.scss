@@ -67,7 +67,8 @@
 }
 
 .tjs-box-price {
-    @include element-to-element-margin-large;
+    --element-margin-bottom: 90px;
+    --element-margin-bottom-mobile: 50px;
 
     h3, p, ul, li {
         color: $white;

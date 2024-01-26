@@ -3,7 +3,8 @@
  */
 
 .tjs-key-figures {
-    @include element-to-element-margin-medium;
+    --element-margin-bottom: 70px;
+    --element-margin-bottom-mobile: 40px;
 
     &__content--container {
         background: $element-border-color;

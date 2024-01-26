@@ -4,7 +4,8 @@
 
 @import "cols-2-bg";
 .tjs-cols-2 {
-    @include element-to-element-margin-medium;
+    --element-margin-bottom: 70px;
+    --element-margin-bottom-mobile: 40px;
 
     &.reversed-rows {
         .tjs-cols-2__col {

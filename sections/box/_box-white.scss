@@ -14,7 +14,8 @@
 }
 
 .tjs-box-white {
-    @include element-to-element-margin-large;
+    --element-margin-bottom: 90px;
+    --element-margin-bottom-mobile: 50px;
 
     .tjs-wrapper {
         background-color: $white;

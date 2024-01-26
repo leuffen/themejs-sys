@@ -3,9 +3,9 @@ import { Joda } from "@leuffen/jodastyle";
 Joda.registerTemplate("header1",
     // language=HTML
     `
-        <section class="tjs-header1 :: mobile :lg: ">
+        <section class="tjs-header1 element-margin-bottom :: mobile :lg: ">
             <div class="tjs-wrapper container-fluid">
-                <div class="tjs-header1__hero container">
+                <div class="tjs-header1__hero element-margin-bottom container">
                     <div class="tjs-header1__hero--row">
                         <div class="tjs-header1__hero--col tjs-header1__hero--col-text">
                             <slot></slot>

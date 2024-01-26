@@ -3,11 +3,13 @@
  */
 
 .tjs-contact-form {
+    --element-margin-bottom: 70px;
+    --element-margin-bottom-mobile: 40px;
+
     font-family: 'Roboto Flex', sans-serif;
     position: relative;
     margin-top: 65px;
     text-align: left;
-    @include element-to-element-margin-medium;
 
     &__content--container {
         &-inner {

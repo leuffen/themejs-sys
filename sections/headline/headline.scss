@@ -3,7 +3,9 @@
  */
 
 .tjs-headline {
-    @include element-to-element-margin-medium;
+    --element-margin-bottom: 70px;
+    --element-margin-bottom-mobile: 40px;
+
     text-align: center;
 
     .tjs-wrapper {

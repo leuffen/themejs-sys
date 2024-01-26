@@ -8,7 +8,8 @@ $cardHeightMobile: rem(360px);
 $cardTopPadding: 1rem;
 
 .tjs-cards-slider {
-    @include element-to-element-margin-large;
+    --element-margin-bottom: 90px;
+    --element-margin-bottom-mobile: 50px;
 
     .tjs-wrapper {
         display: flex;

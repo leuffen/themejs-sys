@@ -3,7 +3,9 @@
  */
 
 .tjs-icon-catchphrases {
-    @include element-to-element-margin-large;
+    --element-margin-bottom: 90px;
+    --element-margin-bottom-mobile: 50px;
+
     @include col-side-paddings;
 
     &__text {

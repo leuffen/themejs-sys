@@ -3,7 +3,8 @@
  */
 
 .tjs-customer-reviews-quote {
-    @include element-to-element-margin-medium;
+    --element-margin-bottom: 70px;
+    --element-margin-bottom-mobile: 40px;
 
     .tjs-wrapper {
         position: relative;

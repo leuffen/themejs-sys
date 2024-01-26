@@ -3,7 +3,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("box-price",
     // language=HTML
     `
-        <section class="tjs-box-price :: mobile :md:">
+        <section class="tjs-box-price element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper tjs-box-price__border">
                     <slot data-select=".tjs-box-price__disturber" data-replace></slot>
                 <div class="tjs-box-price__content">

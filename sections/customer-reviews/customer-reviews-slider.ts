@@ -27,11 +27,11 @@ Joda.registerTemplate("customer-reviews__carousel--slide",
 Joda.registerTemplate("customer-reviews-slider",
     // language=HTML
     `
-        <section class="tjs-customer-reviews-slider :: mobile :md:">
+        <section class="tjs-customer-reviews-slider element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-customer-reviews-slider__content--container">
                     <div class="tjs-customer-reviews-slider__content">
-                        <div class="tjs-customer-reviews-slider__content--headline">
+                        <div class="tjs-customer-reviews-slider__content--headline element-margin-bottom">
                             <slot><slot>
                         </div>
                         <div class="tjs-customer-reviews-slider__content--row">
@@ -63,47 +63,15 @@ Joda.registerTemplate("customer-reviews-slider",
             const swiperParams = {
                 modules: [Navigation, Pagination],
                 spaceBetween: 35,
-                slidesPerView: 1,
+                slidesPerView: 'auto',
                 loop: true,
+                centeredSlides: true,
+                direction: 'horizontal',
+                initialSlide: 3,
                 pagination: {
                     el: '.tjs-customer-reviews-slider__carousel--nav-points',
                     clickable: true,
                     bulletClass: 'tjs-customer-reviews-slider__carousel--nav-points__point',
-                },
-                breakpoints: {
-                    500: {
-                        slidesPerView: 1.1,
-                    },
-                    600: {
-                        slidesPerView: 1.3,
-                    },
-                    700: {
-                        slidesPerView: 1.8,
-                    },
-                    800: {
-                        slidesPerView: 1.8,
-                    },
-                    900: {
-                        slidesPerView: 2.1,
-                    },
-                    1024: {
-                        slidesPerView: 2.25,
-                    },
-                    1250: {
-                        slidesPerView: 2.8,
-                    },
-                    1500: {
-                        slidesPerView: 3.2,
-                    },
-                    1680: {
-                        slidesPerView: 3.4,
-                    },
-                    1920: {
-                        slidesPerView: 3.65,
-                    },
-                    2000: {
-                        slidesPerView: 3.7,
-                    },
                 },
                 navigation: {
                     nextEl: ".tjs-customer-reviews-slider__carousel--navigation-next",

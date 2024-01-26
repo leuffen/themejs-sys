@@ -3,6 +3,9 @@
  */
 
 .tjs-header1 {
+    --element-margin-bottom: 50px;
+    --element-margin-bottom-mobile: 0;
+
     background: transparent linear-gradient(118deg, #E8F6FF 0%, #ECF2DC 100%) 0% 0% no-repeat padding-box;
     padding: rem(15px) 0;
     border-bottom: 1px solid #e5e5e5;
@@ -10,7 +13,6 @@
     min-height: calc(100vh - 110px);
     display: flex;
     align-items: center;
-    margin-bottom: rem(50px);
 
     &.bg-into-white {
         background: linear-gradient(360deg, #FFFFFF 0%, #FFFFFF00 100%) 0% 0% no-repeat padding-box, linear-gradient(103deg, #E8F6FF 0%, #EBF3E1 54%, #ECF2DC 100%) 0% 0% no-repeat padding-box;
@@ -57,7 +59,8 @@
     }
 
     &__hero {
-        @include element-to-element-margin-medium;
+        --element-margin-bottom: 70px;
+        --element-margin-bottom-mobile: 40px;
 
         &--row {
             display: flex;

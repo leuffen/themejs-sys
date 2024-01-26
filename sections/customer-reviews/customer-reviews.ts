@@ -24,10 +24,10 @@ Joda.registerTemplate("customer-reviews__review",
 Joda.registerTemplate("customer-reviews",
     // language=HTML
     `
-        <section class="tjs-customer-reviews :: mobile :md:">
+        <section class="tjs-customer-reviews element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper container">
                 <div class="tjs-customer-reviews__content">
-                    <div class="tjs-customer-reviews__content--headline">
+                    <div class="tjs-customer-reviews__content--headline element-margin-bottom">
                         <slot><slot>
                     </div>
                     <div class="tjs-customer-reviews__content--row">
