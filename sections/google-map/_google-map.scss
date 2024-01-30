@@ -4,6 +4,7 @@
 
 .tjs-google-map {
     position: relative;
+    margin-bottom: -7px;
 
     iframe {
         height: 610px;
@@ -29,9 +30,9 @@
 
         img {
             display: block;
-            height: 32px;
+            height: 45px;
             width: auto;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         p {

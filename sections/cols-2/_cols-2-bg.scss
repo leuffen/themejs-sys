@@ -161,6 +161,16 @@
             color: $white;
             font-weight: 400;
         }
+
+        .btn {
+            a {
+                color: white;
+
+                &:hover {
+                    color: unset;
+                }
+            }
+        }
     }
 
     &.mobile {
