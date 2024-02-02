@@ -1,5 +1,6 @@
 .tjs-disturber {
-    @include element-to-element-margin-small;
+    --element-margin-bottom: 70px;
+    --element-margin-bottom-mobile: 40px;
 
     font-size: rem(20px);
     background: #263238;
