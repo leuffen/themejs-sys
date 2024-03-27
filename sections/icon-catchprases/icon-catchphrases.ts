@@ -25,6 +25,9 @@ Joda.registerTemplate("icon-catchprases",
                 <div class="tjs-icon-catchphrases__items">
                     <slot data-select="ul > li" data-child-layout="use:  #icon-catchprases__item"></slot>
                 </div>
+                <div class="text-center mt-5">
+                    <slot data-select=".btn"></slot>
+                </div>
             </div>
         </section>
 

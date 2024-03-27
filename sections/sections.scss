@@ -1,31 +1,35 @@
 //
 @use "sass:math";
 
-@import "bootstrap/scss/functions";
+@import "bootstrap/scss/bootstrap";
 
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/variables-dark";
-
-// 4. Include any default map overrides here
-
-// 5. Include remainder of required parts
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/root";
-
-// 6. Optionally include any other parts as needed
-@import "bootstrap/scss/utilities";
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/containers";
+//@import "bootstrap/scss/functions";
+//
+//@import "bootstrap/scss/variables";
+//@import "bootstrap/scss/variables-dark";
+//
+//// 4. Include any default map overrides here
+//
+//// 5. Include remainder of required parts
+//@import "bootstrap/scss/maps";
+//@import "bootstrap/scss/mixins";
+//@import "bootstrap/scss/root";
+//
+//// 6. Optionally include any other parts as needed
+//@import "bootstrap/scss/utilities";
+//@import "bootstrap/scss/reboot";
+//@import "bootstrap/scss/containers";
 
 @import "node_modules/swiper/swiper";
 
 @import "functions";
 @import "variables";
 @import "override";
+@import "globals";
 
 
 @import "header1/header1";
+@import "header2/header2";
 @import "disturber/disturber";
 @import "icon-catchprases/icon-catchphrases";
 @import "service-slider/service-slider";
@@ -35,6 +39,7 @@
 @import "cards-slider/cards-slider";
 @import "customer-reviews/customer-reviews";
 @import "customer-reviews/customer-reviews-slider";
+@import "customer-reviews/customer-reviews-slider-2";
 @import "customer-reviews/customer-reviews-quote";
 @import "headline/headline";
 @import "image-slider/image-slider";
@@ -43,7 +48,9 @@
 @import "google-map/google-map";
 @import "box/box-price";
 @import "box/box-white";
+@import "box/box-color";
 @import "filter-images/filter-images";
+@import "pills/pills";
 
 
 @import "footer/footer";

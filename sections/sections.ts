@@ -1,5 +1,6 @@
 
 import "./header1/header1";
+import "./header2/header2";
 import "./disturber/disturber";
 import "./icon-catchprases/icon-catchphrases";
 import "./service-slider/service-slider";
@@ -9,6 +10,7 @@ import "./key-figures/key-figures";
 import "./cards-slider/cards-slider";
 import "./customer-reviews/customer-reviews";
 import "./customer-reviews/customer-reviews-slider";
+import "./customer-reviews/customer-reviews-slider-2";
 import "./customer-reviews/customer-reviews-quote";
 import "./headline/headline";
 import "./image-slider/image-slider";
@@ -18,7 +20,9 @@ import "./contact-form/contact-form";
 import "./google-map/google-map";
 import "./box/box-price";
 import "./box/box-white";
+import "./box/box-color";
 import "./filter-images/filter-images";
+import "./pills/pills";
 
 import "./footer/footer";
 import "./footer-copyright/footer-copyright";

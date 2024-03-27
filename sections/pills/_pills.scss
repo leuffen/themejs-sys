@@ -1,0 +1,50 @@
+/**
+ * Komponente: pills
+ */
+
+.tjs-pills {
+    --element-margin-bottom: 90px;
+    --element-margin-bottom-mobile: 50px;
+
+    h2 {
+        text-align: center;
+        font-size: 25px;
+        line-height: 33px;
+        margin-bottom: 44px;
+        font-weight: 600;
+    }
+
+    .tjs-pill {
+        background: transparent linear-gradient(93deg, #E8F6FF 0%, #ECF2DC 100%) 0% 0% no-repeat padding-box;
+        width: 100%;
+        padding: 20px 40px;
+        border: 1px solid #DDDDDD;
+        border-radius: 20px;
+        margin-bottom: 10px;
+
+        h3 {
+            font-size: 20px;
+            line-height: 26px;
+            font-weight: 600;
+            margin: 0;
+            color: $font-color2;
+        }
+    }
+
+    &.mobile {
+        h2 {
+            font-size: 23px;
+            line-height: 30px;
+            margin-bottom: 35px;
+        }
+
+        .tjs-pill {
+            padding: 17px 40px;
+
+            h3 {
+                font-size: 18px;
+                line-height: 24px;
+            }
+        }
+    }
+}

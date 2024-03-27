@@ -32,7 +32,7 @@ Einfach und schnell zur eigenen Praxis-Website ohne Mehraufwand.
 
 
 ## Hero Section
-{: layout="use: #disturber;"}
+{: layout="use: #disturber"}
 
 Wir garantieren Ihnen 100% Zufriedenheit mit unserer <b class="text-primary">30 Tage Geld-zurück-Garantie!</b>
 

@@ -34,3 +34,9 @@
 b {
     font-weight: 500!important;
 }
+
+.row {
+    @include media-breakpoint-down(md) {
+        padding: 0 18px!important;
+    }
+}

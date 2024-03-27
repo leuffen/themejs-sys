@@ -16,7 +16,6 @@ Joda.registerTemplate("box-white-container",
     // language=HTML
     `
         <section class="tjs-box-white-container container :: mobile :md:">
-                <slot data-select=".children > *" data-child-layout="use: #box-white;" data-replace></slot>
-            </div>
+            <slot data-select=".children > *" data-child-layout="use: #box-white;" data-replace></slot>
         </section>
     `);

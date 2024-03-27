@@ -1,0 +1,202 @@
+/**
+ * Komponente: customer-reviews-slider
+ */
+
+.tjs-customer-reviews-slider-2 {
+    --element-margin-bottom: 70px;
+    --element-margin-bottom-mobile: 40px;
+
+    .tjs-wrapper {
+        background: transparent linear-gradient(119deg, #E8F6FF 0%, #ECF2DC 100%) 0% 0% no-repeat padding-box;
+    }
+
+    &__content--container {
+        padding: rem(30px) 0;
+    }
+
+    h2 {
+        font-size: 25px;
+        font-weight: 500;
+    }
+
+    &__content {
+        &--headline {
+            text-align: center;
+            --element-margin-bottom: 40px;
+            --element-margin-bottom-mobile: 30px;
+        }
+
+        &--row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+        }
+    }
+
+    &__carousel {
+        overflow: hidden;
+        text-align: center;
+        position: relative;
+        padding-bottom: 30px;
+
+        &--navigation {
+            &-prev {
+                position: absolute;
+                top: calc(50% - 21px);
+                position: absolute;
+                z-index: 15;
+                left: 10px;
+                @include media-breakpoint-up(xxl) {
+                    left: 80px;
+                }
+            }
+
+            &-next {
+                position: absolute;
+                top: calc(50% - 21px);
+                position: absolute;
+                z-index: 15;
+                right: 10px;
+                @include media-breakpoint-up(xxl) {
+                    right: 80px;
+                }
+            }
+
+            &-prev, &-next {
+                img {
+                    width: rem(42px);
+                    height: rem(42px);
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &--slide {
+            background: $white;
+            box-shadow: 0px 1px 2px #00000029;
+            border-radius: 20px;
+            padding: rem(30px);
+            height: auto;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+
+            &__stars {
+                margin-bottom: rem(30px);
+            }
+
+            &__text {
+                margin-bottom: auto;
+                font: italic normal normal 18px/27px Roboto;
+            }
+
+            img {
+                max-width: 90%;
+                margin: 0 auto 10px;
+                width: 100%;
+            }
+
+            &__author {
+                font-size: rem(14px);
+
+                h3 {
+                    margin-top: 5px;
+                    font-size: rem(18px);
+                    line-height: rem(27px);
+                }
+                a {
+                    color: $primary;
+                }
+
+                .bi-star-fill {
+                    color: $primary!important;
+                    font-size: 22px;
+
+                    &:nth-last-child(2) {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+
+        &--nav-points {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+
+            &__point {
+                width: rem(13px);
+                height: rem(13px);
+                background: $white;
+                border-radius: 50%;
+                border: 1px solid #363636;
+                position: relative;
+
+                &:not(:last-child) {
+                    margin-right: rem(9px);
+                }
+
+                &:after {
+                    content: "";
+                    width: rem(9px);
+                    height: rem(9px);
+                    display: block;
+                    position: absolute;
+                    top: 1px;
+                    left: 1px;
+                    background: $white;
+                    border-radius: 50%;
+                }
+
+                &.swiper-pagination-bullet-active {
+                    &:after {
+                        background: $primary;
+                    }
+                }
+            }
+        }
+    }
+
+    &.mobile {
+        .tjs-wrapper {
+            margin: 0 auto;
+        }
+
+        .tjs-customer-reviews-slider-2 {
+            &__content--container {
+                padding: 2.5rem 0 0;
+            }
+
+            &__col {
+                flex-basis: 100%;
+            }
+
+            &__content {
+                &--col {
+                    flex-basis: 100%;
+                    @include col-side-paddings;
+                }
+            }
+
+            &__carousel {
+                margin-bottom: 2rem;
+
+                &--navigation {
+                    &-prev, &-next {
+                        display: none;
+                    }
+                }
+
+                &--nav-points {
+                    display: flex;
+                    bottom: 25px;
+                }
+            }
+        }
+    }
+}

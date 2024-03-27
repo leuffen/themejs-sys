@@ -1,3 +1,18 @@
-.tjs-header-background {
-    background: transparent linear-gradient(118deg, #E8F6FF 0%, #ECF2DC 100%) 0% 0% no-repeat padding-box;
+ul.list-check.list-bold {
+    li {
+        margin-bottom: 16px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: -0.75rem;
+            top: 20%;
+            margin-top: -8px;
+            width: 13px;
+            height: 21px;
+            border: solid #41C7A8;
+            border-width: 0 5px 5px 0;
+            transform: rotate(45deg);
+        }
+    }
 }

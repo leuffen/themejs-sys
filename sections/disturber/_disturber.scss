@@ -3,6 +3,7 @@
     --element-margin-bottom-mobile: 40px;
 
     font-size: rem(20px);
+    line-height: rem(25px);
     background: #263238;
     display: flex;
     justify-content: center;
@@ -15,6 +16,10 @@
         p {
             margin: 0;
             color: $white;
+        }
+
+        b {
+            font-weight: 700!important;
         }
     }
 

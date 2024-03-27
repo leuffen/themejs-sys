@@ -3,11 +3,12 @@
  */
 
 .tjs-footer {
-    background-color: var(--color-grey-dark);
+    background-color: $footer-bg;
     color: var(--bs-white);
     font-family: 'Roboto Flex', sans-serif;
-    padding: 1rem 0;
+    padding: 90px 0 1rem 0;
     position: relative;
+    min-height: 250px;
 
     .tjs__wrapper {
         position: relative;
@@ -134,8 +135,15 @@
 
     &.mobile {
         .tjs-footer {
+            &__col {
+                &--inner {
+                    flex-direction: column;
+                }
+            }
+
             &__links {
                 flex: 1;
+                margin-bottom: 30px;
 
                 strong {
                     margin-top: 1rem;
