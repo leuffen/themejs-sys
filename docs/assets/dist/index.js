@@ -5568,6 +5568,104 @@ class LeuOpenHours {
 
 /***/ }),
 
+/***/ "./sections/box/box-color.ts":
+/*!***********************************!*\
+  !*** ./sections/box/box-color.ts ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.mjs");
+/* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
+
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
+  "box-color",
+  // language=HTML
+  `
+        <div class="tjs-box-color swiper-slide">
+            <div class="tjs-wrapper">
+                <div class="tjs-box-color__content">
+                    <slot data-select="blockquote"></slot>
+                    <slot data-select="h3"></slot>
+                    <div class="text-center">
+                        <slot data-select="img"></slot>
+                    </div>
+                    <slot data-select="ul" data-replace></slot>
+                    <slot></slot>
+                </div>
+            </div>
+        </div>
+    `
+);
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
+  "boxes-color",
+  // language=HTML
+  `
+        <section class="tjs-box-color-container container element-margin-bottom :: mobile :md:">
+            <div class="row">
+                <div class="col-12">
+
+                </div>
+            </div>
+            <div class="text-center">
+                <slot></slot>
+            </div>
+            <div class="tjs-box-color-container__inner">
+                <div class="tjs-box-color__carousel swiper">
+                    <div class="swiper-wrapper">
+                        <slot class="swiper-wrapper" data-select=".children > *" data-child-layout="use: #box-color;" data-replace></slot>
+                    </div>
+                </div>
+                <div class="tjs-box-color__carousel--nav-points"></div>
+            </div>
+        </section>
+    `,
+  {},
+  {
+    onAfterAllTemplatesConnectedCallback: (element) => {
+      const swiperEl = element.querySelector(".swiper");
+      let init = false;
+      let swiper;
+      if (!swiperEl) {
+        throw new Error("swiperEl not found");
+      }
+      initializeSwiper();
+      window.addEventListener("resize", initializeSwiper);
+      function initializeSwiper() {
+        if (window.innerWidth <= 768) {
+          console.log("test");
+          if (!init) {
+            init = true;
+            const swiperParams = {
+              modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_2__.Pagination],
+              spaceBetween: 20,
+              slidesPerView: 1.1,
+              loop: true,
+              pagination: {
+                el: ".tjs-box-color__carousel--nav-points",
+                clickable: true,
+                bulletClass: "tjs-box-color__carousel--nav-points__point"
+              }
+            };
+            console.log("test2ssss");
+            swiper = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"](swiperEl, swiperParams);
+          }
+        } else if (init) {
+          swiper.destroy();
+          init = false;
+        }
+      }
+    }
+  }
+);
+
+
+/***/ }),
+
 /***/ "./sections/box/box-price.ts":
 /*!***********************************!*\
   !*** ./sections/box/box-price.ts ***!
@@ -5582,7 +5680,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "box-price",
   // language=HTML
   `
-        <section class="tjs-box-price :: mobile :md:">
+        <section class="tjs-box-price element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper tjs-box-price__border">
                     <slot data-select=".tjs-box-price__disturber" data-replace></slot>
                 <div class="tjs-box-price__content">
@@ -5623,7 +5721,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "box-white",
   // language=HTML
   `
-        <div class="tjs-box-white">
+        <div class="tjs-box-white element-margin-bottom">
             <div class="tjs-wrapper">
                 <div class="tjs-box-white__content">
                     <slot></slot>
@@ -5637,8 +5735,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   // language=HTML
   `
         <section class="tjs-box-white-container container :: mobile :md:">
-                <slot data-select=".children > *" data-child-layout="use: #box-white;" data-replace></slot>
-            </div>
+            <slot data-select=".children > *" data-child-layout="use: #box-white;" data-replace></slot>
         </section>
     `
 );
@@ -5681,7 +5778,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "cards-slider",
   // language=HTML
   `
-        <section class="tjs-cards-slider :: mobile :lg:">
+        <section class="tjs-cards-slider element-margin-bottom :: mobile :lg:">
             <div class="tjs-wrapper container">
                 <div class="tjs-cards-slider__col">
                     <div class="tjs-cards-slider__text">
@@ -5715,7 +5812,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "cols-2-bg",
   // language=HTML
   `
-        <section class="tjs-cols-2-bg :: mobile :md:">
+        <section class="tjs-cols-2-bg element-margin-bottom :: mobile :md:">
             <div class="container">
                 <div class="tjs-wrapper tjs-cols-2-bg__border">
                     <div class="tjs-cols-2-bg__disturber">
@@ -5752,13 +5849,19 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "cols-2",
   // language=HTML
   `
-        <section class="tjs-cols-2 :: mobile :md:">
-            <div class="tjs-wrapper container ">
-                <div class="tjs-cols-2__col tjs-cols-2__col--image">
-                    <slot data-select="img"></slot>
-                </div>
-                <div class="tjs-cols-2__col tjs-cols-2__col--text-content">
-                    <slot></slot>
+        <section class="tjs-cols-2 element-margin-bottom :: mobile :md:">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tjs-wrapper">
+                            <div class="tjs-cols-2__col tjs-cols-2__col--image">
+                                <slot data-select="img"></slot>
+                            </div>
+                            <div class="tjs-cols-2__col tjs-cols-2__col--text-content">
+                                <slot></slot>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -5782,7 +5885,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "contact-form",
   // language=HTML
   `
-        <section class="tjs-contact-form :: mobile :lg:">
+        <section class="tjs-contact-form element-margin-bottom :: mobile :lg:">
             <div class="tjs__wrapper">
                 <div class="tjs-contact-form__content--container">
                     <div class="tjs-contact-form__content--container-inner">
@@ -5792,23 +5895,6 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
                         <div class="tjs-contact-form__col tjs-contact-form__form">
                             <form data-micx-formmail-preset="default" data-micx-formmail-sent-message="E-Mail erfolgreich gesendet!">
                                 <slot data-select=".form, form"></slot>
-                                <div class="tjs-contact__newsletter--callback-wrapper">
-                                    <span>Kontaktieren Sie mich per:</span>
-                                    <div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="contact-input-callback-type" id="contact-input-callback-type-phone">
-                                            <label class="form-check-label" for="contact-input-callback-type-phone">
-                                                Telefon
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="contact-input-callback-type" id="contact-input-callback-type-email" checked>
-                                            <label class="form-check-label" for="contact-input-callback-type-email">
-                                                E-Mail
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -5915,7 +6001,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "customer-reviews-quote",
   // language=HTML
   `
-        <section class="tjs-customer-reviews-quote :: mobile :md:">
+        <section class="tjs-customer-reviews-quote element-margin-bottom :: mobile :md:">
             <div class="container">
                 <div class="tjs-wrapper">
                     <i class="bi bi-quote tjs-customer-reviews-quote__quote-icon"></i>
@@ -5928,6 +6014,111 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
             </div>
         </section>
     `
+);
+
+
+/***/ }),
+
+/***/ "./sections/customer-reviews/customer-reviews-slider-2.ts":
+/*!****************************************************************!*\
+  !*** ./sections/customer-reviews/customer-reviews-slider-2.ts ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.mjs");
+/* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
+
+
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
+  "customer-reviews__carousel--slide-2",
+  // language=HTML
+  `
+        <div class="tjs-customer-reviews-slider-2__carousel--slide swiper-slide">
+            <div class="tjs-customer-reviews-slider-2__carousel--slide__text">
+                <slot data-select="blockquote"></slot>
+            </div>
+            <slot data-select="img"></slot>
+            <div class="tjs-customer-reviews-slider-2__carousel--slide__author">
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i> 5/5 Sterne
+                <slot></slot>
+            </div>
+        </div>
+    `
+);
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
+  "customer-reviews-slider-2",
+  // language=HTML
+  `
+        <section class="tjs-customer-reviews-slider-2 element-margin-bottom :: mobile :md:">
+            <div class="tjs-wrapper">
+                <div class="container-fluid">
+                    <div class="tjs-customer-reviews-slider-2__content--container">
+                        <div class="tjs-customer-reviews-slider-2__content">
+                            <div class="tjs-customer-reviews-slider-2__content--headline element-margin-bottom">
+                                <slot><slot>
+                            </div>
+                            <div class="tjs-customer-reviews-slider-2__content--row container">
+                                <div class="tjs-customer-reviews-slider-2__content--col tjs-customer-reviews-slider-2__carousel swiper">
+                                    <slot class="swiper-wrapper" data-select=".children > *" data-child-layout="use: #customer-reviews__carousel--slide-2;"></slot>
+                                </div>
+                                <div class="tjs-customer-reviews-slider-2__carousel--nav-points"></div>
+                                <div class="tjs-customer-reviews-slider-2__carousel--navigation-prev">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-left.svg" width="500" height="500">
+                                </div>
+                                <div class="tjs-customer-reviews-slider-2__carousel--navigation-next">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-right.svg" width="500" height="500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `,
+  {},
+  {
+    onAfterAllTemplatesConnectedCallback: (element) => {
+      const swiperEl = element.querySelector(".swiper");
+      if (!swiperEl) {
+        throw new Error("swiperEl not found");
+      }
+      const swiperParams = {
+        modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_2__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_2__.Pagination],
+        spaceBetween: 20,
+        slidesPerView: 1.1,
+        loop: true,
+        navigation: {
+          nextEl: ".tjs-customer-reviews-slider-2__carousel--navigation-next",
+          prevEl: ".tjs-customer-reviews-slider-2__carousel--navigation-prev"
+        },
+        pagination: {
+          el: ".tjs-customer-reviews-slider-2__carousel--nav-points",
+          clickable: true,
+          bulletClass: "tjs-customer-reviews-slider-2__carousel--nav-points__point"
+        },
+        breakpoints: {
+          768: {
+            spaceBetween: 25,
+            slidesPerView: 2,
+            loop: true
+          },
+          992: {
+            spaceBetween: 30,
+            slidesPerView: 3,
+            loop: true
+          }
+        }
+      };
+      const swiper = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"](swiperEl, swiperParams);
+    }
+  }
 );
 
 
@@ -5951,7 +6142,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "customer-reviews__carousel--slide",
   // language=HTML
   `
-        <swiper-slide class="tjs-customer-reviews-slider__carousel--slide">
+        <div class="tjs-customer-reviews-slider__carousel--slide swiper-slide">
             <div class="tjs-customer-reviews-slider__carousel--slide__stars">
 
             </div>
@@ -5966,18 +6157,18 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
                 <i class="bi bi-star-fill text-warning"></i> 5/5 Sterne
                 <slot></slot>
             </div>
-        </swiper-slide>
+        </div>
     `
 );
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "customer-reviews-slider",
   // language=HTML
   `
-        <section class="tjs-customer-reviews-slider :: mobile :md:">
+        <section class="tjs-customer-reviews-slider element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-customer-reviews-slider__content--container">
                     <div class="tjs-customer-reviews-slider__content">
-                        <div class="tjs-customer-reviews-slider__content--headline">
+                        <div class="tjs-customer-reviews-slider__content--headline element-margin-bottom">
                             <slot><slot>
                         </div>
                         <div class="tjs-customer-reviews-slider__content--row">
@@ -6009,20 +6200,15 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
       const swiperParams = {
         modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_2__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_2__.Pagination],
         spaceBetween: 35,
-        slidesPerView: 1,
+        slidesPerView: "auto",
         loop: true,
+        centeredSlides: true,
+        direction: "horizontal",
+        initialSlide: 3,
         pagination: {
           el: ".tjs-customer-reviews-slider__carousel--nav-points",
           clickable: true,
           bulletClass: "tjs-customer-reviews-slider__carousel--nav-points__point"
-        },
-        breakpoints: {
-          1024: {
-            slidesPerView: 2
-          },
-          1680: {
-            slidesPerView: 3
-          }
         },
         navigation: {
           nextEl: ".tjs-customer-reviews-slider__carousel--navigation-next",
@@ -6073,16 +6259,41 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "customer-reviews",
   // language=HTML
   `
-        <section class="tjs-customer-reviews :: mobile :md:">
+        <section class="tjs-customer-reviews element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper container">
                 <div class="tjs-customer-reviews__content">
-                    <div class="tjs-customer-reviews__content--headline">
+                    <div class="tjs-customer-reviews__content--headline element-margin-bottom">
                         <slot><slot>
                     </div>
                     <div class="tjs-customer-reviews__content--row">
                         <slot data-select=".children > *" data-child-layout="use: #customer-reviews__review;" data-replace></slot>
                     </div>
                 </div>
+            </div>
+        </section>
+    `
+);
+
+
+/***/ }),
+
+/***/ "./sections/disturber/disturber-button.ts":
+/*!************************************************!*\
+  !*** ./sections/disturber/disturber-button.ts ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
+  "disturber-button",
+  // language=HTML
+  `
+        <section class="tjs-disturber-button element-margin-bottom text-center">
+            <div class="tjs-wrapper container">
+                <slot></slot>
             </div>
         </section>
     `
@@ -6105,9 +6316,9 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "disturber",
   // language=HTML
   `
-        <section class="tjs-disturber">
+        <section class="tjs-disturber element-margin-bottom">
             <div class="tjs-wrapper container">
-                <div class="tjs-disturber__content container">
+                <div class="tjs-disturber__content">
                     <slot data-select="p"></slot>
                 </div>
             </div>
@@ -6146,11 +6357,10 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "filter-images",
   // language=HTML
   `
-        <section id="tjs-filter-images" class="tjs-filter-images :: mobile :md:">
+        <section id="tjs-filter-images" class="tjs-filter-images element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper container">
                 <slot></slot>
                 <div class="tjs-filter-images__filters">
-                    <span class="tjs-filter-images__filters--filter selected" data-filter="all">Alle Projekte</span>
                 </div>
                 <div class="tjs-filter-images__list">
                     <slot data-select=".children > *" data-child-layout="use: #filter-image;" data-replace></slot>
@@ -6187,20 +6397,42 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
             let selectedFilter = filter.getAttribute("data-filter");
             let allItems = document.querySelectorAll(".tjs-filter-images__item");
             allItems.forEach((item) => {
+              item.classList.remove("is-animated");
               let itemFilters = item.querySelector("h3").getAttribute("data-section-data-tags");
-              if (itemFilters) {
-                let filtersArray = itemFilters.split(",").map((f) => f.trim());
-                if (selectedFilter === "all" || filtersArray.includes(selectedFilter)) {
-                  item.classList.remove("hide");
-                  item.classList.add("show");
-                } else {
-                  item.classList.add("hide");
-                  item.classList.remove("show");
+              fadeOut(item, function() {
+                if (itemFilters) {
+                  let filtersArray = itemFilters.split(",").map((f) => f.trim());
+                  if (filtersArray.includes(selectedFilter)) {
+                    item.classList.add("is-animated");
+                    fadeIn(item);
+                  }
                 }
-              }
+              });
             });
           });
         });
+      }
+      function fadeOut(el, callback) {
+        el.style.opacity = 1;
+        (function fade() {
+          if ((el.style.opacity -= 0.1) < 0) {
+            el.style.display = "none";
+            callback();
+          } else {
+            setTimeout(fade, 50);
+          }
+        })();
+      }
+      function fadeIn(el) {
+        el.style.opacity = 0;
+        el.style.display = "";
+        (function fade() {
+          let val = parseFloat(el.style.opacity);
+          if (!((val += 1) > 1)) {
+            el.style.opacity = val;
+            setTimeout(fade, 50);
+          }
+        })();
       }
     }
   }
@@ -6265,17 +6497,21 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
             <div class="tjs-footer__shape"></div>
             <div class="tjs__wrapper">
                 <div class="container">
-                    <div class="tjs-footer__content--container">
-                        <div class="tjs-footer__col tjs-footer__col--double">
-                            <div class="tjs-footer__col--double-inner">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="tjs-footer__content--container">
+                                <div class="tjs-footer__col tjs-footer__col--double">
+                                    <div class="tjs-footer__col--double-inner">
 
-                                <slot></slot>
-                            </div>
-                        </div>
-                        <div class="tjs-footer__col">
-                            <div class="tjs-footer__col--inner">
-                                <slot data-select=".section-h3" data-child-layout="use: #footer-links">
-                                </slot>
+                                        <slot></slot>
+                                    </div>
+                                </div>
+                                <div class="tjs-footer__col">
+                                    <div class="tjs-footer__col--inner">
+                                        <slot data-select=".section-h3" data-child-layout="use: #footer-links">
+                                        </slot>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -6334,9 +6570,9 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "header1",
   // language=HTML
   `
-        <section class="tjs-header1 :: mobile :lg: ">
+        <section class="tjs-header1 element-margin-bottom :: mobile :lg: ">
             <div class="tjs-wrapper container-fluid">
-                <div class="tjs-header1__hero container">
+                <div class="tjs-header1__hero element-margin-bottom">
                     <div class="tjs-header1__hero--row">
                         <div class="tjs-header1__hero--col tjs-header1__hero--col-text">
                             <slot></slot>
@@ -6344,6 +6580,38 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
                         <div class="tjs-header1__hero--col tjs-header1__hero--col-image">
                             <slot data-select="img" data-replace></slot>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `
+);
+
+
+/***/ }),
+
+/***/ "./sections/header2/header2.ts":
+/*!*************************************!*\
+  !*** ./sections/header2/header2.ts ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
+  "header2",
+  // language=HTML
+  `
+        <section class="tjs-header2 element-margin-bottom :: mobile :lg: ">
+            <div class="tjs-wrapper container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6 order-2 order-md-1">
+                        <slot></slot>
+                    </div>
+                    <div class="col-12 col-md-6 order-1 order-md-2 text-center">
+                        <slot data-select="img" data-replace></slot>
                     </div>
                 </div>
             </div>
@@ -6368,7 +6636,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "headline",
   // language=HTML
   `
-        <section class="tjs-headline :: mobile :md:">
+        <section class="tjs-headline element-margin-bottom :: mobile :md:">
             <div class="container">
                 <div class="tjs-wrapper">
                     <img loading="lazy" class="tjs-headline--star-top-left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg" width="389" height="500">
@@ -6410,13 +6678,16 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "icon-catchprases",
   // language=HTML
   `
-        <section class="tjs-icon-catchphrases :: mobile :lg:">
+        <section class="tjs-icon-catchphrases element-margin-bottom :: mobile :lg:">
             <div class="tjs-wrapper container">
                 <div class="tjs-icon-catchphrases__text">
                     <slot></slot>
                 </div>
                 <div class="tjs-icon-catchphrases__items">
                     <slot data-select="ul > li" data-child-layout="use:  #icon-catchprases__item"></slot>
+                </div>
+                <div class="text-center mt-5">
+                    <slot data-select=".btn"></slot>
                 </div>
             </div>
         </section>
@@ -6455,13 +6726,13 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "image-slider",
   // language=HTML
   `
-        <section class="tjs-image-slider :: mobile :md:">
+        <section class="tjs-image-slider element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-image-slider__content--container">
                     <img loading="lazy" class="tjs-image-slider__stars--left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
                     <img loading="lazy" class="tjs-image-slider__stars--right" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg">
                     <div class="tjs-image-slider__content">
-                        <div class="tjs-image-slider__content--headline">
+                        <div class="tjs-image-slider__content--headline element-margin-bottom">
                             <slot><slot>
                         </div>
                         <div class="tjs-image-slider__content--row">
@@ -6508,7 +6779,7 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "key-figures",
   // language=HTML
   `
-   <section class="tjs-key-figures :: mobile :lg:">
+   <section class="tjs-key-figures element-margin-bottom :: mobile :lg:">
         <div class="tjs-wrapper container-fluid">
             <div class="tjs-key-figures__content--container">
                 <div class="tjs-key-figures__content--bg-image">
@@ -6588,6 +6859,43 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
 
 /***/ }),
 
+/***/ "./sections/pills/pills.ts":
+/*!*********************************!*\
+  !*** ./sections/pills/pills.ts ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
+  "pill",
+  // language=HTML
+  `
+        <div class="tjs-pill">
+            <div class="tjs-wrapper">
+                <div class="tjs-pill__content">
+                    <slot></slot>
+                </div>
+            </div>
+        </div>
+    `
+);
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
+  "pills",
+  // language=HTML
+  `
+        <section class="tjs-pills container element-margin-bottom :: mobile :md:">
+            <slot data-select="h2"></slot>
+            <slot data-select=".children > *" data-child-layout="use: #pill;" data-replace></slot>
+        </section>
+    `
+);
+
+
+/***/ }),
+
 /***/ "./sections/sections.ts":
 /*!******************************!*\
   !*** ./sections/sections.ts ***!
@@ -6597,29 +6905,39 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header1_header1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header1/header1 */ "./sections/header1/header1.ts");
-/* harmony import */ var _disturber_disturber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./disturber/disturber */ "./sections/disturber/disturber.ts");
-/* harmony import */ var _icon_catchprases_icon_catchphrases__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon-catchprases/icon-catchphrases */ "./sections/icon-catchprases/icon-catchphrases.ts");
-/* harmony import */ var _service_slider_service_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./service-slider/service-slider */ "./sections/service-slider/service-slider.ts");
-/* harmony import */ var _cols_2_cols_2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cols-2/cols-2 */ "./sections/cols-2/cols-2.ts");
-/* harmony import */ var _cols_2_cols_2_bg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cols-2/cols-2-bg */ "./sections/cols-2/cols-2-bg.ts");
-/* harmony import */ var _key_figures_key_figures__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./key-figures/key-figures */ "./sections/key-figures/key-figures.ts");
-/* harmony import */ var _cards_slider_cards_slider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./cards-slider/cards-slider */ "./sections/cards-slider/cards-slider.ts");
-/* harmony import */ var _customer_reviews_customer_reviews__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./customer-reviews/customer-reviews */ "./sections/customer-reviews/customer-reviews.ts");
-/* harmony import */ var _customer_reviews_customer_reviews_slider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./customer-reviews/customer-reviews-slider */ "./sections/customer-reviews/customer-reviews-slider.ts");
-/* harmony import */ var _customer_reviews_customer_reviews_quote__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./customer-reviews/customer-reviews-quote */ "./sections/customer-reviews/customer-reviews-quote.ts");
-/* harmony import */ var _headline_headline__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./headline/headline */ "./sections/headline/headline.ts");
-/* harmony import */ var _image_slider_image_slider__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./image-slider/image-slider */ "./sections/image-slider/image-slider.ts");
-/* harmony import */ var _cta1_cta1__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./cta1/cta1 */ "./sections/cta1/cta1.ts");
-/* harmony import */ var _text_container_text_container__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./text-container/text-container */ "./sections/text-container/text-container.ts");
-/* harmony import */ var _contact_form_contact_form__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./contact-form/contact-form */ "./sections/contact-form/contact-form.ts");
-/* harmony import */ var _google_map_google_map__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./google-map/google-map */ "./sections/google-map/google-map.ts");
-/* harmony import */ var _box_box_price__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./box/box-price */ "./sections/box/box-price.ts");
-/* harmony import */ var _box_box_white__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./box/box-white */ "./sections/box/box-white.ts");
-/* harmony import */ var _filter_images_filter_images__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./filter-images/filter-images */ "./sections/filter-images/filter-images.ts");
-/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./footer/footer */ "./sections/footer/footer.ts");
-/* harmony import */ var _footer_copyright_footer_copyright__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./footer-copyright/footer-copyright */ "./sections/footer-copyright/footer-copyright.ts");
-/* harmony import */ var _newsletter_newsletter__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./newsletter/newsletter */ "./sections/newsletter/newsletter.ts");
-/* harmony import */ var _contact_contact__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./contact/contact */ "./sections/contact/contact.ts");
+/* harmony import */ var _header2_header2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header2/header2 */ "./sections/header2/header2.ts");
+/* harmony import */ var _disturber_disturber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./disturber/disturber */ "./sections/disturber/disturber.ts");
+/* harmony import */ var _disturber_disturber_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./disturber/disturber-button */ "./sections/disturber/disturber-button.ts");
+/* harmony import */ var _icon_catchprases_icon_catchphrases__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./icon-catchprases/icon-catchphrases */ "./sections/icon-catchprases/icon-catchphrases.ts");
+/* harmony import */ var _service_slider_service_slider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./service-slider/service-slider */ "./sections/service-slider/service-slider.ts");
+/* harmony import */ var _cols_2_cols_2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cols-2/cols-2 */ "./sections/cols-2/cols-2.ts");
+/* harmony import */ var _cols_2_cols_2_bg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./cols-2/cols-2-bg */ "./sections/cols-2/cols-2-bg.ts");
+/* harmony import */ var _key_figures_key_figures__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./key-figures/key-figures */ "./sections/key-figures/key-figures.ts");
+/* harmony import */ var _cards_slider_cards_slider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./cards-slider/cards-slider */ "./sections/cards-slider/cards-slider.ts");
+/* harmony import */ var _customer_reviews_customer_reviews__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./customer-reviews/customer-reviews */ "./sections/customer-reviews/customer-reviews.ts");
+/* harmony import */ var _customer_reviews_customer_reviews_slider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./customer-reviews/customer-reviews-slider */ "./sections/customer-reviews/customer-reviews-slider.ts");
+/* harmony import */ var _customer_reviews_customer_reviews_slider_2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./customer-reviews/customer-reviews-slider-2 */ "./sections/customer-reviews/customer-reviews-slider-2.ts");
+/* harmony import */ var _customer_reviews_customer_reviews_quote__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./customer-reviews/customer-reviews-quote */ "./sections/customer-reviews/customer-reviews-quote.ts");
+/* harmony import */ var _headline_headline__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./headline/headline */ "./sections/headline/headline.ts");
+/* harmony import */ var _image_slider_image_slider__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./image-slider/image-slider */ "./sections/image-slider/image-slider.ts");
+/* harmony import */ var _cta1_cta1__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./cta1/cta1 */ "./sections/cta1/cta1.ts");
+/* harmony import */ var _text_container_text_container__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./text-container/text-container */ "./sections/text-container/text-container.ts");
+/* harmony import */ var _contact_form_contact_form__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./contact-form/contact-form */ "./sections/contact-form/contact-form.ts");
+/* harmony import */ var _google_map_google_map__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./google-map/google-map */ "./sections/google-map/google-map.ts");
+/* harmony import */ var _box_box_price__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./box/box-price */ "./sections/box/box-price.ts");
+/* harmony import */ var _box_box_white__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./box/box-white */ "./sections/box/box-white.ts");
+/* harmony import */ var _box_box_color__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./box/box-color */ "./sections/box/box-color.ts");
+/* harmony import */ var _filter_images_filter_images__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./filter-images/filter-images */ "./sections/filter-images/filter-images.ts");
+/* harmony import */ var _pills_pills__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./pills/pills */ "./sections/pills/pills.ts");
+/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./footer/footer */ "./sections/footer/footer.ts");
+/* harmony import */ var _footer_copyright_footer_copyright__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./footer-copyright/footer-copyright */ "./sections/footer-copyright/footer-copyright.ts");
+/* harmony import */ var _newsletter_newsletter__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./newsletter/newsletter */ "./sections/newsletter/newsletter.ts");
+/* harmony import */ var _contact_contact__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./contact/contact */ "./sections/contact/contact.ts");
+
+
+
+
+
 
 
 
@@ -6686,20 +7004,20 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "service-slider__carousel--slide",
   // language=HTML
   `
-        <swiper-slide class="tjs-service-slider__carousel--slide swiper-slide">
-            <div class="tjs-service-slider__carousel--slide__image">
+        <div class="tjs-service-slider__carousel--slide swiper-slide">
+            <div class="tjs-service-slider__carousel--slide__image element-margin-bottom">
                 <slot data-select="img"></slot>
             </div>
             <div class="tjs-service-slider__carousel--slide__text">
                 <slot></slot>
             </div>
-        </swiper-slide>`
+        </div>`
 );
 _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.Joda.registerTemplate(
   "service-slider",
   // language=HTML
   `
-        <section class="tjs-service-slider  :: mobile :md:">
+        <section class="tjs-service-slider element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper container-fluid">
                 <div class="tjs-service-slider__content--container">
                     <div class="tjs-service-slider__content">

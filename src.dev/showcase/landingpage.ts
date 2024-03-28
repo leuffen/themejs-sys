@@ -97,7 +97,7 @@ Wir garantieren Ihnen 100% Zufriedenheit mit unserer <br class="d-md-none"><b cl
 ## Ohne großes Budget Ihre individuelle Praxis-Website erstellen lassen!
 {: layout="use: #boxes-color"}
 ### Singlepage
-<blockquote>nur 59 € mtl.</blockquote>
+> nur 59 € mtl.
 
 ![](https://cdn.leuffen.de//leu-systemwebsite/v2/38/a_500/illustration-preis-single-oage.svg)
 <ul class="list-check">
@@ -111,7 +111,7 @@ Wir garantieren Ihnen 100% Zufriedenheit mit unserer <br class="d-md-none"><b cl
 {: .btn .btn-primary}
 
 ### Medium
-<blockquote>nur 89 € mtl.</blockquote>
+> nur 89 € mtl.
 <div class="tjs-box-color__disturber"><b>Bestes<br>Angebot</b></div>
 
 ![](https://cdn.leuffen.de//leu-systemwebsite/v2/37/a_500/illustration-preis-medium.svg)
@@ -127,7 +127,8 @@ Wir garantieren Ihnen 100% Zufriedenheit mit unserer <br class="d-md-none"><b cl
 {: .btn .btn-primary}
 
 ### Singlepage
-<blockquote>nur 149 € mtl.</blockquote>
+
+> nur 149 € mtl.
 
 ![](https://cdn.leuffen.de//leu-systemwebsite/v2/39/a_500/illustration-preis-all-in-one.svg)
 <ul class="list-check">

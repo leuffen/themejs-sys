@@ -4916,6 +4916,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _showcase_contact_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./showcase/contact-page */ "./src.dev/showcase/contact-page.ts");
 /* harmony import */ var _showcase_content_elements__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./showcase/content-elements */ "./src.dev/showcase/content-elements.ts");
 /* harmony import */ var _showcase_reference_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./showcase/reference-page */ "./src.dev/showcase/reference-page.ts");
+/* harmony import */ var _showcase_landingpage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./showcase/landingpage */ "./src.dev/showcase/landingpage.ts");
+
 
 
 
@@ -5613,6 +5615,233 @@ _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.addClass(
   "page",
   "themejs-sys",
   "themejs-sys",
+  html,
+  [],
+  {
+    bodyClasses: ["themejs-sys"]
+  }
+);
+
+
+/***/ }),
+
+/***/ "./src.dev/showcase/landingpage.ts":
+/*!*****************************************!*\
+  !*** ./src.dev/showcase/landingpage.ts ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @leuffen/jodastyle */ "./node_modules/@leuffen/jodastyle/dist/index.module.js");
+
+let html = `
+<nav layout="use: #navbar-switch1" class="floating">
+    <div class="brand"><a href=""><img src="/images/logo-systemwebsite.webp"></a></div>
+    <ul class="navbar-top">
+        <li class=":: d-none :lg: "><a href="">Beratungstelefon</a></li>
+        <li class=":: :lg: d-none"><a href="">Beratung-Tel.: (0201) 12345</a></li>
+        <li><a href="">Angebot anfordern</a></li>
+    </ul>
+    <ul class="navbar-main">
+        <li><a href="#home">Punkt1</a></li>
+        <li><a href="#home">Punkt2</a></li>
+        <li><a href="#home">Hello World</a></li>
+        <li><a href="#home">Hello World</a></li>
+    </ul>
+    <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+    </ul>
+</nav>
+
+# Weniger Administration und zufriedenere Patienten dank moderner Website.
+{: layout="use: #header2" data-section-class="no-bottom-margin text-left"}
+
+<ul class="list-check list-bold">
+    <li><strong>Moderne Website f\xFCr Ihre Arztpraxis schon ab 59 Euro pro Monat</strong></li>
+    <li><strong>Inklusive wichtige Funktionen</strong> (z. B. Online- Terminbuchung, E-Rezept & Videosprechstunde)</li>
+    <li><strong>Keine Einmalkosten jederzeit k\xFCndbar</strong></li>
+    <li><strong>Einfachste Handhabung</strong> f\xFCr \xC4rzte und MFAs</li>
+</ul>
+
+[Unverbindliches Angebot anfordern](#)
+{: .btn .btn-primary}
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/47/a_500/illustration-doctors.svg)
+
+## Hero Section
+{: layout="use: #disturber"}
+
+Wir garantieren Ihnen 100% Zufriedenheit mit unserer <br class="d-md-none"><b class="text-primary">30 Tage Geld-zur\xFCck-Garantie!</b>
+
+## Alle erleichternden Funktionen f\xFCr Ihren Praxisalltag verf\xFCgbar.
+{: layout="use: #icon-catchprases" data-section-class="mobile-2-rows"}
+
+- ![Online-Terminbuchung](https://cdn.leuffen.de//leu-systemwebsite/v2/44/a_500/schedule.svg) *Online-Termin-<br>buchung*
+- ![Doctolib Integration](https://cdn.leuffen.de//leu-systemwebsite/v2/48/34-9_136/Doctolib_Logo.svg) *Doctolib<br>Integration*
+- ![Elektronisches Rezept](https://cdn.leuffen.de//leu-systemwebsite/v2/43/a_500/e-rezept.svg) *Elektronisches<br>Rezept*
+- ![Videosprechstunde](https://cdn.leuffen.de//leu-systemwebsite/v2/42/a_500/video-call.svg) *Video-<br>sprechstunde*
+- ![Onlineformulare](https://cdn.leuffen.de//leu-systemwebsite/v2/41/a_500/contact-form.svg) *Online-<br>Formulare*
+- ![Urlaubsschaltung](https://cdn.leuffen.de//leu-systemwebsite/v2/40/a_500/holidays.svg) *Urlaubs-<br>schaltung*
+
+[Unverbindliches Angebot anfordern](#)
+{: .btn .btn-primary}
+
+## Key Figures
+{: layout="use: #key-figures"}
+
+## Was andere zufriedene \xC4rzte \xFCber Systemwebsite sagen:
+{: layout="use: #customer-reviews-slider-2"}
+
+### Dr. med. Eleni Deutereou, Berlin
+
+> \u201EAlle ge\xE4u\xDFerten W\xFCnsche wurden zeitnah umgesetzt und mit dem Ergebnis sind wir sehr zufrieden. Die Webseite l\xE4sst auch \xFCber unser Personal einfach nach Bedarf ver\xE4ndern. Ich kann Herrn Leuffen uneingeschr\xE4nkt empfehlen! \u201C
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/33/229-168_ba/reference-example-image.webp)
+
+### Robert Sedlmaier, M\xFCnchen
+
+> \u201EEine klasse Idee sehr gut und schnell umgesetzt! Wir sind sehr zufrieden mit dem Ergebnis der Homepage, und besonders auch mit der sehr einfach und variabel zu bedienenden Admin-Umgebung. Wir freuen uns auf eine lange Partnerschaft! \u201C
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/33/229-168_ba/reference-example-image.webp)
+
+### Tanja Melchior, Freiburg
+
+> \u201ESehr gute, unkompliziert freundliche und professionelle Zusammenarbeit bei der Erstellung meiner Website. Kann ich uneingeschr\xE4nkt weiterempfehlen. \u201C
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/33/229-168_ba/reference-example-image.webp)
+
+### Dr. Michal M\xFCller, Hannover
+
+> \u201E100% empfehlenswert. Tolle Zusammenarbeit mit erstklassiger super engagierte Betreuung. Besser geht es nicht und mir hat noch keine Websiteerstellung so Spa\xDF gemacht.\u201C
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/33/229-168_ba/reference-example-image.webp)
+
+### Dr. G\xFClide Uysal, Herne
+
+> \u201E100% Weiterempfehlung! Sehr kompetente und professionelle Zusammenarbeit. Meine W\xFCnsche bez\xFCglich der Website wurden schnell  umgesetzt und Herr Leuffen hatte auch immer Tipps und Ideen zur Optimierung parat. Das Preis-/Leistungsverh\xE4ltnis ist unschlagbar.\u201C
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/33/229-168_ba/reference-example-image.webp)
+
+### Heike Peters, Erkner
+
+> \u201EDie Erstellung der Webseite verlief sehr unkompliziert. Die Webseite ist sehr \xFCbersichtlich und ansprechend gestaltet. Ich bin mit dem Ergebnis sehr zufrieden.\u201C
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/33/229-168_ba/reference-example-image.webp)
+
+## Ohne gro\xDFes Budget Ihre individuelle Praxis-Website erstellen lassen!
+{: layout="use: #boxes-color"}
+### Singlepage
+> nur 59 \u20AC mtl.
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/38/a_500/illustration-preis-single-oage.svg)
+<ul class="list-check">
+    <li>Inkl. 1 Unterseite</li>
+    <li>Premium Cloud-Services</li>
+    <li>Fair-Use Service Flatrate: Alle \xC4nderungen kostenlos \xFCber die App und jederzeit per E-Mail</li>
+    <li>Support & \xC4nderungen innerhalb 3 Tagen</li>
+</ul>
+
+[Angebot anfordern](#)
+{: .btn .btn-primary}
+
+### Medium
+> nur 89 \u20AC mtl.
+<div class="tjs-box-color__disturber"><b>Bestes<br>Angebot</b></div>
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/37/a_500/illustration-preis-medium.svg)
+<ul class="list-check">
+    <li>Inkl. 3 Unterseiten</li>
+    <li>Premium Cloud-Services</li>
+    <li>Fair-Use Service Flatrate: Alle \xC4nderungen kostenlos \xFCber die App und jederzeit per E-Mail</li>
+    <li>Support & \xC4nderungen direkt</li>
+    <li>Kostenloser Relaunch der Website nach 2 Jahren m\xF6glich</li>
+</ul>
+
+[Angebot anfordern](#)
+{: .btn .btn-primary}
+
+### Singlepage
+
+> nur 149 \u20AC mtl.
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/39/a_500/illustration-preis-all-in-one.svg)
+<ul class="list-check">
+    <li>Inkl. 5 Unterseite</li>
+    <li>Premium Cloud-Services</li>
+    <li>Fair-Use Service Flatrate: Alle \xC4nderungen kostenlos \xFCber die App und jederzeit per E-Mail</li>
+    <li>24h-Service: In 24 Stunden zur eigenen Website</li>
+</ul>
+
+[Angebot anfordern](#)
+{: .btn .btn-primary}
+
+## Datenschutz vom Experten
+{: layout="use: #cols-2-bg" }
+
+> <b>Rundum-<br />Sorglos-Paket</b>
+
+DSGVO-konforme Datensparsamkeit und Datensicherheit sind f\xFCr uns selbstverst\xE4ndlich. Standardm\xE4\xDFig sind alle unsere Websites Cookie-frei. Nat\xFCrlich mit sicherem SSL-Zertifikat und BSI zertifiziertem E-Mail-Postfach (optional).
+
+![](https://cdn.leuffen.de//leu-systemwebsite/v2/5/387-290_391.56/illustration-03.svg)
+
+## So einfach kommen Sie mit uns an Ihre neue Praxis-Website:
+{: layout="use: #pills"}
+
+### 1. Kostenloses Erstgespr\xE4ch, um Ihre Bed\xFCrfnisse und Anforderungen zu verstehen
+### 2. Individueller Design-Entwurf innerhalb 14 Tagen
+### 3. Nach Ihrem Feedback detaillieren wir Schritt-f\xFCr-Schritt
+### 4. Ihre Praxis-Website geht nach nur zwei Terminen online
+
+
+## Erhalten Sie kostenlos Ihr unverbindliches Angebot mit nur wenigen Klicks!
+{: layout="use: #cta1"}
+
+[Jetzt Konditionen freischalten](#){: class="btn btn-primary"}
+
+
+## Systemwebsite.de
+{: layout="use: #footer"}
+
+> Ihr Partner f\xFCr moderne medizinische Webseiten-Entwicklung
+
+
+### Links
+
+- [Konditionen](#)
+- [Leistungen](#)
+- [FAQ](#)
+- [Kontakt](#)
+
+### Links
+
+- [Konditionen](#)
+- [Leistungen](#)
+- [FAQ](#)
+- [Kontakt](#)
+
+### Folgen Sie uns
+
+- [LinkedIn](#)
+- [Xing](#)
+- [Facebook](#)
+- [Instragram](#)
+
+
+
+<footer layout="use:#footer-copyright">
+    <p>Copyright (c) 2023 Systemwebsite by leuffen.de</p>
+    <ul>
+        <li><a href="{%- include do/link.html pid=it.pid -%}">AGB</a></li>
+        <li><a href="{%- include do/link.html pid=it.pid -%}">Datenschutz</a></li>
+        <li><a href="{%- include do/link.html pid=it.pid -%}">Impressum</a></li>
+    </ul>
+</footer>
+`;
+_leuffen_jodastyle__WEBPACK_IMPORTED_MODULE_0__.JodaDescriptionManager.addClass(
+  "page",
+  "landingpage",
+  "landingpage",
   html,
   [],
   {

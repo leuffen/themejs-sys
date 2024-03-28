@@ -8073,6 +8073,20 @@
 /**
  * Überschreiben der _variables aus Bootstrap bzw. globale Konfiguration von Farben, Abständen etc.
  */
+:root {
+  --element-margin-bottom: 50px;
+  --element-margin-bottom-mobile: 30px;
+}
+
+.element-margin-bottom {
+  margin-bottom: var(--element-margin-bottom);
+}
+@media (max-width: 991px) {
+  .element-margin-bottom {
+    margin-bottom: var(--element-margin-bottom-mobile);
+  }
+}
+
 /**
  * Fonts (werden am Ende gelöscht und ersetzt?)
  */
