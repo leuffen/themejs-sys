@@ -46,7 +46,7 @@
                 h2 {
                     font-size: rem(46px);
                     line-height: rem(60px);
-                    font-weight: 500;
+                    font-weight: 600;
                 }
 
                 &:has(blockquote) {
@@ -55,12 +55,13 @@
                         font-size: rem(18px);
                         line-height: rem(25px);
                         text-transform: uppercase;
+                        font-weight: 800;
                     }
 
                     blockquote {
                         font-size: rem(46px);
                         line-height: rem(60px);
-                        font-weight: 500;
+                        font-weight: 600;
                     }
                 }
             }
@@ -180,6 +181,23 @@
 
             &__col {
                 flex-basis: 100%;
+
+                h2 {
+                    font-size: rem(38px);
+                    line-height: rem(50px);
+                }
+
+                &:has(blockquote) {
+                    h2 {
+                        font-size: rem(16px);
+                        line-height: rem(25px);
+                    }
+
+                    blockquote {
+                        font-size: rem(38px);
+                        line-height: rem(50px);
+                    }
+                }
             }
 
             &__content {

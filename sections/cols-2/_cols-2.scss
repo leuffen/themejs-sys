@@ -36,6 +36,7 @@
 
     h2 {
         margin-bottom: 1rem;
+        font-weight: 600;
     }
 
     &__col {
@@ -73,6 +74,11 @@
             &__col {
                 &--image {
                     order: 1;
+
+                    img {
+                        max-width: 280px;
+                        margin-bottom: 28px;
+                    }
                 }
 
                 &--text-content {

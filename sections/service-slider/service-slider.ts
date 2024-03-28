@@ -7,14 +7,14 @@ import {SwiperOptions} from "swiper/types";
 Joda.registerTemplate("service-slider__carousel--slide",
     // language=HTML
     `
-        <swiper-slide class="tjs-service-slider__carousel--slide swiper-slide">
+        <div class="tjs-service-slider__carousel--slide swiper-slide">
             <div class="tjs-service-slider__carousel--slide__image element-margin-bottom">
                 <slot data-select="img"></slot>
             </div>
             <div class="tjs-service-slider__carousel--slide__text">
                 <slot></slot>
             </div>
-        </swiper-slide>`
+        </div>`
     );
 
 

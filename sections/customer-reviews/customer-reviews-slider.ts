@@ -6,7 +6,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 Joda.registerTemplate("customer-reviews__carousel--slide",
     // language=HTML
     `
-        <swiper-slide class="tjs-customer-reviews-slider__carousel--slide">
+        <div class="tjs-customer-reviews-slider__carousel--slide swiper-slide">
             <div class="tjs-customer-reviews-slider__carousel--slide__stars">
 
             </div>
@@ -21,7 +21,7 @@ Joda.registerTemplate("customer-reviews__carousel--slide",
                 <i class="bi bi-star-fill text-warning"></i> 5/5 Sterne
                 <slot></slot>
             </div>
-        </swiper-slide>
+        </div>
     `)
 
 Joda.registerTemplate("customer-reviews-slider",

@@ -16,3 +16,67 @@ ul.list-check.list-bold {
         }
     }
 }
+
+
+h2 {
+    &.sys-faq {
+        font-size: 25px;
+        line-height: 33px;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+    }
+}
+
+.tjs-text-container {
+    .sys-faq {
+        &.as__accordion {
+            .section-h3 {
+                background-color: $element-border-color!important;
+                margin-bottom: 20px;
+                border-radius: 20px!important;
+
+                &:hover {
+                    background-color: $box-border-color!important;
+                }
+
+                .as__accordion-header {
+                    h3 {
+                        background-color: transparent!important;
+
+                        &:before {
+                            background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%3E%0A%20%20%20%20%3C%21--%21Font%20Awesome%20Free%206.5.1%20by%20%40fontawesome%20-%20https%3A%2F%2Ffontawesome.com%20License%20-%20https%3A%2F%2Ffontawesome.com%2Flicense%2Ffree%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%0A%20%20%20%20%3Cpath%20d%3D%22M233.4%20406.6c12.5%2012.5%2032.8%2012.5%2045.3%200l192-192c12.5-12.5%2012.5-32.8%200-45.3s-32.8-12.5-45.3%200L256%20338.7%2086.6%20169.4c-12.5-12.5-32.8-12.5-45.3%200s-12.5%2032.8%200%2045.3l192%20192z%22%2F%3E%0A%3C%2Fsvg%3E');
+                            right: 0;
+                            left: unset;
+                        }
+                    }
+                }
+
+                &.open {
+
+                    .as__accordion-header {
+                        h3 {
+                            &:before {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+
+                .content {
+                    padding-right: 2.5rem;
+                }
+            }
+        }
+    }
+
+    &.mobile {
+        h2 {
+            &.sys-faq {
+                font-size: 23px;
+                line-height: 30px;
+                text-transform: uppercase;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}

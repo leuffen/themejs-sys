@@ -8,6 +8,17 @@
 
     @include col-side-paddings;
 
+    h2 {
+        font-size: 25px;
+        line-height: 33px;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 25px;
+        line-height: 33px;
+    }
+
     &__text {
         text-align: center;
         font-size: rem(25px);
@@ -33,9 +44,10 @@
                 margin-bottom: rem(12px);
                 width: 110px;
                 height: 110px;
+                justify-content: center;
 
                 img {
-                    max-width: 60px;
+                    width: 58px;
                     height: auto;
                 }
             }
@@ -43,6 +55,10 @@
             &-text {
                 font-size:  rem(18px);
                 text-align: center;
+
+                em {
+                    font-style: normal;
+                }
             }
         }
     }
@@ -52,10 +68,15 @@
         border-radius: 10px;
         padding-top: 10px!important;
         padding-bottom: 10px!important;
-        font-weight: 700;
+        font-weight: 800;
     }
 
     &.mobile {
+        h2, p {
+            font-size: 23px;
+            line-height: 30px;
+        }
+
         .tjs-icon-catchphrases {
             &__items {
                 flex-flow: wrap;

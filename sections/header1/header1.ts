@@ -5,7 +5,7 @@ Joda.registerTemplate("header1",
     `
         <section class="tjs-header1 element-margin-bottom :: mobile :lg: ">
             <div class="tjs-wrapper container-fluid">
-                <div class="tjs-header1__hero element-margin-bottom container">
+                <div class="tjs-header1__hero element-margin-bottom">
                     <div class="tjs-header1__hero--row">
                         <div class="tjs-header1__hero--col tjs-header1__hero--col-text">
                             <slot></slot>

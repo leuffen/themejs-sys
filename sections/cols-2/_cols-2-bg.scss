@@ -143,6 +143,11 @@
 
         &--button-content {
             .btn {
+                font-size: 18px;
+                border-radius: 10px;
+                padding-top: 10px!important;
+                padding-bottom: 10px!important;
+                font-weight: 800;
                 width: 100%;
             }
         }

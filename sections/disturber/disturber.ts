@@ -5,7 +5,7 @@ Joda.registerTemplate("disturber",
     `
         <section class="tjs-disturber element-margin-bottom">
             <div class="tjs-wrapper container">
-                <div class="tjs-disturber__content container">
+                <div class="tjs-disturber__content">
                     <slot data-select="p"></slot>
                 </div>
             </div>

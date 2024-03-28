@@ -62,17 +62,16 @@
         width: 80%;
         margin: 0 auto;
 
-        &.btn {
-            width: auto;
-
-            &-primary {
-                a {
-                    color: $white;
-                    text-decoration: none;
-                }
-            }
-        }
     }
+
+    .btn {
+         font-size: 18px;
+         font-weight: 800;
+         margin-top: 20px;
+         border-radius: 10px;
+         padding-top: 10px!important;
+         padding-bottom: 10px!important;
+     }
 
     &.text-left {
         p {
@@ -127,6 +126,12 @@
     }
 
     &.mobile {
+        padding-top: 50px;
+        padding-bottom: 0px;
+        min-height: auto;
+        display: block;
+        align-items: unset;
+
         .tjs-header1 {
             &__hero {
                 &--col {
