@@ -65,6 +65,13 @@
             }
         }
     }
+    .footer-wrapper {
+        display:block;
+        margin-top: 50px;
+        &>.emptyslot {
+            display: none;
+        }
+    }
 }
 
 .tjs-box-color {

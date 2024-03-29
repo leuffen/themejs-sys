@@ -5,6 +5,9 @@
 .tjs-header2 {
     --element-margin-bottom: 50px;
     --element-margin-bottom-mobile: 0;
+
+    @import "img-list";
+
     background: transparent linear-gradient(118deg, #E8F6FF 0%, #ECF2DC 100%) 0% 0% no-repeat padding-box;
     padding: rem(15px) 0;
     padding-top: 180px;
@@ -17,9 +20,11 @@
     h1 {
         margin-bottom: 30px;
         font-size: 30px/39px;
+
+        word-break: break-word;
     }
 
-    img {
+    img.main {
         max-width: 100%;
         height: auto;
 
@@ -43,8 +48,8 @@
 
         h1 {
             margin-bottom: 25px;
-            font-size: rem(30px);
-            line-height: rem(39px);
+            font-size: 26px/38px;
+            word-break: normal;
         }
 
         .btn {

@@ -10,7 +10,7 @@ Joda.registerTemplate("header2",
                         <slot></slot>
                     </div>
                     <div class="col-12 col-md-6 order-1 order-md-2 text-center">
-                        <slot data-select="img" data-replace></slot>
+                        <slot data-select="img.main || img" data-replace></slot>
                     </div>
                 </div>
             </div>

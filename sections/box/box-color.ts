@@ -41,6 +41,7 @@ Joda.registerTemplate("boxes-color",
                 </div>
                 <div class="tjs-box-color__carousel--nav-points"></div>
             </div>
+            <slot class="footer-wrapper" data-select=".footer"></slot>
         </section>
     `,{}, {
         onAfterAllTemplatesConnectedCallback: (element) => {
