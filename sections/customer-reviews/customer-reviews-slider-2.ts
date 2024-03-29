@@ -10,7 +10,10 @@ Joda.registerTemplate("customer-reviews__carousel--slide-2",
             <div class="tjs-customer-reviews-slider-2__carousel--slide__text">
                 <slot data-select="blockquote"></slot>
             </div>
-            <slot data-select="img"></slot>
+            <div layout="use: #screens">
+                <slot class="prev" data-select="img"></slot>
+            </div>
+
             <div class="tjs-customer-reviews-slider-2__carousel--slide__author">
                 <i class="bi bi-star-fill text-warning"></i>
                 <i class="bi bi-star-fill text-warning"></i>
