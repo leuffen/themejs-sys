@@ -27,7 +27,7 @@
   ],
   "author": "",
   "dependencies": {
-    "@leuffen/isl-base": "^3.0.1",
+    "@leuffen/isl-base": "^4.0.3",
     "@leuffen/jodastyle": "^3.0.9",
     "@leuffen/jodastyle-dev": "^3.0.8",
     "@leuffen/liscom": "^2.0.10",
