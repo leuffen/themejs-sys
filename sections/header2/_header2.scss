@@ -5,12 +5,15 @@
 .tjs-header2 {
     --element-margin-bottom: 50px;
     --element-margin-bottom-mobile: 0;
+    --layout-padding-top: 50px;
+    --layout-padding-bottom: 50px;
 
     @import "img-list";
 
     background: transparent linear-gradient(118deg, #E8F6FF 0%, #ECF2DC 100%) 0% 0% no-repeat padding-box;
     padding: rem(15px) 0;
-    padding-top: 180px;
+    padding-top: var(--layout-padding-top);
+    padding-bottom: var(--layout-padding-bottom);
     border-bottom: 1px solid #e5e5e5;
 
     &.no-bottom-margin {

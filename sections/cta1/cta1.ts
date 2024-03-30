@@ -4,17 +4,17 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("cta1",
     // language=HTML
     `
-        <section class="tjs-cols-2-bg :: mobile :lg:">
+        <section class="tjs-cols-2-bg ani-container  :: mobile :lg:">
             <div class="tjs-wrapper tjs-cols-2-bg--special container">
-                <div class="tjs-cols-2-bg__disturber-image">
+                <div class="tjs-cols-2-bg__disturber-image ani ani-plop ani-delay-3">
 
                     <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/man-showing.svg" width="433" height="500">
 
                 </div>
-                <div class="tjs-cols-2-bg__disturber-stars">
+                <div class="tjs-cols-2-bg__disturber-stars ">
 
-                    <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--left" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg" width="389" height="500">
-                    <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--right" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg" width="389" height="500">
+                    <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--left ani ani-fadeIn ani-delay-1" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg" width="389" height="500">
+                    <img loading="lazy" class="tjs-cols-2-bg__disturber-stars--right ani ani-fadeIn ani-delay-2" src="https://cdn.leuffen.de/global/themejs-sys/elements/stars.svg" width="389" height="500">
 
                 </div>
                 <div class="tjs-cols-2-bg__row tjs-cols-2-bg__row--special">

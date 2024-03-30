@@ -15,7 +15,7 @@ Joda.registerTemplate("key-figures",
                     <div class="tjs-key-figures__content container">
                         <div class="tjs-key-figures__content--row">
                             <div class="tjs-key-figures__content--col">
-                                <div class="tjs-key-figures__content--col__figure">849€</div>
+                                <div class="tjs-key-figures__content--col__figure">0€</div>
                                 <div class="tjs-key-figures__content--col__text">Einmalige Kosten</div>
                             </div>
                             <div class="tjs-key-figures__content--col">

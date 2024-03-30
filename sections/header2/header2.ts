@@ -3,7 +3,7 @@ import { Joda } from "@leuffen/jodastyle";
 Joda.registerTemplate("header2",
     // language=HTML
     `
-        <section class="tjs-header2 element-margin-bottom :: mobile :lg: ">
+        <section class="tjs-header2 ani-container ani-start-threshold-0 element-margin-bottom :: mobile :lg: ">
             <div class="tjs-wrapper container">
                 <div class="row align-items-center">
                     <div class="col-12 col-md-6 order-2 order-md-1">
