@@ -1,5 +1,13 @@
 import {Joda} from "@leuffen/jodastyle";
 
+Joda.registerTemplate("key-figures-figure", `
+<div class="tjs-key-figures__content--col">
+    <slot class="tjs-key-figures__content--col__figure" data-select="strong" data-select-text></slot>
+    <slot class="tjs-key-figures__content--col__text"   data-select-text></slot>
+</div>
+
+`);
+
 Joda.registerTemplate("key-figures",
     // language=HTML
     `
@@ -13,24 +21,7 @@ Joda.registerTemplate("key-figures",
                         <slot data-select="img.background"></slot>
                     </div>
                     <div class="tjs-key-figures__content container">
-                        <div class="tjs-key-figures__content--row">
-                            <div class="tjs-key-figures__content--col">
-                                <div class="tjs-key-figures__content--col__figure">0€</div>
-                                <div class="tjs-key-figures__content--col__text">Einmalige Kosten</div>
-                            </div>
-                            <div class="tjs-key-figures__content--col">
-                                <div class="tjs-key-figures__content--col__figure">10</div>
-                                <div class="tjs-key-figures__content--col__text">In Tagen fertig</div>
-                            </div>
-                            <div class="tjs-key-figures__content--col">
-                                <div class="tjs-key-figures__content--col__figure">20+</div>
-                                <div class="tjs-key-figures__content--col__text">Jahre Erfahrung</div>
-                            </div>
-                            <div class="tjs-key-figures__content--col">
-                                <div class="tjs-key-figures__content--col__figure">100+</div>
-                                <div class="tjs-key-figures__content--col__text">Erfolgreiche Kunden</div>
-                            </div>
-                        </div>
+                        <slot class="tjs-key-figures__content--row" data-select="ul > li" data-child-layout="wrap: #key-figures-figure"></slot>
                     </div>
                 </div>
             </div>
