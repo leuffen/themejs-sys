@@ -10,7 +10,10 @@ Joda.registerTemplate("customer-reviews__carousel--slide-2",
             <div class="tjs-customer-reviews-slider-2__carousel--slide__text">
                 <slot data-select="blockquote"></slot>
             </div>
-            <slot data-select="img"></slot>
+            <div layout="use: #screens">
+                <slot class="prev" data-select="img"></slot>
+            </div>
+
             <div class="tjs-customer-reviews-slider-2__carousel--slide__author">
                 <i class="bi bi-star-fill text-warning"></i>
                 <i class="bi bi-star-fill text-warning"></i>
@@ -27,7 +30,7 @@ Joda.registerTemplate("customer-reviews-slider-2",
     `
         <section class="tjs-customer-reviews-slider-2 element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper">
-                <div class="container-fluid">
+                <div class="">
                     <div class="tjs-customer-reviews-slider-2__content--container">
                         <div class="tjs-customer-reviews-slider-2__content">
                             <div class="tjs-customer-reviews-slider-2__content--headline element-margin-bottom">
@@ -39,10 +42,10 @@ Joda.registerTemplate("customer-reviews-slider-2",
                                 </div>
                                 <div class="tjs-customer-reviews-slider-2__carousel--nav-points"></div>
                                 <div class="tjs-customer-reviews-slider-2__carousel--navigation-prev">
-                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-left.svg" width="500" height="500">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-left.svg" alt="Back" width="500" height="500">
                                 </div>
                                 <div class="tjs-customer-reviews-slider-2__carousel--navigation-next">
-                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-right.svg" width="500" height="500">
+                                    <img loading="lazy" src="https://cdn.leuffen.de/global/themejs-sys/elements/arrow-right.svg" alt="Next" width="500" height="500">
                                 </div>
                             </div>
                         </div>

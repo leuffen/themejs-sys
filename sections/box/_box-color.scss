@@ -65,11 +65,20 @@
             }
         }
     }
+    .footer-wrapper {
+        display:block;
+        margin-top: 50px;
+        &>.emptyslot {
+            display: none;
+        }
+    }
 }
 
 .tjs-box-color {
     --element-margin-bottom: 90px;
     --element-margin-bottom-mobile: 50px;
+
+
 
     .tjs-wrapper {
         background: transparent linear-gradient(151deg, #E8F6FF 0%, #ECF2DC 100%) 0% 0% no-repeat padding-box;
@@ -144,7 +153,13 @@
             max-width: 200px;
             width: 100%;
             margin: 0 auto;
+            height: auto;
+
+
         }
+
+
+
 
         b {
             font-weight: 600!important;

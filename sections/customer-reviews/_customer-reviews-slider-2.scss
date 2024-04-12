@@ -44,7 +44,6 @@
             &-prev {
                 position: absolute;
                 top: calc(50% - 21px);
-                position: absolute;
                 z-index: 15;
                 left: 10px;
                 @include media-breakpoint-up(xxl) {
@@ -55,7 +54,6 @@
             &-next {
                 position: absolute;
                 top: calc(50% - 21px);
-                position: absolute;
                 z-index: 15;
                 right: 10px;
                 @include media-breakpoint-up(xxl) {
@@ -94,11 +92,7 @@
                 font: italic normal normal 18px/27px Roboto;
             }
 
-            img {
-                max-width: 90%;
-                margin: 0 auto 10px;
-                width: 100%;
-            }
+
 
             &__author {
                 font-size: rem(14px);
