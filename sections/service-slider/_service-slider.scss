@@ -23,12 +23,15 @@
             flex-basis: 50%;
             @include col-side-paddings;
             @include col-mobile-bottom-paddings;
+            width: 100%;
 
             &-text {
                 text-align: left;
                 padding-left: 18vw;
                 padding-right: 7vw;
 
+                overflow-wrap: normal;
+                hyphens: auto;
                 @media (max-width: 1900px) {
                     padding-left: 10vw;
                 }

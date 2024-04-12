@@ -51,6 +51,8 @@
         }
 
         &--text {
+            overflow-wrap: normal;
+            hyphens: auto;
             h2 {
                 font-size: rem(46px);
                 line-height: rem(60px);

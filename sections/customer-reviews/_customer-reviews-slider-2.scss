@@ -88,6 +88,8 @@
             }
 
             &__text {
+                overflow-wrap: normal;
+                hyphens: auto;
                 margin-bottom: auto;
                 font: italic normal normal 18px/27px Roboto;
             }
