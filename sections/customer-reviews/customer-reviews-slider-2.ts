@@ -30,7 +30,7 @@ Joda.registerTemplate("customer-reviews-slider-2",
     `
         <section class="tjs-customer-reviews-slider-2 element-margin-bottom :: mobile :md:">
             <div class="tjs-wrapper">
-                <div class="container-fluid">
+                <div class="">
                     <div class="tjs-customer-reviews-slider-2__content--container">
                         <div class="tjs-customer-reviews-slider-2__content">
                             <div class="tjs-customer-reviews-slider-2__content--headline element-margin-bottom">
