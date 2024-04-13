@@ -210,7 +210,7 @@
                     flex-basis: 100%;
                     @include col-side-paddings;
 
-                    &__mobile-button {
+                    .mobile-button {
                         display: block;
                     }
 

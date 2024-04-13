@@ -41,9 +41,8 @@ Joda.registerTemplate("service-slider",
                                 <slot class="swiper-wrapper" data-select=".children > *" data-child-layout="use: #service-slider__carousel--slide;"></slot>
 
                             </div>
-                            <div class="tjs-service-slider__content--col tjs-service-slider__content--col__mobile-button">
-                                <a href="#" class="btn btn-outline-primary">Alle Leistungen entdecken</a>
-                            </div>
+                            <slot class="d-block tjs-service-slider__content--col tjs-service-slider__content--col__mobile-button" data-select=".btn" data-child-class="mobile-button">
+                            </slot>
                         </div>
                     </div>
                 </div>
