@@ -52,7 +52,8 @@
         h1 {
             margin-bottom: 25px;
             font-size: 26px/38px;
-            word-break: normal;
+
+            hyphens: auto;
         }
 
         .btn {

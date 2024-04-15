@@ -52,8 +52,15 @@ Wir garantieren Ihnen 100% Zufriedenheit mit unserer <br class="d-md-none"><b cl
 [Unverbindliches Angebot anfordern](#)
 {: .btn .btn-primary}
 
-## Key Figures
+## Key figures
 {: layout="use: #key-figures"}
+
+- **100%** Zufriedenheit
+- **100%** Datenschutzkonform
+- **100%** DSGVO-konform
+- **100%** SSL-Zertifikat
+
+
 
 ## Was andere zufriedene Ärzte über Systemwebsite sagen:
 {: layout="use: #customer-reviews-slider-2"}
