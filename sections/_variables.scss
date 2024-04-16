@@ -19,15 +19,15 @@ $filter-item-border: #707070;
 $footer-bg: #263238;
 
 :root {
-    --element-margin-bottom: 50px;
-    --element-margin-bottom-mobile: 30px;
+    --layout-margin-bottom: 150px;
+    --layout-margin-bottom-mobile: 150px;
 }
 
 .element-margin-bottom {
-    margin-bottom: var(--element-margin-bottom);
+    margin-bottom: var(--layout-margin-bottom);
 
     @media (max-width: 991px) {
-        margin-bottom: var(--element-margin-bottom-mobile);
+        margin-bottom: var(--layout-margin-bottom-mobile);
     }
 }
 

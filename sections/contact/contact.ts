@@ -5,7 +5,7 @@ import {Joda} from "@leuffen/jodastyle";
 Joda.registerTemplate("contact",
     // language=HTML
     `
-        <section class="tjs-contact :: mobile :lg:">
+        <section class="tjs-contact element-margin-bottom :: mobile :lg:">
             <div class="tjs__wrapper container-fluid">
                 <div class="tjs-contact__content--container">
                     <div class="tjs-contact__content--container-inner container">

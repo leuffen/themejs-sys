@@ -33,7 +33,7 @@ Joda.registerTemplate("customer-reviews-slider-2",
                 <div class="">
                     <div class="tjs-customer-reviews-slider-2__content--container">
                         <div class="tjs-customer-reviews-slider-2__content">
-                            <div class="tjs-customer-reviews-slider-2__content--headline element-margin-bottom">
+                            <div class="tjs-customer-reviews-slider-2__content--headline">
                                 <slot><slot>
                             </div>
                             <div class="tjs-customer-reviews-slider-2__content--row container">
