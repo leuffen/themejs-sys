@@ -2,6 +2,10 @@
 .tjs-contact-person {
     --layout-image-height: 130px;
 
+    @media (width < 750px) {
+        --layout-image-height: 100px;
+    }
+
     margin-top: 50px;
     margin-bottom: 50px;
     &>slot {
