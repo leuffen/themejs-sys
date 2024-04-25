@@ -1,5 +1,13 @@
 import {Joda} from "@leuffen/jodastyle";
 
+Joda.registerTemplate("tjs-contact-person",
+    // language=HTML
+    `
+        <div class="tjs-contact-person">
+            <slot class="img" data-select="img"></slot>
+            <slot class="text"></slot>
+        </div>
+    `);
 
 
 Joda.registerTemplate("contact",
@@ -12,6 +20,7 @@ Joda.registerTemplate("contact",
                         <div class="tjs-contact__col tjs-contact__newsletter--text">
                             <slot></slot>
 
+                            <slot data-select=".contact-person" data-child-layout="wrap: #tjs-contact-person"></slot>
                         </div>
                         <div class="tjs-contact__col tjs-contact__newsletter--form">
                             <form data-micx-formmail-preset="default" data-micx-formmail-sent-message="E-Mail erfolgreich gesendet!">

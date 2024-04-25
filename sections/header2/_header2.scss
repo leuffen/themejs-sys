@@ -8,6 +8,8 @@
     --layout-padding-top: 50px;
     --layout-padding-bottom: 50px;
 
+    --layout-min-height: 80vh;
+
     @import "img-list";
 
     background: transparent linear-gradient(118deg, #E8F6FF 0%, #ECF2DC 100%) 0% 0% no-repeat padding-box;
@@ -18,6 +20,13 @@
 
     &.no-bottom-margin {
         margin-bottom: 0;
+    }
+
+    min-height: var(--layout-min-height);
+    display: flex;
+    align-items: center;
+    .x-container {
+        width: 100%;
     }
 
     h1 {

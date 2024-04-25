@@ -5,6 +5,8 @@
 .tjs-contact {
     position: relative;
 
+    @import "_contact-person.scss";
+
     &__content--container {
         background: transparent linear-gradient(293deg, #DCF2DE 0%, #E8F6FF 100%) no-repeat;
         border-radius: 40px;
