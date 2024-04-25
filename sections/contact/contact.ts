@@ -4,7 +4,10 @@ Joda.registerTemplate("tjs-contact-person",
     // language=HTML
     `
         <div class="tjs-contact-person">
-            <slot class="img" data-select="img"></slot>
+            <div class="img">
+                <slot  data-select="img"></slot>
+            </div>
+
             <slot class="text"></slot>
         </div>
     `);

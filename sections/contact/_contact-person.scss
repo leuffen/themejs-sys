@@ -7,14 +7,18 @@
     &>slot {
         display:block;
     }
-    &>slot.img {
-        width: var(--layout-image-height);
-        height: var(--layout-image-height);
-        &>img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
+    &>div.img {
+
+        &>slot {
+            display:block;
+            width: var(--layout-image-height);
+            height: var(--layout-image-height);
+            &>img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+            }
         }
         margin-right: 16px;
     }
