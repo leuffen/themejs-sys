@@ -11,7 +11,7 @@ Joda.registerTemplate("header1",
                             <slot></slot>
                         </div>
                         <div class="tjs-header1__hero--col tjs-header1__hero--col-image">
-                            <slot data-select="img" data-replace></slot>
+                            <slot data-select="img.hero-img" data-replace></slot>
                         </div>
                     </div>
                 </div>
