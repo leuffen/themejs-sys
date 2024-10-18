@@ -9,7 +9,7 @@ Joda.registerTemplate("cols-2",
                     <div class="col-12">
                         <div class="tjs-wrapper">
                             <div class="tjs-cols-2__col tjs-cols-2__col--image">
-                                <slot data-select="img"></slot>
+                                <slot data-select=".aside || img"></slot>
                             </div>
                             <div class="tjs-cols-2__col tjs-cols-2__col--text-content">
                                 <slot></slot>

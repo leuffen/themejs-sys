@@ -27,6 +27,11 @@
         }
     }
 
+    &.span-2 {
+        .tjs-cols-2__col {
+            grid-column: span 2;
+        }
+    }
     .tjs-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -50,7 +55,7 @@
             img {
                 width: 100%;
                 height: auto;
-                max-width: 375px;
+                //max-width: 375px;
             }
         }
 

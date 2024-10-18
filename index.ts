@@ -7,6 +7,7 @@ import "@leuffen/jodastyle";
 import "@leuffen/liweco-base"
 import "@leuffen/liscom";
 import "@leuffen/isl-base";
+import "@nextrap/alpha-pack";
 
 liscom_enable();
 
