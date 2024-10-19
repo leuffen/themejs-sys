@@ -3,7 +3,7 @@
  * Überschreiben der _variables aus Bootstrap bzw. globale Konfiguration von Farben, Abständen etc.
  */
 
-$primary: #41C7A8;
+$primary: #41C7A8 !default;
 $black: #000;
 $white: #fff;
 $grey: #A0A0A0;
